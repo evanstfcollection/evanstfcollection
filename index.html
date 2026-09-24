@@ -6,48 +6,107 @@
   <title>Evan's TF Collection</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="site-shell">
 
+    <!-- TOP NAVIGATION -->
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Evan's TF Collection home">
+      <a class="brand" href="#top" aria-label="Evan's TF Collection">
         <img src="images/evanstfcollection-logo.png" alt="Evan's TF Collection">
       </a>
 
-      <nav class="main-nav" aria-label="Collection navigation">
-        <button class="nav-tab autobots" data-target="autobots">Autobots</button>
-        <button class="nav-tab decepticons" data-target="decepticons">Decepticons</button>
-        <button class="nav-tab masterpiece" data-target="masterpiece">Masterpiece Movie</button>
-        <button class="nav-tab third-party" data-target="third-party">3rd Party</button>
-        <button class="nav-tab primes" data-target="primes">The Primes</button>
-        <button class="nav-tab contact-tab" data-target="contact">Contact</button>
+      <nav class="main-nav" aria-label="Main navigation">
+
+        <button class="nav-tab autobots" data-target="autobots" type="button">
+          <img src="images/autobots-icon.png" alt="Autobots">
+          <span>Autobots</span>
+        </button>
+
+        <button class="nav-tab decepticons" data-target="decepticons" type="button">
+          <img src="images/decepticons-icon.png" alt="Decepticons">
+          <span>Decepticons</span>
+        </button>
+
+        <button class="nav-tab masterpiece" data-target="masterpiece" type="button">
+          <img src="images/masterpiece-movie-icon.png" alt="Masterpiece Movie">
+          <span>Masterpiece<br>Movie</span>
+        </button>
+
+        <button class="nav-tab third-party" data-target="third-party" type="button">
+          <img src="images/3rd-party-icon.png" alt="3rd Party">
+          <span>3rd Party</span>
+        </button>
+
+        <button class="nav-tab primes" data-target="primes" type="button">
+          <img src="images/primes-icon.png" alt="The Primes">
+          <span>The Primes</span>
+        </button>
+
+        <button class="nav-tab contact-tab" data-target="contact" type="button">
+          <img src="images/contact-icon.png" alt="Contact">
+          <span>Contact</span>
+        </button>
+
       </nav>
 
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </header>
 
-    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile collection navigation">
-      <button data-target="autobots">Autobots</button>
-      <button data-target="decepticons">Decepticons</button>
-      <button data-target="masterpiece">Masterpiece Movie</button>
-      <button data-target="third-party">3rd Party</button>
-      <button data-target="primes">The Primes</button>
-      <button data-target="contact">Contact</button>
+    <!-- MOBILE NAVIGATION -->
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+
+      <button data-target="autobots" type="button">
+        <img src="images/autobots-icon.png" alt="">
+        <span>Autobots</span>
+      </button>
+
+      <button data-target="decepticons" type="button">
+        <img src="images/decepticons-icon.png" alt="">
+        <span>Decepticons</span>
+      </button>
+
+      <button data-target="masterpiece" type="button">
+        <img src="images/masterpiece-movie-icon.png" alt="">
+        <span>Masterpiece Movie</span>
+      </button>
+
+      <button data-target="third-party" type="button">
+        <img src="images/3rd-party-icon.png" alt="">
+        <span>3rd Party</span>
+      </button>
+
+      <button data-target="primes" type="button">
+        <img src="images/primes-icon.png" alt="">
+        <span>The Primes</span>
+      </button>
+
+      <button data-target="contact" type="button">
+        <img src="images/contact-icon.png" alt="">
+        <span>Contact</span>
+      </button>
+
     </nav>
 
     <main id="top">
 
+      <!-- HERO -->
       <section class="hero">
         <div class="hero-logo">
           <img src="images/evanstfcollection-logo.png" alt="Evan's TF Collection">
         </div>
       </section>
 
-      <section class="folder-section autobots-section" id="autobots" data-section="autobots">
+      <!-- AUTOBOTS -->
+      <section class="folder-section autobots-section" id="autobots">
         <button class="folder-tab autobots" type="button" aria-expanded="false">
-          <span class="tab-icon">◈</span>
+          <span class="tab-icon">
+            <img src="images/autobots-icon.png" alt="">
+          </span>
           <span>Autobots</span>
           <span class="tab-arrow">+</span>
         </button>
@@ -63,14 +122,17 @@
             <div class="placeholder-icon">AUTOBOT</div>
             <h3>Your Autobot Collection</h3>
             <p>Your figures, photographs, descriptions and collection details will go here.</p>
-            <button type="button" class="collection-button">View Collection</button>
+            <button class="collection-button" type="button">View Collection</button>
           </div>
         </div>
       </section>
 
-      <section class="folder-section decepticons-section" id="decepticons" data-section="decepticons">
+      <!-- DECEPTICONS -->
+      <section class="folder-section decepticons-section" id="decepticons">
         <button class="folder-tab decepticons" type="button" aria-expanded="false">
-          <span class="tab-icon">◇</span>
+          <span class="tab-icon">
+            <img src="images/decepticons-icon.png" alt="">
+          </span>
           <span>Decepticons</span>
           <span class="tab-arrow">+</span>
         </button>
@@ -86,14 +148,17 @@
             <div class="placeholder-icon">DECEPTICON</div>
             <h3>Your Decepticon Collection</h3>
             <p>Your figures, photographs, descriptions and collection details will go here.</p>
-            <button type="button" class="collection-button">View Collection</button>
+            <button class="collection-button" type="button">View Collection</button>
           </div>
         </div>
       </section>
 
-      <section class="folder-section masterpiece-section" id="masterpiece" data-section="masterpiece">
+      <!-- MASTERPIECE MOVIE -->
+      <section class="folder-section masterpiece-section" id="masterpiece">
         <button class="folder-tab masterpiece" type="button" aria-expanded="false">
-          <span class="tab-icon">✦</span>
+          <span class="tab-icon">
+            <img src="images/masterpiece-movie-icon.png" alt="">
+          </span>
           <span>Masterpiece Movie</span>
           <span class="tab-arrow">+</span>
         </button>
@@ -109,14 +174,17 @@
             <div class="placeholder-icon">MOVIE</div>
             <h3>Your Masterpiece Movie Collection</h3>
             <p>Your figures, photographs, descriptions and collection details will go here.</p>
-            <button type="button" class="collection-button">View Collection</button>
+            <button class="collection-button" type="button">View Collection</button>
           </div>
         </div>
       </section>
 
-      <section class="folder-section third-party-section" id="third-party" data-section="third-party">
+      <!-- 3RD PARTY -->
+      <section class="folder-section third-party-section" id="third-party">
         <button class="folder-tab third-party" type="button" aria-expanded="false">
-          <span class="tab-icon">⚙</span>
+          <span class="tab-icon">
+            <img src="images/3rd-party-icon.png" alt="">
+          </span>
           <span>3rd Party</span>
           <span class="tab-arrow">+</span>
         </button>
@@ -132,14 +200,17 @@
             <div class="placeholder-icon">3RD PARTY</div>
             <h3>Your 3rd Party Collection</h3>
             <p>Your figures, photographs, descriptions and collection details will go here.</p>
-            <button type="button" class="collection-button">View Collection</button>
+            <button class="collection-button" type="button">View Collection</button>
           </div>
         </div>
       </section>
 
-      <section class="folder-section primes-section" id="primes" data-section="primes">
+      <!-- THE PRIMES -->
+      <section class="folder-section primes-section" id="primes">
         <button class="folder-tab primes" type="button" aria-expanded="false">
-          <span class="tab-icon">⬟</span>
+          <span class="tab-icon">
+            <img src="images/primes-icon.png" alt="">
+          </span>
           <span>The Primes</span>
           <span class="tab-arrow">+</span>
         </button>
@@ -155,28 +226,37 @@
             <div class="placeholder-icon">PRIMES</div>
             <h3>Your Primes Collection</h3>
             <p>Your figures, photographs, descriptions and collection details will go here.</p>
-            <button type="button" class="collection-button">View Collection</button>
+            <button class="collection-button" type="button">View Collection</button>
           </div>
         </div>
       </section>
 
+      <!-- CONTACT -->
       <section class="contact-section" id="contact">
         <div class="contact-panel">
+
           <div class="contact-copy">
             <span class="section-kicker">COMMUNICATIONS TERMINAL</span>
-            <h2>Contact</h2>
+
+            <div class="contact-title">
+              <img src="images/contact-icon.png" alt="">
+              <h2>Contact</h2>
+            </div>
+
             <p>Have a question about the collection? Send a message through the communications terminal.</p>
           </div>
 
           <form class="contact-form" id="contact-form">
+
             <div class="form-row">
               <label>
                 Name
-                <input type="text" name="name" autocomplete="name" required>
+                <input type="text" name="name" required>
               </label>
+
               <label>
                 Email
-                <input type="email" name="email" autocomplete="email" required>
+                <input type="email" name="email" required>
               </label>
             </div>
 
@@ -191,7 +271,9 @@
             </label>
 
             <button class="send-button" type="submit">Send Message</button>
+
             <p class="form-status" id="form-status" aria-live="polite"></p>
+
           </form>
         </div>
       </section>
