@@ -46,13 +46,18 @@ button {
   gap: 18px;
   padding: 8px 24px;
 
-  background:
+  background-image:
     linear-gradient(
       180deg,
       rgba(2, 5, 10, 0.72),
       rgba(5, 10, 18, 0.86)
     ),
-    url("images/top-menu-banner-background.png") center center / 100% 100% no-repeat;
+    url("images/top-menu-banner-background.png");
+
+  /* Fit the entire banner to the full menu area in both directions. */
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
 
   background-blend-mode: normal;
 
