@@ -48,16 +48,21 @@ button {
   background:
     linear-gradient(
       180deg,
-      rgba(3, 7, 13, 0.98),
-      rgba(8, 13, 22, 0.94)
-    );
+      rgba(2, 5, 10, 0.72),
+      rgba(5, 10, 18, 0.86)
+    ),
+    url("images/top-menu-banner-background.png") center center / cover no-repeat;
 
-  border-bottom: 1px solid rgba(100, 180, 255, 0.55);
+  background-blend-mode: normal;
+
+  border-bottom: 1px solid rgba(100, 180, 255, 0.65);
 
   box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.65);
+    0 8px 30px rgba(0, 0, 0, 0.75),
+    inset 0 -1px 0 rgba(0, 210, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(3px);
 }
 
 .brand {
