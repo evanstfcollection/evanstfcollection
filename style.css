@@ -84,58 +84,131 @@ button {
     repeat(5, minmax(125px, 1fr))
     minmax(125px, 1fr);
 
-  gap: 7px;
+  gap: 6px;
 }
 
+/*
+  Cybertronian-style navigation panels.
+  These stay as HTML/CSS rather than images so they remain responsive,
+  clickable, and easy to edit.
+*/
+
 .nav-tab {
-  min-height: 60px;
+  position: relative;
+  isolation: isolate;
+
+  min-height: 62px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 10px;
+  gap: 9px;
 
-  padding: 7px 10px;
+  padding: 7px 12px;
 
-  border: 1px solid currentColor;
+  border: 0;
+  outline: 0;
 
   color: #fff;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(15, 22, 34, 0.98),
-      rgba(4, 8, 15, 0.96)
-    );
+  background: transparent;
 
   text-transform: uppercase;
-  letter-spacing: 1.1px;
-  font-size: 0.76rem;
+  letter-spacing: 1px;
+  font-size: 0.72rem;
   font-weight: 800;
 
   clip-path:
     polygon(
-      10px 0,
-      calc(100% - 10px) 0,
-      100% 10px,
-      100% calc(100% - 10px),
-      calc(100% - 10px) 100%,
-      10px 100%,
-      0 calc(100% - 10px),
-      0 10px
+      12px 0,
+      calc(100% - 12px) 0,
+      100% 12px,
+      100% calc(100% - 12px),
+      calc(100% - 12px) 100%,
+      12px 100%,
+      0 calc(100% - 12px),
+      0 12px
     );
 
   transition:
     transform 0.2s ease,
-    filter 0.2s ease,
-    box-shadow 0.2s ease;
+    filter 0.2s ease;
 }
 
-/*
-  THESE ARE THE ACTUAL IMAGE FILES
-  USED BY THE SIX TOP BUTTONS.
-*/
+/* Outer machined-metal frame */
+.nav-tab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.65) 0%,
+      currentColor 12%,
+      currentColor 48%,
+      rgba(0, 0, 0, 0.85) 53%,
+      currentColor 78%,
+      rgba(255, 255, 255, 0.45) 100%
+    );
+
+  clip-path:
+    polygon(
+      12px 0,
+      calc(100% - 12px) 0,
+      100% 12px,
+      100% calc(100% - 12px),
+      calc(100% - 12px) 100%,
+      12px 100%,
+      0 calc(100% - 12px),
+      0 12px
+    );
+
+  filter:
+    drop-shadow(0 0 4px currentColor)
+    drop-shadow(0 0 9px color-mix(in srgb, currentColor 45%, transparent));
+}
+
+/* Dark recessed face, leaving the bright angular frame visible */
+.nav-tab::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 38, 52, 0.98) 0%,
+      rgba(7, 12, 20, 0.99) 42%,
+      rgba(2, 5, 10, 0.99) 100%
+    );
+
+  clip-path:
+    polygon(
+      9px 0,
+      calc(100% - 9px) 0,
+      100% 9px,
+      100% calc(100% - 9px),
+      calc(100% - 9px) 100%,
+      9px 100%,
+      0 calc(100% - 9px),
+      0 9px
+    );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 18px rgba(0, 0, 0, 0.9);
+}
+
+/* Fine inner highlight line */
+.nav-tab span,
+.nav-tab img {
+  position: relative;
+  z-index: 2;
+}
 
 .nav-tab img {
   width: 40px;
@@ -148,21 +221,32 @@ button {
   object-fit: contain;
 
   filter:
-    drop-shadow(0 0 5px currentColor)
-    drop-shadow(0 0 10px currentColor);
+    drop-shadow(0 0 4px currentColor)
+    drop-shadow(0 0 8px currentColor);
 }
 
 .nav-tab span {
   display: block;
   line-height: 1.05;
   text-align: left;
+
+  text-shadow:
+    0 1px 0 #000,
+    0 0 7px rgba(255, 255, 255, 0.12);
 }
 
 .nav-tab:hover,
 .nav-tab.active {
   transform: translateY(-2px);
-  filter: brightness(1.25);
-  box-shadow: 0 0 22px currentColor;
+
+  filter:
+    brightness(1.22)
+    drop-shadow(0 0 7px currentColor)
+    drop-shadow(0 0 14px currentColor);
+}
+
+.nav-tab:active {
+  transform: translateY(0) scale(0.985);
 }
 
 /* Button colors */
@@ -684,6 +768,19 @@ button {
 
   .main-nav {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nav-tab {
+    min-height: 58px;
+    padding: 6px 9px;
+    gap: 7px;
+    font-size: 0.68rem;
+  }
+
+  .nav-tab img {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
   }
 
   .folder-content,
