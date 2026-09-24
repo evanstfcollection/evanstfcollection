@@ -37,7 +37,9 @@ button {
   top: 0;
   z-index: 1000;
 
+  height: 82px;
   min-height: 82px;
+  box-sizing: border-box;
 
   display: flex;
   align-items: center;
@@ -51,7 +53,7 @@ button {
       rgba(2, 5, 10, 0.72),
       rgba(5, 10, 18, 0.86)
     ),
-    url("images/top-menu-banner-background.png") center center / cover no-repeat;
+    url("images/top-menu-banner-background.png") center center / 100% 100% no-repeat;
 
   background-blend-mode: normal;
 
@@ -805,6 +807,7 @@ button {
   }
 
   .site-header {
+    height: 68px;
     min-height: 68px;
     padding: 6px 12px;
   }
