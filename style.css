@@ -54,9 +54,9 @@ button {
     ),
     url("images/top-menu-banner-background.png");
 
-  /* Fit the entire banner to the full menu area in both directions. */
-  background-size: 100% 100%;
-  background-position: center center;
+  /* Fit the banner to the menu height, while shifting it left by roughly one nav-button width. */
+  background-size: calc(100% + 125px) 100%;
+  background-position: -125px center;
   background-repeat: no-repeat;
 
   background-blend-mode: normal;
