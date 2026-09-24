@@ -56,7 +56,7 @@ button {
 
   /* Fit the banner to the menu height, while shifting it left by roughly one nav-button width. */
   background-size: calc(100% + 125px) 100%;
-  background-position: -250px center;
+  background-position: -125px center;
   background-repeat: no-repeat;
 
   background-blend-mode: normal;
