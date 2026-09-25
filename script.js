@@ -1,213 +1,262 @@
-document.addEventListener("DOMContentLoaded", () => { 
+document.addEventListener("DOMContentLoaded", () => {
 
-  const folderSections = [ 
-    ...document.querySelectorAll(".folder-section") 
-  ]; 
+  const folderSections = [
+    ...document.querySelectorAll(".folder-section")
+  ];
 
-  const folderTabs = [ 
-    ...document.querySelectorAll(".folder-tab") 
-  ]; 
+  const folderTabs = [
+    ...document.querySelectorAll(".folder-tab")
+  ];
 
-  const navButtons = [ 
-    ...document.querySelectorAll("[data-target]") 
-  ]; 
+  const navButtons = [
+    ...document.querySelectorAll(".nav-tab")
+  ];
 
-  const menuToggle = 
-    document.querySelector(".menu-toggle"); 
+  const dropdownLinks = [
+    ...document.querySelectorAll(".dropdown-link")
+  ];
 
-  const mobileNav = 
-    document.querySelector("#mobile-nav"); 
+  const navItems = [
+    ...document.querySelectorAll(".nav-item")
+  ];
 
-  const contactForm = 
-    document.querySelector("#contact-form"); 
+  const menuToggle =
+    document.querySelector(".menu-toggle");
 
-  const formStatus = 
-    document.querySelector("#form-status"); 
+  const mobileNav =
+    document.querySelector("#mobile-nav");
 
-  const year = 
-    document.querySelector("#year"); 
+  const contactForm =
+    document.querySelector("#contact-form");
 
+  const formStatus =
+    document.querySelector("#form-status");
 
-  if (year) { 
-    year.textContent = 
-      new Date().getFullYear(); 
-  } 
+  const year =
+    document.querySelector("#year");
 
 
-  function closeAllFolders(except = null) { 
+  if (year) {
+    year.textContent =
+      new Date().getFullYear();
+  }
 
-    folderSections.forEach((section) => { 
 
-      if (section !== except) { 
+  function closeAllFolders(except = null) {
 
-        section.classList.remove("open"); 
+    folderSections.forEach((section) => {
 
-        const tab = 
-          section.querySelector(".folder-tab"); 
+      if (section !== except) {
 
-        if (tab) { 
+        section.classList.remove("open");
 
-          tab.setAttribute( 
-            "aria-expanded", 
-            "false" 
-          ); 
+        const tab =
+          section.querySelector(".folder-tab");
 
-          const arrow = 
-            tab.querySelector(".tab-arrow"); 
+        if (tab) {
 
-          if (arrow) { 
-            arrow.textContent = "+"; 
-          } 
-        } 
-      } 
-    }); 
-  } 
+          tab.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
+          const arrow =
+            tab.querySelector(".tab-arrow");
 
-  function openFolder(section, shouldScroll = true) { 
+          if (arrow) {
+            arrow.textContent = "+";
+          }
+        }
+      }
+    });
+  }
 
-    closeAllFolders(section); 
 
-    section.classList.add("open"); 
+  function openFolder(section, shouldScroll = true) {
 
-    const tab = 
-      section.querySelector(".folder-tab"); 
+    closeAllFolders(section);
 
-    if (tab) { 
+    section.classList.add("open");
 
-      tab.setAttribute( 
-        "aria-expanded", 
-        "true" 
-      ); 
+    const tab =
+      section.querySelector(".folder-tab");
 
-      const arrow = 
-        tab.querySelector(".tab-arrow"); 
+    if (tab) {
 
-      if (arrow) { 
-        arrow.textContent = "−"; 
-      } 
-    } 
+      tab.setAttribute(
+        "aria-expanded",
+        "true"
+      );
 
-    if (shouldScroll) { 
+      const arrow =
+        tab.querySelector(".tab-arrow");
 
-      setTimeout(() => { 
+      if (arrow) {
+        arrow.textContent = "−";
+      }
+    }
 
-        section.scrollIntoView({ 
-          behavior: "smooth", 
-          block: "start" 
-        }); 
+    if (shouldScroll) {
 
-      }, 80); 
-    } 
-  } 
+      setTimeout(() => {
 
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
 
-  function toggleFolder(section) { 
+      }, 80);
+    }
+  }
 
-    const isOpen = 
-      section.classList.contains("open"); 
 
-    if (isOpen) { 
-      closeAllFolders(); 
-    } else { 
-      openFolder(section); 
-    } 
-  } 
+  function toggleFolder(section) {
 
+    const isOpen =
+      section.classList.contains("open");
 
-  folderTabs.forEach((tab) => { 
+    if (isOpen) {
+      closeAllFolders();
+    } else {
+      openFolder(section);
+    }
+  }
 
-    tab.addEventListener("click", () => { 
 
-      const section = 
-        tab.closest(".folder-section"); 
+  folderTabs.forEach((tab) => {
 
-      if (section) { 
-        toggleFolder(section); 
-      } 
-    }); 
-  }); 
+    tab.addEventListener("click", () => {
 
+      const section =
+        tab.closest(".folder-section");
 
-  navButtons.forEach((button) => { 
+      if (section) {
+        toggleFolder(section);
+      }
+    });
+  });
 
-    button.addEventListener("click", () => { 
 
-      const targetId = 
-        button.dataset.target; 
+  function closeNavItems(except = null) {
 
-      const target = 
-        document.getElementById(targetId); 
+    navItems.forEach((item) => {
 
-      if (!target) return; 
+      if (item !== except) {
 
+        item.classList.remove("open");
 
-      if ( 
-        target.classList.contains( 
-          "folder-section" 
-        ) 
-      ) { 
+        const button =
+          item.querySelector(".nav-tab");
 
-        openFolder(target); 
+        if (button) {
+          button.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+        }
+      }
+    });
+  }
 
-      } else { 
 
-        closeAllFolders(); 
+  navButtons.forEach((button) => {
 
-        target.scrollIntoView({ 
-          behavior: "smooth", 
-          block: "start" 
-        }); 
-      } 
+    button.addEventListener("click", (event) => {
 
+      event.preventDefault();
 
-      if (mobileNav) { 
-        mobileNav.classList.remove("open"); 
-      } 
+      const item =
+        button.closest(".nav-item");
 
-      if (menuToggle) { 
-        menuToggle.setAttribute( 
-          "aria-expanded", 
-          "false" 
-        ); 
-      } 
-    }); 
-  }); 
+      if (!item) return;
 
+      const isOpen =
+        item.classList.contains("open");
 
-  if (menuToggle && mobileNav) { 
+      if (isOpen) {
+        closeNavItems();
+      } else {
+        closeNavItems(item);
 
-    menuToggle.addEventListener( 
-      "click", 
-      () => { 
+        item.classList.add("open");
 
-        const isOpen = 
-          mobileNav.classList.toggle("open"); 
+        button.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+      }
+    });
+  });
 
-        menuToggle.setAttribute( 
-          "aria-expanded", 
-          String(isOpen) 
-        ); 
-      } 
-    ); 
-  } 
 
+  dropdownLinks.forEach((button) => {
 
-  if (contactForm) { 
+    button.addEventListener("click", () => {
 
-    contactForm.addEventListener( 
-      "submit", 
-      (event) => { 
+      const targetId =
+        button.dataset.target;
 
-        event.preventDefault(); 
+      const target =
+        document.getElementById(targetId);
 
-        if (formStatus) { 
+      if (!target) return;
 
-          formStatus.textContent = 
-            "Message form is ready. Email delivery will be connected when the contact service is added."; 
-        } 
-      } 
-    ); 
-  } 
+      closeNavItems();
+
+      if (
+        target.classList.contains(
+          "folder-section"
+        )
+      ) {
+
+        openFolder(target);
+
+      } else {
+
+        closeAllFolders();
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
+
+
+  if (menuToggle && mobileNav) {
+
+    menuToggle.addEventListener(
+      "click",
+      () => {
+
+        const isOpen =
+          mobileNav.classList.toggle("open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+      }
+    );
+  }
+
+
+  if (contactForm) {
+
+    contactForm.addEventListener(
+      "submit",
+      (event) => {
+
+        event.preventDefault();
+
+        if (formStatus) {
+
+          formStatus.textContent =
+            "Message form is ready. Email delivery will be connected when the contact service is added.";
+        }
+      }
+    );
+  }
 
 });
