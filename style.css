@@ -36,18 +36,32 @@ button {
   position: relative;
   z-index: 1000;
 
-  min-height: 82px;
-  height: 82px;
-  box-sizing: border-box;
+  min-height: 126px;
+  height: 126px;
 
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
 
   gap: 18px;
-  padding: 8px 24px;
+  padding: 10px 24px;
 
-  background: transparent;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 5, 10, 0.18),
+      rgba(2, 5, 10, 0.38)
+    ),
+    url("images/top-menu-banner-background.png");
+
+  /*
+    Keep the banner's proportions. The image is cropped vertically rather
+    than squeezed into the menu bar.
+  */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 
   border-bottom: 1px solid rgba(100, 180, 255, 0.65);
 
@@ -56,32 +70,10 @@ button {
     inset 0 -1px 0 rgba(0, 210, 255, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(1px);
 }
 
-/*
-  IMPORTANT: This is a real in-flow grid item, NOT a CSS background and
-  NOT an absolutely/fixed-positioned layer. It therefore moves upward
-  with the header when the document scrolls.
-*/
-.site-header-banner {
-  grid-area: 1 / 1 / 2 / 4;
-
-  width: calc(100% + 125px);
-  height: 82px;
-
-  display: block;
-
-  margin-left: -125px;
-
-  object-fit: fill;
-
-  pointer-events: none;
-  user-select: none;
-
-  z-index: 0;
-}
-
+/* Keep the logo and navigation buttons above the banner image. */
 .site-header > .brand,
 .site-header > .main-nav,
 .site-header > .menu-toggle {
@@ -825,13 +817,16 @@ button {
 @media (max-width: 720px) {
 
   html {
-    scroll-padding-top: 72px;
+    scroll-padding-top: 80px;
   }
 
   .site-header {
-    height: 68px;
-    min-height: 68px;
+    height: 76px;
+    min-height: 76px;
     padding: 6px 12px;
+
+    background-size: cover;
+    background-position: center center;
   }
 
   .site-header-banner {
@@ -875,7 +870,7 @@ button {
   .mobile-nav {
     position: sticky;
 
-    top: 68px;
+    top: 76px;
 
     z-index: 900;
 
