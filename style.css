@@ -36,32 +36,16 @@ button {
   position: relative;
   z-index: 1000;
 
-  min-height: 126px;
-  height: 126px;
+  min-height: 0;
+  height: auto;
 
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
 
   gap: 18px;
   padding: 10px 24px;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(2, 5, 10, 0.18),
-      rgba(2, 5, 10, 0.38)
-    ),
-    url("images/top-menu-banner-background.png");
-
-  /*
-    Keep the banner's proportions. The image is cropped vertically rather
-    than squeezed into the menu bar.
-  */
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+  background: #050a12;
 
   border-bottom: 1px solid rgba(100, 180, 255, 0.65);
 
@@ -69,11 +53,49 @@ button {
     0 8px 30px rgba(0, 0, 0, 0.75),
     inset 0 -1px 0 rgba(0, 210, 255, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
-
-  backdrop-filter: blur(1px);
 }
 
-/* Keep the logo and navigation buttons above the banner image. */
+/*
+  The banner is a real image and keeps its original aspect ratio.
+  It fills the header horizontally without being vertically stretched.
+*/
+.site-header-banner {
+  position: absolute;
+  z-index: 0;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: auto;
+
+  min-height: 100%;
+  display: block;
+
+  object-fit: contain;
+  object-position: center top;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Subtle dark overlay for button readability. */
+.site-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 5, 10, 0.14),
+      rgba(2, 5, 10, 0.32)
+    );
+}
+
+/* Keep the logo and navigation above the banner. */
 .site-header > .brand,
 .site-header > .main-nav,
 .site-header > .menu-toggle {
@@ -821,12 +843,9 @@ button {
   }
 
   .site-header {
-    height: 76px;
-    min-height: 76px;
+    height: auto;
+    min-height: 0;
     padding: 6px 12px;
-
-    background-size: cover;
-    background-position: center center;
   }
 
   .site-header-banner {
@@ -870,7 +889,7 @@ button {
   .mobile-nav {
     position: sticky;
 
-    top: 76px;
+    top: 0;
 
     z-index: 900;
 
