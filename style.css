@@ -37,17 +37,16 @@ button {
   z-index: 1000;
 
   min-height: 82px;
+  height: 82px;
   box-sizing: border-box;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
 
   gap: 18px;
   padding: 8px 24px;
 
-  /* The menu background is rendered as a child layer below the controls.
-     It therefore scrolls naturally with the header/page rather than behaving
-     like a viewport-fixed background. */
   background: transparent;
 
   border-bottom: 1px solid rgba(100, 180, 255, 0.65);
@@ -60,21 +59,27 @@ button {
   backdrop-filter: blur(3px);
 }
 
-/* The banner is a real element inside the header, so it scrolls with the page. */
+/*
+  IMPORTANT: This is a real in-flow grid item, NOT a CSS background and
+  NOT an absolutely/fixed-positioned layer. It therefore moves upward
+  with the header when the document scrolls.
+*/
 .site-header-banner {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+  grid-area: 1 / 1 / 2 / 4;
 
-  width: 100%;
-  height: 100%;
+  width: calc(100% + 125px);
+  height: 82px;
 
   display: block;
+
+  margin-left: -125px;
+
   object-fit: fill;
-  object-position: -125px center;
 
   pointer-events: none;
   user-select: none;
+
+  z-index: 0;
 }
 
 .site-header > .brand,
@@ -829,13 +834,13 @@ button {
     padding: 6px 12px;
   }
 
+  .site-header-banner {
+    height: 68px;
+  }
+
   .brand {
     width: 145px;
     min-width: 145px;
-  }
-
-  .site-header-banner {
-    object-position: -125px center;
   }
 
   .main-nav {
