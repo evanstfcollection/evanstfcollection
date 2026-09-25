@@ -36,10 +36,10 @@ button {
   position: relative;
   z-index: 1000;
 
-  min-height: 86px;
-  height: 86px;
+  min-height: 100px;
+  height: 100px;
 
-  overflow: visible;
+  overflow: hidden;
 
   border-bottom: 1px solid rgba(100, 180, 255, 0.65);
 
@@ -54,7 +54,7 @@ button {
   position: absolute;
   inset: 0;
 
-  height: 86px;
+  height: 300px;
 
   background:
     linear-gradient(
@@ -64,7 +64,12 @@ button {
     ),
     url("images/top-menu-banner-background.png");
 
-  background-size: cover;
+  /*
+    The banner is always rendered at this same size.
+    The header simply reveals more of it when expanded.
+    This prevents the background from moving or resizing on click.
+  */
+  background-size: 100% 300px;
   background-position: center top;
   background-repeat: no-repeat;
 
@@ -76,12 +81,7 @@ button {
   It grows from the compact header without making the page background fixed.
 */
 .site-header:has(.nav-item.open) {
-  height: 270px;
-}
-
-.site-header:has(.nav-item.open) .site-header-banner {
-  height: 270px;
-  background-position: center center;
+  height: 300px;
 }
 
 .site-header-inner {
@@ -89,13 +89,13 @@ button {
   z-index: 2;
 
   width: 100%;
-  height: 86px;
+  height: 100px;
 
   display: flex;
   align-items: center;
 
   gap: 18px;
-  padding: 8px 24px;
+  padding: 16px 24px 8px;
 }
 
 .site-header > .site-header-inner > .brand,
@@ -110,6 +110,7 @@ button {
   min-width: 180px;
 
   display: block;
+  transform: translateY(4px);
 }
 
 .brand img {
@@ -899,7 +900,7 @@ button {
 @media (max-width: 1050px) {
 
   .site-header-inner {
-    padding: 8px 15px;
+    padding: 16px 15px 8px;
   }
 
   .brand {
@@ -907,9 +908,8 @@ button {
     min-width: 150px;
   }
 
-  .site-header:has(.nav-item.open),
-  .site-header:has(.nav-item.open) .site-header-banner {
-    height: 360px;
+  .site-header:has(.nav-item.open) {
+    height: 300px;
   }
 
   .nav-dropdown {
@@ -950,19 +950,23 @@ button {
   }
 
   .site-header,
-  .site-header-inner,
+  .site-header-inner {
+    height: 76px;
+    min-height: 76px;
+  }
+
   .site-header-banner {
-    height: 68px;
-    min-height: 68px;
+    height: 240px;
+    min-height: 240px;
+    background-size: 100% 240px;
   }
 
   .site-header-inner {
-    padding: 6px 12px;
+    padding: 10px 12px 6px;
   }
 
-  .site-header:has(.nav-item.open),
-  .site-header:has(.nav-item.open) .site-header-banner {
-    height: 68px;
+  .site-header:has(.nav-item.open) {
+    height: 240px;
   }
 
   .site-header-banner {
@@ -1010,7 +1014,7 @@ button {
   .mobile-nav {
     position: sticky;
 
-    top: 68px;
+    top: 76px;
 
     z-index: 900;
 
