@@ -36,16 +36,10 @@ button {
   position: relative;
   z-index: 1000;
 
-  min-height: 0;
-  height: auto;
+  min-height: 86px;
+  height: 86px;
 
-  display: flex;
-  align-items: center;
-
-  gap: 18px;
-  padding: 10px 24px;
-
-  background: #050a12;
+  overflow: visible;
 
   border-bottom: 1px solid rgba(100, 180, 255, 0.65);
 
@@ -55,57 +49,66 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-/*
-  The banner is a real image and keeps its original aspect ratio.
-  It fills the header horizontally without being vertically stretched.
-*/
+/* Compact banner. The full image is revealed when a menu is expanded. */
 .site-header-banner {
   position: absolute;
-  z-index: 0;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: auto;
-
-  min-height: 100%;
-  display: block;
-
-  object-fit: contain;
-  object-position: center top;
-
-  pointer-events: none;
-  user-select: none;
-}
-
-/* Subtle dark overlay for button readability. */
-.site-header::after {
-  content: "";
-  position: absolute;
   inset: 0;
-  z-index: 0;
-  pointer-events: none;
+
+  height: 86px;
 
   background:
     linear-gradient(
       180deg,
-      rgba(2, 5, 10, 0.14),
-      rgba(2, 5, 10, 0.32)
-    );
+      rgba(2, 5, 10, 0.18),
+      rgba(2, 5, 10, 0.40)
+    ),
+    url("images/top-menu-banner-background.png");
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  pointer-events: none;
 }
 
-/* Keep the logo and navigation above the banner. */
-.site-header > .brand,
-.site-header > .main-nav,
-.site-header > .menu-toggle {
+/*
+  Expanded banner area.
+  It grows from the compact header without making the page background fixed.
+*/
+.site-header:has(.nav-item.open) {
+  height: 270px;
+}
+
+.site-header:has(.nav-item.open) .site-header-banner {
+  height: 270px;
+  background-position: center center;
+}
+
+.site-header-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+
+  width: 100%;
+  height: 86px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+  padding: 8px 24px;
+}
+
+.site-header > .site-header-inner > .brand,
+.site-header > .site-header-inner > .main-nav,
+.site-header > .site-header-inner > .menu-toggle {
+  position: relative;
+  z-index: 3;
 }
 
 .brand {
   width: 180px;
   min-width: 180px;
+
   display: block;
 }
 
@@ -122,24 +125,27 @@ button {
   flex: 1;
 
   display: grid;
-
-  grid-template-columns:
-    repeat(5, minmax(125px, 1fr))
-    minmax(125px, 1fr);
+  grid-template-columns: repeat(6, minmax(125px, 1fr));
 
   gap: 6px;
+
+  align-self: stretch;
+  align-items: center;
 }
 
-/*
-  Cybertronian-style navigation panels.
-  These stay as HTML/CSS rather than images so they remain responsive,
-  clickable, and easy to edit.
-*/
+.nav-item {
+  position: relative;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+}
 
 .nav-tab {
   position: relative;
   isolation: isolate;
 
+  width: 100%;
   min-height: 62px;
 
   display: flex;
@@ -147,14 +153,12 @@ button {
   justify-content: center;
 
   gap: 9px;
-
   padding: 7px 12px;
 
   border: 0;
   outline: 0;
 
   color: #fff;
-
   background: transparent;
 
   text-transform: uppercase;
@@ -179,7 +183,6 @@ button {
     filter 0.2s ease;
 }
 
-/* Outer machined-metal frame */
 .nav-tab::before {
   content: "";
   position: absolute;
@@ -214,7 +217,6 @@ button {
     drop-shadow(0 0 9px color-mix(in srgb, currentColor 45%, transparent));
 }
 
-/* Dark recessed face, leaving the bright angular frame visible */
 .nav-tab::after {
   content: "";
   position: absolute;
@@ -246,7 +248,6 @@ button {
     inset 0 0 18px rgba(0, 0, 0, 0.9);
 }
 
-/* Fine inner highlight line */
 .nav-tab span,
 .nav-tab img {
   position: relative;
@@ -260,7 +261,6 @@ button {
   flex: 0 0 40px;
 
   display: block;
-
   object-fit: contain;
 
   filter:
@@ -279,7 +279,7 @@ button {
 }
 
 .nav-tab:hover,
-.nav-tab.active {
+.nav-item.open .nav-tab {
   transform: translateY(-2px);
 
   filter:
@@ -290,6 +290,104 @@ button {
 
 .nav-tab:active {
   transform: translateY(0) scale(0.985);
+}
+
+/* =========================
+   EXPANDABLE MINI MENUS
+========================= */
+
+.nav-dropdown {
+  position: absolute;
+
+  top: 70px;
+  left: 0;
+
+  width: 100%;
+  min-height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 18px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(-10px);
+
+  border: 1px solid currentColor;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 14, 24, 0.97),
+      rgba(2, 6, 12, 0.98)
+    );
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.72),
+    inset 0 0 22px rgba(0, 0, 0, 0.7);
+
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s ease;
+
+  clip-path:
+    polygon(
+      10px 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% 100%,
+      0 100%,
+      0 10px
+    );
+}
+
+.nav-item.open .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dropdown-kicker {
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  opacity: 0.65;
+}
+
+.nav-dropdown strong {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dropdown-link {
+  width: 100%;
+
+  padding: 10px 12px;
+
+  border: 1px solid currentColor;
+
+  color: #fff;
+  background: rgba(0, 0, 0, 0.35);
+
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 0.65rem;
+  font-weight: 800;
+
+  text-align: left;
+}
+
+.dropdown-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 16px currentColor;
 }
 
 /* Button colors */
@@ -800,13 +898,22 @@ button {
 
 @media (max-width: 1050px) {
 
-  .site-header {
+  .site-header-inner {
     padding: 8px 15px;
   }
 
   .brand {
     width: 150px;
     min-width: 150px;
+  }
+
+  .site-header:has(.nav-item.open),
+  .site-header:has(.nav-item.open) .site-header-banner {
+    height: 360px;
+  }
+
+  .nav-dropdown {
+    top: 68px;
   }
 
   .main-nav {
@@ -842,10 +949,20 @@ button {
     scroll-padding-top: 80px;
   }
 
-  .site-header {
-    height: auto;
-    min-height: 0;
+  .site-header,
+  .site-header-inner,
+  .site-header-banner {
+    height: 68px;
+    min-height: 68px;
+  }
+
+  .site-header-inner {
     padding: 6px 12px;
+  }
+
+  .site-header:has(.nav-item.open),
+  .site-header:has(.nav-item.open) .site-header-banner {
+    height: 68px;
   }
 
   .site-header-banner {
@@ -859,6 +976,10 @@ button {
 
   .main-nav {
     display: none;
+  }
+
+  .site-header-banner {
+    background-position: center top;
   }
 
   .menu-toggle {
@@ -889,7 +1010,7 @@ button {
   .mobile-nav {
     position: sticky;
 
-    top: 0;
+    top: 68px;
 
     z-index: 900;
 
