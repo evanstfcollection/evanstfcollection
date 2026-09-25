@@ -36,12 +36,14 @@ button {
   position: relative;
   z-index: 1000;
 
-  min-height: 100px;
+  width: 100%;
   height: 100px;
+  min-height: 100px;
+
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
 
   overflow: visible;
-
-  border-bottom: 0;
 
   box-shadow:
     0 8px 30px rgba(0, 0, 0, 0.75),
@@ -49,14 +51,74 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-/* Compact banner. The full image is revealed when a menu is expanded. */
-.site-header-banner {
+/*
+  LEFT ZONE
+  This area belongs only to the logo. It does not expand when a menu opens.
+*/
+.logo-zone {
+  position: relative;
+  z-index: 20;
+
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 12px 12px 8px 24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 5, 10, 0.55),
+      rgba(5, 10, 18, 0.78)
+    ),
+    url("images/top-menu-banner-background.png");
+
+  background-size: auto 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  border-right: 1px solid rgba(100, 180, 255, 0.18);
+}
+
+.brand {
+  width: 180px;
+  min-width: 180px;
+
+  display: block;
+
+  position: relative;
+  z-index: 25;
+}
+
+.brand img {
+  width: 100%;
+  display: block;
+}
+
+/*
+  RIGHT ZONE
+  Only this section expands when a navigation button is clicked.
+*/
+.menu-zone {
+  position: relative;
+  z-index: 10;
+
+  height: 100px;
+  min-width: 0;
+
+  overflow: visible;
+}
+
+.menu-zone-banner {
   position: absolute;
-  inset: 0;
+  z-index: 0;
 
+  top: 0;
+  left: 0;
+
+  width: 100%;
   height: 300px;
-
-  overflow: hidden;
 
   background:
     linear-gradient(
@@ -67,9 +129,8 @@ button {
     url("images/top-menu-banner-background.png");
 
   /*
-    The banner is always rendered at this same size.
-    The header simply reveals more of it when expanded.
-    This prevents the background from moving or resizing on click.
+    The image never changes position or size when a menu opens.
+    The menu-zone simply reveals more of this existing image.
   */
   background-size: 100% 300px;
   background-position: center top;
@@ -78,15 +139,7 @@ button {
   pointer-events: none;
 }
 
-/*
-  Expanded banner area.
-  It grows from the compact header without making the page background fixed.
-*/
-.site-header:has(.nav-item.open) {
-  height: 300px;
-}
-
-.site-header-inner {
+.menu-zone-inner {
   position: relative;
   z-index: 2;
 
@@ -96,42 +149,14 @@ button {
   display: flex;
   align-items: center;
 
-  gap: 18px;
-  padding: 16px 24px 8px;
+  padding: 16px 24px 8px 18px;
 }
-
-.site-header > .site-header-inner > .brand,
-.site-header > .site-header-inner > .main-nav,
-.site-header > .site-header-inner > .menu-toggle {
-  position: relative;
-  z-index: 3;
-}
-
-.brand {
-  width: 180px;
-  min-width: 180px;
-
-  display: block;
-  transform: translateY(28px);
-
-  position: relative;
-  z-index: 5;
-}
-
-.brand img {
-  width: 100%;
-  display: block;
-}
-
-/* =========================
-   TOP NAV BUTTONS
-========================= */
 
 .main-nav {
   flex: 1;
 
   display: grid;
-  grid-template-columns: repeat(6, minmax(125px, 1fr));
+  grid-template-columns: repeat(6, minmax(110px, 1fr));
 
   gap: 6px;
 
@@ -904,12 +929,12 @@ button {
 
 @media (max-width: 1050px) {
 
-  .site-header-inner {
-    padding: 16px 15px 8px;
+  .site-header {
+    grid-template-columns: 180px minmax(0, 1fr);
   }
 
-  .brand {
-    transform: translateY(22px);
+  .logo-zone {
+    padding-left: 15px;
   }
 
   .brand {
@@ -917,12 +942,30 @@ button {
     min-width: 150px;
   }
 
-  .site-header:has(.nav-item.open) {
-    height: 300px;
+  .menu-zone-inner {
+    padding-left: 10px;
+    padding-right: 15px;
+  }
+
+  .main-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nav-tab {
+    min-height: 58px;
+    padding: 6px 9px;
+    gap: 7px;
+    font-size: 0.68rem;
+  }
+
+  .nav-tab img {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
   }
 
   .nav-dropdown {
-    top: 68px;
+    top: 66px;
   }
 
   .main-nav {
@@ -974,10 +1017,6 @@ button {
     padding: 10px 12px 6px;
   }
 
-  .brand {
-    transform: translateY(14px);
-  }
-
   .site-header:has(.nav-item.open) {
     height: 240px;
   }
@@ -989,14 +1028,6 @@ button {
   .brand {
     width: 145px;
     min-width: 145px;
-  }
-
-  .main-nav {
-    display: none;
-  }
-
-  .site-header-banner {
-    background-position: center top;
   }
 
   .menu-toggle {
