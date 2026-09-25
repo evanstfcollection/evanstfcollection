@@ -45,21 +45,10 @@ button {
   gap: 18px;
   padding: 8px 24px;
 
-  background-image:
-    linear-gradient(
-      180deg,
-      rgba(2, 5, 10, 0.72),
-      rgba(5, 10, 18, 0.86)
-    ),
-    url("images/top-menu-banner-background.png");
-
-  /* Fit the banner to the menu height, while shifting it left by roughly one nav-button width. */
-  background-size: calc(100% + 125px) 100%;
-  background-position: -125px center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-
-  background-blend-mode: normal;
+  /* The menu background is rendered as a child layer below the controls.
+     It therefore scrolls naturally with the header/page rather than behaving
+     like a viewport-fixed background. */
+  background: transparent;
 
   border-bottom: 1px solid rgba(100, 180, 255, 0.65);
 
@@ -69,6 +58,35 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
   backdrop-filter: blur(3px);
+}
+
+/* Scrolling menu-banner layer */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 5, 10, 0.72),
+      rgba(5, 10, 18, 0.86)
+    ),
+    url("images/top-menu-banner-background.png");
+
+  background-size: calc(100% + 125px) 100%;
+  background-position: -125px center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-blend-mode: normal;
+}
+
+/* Keep the logo, navigation, and mobile controls above the banner layer. */
+.site-header > * {
+  position: relative;
+  z-index: 1;
 }
 
 .brand {
