@@ -60,31 +60,26 @@ button {
   backdrop-filter: blur(3px);
 }
 
-/* Scrolling menu-banner layer */
-.site-header::before {
-  content: "";
+/* The banner is a real element inside the header, so it scrolls with the page. */
+.site-header-banner {
   position: absolute;
   inset: 0;
   z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: fill;
+  object-position: -125px center;
+
   pointer-events: none;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(2, 5, 10, 0.72),
-      rgba(5, 10, 18, 0.86)
-    ),
-    url("images/top-menu-banner-background.png");
-
-  background-size: calc(100% + 125px) 100%;
-  background-position: -125px center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-blend-mode: normal;
+  user-select: none;
 }
 
-/* Keep the logo, navigation, and mobile controls above the banner layer. */
-.site-header > * {
+.site-header > .brand,
+.site-header > .main-nav,
+.site-header > .menu-toggle {
   position: relative;
   z-index: 1;
 }
@@ -837,6 +832,10 @@ button {
   .brand {
     width: 145px;
     min-width: 145px;
+  }
+
+  .site-header-banner {
+    object-position: -125px center;
   }
 
   .main-nav {
