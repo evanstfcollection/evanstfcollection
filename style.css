@@ -4,7 +4,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 260px;
 }
 
 body {
@@ -29,7 +29,7 @@ button {
 }
 
 /* =========================
-   SITE HEADER
+   SITE HEADER — HAMMER RESTING LOOK
 ========================= */
 
 .site-header {
@@ -37,53 +37,59 @@ button {
   z-index: 1000;
 
   width: 100%;
-  height: 100px;
-  min-height: 100px;
+  height: 260px;
+  min-height: 260px;
 
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
+  grid-template-columns: 25% 75%;
+  align-items: center;
 
   overflow: visible;
 
   box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.75),
-    inset 0 -1px 0 rgba(0, 210, 255, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 12px 35px rgba(0, 0, 0, 0.78);
 }
 
 /*
-  LEFT ZONE
-  This area belongs only to the logo. It does not expand when a menu opens.
+  LEFT / HAMMER HEAD
+
+  The logo occupies approximately 25% of the total header width.
+  It is vertically centered and does not touch the top or bottom
+  of the overall header.
 */
 .logo-zone {
   position: relative;
   z-index: 20;
 
-  height: 100px;
+  width: 100%;
+  height: 260px;
 
   display: flex;
   align-items: center;
+  justify-content: center;
 
-  padding: 12px 12px 8px 24px;
+  padding: 12px;
 
   background:
     linear-gradient(
       180deg,
-      rgba(2, 5, 10, 0.55),
-      rgba(5, 10, 18, 0.78)
+      rgba(2, 5, 10, 0.08),
+      rgba(5, 10, 18, 0.18)
     ),
-    url("images/top-menu-banner-background.png");
+    url("images/top-menu-banner-left-bg.png");
 
-  background-size: auto 100%;
-  background-position: left center;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-
-  border-right: 1px solid rgba(100, 180, 255, 0.18);
 }
 
+/*
+  The logo itself is slightly smaller than the logo plate so that
+  the Cybertronian frame remains visible around it.
+*/
 .brand {
-  width: 180px;
-  min-width: 180px;
+  width: min(88%, 245px);
+  max-height: 235px;
 
   display: block;
 
@@ -93,80 +99,82 @@ button {
 
 .brand img {
   width: 100%;
+  max-height: 235px;
+
   display: block;
+  object-fit: contain;
 }
 
 /*
-  RIGHT ZONE
-  Only this section expands when a navigation button is clicked.
+  RIGHT / HAMMER HANDLE
+
+  The menu occupies approximately 75% of the total header width.
+  The background is centered vertically so the handle does not
+  touch the top or bottom of the header.
 */
 .menu-zone {
   position: relative;
   z-index: 10;
 
-  height: 100px;
+  width: 100%;
+  height: 260px;
   min-width: 0;
 
+  display: flex;
+  align-items: center;
+
   overflow: visible;
-}
-
-.menu-zone-banner {
-  position: absolute;
-  z-index: 0;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 300px;
 
   background:
     linear-gradient(
       180deg,
-      rgba(2, 5, 10, 0.18),
-      rgba(2, 5, 10, 0.40)
+      rgba(2, 5, 10, 0.08),
+      rgba(2, 5, 10, 0.18)
     ),
-    url("images/top-menu-banner-background.png");
+    url("images/top-menu-banner-right-bg.png");
 
-  /*
-    The image never changes position or size when a menu opens.
-    The menu-zone simply reveals more of this existing image.
-  */
-  background-size: 100% 300px;
-  background-position: center top;
+  background-size: 100% auto;
+  background-position: center center;
   background-repeat: no-repeat;
-
-  pointer-events: none;
 }
 
+/*
+  This inner area is deliberately much shorter than the overall
+  header. It represents the "handle" of the hammer.
+*/
 .menu-zone-inner {
   position: relative;
   z-index: 2;
 
   width: 100%;
-  height: 100px;
+  height: 82px;
 
   display: flex;
   align-items: center;
 
-  padding: 16px 24px 8px 18px;
+  padding: 0 18px;
 }
 
+/*
+  Six compact controls arranged across the handle.
+*/
 .main-nav {
-  flex: 1;
+  width: 100%;
+  height: 82px;
 
   display: grid;
-  grid-template-columns: repeat(6, minmax(110px, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 
   gap: 6px;
 
-  align-self: stretch;
   align-items: center;
 }
 
 .nav-item {
   position: relative;
-  height: 100%;
+
+  width: 100%;
+  height: 68px;
 
   display: flex;
   align-items: center;
@@ -177,14 +185,15 @@ button {
   isolation: isolate;
 
   width: 100%;
-  min-height: 62px;
+  height: 58px;
+  min-height: 58px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 9px;
-  padding: 7px 12px;
+  gap: 7px;
+  padding: 6px 10px;
 
   border: 0;
   outline: 0;
@@ -193,20 +202,20 @@ button {
   background: transparent;
 
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.72rem;
+  letter-spacing: 0.8px;
+  font-size: 0.66rem;
   font-weight: 800;
 
   clip-path:
     polygon(
-      12px 0,
-      calc(100% - 12px) 0,
-      100% 12px,
-      100% calc(100% - 12px),
-      calc(100% - 12px) 100%,
-      12px 100%,
-      0 calc(100% - 12px),
-      0 12px
+      10px 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      10px 100%,
+      0 calc(100% - 10px),
+      0 10px
     );
 
   transition:
@@ -216,6 +225,7 @@ button {
 
 .nav-tab::before {
   content: "";
+
   position: absolute;
   inset: 0;
   z-index: -2;
@@ -233,23 +243,24 @@ button {
 
   clip-path:
     polygon(
-      12px 0,
-      calc(100% - 12px) 0,
-      100% 12px,
-      100% calc(100% - 12px),
-      calc(100% - 12px) 100%,
-      12px 100%,
-      0 calc(100% - 12px),
-      0 12px
+      10px 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      10px 100%,
+      0 calc(100% - 10px),
+      0 10px
     );
 
   filter:
     drop-shadow(0 0 4px currentColor)
-    drop-shadow(0 0 9px color-mix(in srgb, currentColor 45%, transparent));
+    drop-shadow(0 0 8px color-mix(in srgb, currentColor 45%, transparent));
 }
 
 .nav-tab::after {
   content: "";
+
   position: absolute;
   inset: 3px;
   z-index: -1;
@@ -264,14 +275,14 @@ button {
 
   clip-path:
     polygon(
-      9px 0,
-      calc(100% - 9px) 0,
-      100% 9px,
-      100% calc(100% - 9px),
-      calc(100% - 9px) 100%,
-      9px 100%,
-      0 calc(100% - 9px),
-      0 9px
+      8px 0,
+      calc(100% - 8px) 0,
+      100% 8px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      8px 100%,
+      0 calc(100% - 8px),
+      0 8px
     );
 
   box-shadow:
@@ -286,10 +297,10 @@ button {
 }
 
 .nav-tab img {
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
 
-  flex: 0 0 40px;
+  flex: 0 0 34px;
 
   display: block;
   object-fit: contain;
@@ -301,6 +312,7 @@ button {
 
 .nav-tab span {
   display: block;
+
   line-height: 1.05;
   text-align: left;
 
@@ -330,7 +342,7 @@ button {
 .nav-dropdown {
   position: absolute;
 
-  top: 70px;
+  top: 72px;
   left: 0;
 
   width: 100%;
@@ -448,550 +460,6 @@ button {
 }
 
 /* =========================
-   MOBILE MENU
-========================= */
-
-.menu-toggle,
-.mobile-nav {
-  display: none;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-  min-height: 66vh;
-
-  display: grid;
-  place-items: center;
-
-  padding: 90px 20px 70px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(2, 7, 16, 0.08),
-      rgba(2, 7, 16, 0.62)
-    );
-}
-
-.hero-logo {
-  width: min(780px, 82vw);
-
-  filter:
-    drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8));
-}
-
-.hero-logo img {
-  width: 100%;
-  display: block;
-}
-
-/* =========================
-   COLLECTION FOLDERS
-========================= */
-
-.folder-section {
-  width: min(1400px, calc(100% - 30px));
-
-  margin: 20px auto;
-
-  border: 1px solid rgba(255, 255, 255, 0.28);
-
-  box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.55);
-
-  scroll-margin-top: 100px;
-}
-
-.folder-tab {
-  width: 100%;
-  min-height: 78px;
-
-  display: grid;
-
-  grid-template-columns: 62px 1fr 45px;
-
-  align-items: center;
-
-  text-align: left;
-
-  padding: 0 22px;
-
-  border: 1px solid currentColor;
-
-  color: #fff;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(10, 15, 24, 0.96),
-      rgba(5, 8, 14, 0.96)
-    );
-
-  text-transform: uppercase;
-  letter-spacing: 1.3px;
-  font-size: clamp(1rem, 2vw, 1.45rem);
-  font-weight: 800;
-
-  clip-path:
-    polygon(
-      15px 0,
-      calc(100% - 15px) 0,
-      100% 15px,
-      100% calc(100% - 15px),
-      calc(100% - 15px) 100%,
-      15px 100%,
-      0 calc(100% - 15px),
-      0 15px
-    );
-}
-
-.tab-icon {
-  width: 54px;
-  height: 54px;
-
-  display: grid;
-  place-items: center;
-}
-
-.tab-icon img {
-  width: 50px;
-  height: 50px;
-
-  display: block;
-
-  object-fit: contain;
-
-  filter:
-    drop-shadow(0 0 6px currentColor)
-    drop-shadow(0 0 12px currentColor);
-}
-
-.tab-arrow {
-  justify-self: end;
-  font-size: 2rem;
-  font-weight: 400;
-}
-
-.folder-content {
-  display: grid;
-
-  grid-template-columns: 0.9fr 1.1fr;
-
-  gap: 35px;
-
-  max-height: 0;
-
-  overflow: hidden;
-
-  opacity: 0;
-
-  padding: 0 5%;
-
-  transition:
-    max-height 0.55s ease,
-    opacity 0.35s ease,
-    padding 0.55s ease;
-}
-
-.folder-section.open .folder-content {
-  max-height: 900px;
-
-  opacity: 1;
-
-  padding-top: 42px;
-  padding-bottom: 42px;
-}
-
-.autobots-section .folder-content {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(85, 5, 14, 0.94),
-      rgba(24, 6, 12, 0.96)
-    );
-}
-
-.decepticons-section .folder-content {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(47, 10, 77, 0.94),
-      rgba(13, 5, 27, 0.96)
-    );
-}
-
-.masterpiece-section .folder-content {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(82, 54, 5, 0.94),
-      rgba(24, 16, 4, 0.96)
-    );
-}
-
-.third-party-section .folder-content {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(4, 55, 78, 0.94),
-      rgba(4, 16, 28, 0.96)
-    );
-}
-
-.primes-section .folder-content {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(5, 55, 76, 0.94),
-      rgba(4, 16, 29, 0.96)
-    );
-}
-
-/* =========================
-   COLLECTION CONTENT
-========================= */
-
-.section-heading {
-  align-self: center;
-}
-
-.section-kicker {
-  display: block;
-
-  margin-bottom: 10px;
-
-  font-size: 0.72rem;
-
-  letter-spacing: 3px;
-
-  font-weight: 800;
-
-  opacity: 0.78;
-}
-
-.section-heading h2 {
-  margin: 0 0 12px;
-
-  font-size: clamp(2rem, 4vw, 3.4rem);
-
-  text-transform: uppercase;
-
-  letter-spacing: 2px;
-}
-
-.section-heading p {
-  max-width: 580px;
-
-  margin: 0;
-
-  color: rgba(255, 255, 255, 0.82);
-
-  line-height: 1.7;
-}
-
-.collection-placeholder {
-  min-height: 310px;
-
-  padding: 30px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.22);
-
-  background: rgba(0, 0, 0, 0.28);
-
-  box-shadow:
-    inset 0 0 35px rgba(0, 0, 0, 0.28);
-}
-
-.placeholder-icon {
-  font-size: 0.7rem;
-  letter-spacing: 4px;
-  opacity: 0.65;
-}
-
-.collection-placeholder h3 {
-  margin: 14px 0 8px;
-
-  font-size: 1.7rem;
-
-  text-transform: uppercase;
-}
-
-.collection-placeholder p {
-  margin: 0 0 22px;
-
-  line-height: 1.6;
-
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.collection-button,
-.send-button {
-  width: fit-content;
-
-  border: 1px solid currentColor;
-
-  padding: 12px 22px;
-
-  color: #fff;
-
-  background: rgba(0, 0, 0, 0.35);
-
-  text-transform: uppercase;
-
-  letter-spacing: 1.5px;
-
-  font-weight: 800;
-}
-
-.collection-button:hover,
-.send-button:hover {
-  background: rgba(255, 255, 255, 0.12);
-
-  box-shadow: 0 0 20px currentColor;
-}
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-section {
-  width: min(1400px, calc(100% - 30px));
-
-  margin: 55px auto 20px;
-
-  padding: 55px 5%;
-
-  border: 1px solid #42cfff;
-
-  background:
-    linear-gradient(
-      rgba(2, 18, 32, 0.92),
-      rgba(2, 10, 20, 0.96)
-    ),
-    url("images/main-page-background.png") center / cover;
-
-  box-shadow:
-    0 18px 50px rgba(0, 0, 0, 0.6);
-
-  scroll-margin-top: 100px;
-}
-
-.contact-panel {
-  display: grid;
-
-  grid-template-columns: 0.75fr 1.25fr;
-
-  gap: 50px;
-
-  align-items: center;
-}
-
-.contact-title {
-  display: flex;
-  align-items: center;
-
-  gap: 18px;
-
-  margin-bottom: 12px;
-}
-
-.contact-title img {
-  width: 64px;
-  height: 64px;
-
-  object-fit: contain;
-
-  filter:
-    drop-shadow(0 0 8px #42cfff)
-    drop-shadow(0 0 15px #42cfff);
-}
-
-.contact-title h2 {
-  margin: 0;
-
-  font-size: clamp(2rem, 4vw, 3.4rem);
-
-  text-transform: uppercase;
-
-  letter-spacing: 2px;
-}
-
-.contact-copy p {
-  max-width: 580px;
-
-  margin: 0;
-
-  color: rgba(255, 255, 255, 0.82);
-
-  line-height: 1.7;
-}
-
-.contact-form {
-  display: grid;
-  gap: 16px;
-}
-
-.form-row {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 16px;
-}
-
-.contact-form label {
-  display: grid;
-
-  gap: 7px;
-
-  color: rgba(255, 255, 255, 0.78);
-
-  font-size: 0.78rem;
-
-  letter-spacing: 1.5px;
-
-  text-transform: uppercase;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-
-  border: 1px solid rgba(93, 202, 255, 0.45);
-
-  outline: none;
-
-  padding: 13px 14px;
-
-  color: #fff;
-
-  background: rgba(0, 4, 10, 0.72);
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #59d4ff;
-
-  box-shadow:
-    0 0 15px rgba(65, 199, 255, 0.25);
-}
-
-.contact-form textarea {
-  resize: vertical;
-
-  min-height: 150px;
-}
-
-.send-button {
-  width: 100%;
-
-  color: #4bd5ff;
-}
-
-.form-status {
-  min-height: 20px;
-
-  margin: 0;
-
-  color: #7be3ff;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.site-footer {
-  display: flex;
-
-  justify-content: space-between;
-
-  padding: 28px 5%;
-
-  color: rgba(255, 255, 255, 0.55);
-
-  background: rgba(2, 5, 10, 0.94);
-
-  font-size: 0.72rem;
-
-  letter-spacing: 2px;
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1050px) {
-
-  .site-header {
-    grid-template-columns: 180px minmax(0, 1fr);
-  }
-
-  .logo-zone {
-    padding-left: 15px;
-  }
-
-  .brand {
-    width: 150px;
-    min-width: 150px;
-  }
-
-  .menu-zone-inner {
-    padding-left: 10px;
-    padding-right: 15px;
-  }
-
-  .main-nav {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .nav-tab {
-    min-height: 58px;
-    padding: 6px 9px;
-    gap: 7px;
-    font-size: 0.68rem;
-  }
-
-  .nav-tab img {
-    width: 34px;
-    height: 34px;
-    flex-basis: 34px;
-  }
-
-  .nav-dropdown {
-    top: 66px;
-  }
-
-  .main-nav {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .nav-tab {
-    min-height: 58px;
-    padding: 6px 9px;
-    gap: 7px;
-    font-size: 0.68rem;
-  }
-
-  .nav-tab img {
-    width: 34px;
-    height: 34px;
-    flex-basis: 34px;
-  }
-
-  .folder-content,
-  .contact-panel {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================
    MOBILE
 ========================= */
 
@@ -1001,33 +469,54 @@ button {
     scroll-padding-top: 80px;
   }
 
-  .site-header,
-  .site-header-inner {
+  .site-header {
     height: 76px;
     min-height: 76px;
+
+    display: block;
   }
 
-  .site-header-banner {
-    height: 240px;
-    min-height: 240px;
-    background-size: 100% 240px;
-  }
+  .logo-zone {
+    position: absolute;
+    inset: 0 auto auto 0;
 
-  .site-header-inner {
-    padding: 10px 12px 6px;
-  }
+    width: 100%;
+    height: 76px;
 
-  .site-header:has(.nav-item.open) {
-    height: 240px;
-  }
+    justify-content: flex-start;
 
-  .site-header-banner {
-    height: 68px;
+    padding: 8px 12px;
+
+    background-size: cover;
   }
 
   .brand {
     width: 145px;
     min-width: 145px;
+    max-height: 64px;
+  }
+
+  .brand img {
+    max-height: 64px;
+  }
+
+  .menu-zone {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 76px;
+
+    background: none;
+  }
+
+  .menu-zone-inner {
+    height: 76px;
+    padding: 10px 12px 6px;
+  }
+
+  .main-nav {
+    display: none;
   }
 
   .menu-toggle {
@@ -1112,7 +601,6 @@ button {
 
   .hero {
     min-height: 48vh;
-
     padding: 55px 15px;
   }
 
@@ -1169,3 +657,4 @@ button {
     gap: 10px;
   }
 }
+
