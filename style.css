@@ -67,7 +67,7 @@ button {
       rgba(2, 5, 10, 0.28)
     ),
     url("images/top-menu-banner-left-bg.png")
-      center center / cover no-repeat;
+      center center / 75% auto no-repeat;
   border-right: 1px solid rgba(0, 210, 255, 0.22);
 }
 
@@ -87,7 +87,7 @@ button {
       rgba(2, 5, 10, 0.45)
     ),
     url("images/top-menu-banner-left-bg.png")
-      center bottom / cover no-repeat;
+      center bottom / 75% auto no-repeat;
   border: 0;
   box-shadow: none;
 }
