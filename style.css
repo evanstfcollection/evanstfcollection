@@ -1,3 +1,119 @@
+
+Hey Cleo, so I've uploaded the following files to my file tree on GitHub.  Let's put each of the new images on it's corresponding menu bar please
+Go to file
+
+images
+3rd-party-icon.png
+3rd-party-menubar-image.png
+autobots-icon.png
+autobots-menubar-image.png
+contact-icon.png
+contact-menubar-image.png
+decepticons-icon.png
+decepticons-menubar-image.png
+evanstfcollection-logo.png
+main-page-background.png
+masterpiece-movie-icon.png
+masterpiece-movie-menubar-image.png
+primes-icon.png
+the-primes-menubar-image.png
+top-menu-banner-left-bg.png
+top-menu-banner-right-bg.png
+index.html
+script.js
+style.css
+…
+
+
+
+Yes. I’ve connected each of the six new images to its corresponding dropdown:
+
+Menu	Image
+Autobots	autobots-menubar-image.png
+Decepticons	decepticons-menubar-image.png
+Masterpiece Movie	masterpiece-movie-menubar-image.png
+3rd Party	3rd-party-menubar-image.png
+The Primes	the-primes-menubar-image.png
+Contact	contact-menubar-image.png
+I also adjusted the dropdown layout so these wide cinematic images can actually fill the visual side of the panel, rather than being squeezed into the small icon-sized space we were using before.
+
+Updated files
+Upload these two files to GitHub in place of your current index.html and style.css.
+
+I expect this to make a very significant visual difference—the new character artwork should now become the main visual element of each dropdown. 
+
+
+index-menubar-images.html.txt
+Document
+
+style-menubar-images.css.txt
+Document
+That looks AMAZING!!! Awesome job Cleo.  Next, let's reduce the size of the images to only 25% of the original image size please
+
+Done. I reduced the displayed size of the new menu-bar images to 25% of their current size.
+
+I also changed them to contain rather than cover, so the images should retain their full proportions instead of being cropped.
+
+Replace your current style.css with this version. 
+
+
+style-menubar-images-25percent.css.txt
+Document
+that shrunk the images WAY more than 25% of their original size.  Can try increasing them 3x from their current size please?
+
+Yes. Since the current version is at 25%, increasing it by 3× gives us 75%.
+
+I've changed:
+
+Width: 25% → 75%
+Height: 25% → 75%
+Everything else remains unchanged.
+
+style-menubar-images-75percent.css.txt
+Document
+Suggested based on your interests
+
+
+
+Ad
+That's perfect.  Now, let's make the boarder around the images wrap closely around the images please'
+
+Done. I changed the framing so the border now belongs to the image itself, rather than surrounding the entire left-hand image area.
+
+Changes:
+
+Removed the old vertical divider.
+Added a tight 2px border directly around each image.
+Added a very small 4px internal gap so the artwork doesn't touch the border.
+Added a subtle 8px corner radius.
+Kept the images at the current 75% size.
+Kept the existing glow effect.
+
+style-menubar-images-tight-border.css.txt
+Document
+Suggested based on your interests
+
+
+
+Ad
+OK, let's try something ... Reduce the size of all the images by 50%, align all of the images to the left, remove the bright white line around the boarder of the images, and reduce the size of the banner to match the size of the image boarder please
+
+Done. I made all four changes:
+
+Images reduced by 50% — from 75% → 37.5%
+Images aligned to the left
+Bright white image border removed completely
+Dropdown/banner height reduced from 235px → 170px so the surrounding panel is much closer to the image's new proportions
+I also removed the decorative overlay that could contribute to the bright framing effect.
+
+This should give us a much more compact, character-image-on-the-left / information-on-the-right appearance. 
+
+
+style-menubar-images-compact.css.txt
+Document
+
+
+
 * {
   box-sizing: border-box;
 }
@@ -266,7 +382,7 @@ button {
   z-index: 8;
   top: 49px;
   width: calc(600% + 30px);
-  min-height: 235px;
+  min-height: 170px;
   display: grid;
   grid-template-columns: 1.45fr 1fr;
   align-items: stretch;
@@ -318,10 +434,10 @@ button {
 
 .dropdown-visual {
   position: relative;
-  min-height: 235px;
+  min-height: 170px;
   display: grid;
-  place-items: center;
-  padding: 0;
+  place-items: center start;
+  padding: 0 0 0 18px;
   border-right: 0;
   background:
     linear-gradient(
@@ -338,29 +454,22 @@ button {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0,0,0,0.08),
-      transparent 32%,
-      transparent 70%,
-      rgba(0,0,0,0.18)
-    );
+  background: transparent;
 }
 
 .dropdown-visual img {
   position: relative;
   z-index: 1;
-  width: 75%;
-  height: 75%;
+  width: 37.5%;
+  height: 37.5%;
   min-width: 0;
   min-height: 0;
   object-fit: contain;
   object-position: center;
   box-sizing: border-box;
-  padding: 4px;
-  border: 2px solid currentColor;
-  border-radius: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
   filter:
     drop-shadow(0 0 8px currentColor)
     drop-shadow(0 0 20px currentColor);
@@ -1076,11 +1185,11 @@ button {
   .nav-dropdown {
     top: 54px;
     width: calc(300% + 12px);
-    min-height: 220px;
+    min-height: 170px;
   }
 
   .dropdown-visual {
-    min-height: 220px;
+    min-height: 170px;
   }
 
   .folder-content,
