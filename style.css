@@ -38,7 +38,7 @@ button {
   width: 100%;
   min-height: 260px;
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 18.75% 81.25%;
   align-items: start;
   overflow: visible;
   box-shadow: none;
@@ -69,27 +69,6 @@ button {
     url("images/top-menu-banner-left-bg.png")
       center center / 50% auto no-repeat;
   border-right: 1px solid rgba(0, 210, 255, 0.22);
-}
-
-/* Visual continuation removes the hard 260px seam. */
-.logo-zone::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -28px;
-  height: 28px;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      rgba(2, 5, 10, 0),
-      rgba(2, 5, 10, 0)
-    ),
-    url("images/top-menu-banner-left-bg.png")
-      center bottom / 50% auto no-repeat;
-  border: 0;
-  box-shadow: none;
 }
 
 .brand {
@@ -897,7 +876,7 @@ button {
 @media (max-width: 1050px) {
 
   .site-header {
-    grid-template-columns: 28% 72%;
+    grid-template-columns: 21% 79%;
     min-height: 220px;
   }
 
