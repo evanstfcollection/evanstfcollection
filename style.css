@@ -351,8 +351,8 @@ button {
 .dropdown-visual img {
   position: relative;
   z-index: 1;
-  width: 25%;
-  height: 25%;
+  width: 75%;
+  height: 75%;
   min-width: 0;
   min-height: 0;
   object-fit: contain;
