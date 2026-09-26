@@ -63,11 +63,11 @@ button {
   padding: 12px;
   background:
     linear-gradient(
-      rgba(2, 5, 10, 0.12),
-      rgba(2, 5, 10, 0.28)
+      rgba(2, 5, 10, 0),
+      rgba(2, 5, 10, 0)
     ),
     url("images/top-menu-banner-left-bg.png")
-      center center / 75% auto no-repeat;
+      center center / 50% auto no-repeat;
   border-right: 1px solid rgba(0, 210, 255, 0.22);
 }
 
@@ -83,11 +83,11 @@ button {
   pointer-events: none;
   background:
     linear-gradient(
-      rgba(2, 5, 10, 0.28),
-      rgba(2, 5, 10, 0.45)
+      rgba(2, 5, 10, 0),
+      rgba(2, 5, 10, 0)
     ),
     url("images/top-menu-banner-left-bg.png")
-      center bottom / 75% auto no-repeat;
+      center bottom / 50% auto no-repeat;
   border: 0;
   box-shadow: none;
 }
