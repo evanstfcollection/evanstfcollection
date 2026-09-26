@@ -268,7 +268,7 @@ button {
   width: calc(600% + 30px);
   min-height: 170px;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 220px 1fr;
   align-items: stretch;
   gap: 0;
   padding: 0;
