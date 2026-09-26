@@ -268,7 +268,7 @@ button {
   width: calc(600% + 30px);
   min-height: 235px;
   display: grid;
-  grid-template-columns: 0.72fr 1.28fr;
+  grid-template-columns: 1.45fr 1fr;
   align-items: stretch;
   gap: 0;
   padding: 0;
@@ -321,7 +321,7 @@ button {
   min-height: 235px;
   display: grid;
   place-items: center;
-  padding: 18px;
+  padding: 0;
   border-right: 1px solid rgba(255,255,255,0.16);
   background:
     linear-gradient(
@@ -335,22 +335,28 @@ button {
 .dropdown-visual::before {
   content: "";
   position: absolute;
-  width: 180px;
-  height: 180px;
-  border: 2px solid currentColor;
-  opacity: 0.24;
-  transform: rotate(45deg);
-  box-shadow:
-    0 0 20px currentColor,
-    inset 0 0 20px currentColor;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.08),
+      transparent 32%,
+      transparent 70%,
+      rgba(0,0,0,0.18)
+    );
 }
 
 .dropdown-visual img {
   position: relative;
   z-index: 1;
-  width: min(175px, 72%);
-  height: min(175px, 72%);
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center;
   filter:
     drop-shadow(0 0 8px currentColor)
     drop-shadow(0 0 20px currentColor);
