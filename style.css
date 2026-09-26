@@ -71,6 +71,27 @@ button {
   border-right: 1px solid rgba(0, 210, 255, 0.22);
 }
 
+/* Visual continuation removes the hard 260px seam. */
+.logo-zone::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -28px;
+  height: 28px;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      rgba(2, 5, 10, 0.28),
+      rgba(2, 5, 10, 0.45)
+    ),
+    url("images/top-menu-banner-left-bg.png")
+      center bottom / cover no-repeat;
+  border: 0;
+  box-shadow: none;
+}
+
 .brand {
   position: relative;
   z-index: 7;
