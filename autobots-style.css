@@ -97,11 +97,12 @@ body::before {
     drop-shadow(0 0 6px var(--nav-glow));
 }
 
-/* The same Cybernetic Border artwork is used here, scaled down for navigation. */
+/* Compact version of the standard Cybernetic Border artwork.
+   The border sits above the panel so the mechanical corners remain visible. */
 .nav-item::before {
   content: "";
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   inset: 0;
   background: var(--nav-color);
   -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
@@ -115,13 +116,14 @@ body::before {
 .nav-item::after {
   content: "";
   position: absolute;
-  z-index: 0;
-  inset: 5px;
-  background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
+  z-index: 1;
+  inset: 8px;
+  background:
+    linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
   clip-path: polygon(
-    0 13px, 13px 0, calc(100% - 13px) 0, 100% 13px,
-    100% calc(100% - 13px), calc(100% - 13px) 100%,
-    13px 100%, 0 calc(100% - 13px)
+    0 11px, 11px 0, calc(100% - 11px) 0, 100% 11px,
+    100% calc(100% - 11px), calc(100% - 11px) 100%,
+    11px 100%, 0 calc(100% - 11px)
   );
   pointer-events: none;
 }
