@@ -97,12 +97,11 @@ body::before {
     drop-shadow(0 0 6px var(--nav-glow));
 }
 
-/* Compact version of the standard Cybernetic Border artwork.
-   The border sits above the panel so the mechanical corners remain visible. */
+/* The same Cybernetic Border artwork is used here, scaled down for navigation. */
 .nav-item::before {
   content: "";
   position: absolute;
-  z-index: 3;
+  z-index: 1;
   inset: 0;
   background: var(--nav-color);
   -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
@@ -116,14 +115,13 @@ body::before {
 .nav-item::after {
   content: "";
   position: absolute;
-  z-index: 1;
-  inset: 8px;
-  background:
-    linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
+  z-index: 0;
+  inset: 5px;
+  background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
   clip-path: polygon(
-    0 11px, 11px 0, calc(100% - 11px) 0, 100% 11px,
-    100% calc(100% - 11px), calc(100% - 11px) 100%,
-    11px 100%, 0 calc(100% - 11px)
+    0 13px, 13px 0, calc(100% - 13px) 0, 100% 13px,
+    100% calc(100% - 13px), calc(100% - 13px) 100%,
+    13px 100%, 0 calc(100% - 13px)
   );
   pointer-events: none;
 }
@@ -201,8 +199,8 @@ body::before {
   background:
     linear-gradient(90deg, rgba(3,7,12,.45), rgba(3,7,12,.08), rgba(3,7,12,.55)),
     url("images/main-page-background.png") center / cover no-repeat;
-  border-bottom: 2px solid var(--red);
 }
+
 
 .hero-overlay {
   position: absolute;
@@ -261,15 +259,18 @@ body::before {
   padding: 10px 12px;
   margin-bottom: 12px;
   background: linear-gradient(90deg, rgba(8,14,21,.98), rgba(3,7,11,.92));
-  border: 2px solid var(--red);
+  border: 0;
+  position: relative;
+  isolation: isolate;
   box-shadow:
     0 5px 12px rgba(0,0,0,.9),
-    0 0 14px rgba(255,27,27,.35),
-    inset 0 0 0 1px rgba(255,70,70,.12);
-  clip-path: polygon(1% 0, 24% 0, 26% 12%, 100% 12%, 100% 88%, 26% 88%, 24% 100%, 1% 100%);
+    0 0 14px rgba(255,27,27,.18);
+  overflow: hidden;
 }
 
 .collection-heading h2 {
+  position: relative;
+  z-index: 5;
   margin: 0;
   padding: 8px 22px;
   min-width: 330px;
@@ -279,6 +280,8 @@ body::before {
 }
 
 .filters {
+  position: relative;
+  z-index: 5;
   flex: 1;
   display: grid;
   grid-template-columns: minmax(180px, 1.5fr) repeat(3, minmax(130px, 1fr)) 75px;
@@ -341,12 +344,13 @@ body::before {
 .card {
   overflow: hidden;
   background: linear-gradient(180deg, rgba(11,17,24,.98), rgba(2,6,10,.98));
-  border: 2px solid var(--red);
+  border: 0;
+  position: relative;
+  isolation: isolate;
   box-shadow:
     0 5px 10px rgba(0,0,0,.95),
-    0 0 10px rgba(255, 27, 27, .28),
-    inset 0 0 0 1px rgba(255,70,70,.12);
-  clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
+    0 0 10px rgba(255, 27, 27, .20);
+  overflow: hidden;
   transition: transform .18s ease, box-shadow .18s ease;
 }
 
@@ -367,6 +371,8 @@ body::before {
 }
 
 .card-body {
+  position: relative;
+  z-index: 5;
   padding: 9px 10px 10px;
 }
 
@@ -405,15 +411,17 @@ body::before {
   background:
     radial-gradient(circle at 70% 0%, rgba(255,30,30,.15), transparent 40%),
     rgba(3,8,13,.98);
-  border: 2px solid var(--red);
+  border: 0;
+  position: sticky;
+  isolation: isolate;
   box-shadow:
     0 7px 16px rgba(0,0,0,.95),
-    0 0 22px rgba(255,27,27,.28),
-    inset 0 0 0 1px rgba(255,70,70,.12);
-  clip-path: polygon(3% 0, 97% 0, 100% 3%, 100% 97%, 97% 100%, 3% 100%, 0 97%, 0 3%);
+    0 0 22px rgba(255,27,27,.20);
+  overflow: hidden;
 }
 
 .close-details {
+  z-index: 7;
   position: absolute;
   top: 7px;
   right: 10px;
@@ -426,6 +434,8 @@ body::before {
 }
 
 .detail-top {
+  position: relative;
+  z-index: 5;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
@@ -436,8 +446,11 @@ body::before {
   min-height: 310px;
   background-size: cover;
   background-position: center;
-  border: 1px solid var(--red);
-  box-shadow: 0 4px 9px rgba(0,0,0,.9), 0 0 9px rgba(255,27,27,.25);
+  border: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow: 0 4px 9px rgba(0,0,0,.9), 0 0 9px rgba(255,27,27,.16);
 }
 
 .detail-title {
@@ -475,6 +488,8 @@ body::before {
 .spec span { color: #d1d7dd; }
 
 .detail-thumbs {
+  position: relative;
+  z-index: 5;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
@@ -484,7 +499,10 @@ body::before {
 .detail-thumbs button {
   padding: 0;
   background: #04080d;
-  border: 1px solid var(--red);
+  border: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   box-shadow: 0 3px 7px rgba(0,0,0,.85);
   cursor: pointer;
 }
@@ -499,23 +517,32 @@ body::before {
 .notes {
   margin-top: 12px;
   padding: 11px;
-  border: 1px solid var(--red);
+  border: 0;
+  position: relative;
+  isolation: isolate;
   background: rgba(2,6,10,.75);
   box-shadow: 0 4px 9px rgba(0,0,0,.85);
+  overflow: hidden;
 }
 
 .notes h3 {
+  position: relative;
+  z-index: 5;
   margin: 0 0 7px;
   font-size: 11px;
 }
 
 .notes p {
+  position: relative;
+  z-index: 5;
   margin: 0;
   color: #d7dde3;
   font: 11px/1.5 Arial, sans-serif;
 }
 
 .detail-navigation {
+  position: relative;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -527,8 +554,11 @@ body::before {
   padding: 9px 14px;
   color: white;
   background: #050a10;
-  border: 1px solid var(--red);
-  box-shadow: 0 3px 7px rgba(0,0,0,.9), 0 0 7px rgba(255,27,27,.25);
+  border: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow: 0 3px 7px rgba(0,0,0,.9), 0 0 7px rgba(255,27,27,.18);
   font: 700 10px "Orbitron", sans-serif;
   cursor: pointer;
 }
@@ -537,6 +567,229 @@ body::before {
   font-size: 10px;
   text-shadow: 0 2px 5px #000;
 }
+
+/* ============================================================
+   WEATHERED CYBERNETIC BORDER SYSTEM
+   Replaces the former clean red borders with the finalized
+   weathered Cybertronian frame artwork.
+   ============================================================ */
+
+.weathered-cyber-frame {
+  --frame-color: var(--red);
+  --frame-glow: rgba(255,27,27,.42);
+  position: relative;
+  isolation: isolate;
+}
+
+/* The SVG supplies the aged, chipped Cybertronian geometry. */
+.weathered-cyber-frame::before {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  background: var(--frame-color);
+  opacity: .94;
+
+  -webkit-mask:
+    url("cybernetic-border.svg")
+    center / 100% 100%
+    no-repeat;
+  mask:
+    url("cybernetic-border.svg")
+    center / 100% 100%
+    no-repeat;
+
+  filter:
+    drop-shadow(0 0 3px var(--frame-color))
+    drop-shadow(0 0 7px var(--frame-glow));
+
+  pointer-events: none;
+}
+
+/* A dark aged-metal layer sits beneath the colored frame. */
+.weathered-cyber-frame::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 7px;
+
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(130,140,145,.10), transparent 20%),
+    radial-gradient(ellipse at 86% 78%, rgba(0,0,0,.50), transparent 26%),
+    repeating-linear-gradient(
+      165deg,
+      rgba(255,255,255,.014) 0 1px,
+      rgba(0,0,0,.045) 1px 4px,
+      transparent 4px 13px
+    ),
+    #10151a;
+
+  -webkit-clip-path: polygon(
+    0 14px, 14px 0, calc(100% - 14px) 0, 100% 14px,
+    100% calc(100% - 14px), calc(100% - 14px) 100%,
+    14px 100%, 0 calc(100% - 14px)
+  );
+  clip-path: polygon(
+    0 14px, 14px 0, calc(100% - 14px) 0, 100% 14px,
+    100% calc(100% - 14px), calc(100% - 14px) 100%,
+    14px 100%, 0 calc(100% - 14px)
+  );
+
+  pointer-events: none;
+}
+
+/* Keep existing page content above the weathering layers. */
+.weathered-cyber-frame > * {
+  position: relative;
+  z-index: 5;
+}
+
+/* Add the weathered frame to every former red-border component. */
+.collection-heading,
+.card,
+.detail-panel,
+.detail-main-image,
+.detail-thumbs button,
+.notes,
+.detail-navigation button {
+  --frame-color: var(--red);
+  --frame-glow: rgba(255,27,27,.42);
+}
+
+.collection-heading,
+.card,
+.detail-panel,
+.detail-main-image,
+.detail-thumbs button,
+.notes,
+.detail-navigation button {
+  isolation: isolate;
+}
+
+/* Each component gets the finalized frame artwork. */
+.collection-heading::before,
+.card::before,
+.detail-panel::before,
+.detail-main-image::before,
+.detail-thumbs button::before,
+.notes::before,
+.detail-navigation button::before {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  background: var(--frame-color);
+  opacity: .94;
+
+  -webkit-mask:
+    url("cybernetic-border.svg")
+    center / 100% 100%
+    no-repeat;
+  mask:
+    url("cybernetic-border.svg")
+    center / 100% 100%
+    no-repeat;
+
+  filter:
+    drop-shadow(0 0 3px var(--frame-color))
+    drop-shadow(0 0 7px var(--frame-glow));
+
+  pointer-events: none;
+}
+
+/* A subtle dark metal surface makes the frame look embedded,
+   rather than pasted over the existing panel. */
+.collection-heading::after,
+.card::after,
+.detail-panel::after,
+.detail-main-image::after,
+.detail-thumbs button::after,
+.notes::after,
+.detail-navigation button::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 5px;
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(145,150,150,.08), transparent 20%),
+    radial-gradient(ellipse at 85% 80%, rgba(0,0,0,.42), transparent 25%),
+    repeating-linear-gradient(
+      165deg,
+      rgba(255,255,255,.012) 0 1px,
+      rgba(0,0,0,.04) 1px 4px,
+      transparent 4px 13px
+    ),
+    rgba(8,12,16,.30);
+  -webkit-clip-path: polygon(
+    0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
+    100% calc(100% - 12px), calc(100% - 12px) 100%,
+    12px 100%, 0 calc(100% - 12px)
+  );
+  clip-path: polygon(
+    0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
+    100% calc(100% - 12px), calc(100% - 12px) 100%,
+    12px 100%, 0 calc(100% - 12px)
+  );
+  pointer-events: none;
+}
+
+/* The hero's former red line becomes a restrained weathered
+   Cybertronian edge rather than a plain horizontal rule. */
+.hero {
+  border-bottom: 0;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 18px;
+  background: var(--red);
+
+  -webkit-mask:
+    url("cybernetic-border.svg")
+    bottom center / 100% 500px
+    no-repeat;
+  mask:
+    url("cybernetic-border.svg")
+    bottom center / 100% 500px
+    no-repeat;
+
+  opacity: .80;
+  filter:
+    drop-shadow(0 0 3px var(--red))
+    drop-shadow(0 0 6px rgba(255,27,27,.30));
+  pointer-events: none;
+}
+
+/* Make the Autobots page red weathering slightly deeper than
+   the original bright red so it matches the prototype. */
+.collection-heading,
+.card,
+.detail-panel,
+.detail-main-image,
+.detail-thumbs button,
+.notes,
+.detail-navigation button,
+.hero {
+  --frame-color: #c91c1c;
+  --frame-glow: rgba(255,27,27,.42);
+}
+
+/* Hover keeps the weathered frame energized without making it
+   look newly manufactured. */
+.card:hover::before,
+.nav-item:hover::before,
+.nav-item.active::before {
+  filter:
+    drop-shadow(0 0 4px var(--frame-color))
+    drop-shadow(0 0 10px var(--frame-glow));
+}
+
 
 .empty {
   grid-column: 1 / -1;
@@ -576,4 +829,68 @@ body::before {
   .detail-top { grid-template-columns: 1fr; }
   .detail-main-image { min-height: 280px; }
   .filters { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   COMPACT CYBERNETIC NAVIGATION BORDER
+   Uses the dedicated small-scale Cybernetic Border artwork.
+   ============================================================ */
+
+.nav-item {
+  isolation: isolate;
+  border: 0;
+  background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
+  box-shadow:
+    0 3px 7px rgba(0,0,0,.95),
+    0 0 5px var(--nav-glow);
+}
+
+.nav-item::after {
+  /* Replaces the older clipped inner panel with a simple
+     inset background so the Cybernetic frame remains visible. */
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 3px;
+  background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
+  clip-path: none;
+  pointer-events: none;
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: var(--nav-color);
+  -webkit-mask: url("cybernetic-nav-border.svg") center / 100% 100% no-repeat;
+  mask: url("cybernetic-nav-border.svg") center / 100% 100% no-repeat;
+  -webkit-mask-mode: luminance;
+  mask-mode: luminance;
+  filter:
+    drop-shadow(0 0 3px var(--nav-color))
+    drop-shadow(0 0 8px var(--nav-glow));
+  pointer-events: none;
+}
+
+.nav-item img,
+.nav-item span {
+  position: relative;
+  z-index: 3;
+}
+
+.nav-item:hover::before,
+.nav-item.active::before {
+  filter:
+    drop-shadow(0 0 4px var(--nav-color))
+    drop-shadow(0 0 12px var(--nav-glow));
+}
+
+/* Keep the compact frame clear on very small screens. */
+@media (max-width: 520px) {
+  .nav-item::before {
+    filter:
+      drop-shadow(0 0 2px var(--nav-color))
+      drop-shadow(0 0 6px var(--nav-glow));
+  }
 }
