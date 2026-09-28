@@ -839,3 +839,10 @@ button {
     font-size: 0.47rem;
   }
 }
+
+
+/* UNIFIED NAVIGATION FONT */
+.nav-item,
+.nav-item span {
+  font-family: "Orbitron", Arial, sans-serif !important;
+}
