@@ -191,15 +191,19 @@
     /* HERO */
     .hero {
       position: relative;
-      height: min(330px, 34vw);
+      height: min(330px, 36.23vw);
       min-height: 230px;
       overflow: hidden;
       display: grid;
       place-items: center;
       background:
-        linear-gradient(90deg, rgba(3,7,12,.45), rgba(3,7,12,.08), rgba(3,7,12,.55)),
-        url("images/main-page-background.png") center / cover no-repeat;
+        url("images/autobots-background.png") center / cover no-repeat;
       border-bottom: 2px solid var(--red);
+    }
+
+    .hero .hero-overlay,
+    .hero .hero-copy {
+      display: none;
     }
 
     .hero-overlay {
