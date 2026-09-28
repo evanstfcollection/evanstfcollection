@@ -1,7 +1,11 @@
 :root {
   --frame-color: #ff1b1b;
-  --frame-glow: rgba(255, 27, 27, .65);
+  --frame-glow: rgba(255, 27, 27, .42);
+  --frame-metal: #15191d;
+  --frame-metal-light: #3b4145;
   --frame-dark: #07090d;
+  --weather-dark: rgba(0, 0, 0, .62);
+  --weather-light: rgba(150, 157, 160, .13);
 }
 
 * {
@@ -45,8 +49,8 @@ h1 {
 }
 
 /* =========================================================
-   STANDARD CYBERNETIC BORDER
-   Reusable frame system
+   WEATHERED CYBERNETIC BORDER
+   The geometry remains clean; the material looks old.
    ========================================================= */
 
 .cyber-frame {
@@ -58,6 +62,11 @@ h1 {
   background:
     linear-gradient(135deg, rgba(255,255,255,.035), transparent 20%),
     linear-gradient(315deg, rgba(255,255,255,.025), transparent 20%),
+    repeating-linear-gradient(
+      112deg,
+      rgba(255,255,255,.012) 0 2px,
+      transparent 2px 13px
+    ),
     rgba(7, 9, 13, .96);
   overflow: hidden;
 
@@ -73,18 +82,37 @@ h1 {
   );
 
   filter:
-    drop-shadow(0 0 7px var(--frame-glow))
-    drop-shadow(0 0 20px rgba(0,0,0,.85));
+    drop-shadow(0 0 5px var(--frame-glow))
+    drop-shadow(0 0 20px rgba(0,0,0,.9));
 }
 
-/* Outer mechanical SVG frame */
+/* Dark metallic body underneath the colored coating */
 .cyber-frame::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(130,140,145,.12), transparent 18%),
+    radial-gradient(circle at 87% 74%, rgba(0,0,0,.5), transparent 24%),
+    repeating-linear-gradient(
+      168deg,
+      rgba(255,255,255,.018) 0 1px,
+      rgba(0,0,0,.045) 1px 4px,
+      transparent 4px 17px
+    ),
+    linear-gradient(135deg, #252a2d, #0a0d10 28%, #1b2024 55%, #07090c);
+  clip-path: inherit;
+  pointer-events: none;
+}
+
+/* Colored mechanical frame */
+.cyber-frame::after {
   content: "";
   position: absolute;
   z-index: 2;
   inset: 0;
   background: var(--frame-color);
-  opacity: .98;
 
   -webkit-mask:
     url("cybernetic-border.svg")
@@ -95,20 +123,46 @@ h1 {
     center / 100% 100%
     no-repeat;
 
+  opacity: .92;
+
   filter:
-    drop-shadow(0 0 5px var(--frame-color))
-    drop-shadow(0 0 12px var(--frame-glow));
+    drop-shadow(0 0 3px var(--frame-color))
+    drop-shadow(0 0 7px var(--frame-glow));
+
   pointer-events: none;
 }
 
-/* Dark inner panel keeps the border clean and readable */
-.cyber-frame::after {
+/* Weathering overlay: worn coating and dark buildup */
+.cyber-frame .cyber-frame__content {
+  position: relative;
+  z-index: 6;
+}
+
+/* Extra atmospheric wear over the whole frame */
+.cyber-frame {
+  background-image:
+    radial-gradient(ellipse at 8% 20%, rgba(0,0,0,.46), transparent 11%),
+    radial-gradient(ellipse at 91% 31%, rgba(0,0,0,.38), transparent 13%),
+    radial-gradient(ellipse at 18% 88%, rgba(140,145,145,.08), transparent 12%),
+    radial-gradient(ellipse at 78% 84%, rgba(0,0,0,.45), transparent 15%),
+    repeating-linear-gradient(
+      107deg,
+      transparent 0 31px,
+      rgba(0,0,0,.10) 31px 33px,
+      transparent 33px 67px
+    ),
+    linear-gradient(135deg, rgba(255,255,255,.035), transparent 20%),
+    rgba(7, 9, 13, .96);
+}
+
+/* Dark inner panel keeps the border readable */
+.cyber-frame__content::before {
   content: "";
   position: absolute;
-  z-index: 1;
-  inset: 16px;
+  z-index: -1;
+  inset: -70px -90px;
   background:
-    linear-gradient(135deg, rgba(255,255,255,.025), transparent 25%),
+    linear-gradient(135deg, rgba(255,255,255,.018), transparent 25%),
     rgba(5, 7, 10, .92);
 
   clip-path: polygon(
@@ -122,12 +176,13 @@ h1 {
     0 calc(100% - 22px)
   );
 
+  box-shadow:
+    inset 0 0 35px rgba(0,0,0,.85),
+    inset 0 0 5px rgba(255,255,255,.035);
   pointer-events: none;
 }
 
 .cyber-frame__content {
-  position: relative;
-  z-index: 5;
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
@@ -138,7 +193,7 @@ h1 {
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 4px;
-  text-shadow: 0 0 8px var(--frame-glow);
+  text-shadow: 0 0 6px var(--frame-glow);
 }
 
 .cyber-frame h2 {
@@ -148,14 +203,14 @@ h1 {
   font-weight: 900;
   letter-spacing: -2px;
   text-shadow:
-    0 0 5px #fff,
-    0 0 18px var(--frame-glow);
+    0 0 4px #fff,
+    0 0 12px var(--frame-glow);
 }
 
 .cyber-frame p {
   max-width: 650px;
   margin: 0 auto;
-  color: #c4cbd2;
+  color: #b8c0c5;
   font-size: 15px;
   line-height: 1.7;
 }
@@ -165,16 +220,18 @@ h1 {
   gap: 14px;
   margin-top: 28px;
   padding: 10px 18px;
-  border: 1px solid color-mix(in srgb, var(--frame-color) 60%, transparent);
-  background: rgba(0,0,0,.45);
-  box-shadow: 0 0 12px rgba(0,0,0,.65);
+  border: 1px solid color-mix(in srgb, var(--frame-color) 48%, transparent);
+  background: rgba(0,0,0,.58);
+  box-shadow:
+    0 0 12px rgba(0,0,0,.75),
+    inset 0 0 8px rgba(255,255,255,.025);
   font-size: 10px;
   letter-spacing: 2px;
 }
 
 .status strong {
   color: var(--frame-color);
-  text-shadow: 0 0 8px var(--frame-glow);
+  text-shadow: 0 0 6px var(--frame-glow);
 }
 
 /* =========================================================
@@ -182,33 +239,33 @@ h1 {
    ========================================================= */
 
 .cyber-frame--red {
-  --frame-color: #ff1b1b;
-  --frame-glow: rgba(255,27,27,.65);
+  --frame-color: #c91c1c;
+  --frame-glow: rgba(255, 27, 27, .42);
 }
 
 .cyber-frame--purple {
-  --frame-color: #9a2cff;
-  --frame-glow: rgba(154,44,255,.65);
+  --frame-color: #7b27b8;
+  --frame-glow: rgba(154, 44, 255, .42);
 }
 
 .cyber-frame--gold {
-  --frame-color: #ffc21c;
-  --frame-glow: rgba(255,194,28,.60);
+  --frame-color: #b78b16;
+  --frame-glow: rgba(255, 194, 28, .38);
 }
 
 .cyber-frame--blue {
-  --frame-color: #1d8cff;
-  --frame-glow: rgba(29,140,255,.65);
+  --frame-color: #176bbd;
+  --frame-glow: rgba(29, 140, 255, .42);
 }
 
 .cyber-frame--cyan {
-  --frame-color: #00d8ff;
-  --frame-glow: rgba(0,216,255,.65);
+  --frame-color: #009db9;
+  --frame-glow: rgba(0, 216, 255, .42);
 }
 
 .cyber-frame--darkblue {
-  --frame-color: #1856a8;
-  --frame-glow: rgba(24,86,168,.60);
+  --frame-color: #15477f;
+  --frame-glow: rgba(24, 86, 168, .38);
 }
 
 /* Demo color samples */
@@ -229,7 +286,7 @@ h1 {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1px;
-  box-shadow: 0 0 10px var(--frame-glow);
+  box-shadow: 0 0 7px var(--frame-glow);
 }
 
 @media (max-width: 700px) {
