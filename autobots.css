@@ -1176,3 +1176,17 @@
       drop-shadow(0 0 5px var(--nav-glow));
   }
 }
+
+
+/* FULL-WIDTH HERO IMAGE FIT
+   Match the hero to the source artwork's wide 2048:742 composition
+   so substantially more of each background image remains visible. */
+.hero {
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 2048 / 742;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
