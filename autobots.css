@@ -1190,3 +1190,10 @@
   background-position: center center !important;
   background-repeat: no-repeat !important;
 }
+
+
+/* UNIFIED NAVIGATION FONT */
+.nav-item,
+.nav-item span {
+  font-family: "Orbitron", Arial, sans-serif !important;
+}
