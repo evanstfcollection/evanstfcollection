@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybernetic Border Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(0,113,255,.18), transparent 35%),
+    linear-gradient(180deg,#020407,#07101a 45%,#020407);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+.cyber-frame {
+  --frame-color: #ff1b1b;
+  --frame-glow: rgba(255,27,27,.65);
+  position: relative;
+  isolation: isolate;
+  max-width: 1100px;
+  min-height: 520px;
+  margin: auto;
+  padding: 55px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at 70% 10%, rgba(255,27,27,.12), transparent 35%),
+    rgba(2,6,10,.97);
+  color: var(--frame-color);
+}
+.cyber-frame__border {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--frame-color);
+  filter: drop-shadow(0 0 3px var(--frame-glow)) drop-shadow(0 0 9px var(--frame-glow));
+  pointer-events: none;
+  z-index: 2;
+}
+.cyber-frame__content { position: relative; z-index: 1; }
+.cyber-demo-title {
+  margin: 0 0 8px;
+  color: #fff;
+  font: 900 clamp(30px,5vw,64px)/1 "Orbitron",Arial,sans-serif;
+  letter-spacing: -2px;
+  text-shadow: 0 0 8px var(--frame-glow), 3px 3px 0 #05070a;
+}
+.cyber-demo-subtitle {
+  margin: 0 0 24px;
+  color: #d9e0e7;
+  font: 600 13px/1.5 "Orbitron",Arial,sans-serif;
+}
+.cyber-demo-box {
+  max-width: 760px;
+  padding: 25px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,27,27,.65);
+  box-shadow: inset 0 0 25px rgba(0,0,0,.7), 0 8px 20px rgba(0,0,0,.8);
+}
+</style>
+</head>
+<body>
+<div class="cyber-frame" id="prototype">
+  <svg class="cyber-frame__border" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur stdDeviation="3.5" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <path d="M28 3 H972 L997 28 V492 L972 517 H28 L3 492 V28 Z" fill="none" stroke="currentColor" stroke-width="4" filter="url(#glow)"/>
+    <path d="M18 15 H320 M350 15 H650 M680 15 H940 M985 55 V190 M985 220 V365 M985 395 V465 M940 505 H720 M690 505 H310 M280 505 H60 M15 465 V390 M15 360 V225 M15 195 V55" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M48 42 H385 L405 62 H595 L615 42 H952 V478 H615 L595 458 H405 L385 478 H48 Z" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M18 28 L42 8 H155 L178 28 L155 48 H65 L48 65 V155 M982 28 L958 8 H845 L822 28 L845 48 H935 L952 65 V155 M18 492 L42 512 H155 L178 492 L155 472 H65 L48 455 V365 M982 492 L958 512 H845 L822 492 L845 472 H935 L952 455 V365" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M75 28 H210 L225 16 H315 M685 16 H775 L790 28 H925 M28 90 H52 M28 115 H72 M28 140 H45 M972 90 H948 M972 115 H928 M972 140 H955 M75 492 H210 L225 504 H315 M685 504 H775 L790 492 H925" fill="none" stroke="currentColor" stroke-width="3"/>
+    <path d="M245 42 L260 27 H330 L345 42 M655 42 L670 27 H740 L755 42 M245 478 L260 493 H330 L345 478 M655 478 L670 493 H740 L755 478" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="38" cy="38" r="3.5" fill="currentColor"/><circle cx="962" cy="38" r="3.5" fill="currentColor"/><circle cx="38" cy="482" r="3.5" fill="currentColor"/><circle cx="962" cy="482" r="3.5" fill="currentColor"/>
+  </svg>
+  <div class="cyber-frame__content">
+    <h1 class="cyber-demo-title">OPTIMUS PRIME</h1>
+    <p class="cyber-demo-subtitle">CYBERNETIC BORDER PROTOTYPE • AUTOBOTS / RED</p>
+    <div class="cyber-demo-box">
+      <h2>Collection Notes</h2>
+      <p>This is the first reusable frame prototype. The frame itself scales with the container, while the mechanical corner and line details remain vector-based.</p>
+      <p>The same structure can be recolored for purple, gold, blue, cyan and dark blue pages without creating separate border images.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
