@@ -2,20 +2,50 @@
      viewBox="0 0 1200 500"
      preserveAspectRatio="none">
   <defs>
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <filter id="weatheredGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <filter id="roughen">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency=".018"
+        numOctaves="2"
+        seed="7"
+        result="noise"/>
+      <feDisplacementMap
+        in="SourceGraphic"
+        in2="noise"
+        scale="1.6"
+        xChannelSelector="R"
+        yChannelSelector="G"/>
+    </filter>
+
+    <mask id="wornMask">
+      <rect width="1200" height="500" fill="white"/>
+      <g fill="black" opacity=".34">
+        <path d="M42 92 L70 63 L82 71 L55 101 Z"/>
+        <path d="M1118 74 L1150 101 L1137 116 L1108 89 Z"/>
+        <path d="M78 393 L105 421 L91 437 L65 408 Z"/>
+        <path d="M1096 414 L1125 389 L1140 404 L1110 435 Z"/>
+        <rect x="288" y="27" width="45" height="5" rx="2"/>
+        <rect x="715" y="466" width="61" height="5" rx="2"/>
+        <rect x="29" y="178" width="4" height="32"/>
+        <rect x="1167" y="305" width="4" height="29"/>
+      </g>
+    </mask>
   </defs>
 
   <g fill="none"
      stroke="white"
      stroke-linecap="square"
      stroke-linejoin="miter"
-     filter="url(#glow)">
+     filter="url(#weatheredGlow)"
+     mask="url(#wornMask)">
 
     <path stroke-width="5"
       d="M30 92 L92 30 H1108 L1170 92 V408 L1108 470 H92 L30 408 Z"/>
@@ -86,5 +116,17 @@
     <rect x="1170" y="214" width="10" height="22" stroke-width="2"/>
     <rect x="20" y="264" width="10" height="22" stroke-width="2"/>
     <rect x="1170" y="264" width="10" height="22" stroke-width="2"/>
+
+    <!-- Additional tiny scars / interruptions -->
+    <path stroke-width="1.5" d="M155 31 L174 31 M185 31 L197 31"/>
+    <path stroke-width="1.5" d="M1008 469 L1024 469 M1034 469 L1052 469"/>
+    <path stroke-width="1.5" d="M31 120 L31 137 M1169 363 L1169 380"/>
+  </g>
+
+  <!-- Very subtle metallic scratches that sit inside the mechanical frame -->
+  <g fill="none" stroke="#ffffff" opacity=".16" stroke-linecap="square">
+    <path stroke-width="1" d="M112 91 L151 52 M1048 449 L1084 413"/>
+    <path stroke-width="1" d="M277 59 L301 83 M899 417 L924 442"/>
+    <path stroke-width="1" d="M53 335 L67 349 M1134 151 L1148 165"/>
   </g>
 </svg>
