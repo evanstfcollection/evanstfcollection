@@ -76,6 +76,8 @@ body::before {
 }
 
 .nav-item {
+  --nav-color: #00cfff;
+  --nav-glow: rgba(0, 207, 255, .45);
   position: relative;
   min-width: 0;
   display: flex;
@@ -87,13 +89,47 @@ body::before {
   text-decoration: none;
   text-align: center;
   background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
-  border: 1px solid rgba(0, 207, 255, .7);
-  clip-path: polygon(7% 0, 93% 0, 100% 18%, 100% 82%, 93% 100%, 7% 100%, 0 82%, 0 18%);
+  border: 0;
+  overflow: hidden;
   transition: .2s ease;
-  box-shadow:
-    0 3px 7px rgba(0,0,0,.9),
-    0 0 8px rgba(0,0,0,.75),
-    inset 0 0 0 1px rgba(255,255,255,.045);
+  filter:
+    drop-shadow(0 3px 7px rgba(0,0,0,.95))
+    drop-shadow(0 0 6px var(--nav-glow));
+}
+
+/* The same Cybernetic Border artwork is used here, scaled down for navigation. */
+.nav-item::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: var(--nav-color);
+  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  filter:
+    drop-shadow(0 0 3px var(--nav-color))
+    drop-shadow(0 0 8px var(--nav-glow));
+  pointer-events: none;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 5px;
+  background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
+  clip-path: polygon(
+    0 13px, 13px 0, calc(100% - 13px) 0, 100% 13px,
+    100% calc(100% - 13px), calc(100% - 13px) 100%,
+    13px 100%, 0 calc(100% - 13px)
+  );
+  pointer-events: none;
+}
+
+.nav-item img,
+.nav-item span {
+  position: relative;
+  z-index: 2;
 }
 
 .nav-item img {
@@ -115,45 +151,41 @@ body::before {
   transform: translateY(-1px);
 }
 
-.nav-item.autobots {
-  border-color: var(--red);
-  box-shadow:
-    0 3px 8px rgba(0,0,0,.95),
-    0 0 8px rgba(255,27,27,.45),
-    inset 0 0 0 1px rgba(255,80,80,.16);
+.nav-item:hover::before,
+.nav-item.active::before {
+  filter:
+    drop-shadow(0 0 4px var(--nav-color))
+    drop-shadow(0 0 13px var(--nav-glow));
 }
 
-.nav-item.autobots:hover,
-.nav-item.autobots.active {
-  box-shadow:
-    0 4px 12px rgba(0,0,0,.95),
-    0 0 18px rgba(255, 27, 27, .55),
-    inset 0 0 18px rgba(255, 27, 27, .3);
+.nav-item.autobots {
+  --nav-color: #ff1b1b;
+  --nav-glow: rgba(255,27,27,.65);
 }
 
 .nav-item.decepticons {
-  border-color: #9a2cff;
-  box-shadow: 0 3px 8px rgba(0,0,0,.95), 0 0 8px rgba(154,44,255,.3);
+  --nav-color: #9a2cff;
+  --nav-glow: rgba(154,44,255,.65);
 }
 
 .nav-item.masterpiece {
-  border-color: #ffc21c;
-  box-shadow: 0 3px 8px rgba(0,0,0,.95), 0 0 8px rgba(255,194,28,.3);
+  --nav-color: #ffc21c;
+  --nav-glow: rgba(255,194,28,.60);
 }
 
 .nav-item.third-party {
-  border-color: #00d8ff;
-  box-shadow: 0 3px 8px rgba(0,0,0,.95), 0 0 8px rgba(0,216,255,.3);
+  --nav-color: #00d8ff;
+  --nav-glow: rgba(0,216,255,.65);
 }
 
 .nav-item.primes {
-  border-color: #00cfff;
-  box-shadow: 0 3px 8px rgba(0,0,0,.95), 0 0 8px rgba(0,207,255,.3);
+  --nav-color: #1d8cff;
+  --nav-glow: rgba(29,140,255,.65);
 }
 
 .nav-item.contact {
-  border-color: #24aaff;
-  box-shadow: 0 3px 8px rgba(0,0,0,.95), 0 0 8px rgba(36,170,255,.3);
+  --nav-color: #1856a8;
+  --nav-glow: rgba(24,86,168,.60);
 }
 
 /* HERO */
