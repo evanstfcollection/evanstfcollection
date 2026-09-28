@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function closeAllFolders(except = null) {
+    document.body.classList.remove("autobots-active");
     folderSections.forEach((section) => {
       if (section !== except) {
         section.classList.remove("open");
@@ -59,6 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function openFolder(section, shouldScroll = true) {
     closeAllFolders(section);
     section.classList.add("open");
+    if (section.id === "autobots") {
+      document.body.classList.add("autobots-active");
+    }
     const tab = section.querySelector(".folder-tab");
     if (tab) {
       tab.setAttribute("aria-expanded", "true");
