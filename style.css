@@ -24,6 +24,18 @@ body.autobots-active {
     url("images/autobots-background.png") center top / cover scroll;
 }
 
+body.autobots-active .hero {
+  min-height: 0;
+  height: clamp(280px, 31vw, 520px);
+  padding: 0;
+  background:
+    url("images/autobots-background.png") center center / cover no-repeat;
+}
+
+body.autobots-active .hero-logo {
+  display: none;
+}
+
 button,
 input,
 textarea {
