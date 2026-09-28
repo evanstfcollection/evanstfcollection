@@ -1,896 +1,787 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
-
-:root {
-  --red: #ff1b1b;
-  --red-bright: #ff4545;
-  --blue: #1d8cff;
-  --cyan: #00cfff;
-  --black: #030609;
-  --panel: rgba(5, 10, 16, .94);
-  --text: #f5f7fa;
-  --muted: #b8c0cb;
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  color: var(--text);
-  background:
-    radial-gradient(circle at 50% 15%, rgba(0, 113, 255, .18), transparent 35%),
-    linear-gradient(180deg, #020407, #07101a 45%, #020407);
-  font-family: "Orbitron", Arial, sans-serif;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: .22;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-/* TOP NAVIGATION
-   The bar now scrolls away naturally instead of remaining fixed/sticky. */
-.topbar {
-  position: relative;
-  z-index: 100;
-  min-height: 88px;
-  display: flex;
-  align-items: stretch;
-  padding: 7px 18px 7px 20px;
-  background: rgba(2, 5, 8, .97);
-  border-bottom: 2px solid rgba(0, 207, 255, .65);
-  box-shadow: 0 5px 18px rgba(0,0,0,.85);
-}
-
-.site-logo {
-  width: 205px;
-  flex: 0 0 205px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 10px;
-}
-
-.site-logo img {
-  width: 190px;
-  max-height: 82px;
-  object-fit: contain;
-  display: block;
-}
-
-.main-nav {
-  flex: 1;
-  min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 7px;
-}
-
-.nav-item {
-  --nav-color: #00cfff;
-  --nav-glow: rgba(0, 207, 255, .45);
-  position: relative;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 8px 10px;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
-  border: 0;
-  overflow: hidden;
-  transition: .2s ease;
-  filter:
-    drop-shadow(0 3px 7px rgba(0,0,0,.95))
-    drop-shadow(0 0 6px var(--nav-glow));
-}
-
-/* The same Cybernetic Border artwork is used here, scaled down for navigation. */
-.nav-item::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background: var(--nav-color);
-  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-  filter:
-    drop-shadow(0 0 3px var(--nav-color))
-    drop-shadow(0 0 8px var(--nav-glow));
-  pointer-events: none;
-}
-
-.nav-item::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset: 5px;
-  background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
-  clip-path: polygon(
-    0 13px, 13px 0, calc(100% - 13px) 0, 100% 13px,
-    100% calc(100% - 13px), calc(100% - 13px) 100%,
-    13px 100%, 0 calc(100% - 13px)
-  );
-  pointer-events: none;
-}
-
-.nav-item img,
-.nav-item span {
-  position: relative;
-  z-index: 2;
-}
-
-.nav-item img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  flex: 0 0 auto;
-}
-
-.nav-item span {
-  font-size: clamp(10px, 1vw, 16px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: .5px;
-}
-
-.nav-item:hover,
-.nav-item.active {
-  transform: translateY(-1px);
-}
-
-.nav-item:hover::before,
-.nav-item.active::before {
-  filter:
-    drop-shadow(0 0 4px var(--nav-color))
-    drop-shadow(0 0 13px var(--nav-glow));
-}
-
-.nav-item.autobots {
-  --nav-color: #ff1b1b;
-  --nav-glow: rgba(255,27,27,.65);
-}
-
-.nav-item.decepticons {
-  --nav-color: #9a2cff;
-  --nav-glow: rgba(154,44,255,.65);
-}
-
-.nav-item.masterpiece {
-  --nav-color: #ffc21c;
-  --nav-glow: rgba(255,194,28,.60);
-}
-
-.nav-item.third-party {
-  --nav-color: #00d8ff;
-  --nav-glow: rgba(0,216,255,.65);
-}
-
-.nav-item.primes {
-  --nav-color: #1d8cff;
-  --nav-glow: rgba(29,140,255,.65);
-}
-
-.nav-item.contact {
-  --nav-color: #1856a8;
-  --nav-glow: rgba(24,86,168,.60);
-}
-
-/* HERO */
-.hero {
-  position: relative;
-  height: min(330px, 34vw);
-  min-height: 230px;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  background:
-    linear-gradient(90deg, rgba(3,7,12,.45), rgba(3,7,12,.08), rgba(3,7,12,.55)),
-    url("images/main-page-background.png") center / cover no-repeat;
-}
-
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 50%, rgba(255, 20, 20, .3), transparent 27%),
-    radial-gradient(circle at 80% 35%, rgba(255, 90, 20, .18), transparent 30%),
-    linear-gradient(90deg, rgba(0,0,0,.55), transparent 35%, transparent 65%, rgba(0,0,0,.55));
-}
-
-.hero-copy {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  text-shadow: 0 4px 15px #000;
-}
-
-.hero-faction-icon {
-  width: 105px;
-  height: 105px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 18px rgba(255, 25, 25, .8));
-}
-
-.hero h1 {
-  margin: 0;
-  font-size: clamp(42px, 6vw, 88px);
-  letter-spacing: -2px;
-  font-weight: 900;
-  color: #fff;
-  -webkit-text-stroke: 2px #10151b;
-  text-shadow:
-    0 0 5px #fff,
-    0 0 14px var(--red),
-    5px 5px 0 #111;
-}
-
-.hero p {
-  margin: 4px 0 0;
-  color: #fff;
-  font-size: clamp(14px, 1.5vw, 23px);
-  font-weight: 700;
-}
-
-/* COLLECTION HEADER */
-.collection-shell {
-  width: min(1500px, calc(100% - 30px));
-  margin: 0 auto;
-  padding: 18px 0 40px;
-}
-
-.collection-heading {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 10px 12px;
-  margin-bottom: 12px;
-  background: linear-gradient(90deg, rgba(8,14,21,.98), rgba(3,7,11,.92));
-  border: 0;
-  position: relative;
-  isolation: isolate;
-  box-shadow:
-    0 5px 12px rgba(0,0,0,.9),
-    0 0 14px rgba(255,27,27,.18);
-  overflow: hidden;
-}
-
-.collection-heading h2 {
-  position: relative;
-  z-index: 5;
-  margin: 0;
-  padding: 8px 22px;
-  min-width: 330px;
-  font-size: 21px;
-  color: white;
-  letter-spacing: 1px;
-}
-
-.filters {
-  position: relative;
-  z-index: 5;
-  flex: 1;
-  display: grid;
-  grid-template-columns: minmax(180px, 1.5fr) repeat(3, minmax(130px, 1fr)) 75px;
-  gap: 8px;
-}
-
-.filters input,
-.filters select,
-.filters button {
-  min-height: 38px;
-  border: 1px solid #557080;
-  color: white;
-  background: #050b11;
-  font: inherit;
-  font-size: 11px;
-  padding: 7px 10px;
-  box-shadow: 0 3px 7px rgba(0,0,0,.75);
-}
-
-.filters button {
-  cursor: pointer;
-  border-color: var(--red);
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  border: 1px solid #557080;
-  background: #050b11;
-  box-shadow: 0 3px 7px rgba(0,0,0,.75);
-}
-
-.search span {
-  padding-left: 10px;
-  font-size: 23px;
-  color: white;
-}
-
-.search input {
-  width: 100%;
-  border: 0;
-  outline: 0;
-  box-shadow: none;
-}
-
-/* COLLECTION CARDS */
-.content-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(380px, .95fr);
-  gap: 14px;
-  align-items: start;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.card {
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(11,17,24,.98), rgba(2,6,10,.98));
-  border: 0;
-  position: relative;
-  isolation: isolate;
-  box-shadow:
-    0 5px 10px rgba(0,0,0,.95),
-    0 0 10px rgba(255, 27, 27, .20);
-  overflow: hidden;
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 8px 14px rgba(0,0,0,.95),
-    0 0 20px rgba(255,27,27,.5),
-    inset 0 0 0 1px rgba(255,90,90,.18);
-}
-
-.card-image {
-  width: 100%;
-  aspect-ratio: 1.12 / 1;
-  object-fit: cover;
-  display: block;
-  background: #101820;
-}
-
-.card-body {
-  position: relative;
-  z-index: 5;
-  padding: 9px 10px 10px;
-}
-
-.card h3 {
-  margin: 0 0 4px;
-  font-size: 14px;
-  letter-spacing: .4px;
-}
-
-.card p {
-  margin: 2px 0;
-  color: #ccd3da;
-  font-size: 9px;
-  line-height: 1.35;
-}
-
-.card button {
-  width: 100%;
-  margin-top: 8px;
-  padding: 8px;
-  color: white;
-  font: 800 10px "Orbitron", sans-serif;
-  background: linear-gradient(90deg, #8f0000, #ff1616, #8f0000);
-  border: 1px solid #ff4b4b;
-  box-shadow:
-    0 3px 7px rgba(0,0,0,.9),
-    0 0 8px rgba(255,27,27,.28);
-  cursor: pointer;
-}
-
-/* DETAIL PANEL */
-.detail-panel {
-  position: sticky;
-  top: 104px;
-  padding: 12px;
-  background:
-    radial-gradient(circle at 70% 0%, rgba(255,30,30,.15), transparent 40%),
-    rgba(3,8,13,.98);
-  border: 0;
-  position: sticky;
-  isolation: isolate;
-  box-shadow:
-    0 7px 16px rgba(0,0,0,.95),
-    0 0 22px rgba(255,27,27,.20);
-  overflow: hidden;
-}
-
-.close-details {
-  z-index: 7;
-  position: absolute;
-  top: 7px;
-  right: 10px;
-  border: 0;
-  background: transparent;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-  text-shadow: 0 2px 5px #000;
-}
-
-.detail-top {
-  position: relative;
-  z-index: 5;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  padding-top: 5px;
-}
-
-.detail-main-image {
-  min-height: 310px;
-  background-size: cover;
-  background-position: center;
-  border: 0;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  box-shadow: 0 4px 9px rgba(0,0,0,.9), 0 0 9px rgba(255,27,27,.16);
-}
-
-.detail-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255,27,27,.6);
-}
-
-.detail-title img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-}
-
-.detail-title h2 {
-  margin: 0;
-  font-size: clamp(18px, 1.8vw, 28px);
-}
-
-.detail-specs {
-  padding-top: 12px;
-}
-
-.spec {
-  display: grid;
-  grid-template-columns: 105px 1fr;
-  gap: 8px;
-  margin: 8px 0;
-  font-size: 10px;
-}
-
-.spec strong { color: white; }
-.spec span { color: #d1d7dd; }
-
-.detail-thumbs {
-  position: relative;
-  z-index: 5;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.detail-thumbs button {
-  padding: 0;
-  background: #04080d;
-  border: 0;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  box-shadow: 0 3px 7px rgba(0,0,0,.85);
-  cursor: pointer;
-}
-
-.detail-thumbs img {
-  width: 100%;
-  aspect-ratio: 1.2 / 1;
-  object-fit: cover;
-  display: block;
-}
-
-.notes {
-  margin-top: 12px;
-  padding: 11px;
-  border: 0;
-  position: relative;
-  isolation: isolate;
-  background: rgba(2,6,10,.75);
-  box-shadow: 0 4px 9px rgba(0,0,0,.85);
-  overflow: hidden;
-}
-
-.notes h3 {
-  position: relative;
-  z-index: 5;
-  margin: 0 0 7px;
-  font-size: 11px;
-}
-
-.notes p {
-  position: relative;
-  z-index: 5;
-  margin: 0;
-  color: #d7dde3;
-  font: 11px/1.5 Arial, sans-serif;
-}
-
-.detail-navigation {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.detail-navigation button {
-  padding: 9px 14px;
-  color: white;
-  background: #050a10;
-  border: 0;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  box-shadow: 0 3px 7px rgba(0,0,0,.9), 0 0 7px rgba(255,27,27,.18);
-  font: 700 10px "Orbitron", sans-serif;
-  cursor: pointer;
-}
-
-#detailCounter {
-  font-size: 10px;
-  text-shadow: 0 2px 5px #000;
-}
-
-/* ============================================================
-   WEATHERED CYBERNETIC BORDER SYSTEM
-   Replaces the former clean red borders with the finalized
-   weathered Cybertronian frame artwork.
-   ============================================================ */
-
-.weathered-cyber-frame {
-  --frame-color: var(--red);
-  --frame-glow: rgba(255,27,27,.42);
-  position: relative;
-  isolation: isolate;
-}
-
-/* The SVG supplies the aged, chipped Cybertronian geometry. */
-.weathered-cyber-frame::before {
-  content: "";
-  position: absolute;
-  z-index: 4;
-  inset: 0;
-  background: var(--frame-color);
-  opacity: .94;
-
-  -webkit-mask:
-    url("cybernetic-border.svg")
-    center / 100% 100%
-    no-repeat;
-  mask:
-    url("cybernetic-border.svg")
-    center / 100% 100%
-    no-repeat;
-
-  filter:
-    drop-shadow(0 0 3px var(--frame-color))
-    drop-shadow(0 0 7px var(--frame-glow));
-
-  pointer-events: none;
-}
-
-/* A dark aged-metal layer sits beneath the colored frame. */
-.weathered-cyber-frame::after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 7px;
-
-  background:
-    radial-gradient(ellipse at 12% 18%, rgba(130,140,145,.10), transparent 20%),
-    radial-gradient(ellipse at 86% 78%, rgba(0,0,0,.50), transparent 26%),
-    repeating-linear-gradient(
-      165deg,
-      rgba(255,255,255,.014) 0 1px,
-      rgba(0,0,0,.045) 1px 4px,
-      transparent 4px 13px
-    ),
-    #10151a;
-
-  -webkit-clip-path: polygon(
-    0 14px, 14px 0, calc(100% - 14px) 0, 100% 14px,
-    100% calc(100% - 14px), calc(100% - 14px) 100%,
-    14px 100%, 0 calc(100% - 14px)
-  );
-  clip-path: polygon(
-    0 14px, 14px 0, calc(100% - 14px) 0, 100% 14px,
-    100% calc(100% - 14px), calc(100% - 14px) 100%,
-    14px 100%, 0 calc(100% - 14px)
-  );
-
-  pointer-events: none;
-}
-
-/* Keep existing page content above the weathering layers. */
-.weathered-cyber-frame > * {
-  position: relative;
-  z-index: 5;
-}
-
-/* Add the weathered frame to every former red-border component. */
-.collection-heading,
-.card,
-.detail-panel,
-.detail-main-image,
-.detail-thumbs button,
-.notes,
-.detail-navigation button {
-  --frame-color: var(--red);
-  --frame-glow: rgba(255,27,27,.42);
-}
-
-.collection-heading,
-.card,
-.detail-panel,
-.detail-main-image,
-.detail-thumbs button,
-.notes,
-.detail-navigation button {
-  isolation: isolate;
-}
-
-/* Each component gets the finalized frame artwork. */
-.collection-heading::before,
-.card::before,
-.detail-panel::before,
-.detail-main-image::before,
-.detail-thumbs button::before,
-.notes::before,
-.detail-navigation button::before {
-  content: "";
-  position: absolute;
-  z-index: 4;
-  inset: 0;
-  background: var(--frame-color);
-  opacity: .94;
-
-  -webkit-mask:
-    url("cybernetic-border.svg")
-    center / 100% 100%
-    no-repeat;
-  mask:
-    url("cybernetic-border.svg")
-    center / 100% 100%
-    no-repeat;
-
-  filter:
-    drop-shadow(0 0 3px var(--frame-color))
-    drop-shadow(0 0 7px var(--frame-glow));
-
-  pointer-events: none;
-}
-
-/* A subtle dark metal surface makes the frame look embedded,
-   rather than pasted over the existing panel. */
-.collection-heading::after,
-.card::after,
-.detail-panel::after,
-.detail-main-image::after,
-.detail-thumbs button::after,
-.notes::after,
-.detail-navigation button::after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 5px;
-  background:
-    radial-gradient(ellipse at 15% 20%, rgba(145,150,150,.08), transparent 20%),
-    radial-gradient(ellipse at 85% 80%, rgba(0,0,0,.42), transparent 25%),
-    repeating-linear-gradient(
-      165deg,
-      rgba(255,255,255,.012) 0 1px,
-      rgba(0,0,0,.04) 1px 4px,
-      transparent 4px 13px
-    ),
-    rgba(8,12,16,.30);
-  -webkit-clip-path: polygon(
-    0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
-    100% calc(100% - 12px), calc(100% - 12px) 100%,
-    12px 100%, 0 calc(100% - 12px)
-  );
-  clip-path: polygon(
-    0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
-    100% calc(100% - 12px), calc(100% - 12px) 100%,
-    12px 100%, 0 calc(100% - 12px)
-  );
-  pointer-events: none;
-}
-
-/* The hero's former red line becomes a restrained weathered
-   Cybertronian edge rather than a plain horizontal rule. */
-.hero {
-  border-bottom: 0;
-  position: relative;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  z-index: 4;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 18px;
-  background: var(--red);
-
-  -webkit-mask:
-    url("cybernetic-border.svg")
-    bottom center / 100% 500px
-    no-repeat;
-  mask:
-    url("cybernetic-border.svg")
-    bottom center / 100% 500px
-    no-repeat;
-
-  opacity: .80;
-  filter:
-    drop-shadow(0 0 3px var(--red))
-    drop-shadow(0 0 6px rgba(255,27,27,.30));
-  pointer-events: none;
-}
-
-/* Make the Autobots page red weathering slightly deeper than
-   the original bright red so it matches the prototype. */
-.collection-heading,
-.card,
-.detail-panel,
-.detail-main-image,
-.detail-thumbs button,
-.notes,
-.detail-navigation button,
-.hero {
-  --frame-color: #c91c1c;
-  --frame-glow: rgba(255,27,27,.42);
-}
-
-/* Hover keeps the weathered frame energized without making it
-   look newly manufactured. */
-.card:hover::before,
-.nav-item:hover::before,
-.nav-item.active::before {
-  filter:
-    drop-shadow(0 0 4px var(--frame-color))
-    drop-shadow(0 0 10px var(--frame-glow));
-}
-
-
-.empty {
-  grid-column: 1 / -1;
-  padding: 50px;
-  text-align: center;
-  border: 1px solid #394653;
-  box-shadow: 0 5px 10px rgba(0,0,0,.85);
-  color: #b7c0ca;
-}
-
-@media (max-width: 1100px) {
-  .topbar { flex-direction: column; }
-  .site-logo { width: 100%; height: 70px; margin: 0; }
-  .site-logo img { width: 160px; height: 65px; }
-  .main-nav { width: 100%; }
-  .content-layout { grid-template-columns: 1fr; }
-  .detail-panel { position: relative; top: auto; }
-}
-
-@media (max-width: 820px) {
-  .main-nav { grid-template-columns: repeat(3, 1fr); }
-  .collection-heading { display: block; clip-path: none; }
-  .collection-heading h2 { min-width: 0; margin-bottom: 8px; }
-  .filters { grid-template-columns: 1fr 1fr; }
-  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-@media (max-width: 520px) {
-  .topbar { padding: 5px; }
-  .main-nav { gap: 4px; }
-  .nav-item { gap: 3px; padding: 5px; }
-  .nav-item img { width: 28px; height: 28px; }
-  .nav-item span { font-size: 8px; }
-  .hero { height: 245px; }
-  .hero-faction-icon { width: 70px; height: 70px; }
-  .gallery { grid-template-columns: 1fr; }
-  .detail-top { grid-template-columns: 1fr; }
-  .detail-main-image { min-height: 280px; }
-  .filters { grid-template-columns: 1fr; }
-}
-
-/* ============================================================
-   COMPACT CYBERNETIC NAVIGATION BORDER
-   Uses the dedicated small-scale Cybernetic Border artwork.
-   ============================================================ */
-
-.nav-item {
-  isolation: isolate;
-  border: 0;
-  background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
-  box-shadow:
-    0 3px 7px rgba(0,0,0,.95),
-    0 0 5px var(--nav-glow);
-}
-
-.nav-item::after {
-  /* Replaces the older clipped inner panel with a simple
-     inset background so the Cybernetic frame remains visible. */
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset: 3px;
-  background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
-  clip-path: none;
-  pointer-events: none;
-}
-
-.nav-item::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background: var(--nav-color);
-  -webkit-mask: url("cybernetic-nav-border.svg") center / 100% 100% no-repeat;
-  mask: url("cybernetic-nav-border.svg") center / 100% 100% no-repeat;
-  -webkit-mask-mode: luminance;
-  mask-mode: luminance;
-  filter:
-    drop-shadow(0 0 3px var(--nav-color))
-    drop-shadow(0 0 8px var(--nav-glow));
-  pointer-events: none;
-}
-
-.nav-item img,
-.nav-item span {
-  position: relative;
-  z-index: 3;
-}
-
-.nav-item:hover::before,
-.nav-item.active::before {
-  filter:
-    drop-shadow(0 0 4px var(--nav-color))
-    drop-shadow(0 0 12px var(--nav-glow));
-}
-
-/* Keep the compact frame clear on very small screens. */
-@media (max-width: 520px) {
-  .nav-item::before {
-    filter:
-      drop-shadow(0 0 2px var(--nav-color))
-      drop-shadow(0 0 6px var(--nav-glow));
-  }
-}
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+    :root {
+      --red: #ff1b1b;
+      --red-bright: #ff4545;
+      --blue: #1d8cff;
+      --cyan: #00cfff;
+      --black: #030609;
+      --panel: rgba(5, 10, 16, .94);
+      --text: #f5f7fa;
+      --muted: #b8c0cb;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 50% 15%, rgba(0, 113, 255, .18), transparent 35%),
+        linear-gradient(180deg, #020407, #07101a 45%, #020407);
+      font-family: "Orbitron", Arial, sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* TOP NAVIGATION
+       The bar now scrolls away naturally instead of remaining fixed/sticky. */
+    .topbar {
+      position: relative;
+      z-index: 100;
+      min-height: 88px;
+      display: flex;
+      align-items: stretch;
+      padding: 7px 18px 7px 20px;
+      background: rgba(2, 5, 8, .97);
+      border-bottom: 2px solid rgba(0, 207, 255, .65);
+      box-shadow: 0 5px 18px rgba(0,0,0,.85);
+    }
+
+    .site-logo {
+      width: 205px;
+      flex: 0 0 205px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+
+    .site-logo img {
+      width: 190px;
+      max-height: 82px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .main-nav {
+      flex: 1;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 7px;
+    }
+
+    .nav-item {
+      --nav-color: #00cfff;
+      --nav-glow: rgba(0, 207, 255, .45);
+      position: relative;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 8px 10px;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
+      border: 0;
+      overflow: hidden;
+      transition: .2s ease;
+      filter:
+        drop-shadow(0 3px 7px rgba(0,0,0,.95))
+        drop-shadow(0 0 6px var(--nav-glow));
+    }
+
+    /* The same Cybernetic Border artwork is used here, scaled down for navigation. */
+    .nav-item::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      background: var(--nav-color);
+      -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+      mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+      filter:
+        drop-shadow(0 0 3px var(--nav-color))
+        drop-shadow(0 0 8px var(--nav-glow));
+      pointer-events: none;
+    }
+
+    .nav-item::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      inset: 5px;
+      background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
+      clip-path: polygon(
+        0 13px, 13px 0, calc(100% - 13px) 0, 100% 13px,
+        100% calc(100% - 13px), calc(100% - 13px) 100%,
+        13px 100%, 0 calc(100% - 13px)
+      );
+      pointer-events: none;
+    }
+
+    .nav-item img,
+    .nav-item span {
+      position: relative;
+      z-index: 2;
+    }
+
+    .nav-item img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .nav-item span {
+      font-size: clamp(10px, 1vw, 16px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: .5px;
+    }
+
+    .nav-item:hover,
+    .nav-item.active {
+      transform: translateY(-1px);
+    }
+
+    .nav-item:hover::before,
+    .nav-item.active::before {
+      filter:
+        drop-shadow(0 0 4px var(--nav-color))
+        drop-shadow(0 0 13px var(--nav-glow));
+    }
+
+    .nav-item.autobots {
+      --nav-color: #ff1b1b;
+      --nav-glow: rgba(255,27,27,.65);
+    }
+
+    .nav-item.decepticons {
+      --nav-color: #9a2cff;
+      --nav-glow: rgba(154,44,255,.65);
+    }
+
+    .nav-item.masterpiece {
+      --nav-color: #ffc21c;
+      --nav-glow: rgba(255,194,28,.60);
+    }
+
+    .nav-item.third-party {
+      --nav-color: #00d8ff;
+      --nav-glow: rgba(0,216,255,.65);
+    }
+
+    .nav-item.primes {
+      --nav-color: #1d8cff;
+      --nav-glow: rgba(29,140,255,.65);
+    }
+
+    .nav-item.contact {
+      --nav-color: #1856a8;
+      --nav-glow: rgba(24,86,168,.60);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: min(330px, 34vw);
+      min-height: 230px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(90deg, rgba(3,7,12,.45), rgba(3,7,12,.08), rgba(3,7,12,.55)),
+        url("images/main-page-background.png") center / cover no-repeat;
+      border-bottom: 2px solid var(--red);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(255, 20, 20, .3), transparent 27%),
+        radial-gradient(circle at 80% 35%, rgba(255, 90, 20, .18), transparent 30%),
+        linear-gradient(90deg, rgba(0,0,0,.55), transparent 35%, transparent 65%, rgba(0,0,0,.55));
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      text-shadow: 0 4px 15px #000;
+    }
+
+    .hero-faction-icon {
+      width: 105px;
+      height: 105px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 18px rgba(255, 25, 25, .8));
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 88px);
+      letter-spacing: -2px;
+      font-weight: 900;
+      color: #fff;
+      -webkit-text-stroke: 2px #10151b;
+      text-shadow:
+        0 0 5px #fff,
+        0 0 14px var(--red),
+        5px 5px 0 #111;
+    }
+
+    .hero p {
+      margin: 4px 0 0;
+      color: #fff;
+      font-size: clamp(14px, 1.5vw, 23px);
+      font-weight: 700;
+    }
+
+    /* COLLECTION HEADER */
+    .collection-shell {
+      width: min(1500px, calc(100% - 30px));
+      margin: 0 auto;
+      padding: 18px 0 40px;
+    }
+
+    .collection-heading {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, rgba(8,14,21,.98), rgba(3,7,11,.92));
+      border: 2px solid var(--red);
+      box-shadow:
+        0 5px 12px rgba(0,0,0,.9),
+        0 0 14px rgba(255,27,27,.35),
+        inset 0 0 0 1px rgba(255,70,70,.12);
+      clip-path: polygon(1% 0, 24% 0, 26% 12%, 100% 12%, 100% 88%, 26% 88%, 24% 100%, 1% 100%);
+    }
+
+    .collection-heading h2 {
+      margin: 0;
+      padding: 8px 22px;
+      min-width: 330px;
+      font-size: 21px;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .filters {
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(180px, 1.5fr) repeat(3, minmax(130px, 1fr)) 75px;
+      gap: 8px;
+    }
+
+    .filters input,
+    .filters select,
+    .filters button {
+      min-height: 38px;
+      border: 1px solid #557080;
+      color: white;
+      background: #050b11;
+      font: inherit;
+      font-size: 11px;
+      padding: 7px 10px;
+      box-shadow: 0 3px 7px rgba(0,0,0,.75);
+    }
+
+    .filters button {
+      cursor: pointer;
+      border-color: var(--red);
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      border: 1px solid #557080;
+      background: #050b11;
+      box-shadow: 0 3px 7px rgba(0,0,0,.75);
+    }
+
+    .search span {
+      padding-left: 10px;
+      font-size: 23px;
+      color: white;
+    }
+
+    .search input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      box-shadow: none;
+    }
+
+    /* COLLECTION CARDS */
+    .content-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(380px, .95fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(11,17,24,.98), rgba(2,6,10,.98));
+      border: 2px solid var(--red);
+      box-shadow:
+        0 5px 10px rgba(0,0,0,.95),
+        0 0 10px rgba(255, 27, 27, .28),
+        inset 0 0 0 1px rgba(255,70,70,.12);
+      clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 8px 14px rgba(0,0,0,.95),
+        0 0 20px rgba(255,27,27,.5),
+        inset 0 0 0 1px rgba(255,90,90,.18);
+    }
+
+    .card-image {
+      width: 100%;
+      aspect-ratio: 1.12 / 1;
+      object-fit: cover;
+      display: block;
+      background: #101820;
+    }
+
+    .card-body {
+      padding: 9px 10px 10px;
+    }
+
+    .card h3 {
+      margin: 0 0 4px;
+      font-size: 14px;
+      letter-spacing: .4px;
+    }
+
+    .card p {
+      margin: 2px 0;
+      color: #ccd3da;
+      font-size: 9px;
+      line-height: 1.35;
+    }
+
+    .card button {
+      width: 100%;
+      margin-top: 8px;
+      padding: 8px;
+      color: white;
+      font: 800 10px "Orbitron", sans-serif;
+      background: linear-gradient(90deg, #8f0000, #ff1616, #8f0000);
+      border: 1px solid #ff4b4b;
+      box-shadow:
+        0 3px 7px rgba(0,0,0,.9),
+        0 0 8px rgba(255,27,27,.28);
+      cursor: pointer;
+    }
+
+    /* DETAIL PANEL */
+    .detail-panel {
+      position: sticky;
+      top: 104px;
+      padding: 12px;
+      background:
+        radial-gradient(circle at 70% 0%, rgba(255,30,30,.15), transparent 40%),
+        rgba(3,8,13,.98);
+      border: 2px solid var(--red);
+      box-shadow:
+        0 7px 16px rgba(0,0,0,.95),
+        0 0 22px rgba(255,27,27,.28),
+        inset 0 0 0 1px rgba(255,70,70,.12);
+      clip-path: polygon(3% 0, 97% 0, 100% 3%, 100% 97%, 97% 100%, 3% 100%, 0 97%, 0 3%);
+    }
+
+    .close-details {
+      position: absolute;
+      top: 7px;
+      right: 10px;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      text-shadow: 0 2px 5px #000;
+    }
+
+    .detail-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding-top: 5px;
+    }
+
+    .detail-main-image {
+      min-height: 310px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid var(--red);
+      box-shadow: 0 4px 9px rgba(0,0,0,.9), 0 0 9px rgba(255,27,27,.25);
+    }
+
+    .detail-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,27,27,.6);
+    }
+
+    .detail-title img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+
+    .detail-title h2 {
+      margin: 0;
+      font-size: clamp(18px, 1.8vw, 28px);
+    }
+
+    .detail-specs {
+      padding-top: 12px;
+    }
+
+    .spec {
+      display: grid;
+      grid-template-columns: 105px 1fr;
+      gap: 8px;
+      margin: 8px 0;
+      font-size: 10px;
+    }
+
+    .spec strong { color: white; }
+    .spec span { color: #d1d7dd; }
+
+    .detail-thumbs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .detail-thumbs button {
+      padding: 0;
+      background: #04080d;
+      border: 1px solid var(--red);
+      box-shadow: 0 3px 7px rgba(0,0,0,.85);
+      cursor: pointer;
+    }
+
+    .detail-thumbs img {
+      width: 100%;
+      aspect-ratio: 1.2 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .notes {
+      margin-top: 12px;
+      padding: 11px;
+      border: 1px solid var(--red);
+      background: rgba(2,6,10,.75);
+      box-shadow: 0 4px 9px rgba(0,0,0,.85);
+    }
+
+    .notes h3 {
+      margin: 0 0 7px;
+      font-size: 11px;
+    }
+
+    .notes p {
+      margin: 0;
+      color: #d7dde3;
+      font: 11px/1.5 Arial, sans-serif;
+    }
+
+    .detail-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .detail-navigation button {
+      padding: 9px 14px;
+      color: white;
+      background: #050a10;
+      border: 1px solid var(--red);
+      box-shadow: 0 3px 7px rgba(0,0,0,.9), 0 0 7px rgba(255,27,27,.25);
+      font: 700 10px "Orbitron", sans-serif;
+      cursor: pointer;
+    }
+
+    #detailCounter {
+      font-size: 10px;
+      text-shadow: 0 2px 5px #000;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      padding: 50px;
+      text-align: center;
+      border: 1px solid #394653;
+      box-shadow: 0 5px 10px rgba(0,0,0,.85);
+      color: #b7c0ca;
+    }
+
+    @media (max-width: 1100px) {
+      .topbar { flex-direction: column; }
+      .site-logo { width: 100%; height: 70px; margin: 0; }
+      .site-logo img { width: 160px; height: 65px; }
+      .main-nav { width: 100%; }
+      .content-layout { grid-template-columns: 1fr; }
+      .detail-panel { position: relative; top: auto; }
+    }
+
+    @media (max-width: 820px) {
+      .main-nav { grid-template-columns: repeat(3, 1fr); }
+      .collection-heading { display: block; clip-path: none; }
+      .collection-heading h2 { min-width: 0; margin-bottom: 8px; }
+      .filters { grid-template-columns: 1fr 1fr; }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 520px) {
+      .topbar { padding: 5px; }
+      .main-nav { gap: 4px; }
+      .nav-item { gap: 3px; padding: 5px; }
+      .nav-item img { width: 28px; height: 28px; }
+      .nav-item span { font-size: 8px; }
+      .hero { height: 245px; }
+      .hero-faction-icon { width: 70px; height: 70px; }
+      .gallery { grid-template-columns: 1fr; }
+      .detail-top { grid-template-columns: 1fr; }
+      .detail-main-image { min-height: 280px; }
+      .filters { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       COMPACT CYBERNETIC NAVIGATION BORDER
+       Uses the dedicated small-scale Cybernetic Border artwork.
+       ============================================================ */
+
+    .nav-item {
+      isolation: isolate;
+      border: 0;
+      background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
+      box-shadow:
+        0 3px 7px rgba(0,0,0,.95),
+        0 0 5px var(--nav-glow);
+    }
+
+    .nav-item::after {
+      /* Replaces the older clipped inner panel with a simple
+         inset background so the Cybernetic frame remains visible. */
+      content: "";
+      position: absolute;
+      z-index: 0;
+      inset: 3px;
+      background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
+      clip-path: none;
+      pointer-events: none;
+    }
+
+    .nav-item::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      background: var(--nav-color);
+      -webkit-mask: url("cybernetic-nav-border.svg") center / 100% 100% no-repeat;
+      mask: url("cybernetic-nav-border.svg") center / 100% 100% no-repeat;
+      -webkit-mask-mode: luminance;
+      mask-mode: luminance;
+      filter:
+        drop-shadow(0 0 3px var(--nav-color))
+        drop-shadow(0 0 8px var(--nav-glow));
+      pointer-events: none;
+    }
+
+    .nav-item img,
+    .nav-item span {
+      position: relative;
+      z-index: 3;
+    }
+
+    .nav-item:hover::before,
+    .nav-item.active::before {
+      filter:
+        drop-shadow(0 0 4px var(--nav-color))
+        drop-shadow(0 0 12px var(--nav-glow));
+    }
+
+    /* Keep the compact frame clear on very small screens. */
+    @media (max-width: 520px) {
+      .nav-item::before {
+        filter:
+          drop-shadow(0 0 2px var(--nav-color))
+          drop-shadow(0 0 6px var(--nav-glow));
+      }
+    }
+
+
+    /* ============================================================
+       WEATHERED CYBERNETIC BORDER — AUTOBOTS PANEL FIT
+       Enlarges the frame around the collection header and detail
+       panel so the irregular Cybertronian geometry has more room.
+       ============================================================ */
+
+    /* AUTOBOT COLLECTION HEADER */
+    .collection-heading {
+      position: relative;
+      width: calc(100% + 20px);
+      min-height: 68px;
+      margin-left: -10px;
+      margin-right: -10px;
+      margin-bottom: 18px;
+      padding: 16px 22px;
+      border: 0;
+      clip-path: none;
+      overflow: visible;
+      isolation: isolate;
+    }
+
+    .collection-heading::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: -7px;
+      background: var(--red);
+      -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+      mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+      filter:
+        drop-shadow(0 0 3px var(--red))
+        drop-shadow(0 0 8px rgba(255,27,27,.42));
+      pointer-events: none;
+    }
+
+    .collection-heading > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .collection-heading h2 {
+      padding: 10px 24px;
+      min-width: 350px;
+    }
+
+    .filters {
+      min-height: 42px;
+    }
+
+    /* DETAIL PANEL */
+    .detail-panel {
+      position: sticky;
+      top: 104px;
+      width: calc(100% + 18px);
+      margin-left: -9px;
+      padding: 25px 20px 36px;
+      border: 0;
+      clip-path: none;
+      overflow: visible;
+      isolation: isolate;
+    }
+
+    .detail-panel::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: -10px;
+      background: var(--red);
+      -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+      mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+      filter:
+        drop-shadow(0 0 3px var(--red))
+        drop-shadow(0 0 9px rgba(255,27,27,.45));
+      pointer-events: none;
+    }
+
+    .detail-panel > :not(.close-details) {
+      position: relative;
+      z-index: 2;
+    }
+
+    .close-details {
+      top: 13px;
+      right: 17px;
+      z-index: 4;
+    }
+
+    /* Move the detail content farther inside the enlarged frame. */
+    .detail-top {
+      padding-top: 14px;
+    }
+
+    .detail-title {
+      padding: 14px 8px 12px;
+    }
+
+    .detail-specs {
+      padding-top: 15px;
+    }
+
+    /* Give the lower section more breathing room so the frame does
+       not visually run through the Collection Notes area. */
+    .detail-thumbs {
+      margin-top: 14px;
+    }
+
+    .notes {
+      margin-top: 20px;
+      padding: 14px;
+    }
+
+    .detail-navigation {
+      margin-top: 20px;
+      padding-bottom: 6px;
+    }
+
+    /* Keep the enlarged frames usable on smaller screens. */
+    @media (max-width: 1100px) {
+      .collection-heading {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .detail-panel {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .collection-heading {
+        min-height: 0;
+        padding: 14px 16px;
+      }
+
+      .collection-heading h2 {
+        min-width: 0;
+      }
+
+      .detail-panel {
+        padding: 22px 16px 30px;
+      }
+    }
