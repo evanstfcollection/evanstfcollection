@@ -8,18 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ...document.querySelectorAll(".folder-tab")
   ];
 
-  const navButtons = [
-    ...document.querySelectorAll(".nav-tab")
-  ];
-
-  const dropdownLinks = [
-    ...document.querySelectorAll(".dropdown-link")
-  ];
-
-  const navItems = [
-    ...document.querySelectorAll(".nav-item")
-  ];
-
   const menuToggle =
     document.querySelector(".menu-toggle");
 
@@ -98,66 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
-  function closeNavItems(except = null) {
-    navItems.forEach((item) => {
-      if (item !== except) {
-        item.classList.remove("open");
-        const button = item.querySelector(".nav-tab");
-        if (button) {
-          button.setAttribute("aria-expanded", "false");
-        }
-      }
-    });
-  }
-
-  navButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      event.preventDefault();
-      const item = button.closest(".nav-item");
-      if (!item) return;
-      const isOpen = item.classList.contains("open");
-      if (isOpen) {
-        closeNavItems();
-      } else {
-        closeNavItems(item);
-        item.classList.add("open");
-        button.setAttribute("aria-expanded", "true");
-      }
-    });
-  });
-
-  dropdownLinks.forEach((button) => {
-    button.addEventListener("click", () => {
-      const targetId = button.dataset.target;
-      const target = document.getElementById(targetId);
-      if (!target) return;
-      closeNavItems();
-      if (target.classList.contains("folder-section")) {
-        openFolder(target);
-      } else {
-        closeAllFolders();
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-    });
-  });
-
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener(
-      "click",
-      () => {
-        const isOpen =
-          mobileNav.classList.toggle("open");
-        menuToggle.setAttribute(
-          "aria-expanded",
-          String(isOpen)
-        );
-      }
-    );
-  }
 
   if (contactForm) {
     contactForm.addEventListener(
