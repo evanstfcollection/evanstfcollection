@@ -228,7 +228,6 @@ function openDetails(index) {
   previousFigure.disabled = visibleFigures.length < 2;
   nextFigure.disabled = visibleFigures.length < 2;
 
-  detailPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 function closeDetailPanel() {
