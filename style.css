@@ -18,6 +18,12 @@ body {
   background-color: #050a12;
 }
 
+body.autobots-active {
+  background:
+    linear-gradient(rgba(3, 8, 18, 0.08), rgba(3, 8, 18, 0.18)),
+    url("images/autobots-background.png") center top / cover scroll;
+}
+
 button,
 input,
 textarea {
