@@ -1,4 +1,4 @@
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
     :root {
       --red: #ff1b1b;
@@ -785,3 +785,229 @@
         padding: 22px 16px 30px;
       }
     }
+
+
+/* ============================================================
+   SECOND FIT PASS
+   Restore the full weathered Cybernetic treatment to the figure
+   image cards, while giving the larger panels slightly more room.
+   ============================================================ */
+
+/* FIGURE CARDS — return to the full Cybernetic Border */
+.card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  clip-path: none;
+  background:
+    linear-gradient(180deg, rgba(11,17,24,.98), rgba(2,6,10,.98));
+  box-shadow:
+    0 5px 10px rgba(0,0,0,.95),
+    0 0 10px rgba(255,27,27,.28);
+  padding: 9px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: var(--red);
+  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  filter:
+    drop-shadow(0 0 3px var(--red))
+    drop-shadow(0 0 8px rgba(255,27,27,.42));
+  pointer-events: none;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 10px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.018), transparent 24%),
+    rgba(5,8,12,.94);
+  clip-path: polygon(
+    0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
+    100% calc(100% - 12px), calc(100% - 12px) 100%,
+    12px 100%, 0 calc(100% - 12px)
+  );
+  pointer-events: none;
+}
+
+.card-image,
+.card-body {
+  position: relative;
+  z-index: 2;
+}
+
+.card-image {
+  border: 0;
+}
+
+.card-body {
+  padding: 9px 10px 10px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 14px rgba(0,0,0,.95),
+    0 0 20px rgba(255,27,27,.42);
+}
+
+.card:hover::before {
+  filter:
+    drop-shadow(0 0 4px var(--red))
+    drop-shadow(0 0 12px rgba(255,27,27,.52));
+}
+
+/* COLLECTION HEADER — a little more room */
+.collection-heading {
+  width: calc(100% + 34px);
+  margin-left: -17px;
+  margin-right: -17px;
+  min-height: 74px;
+  padding: 18px 28px;
+}
+
+.collection-heading::before {
+  inset: -9px;
+}
+
+.collection-heading h2 {
+  min-width: 375px;
+  padding: 11px 26px;
+}
+
+/* DETAIL PANEL — slightly larger again */
+.detail-panel {
+  width: calc(100% + 30px);
+  margin-left: -15px;
+  padding: 30px 25px 48px;
+}
+
+.detail-panel::before {
+  inset: -12px;
+}
+
+/* Move everything inside the detail frame */
+.detail-top {
+  padding-top: 18px;
+}
+
+.detail-title {
+  padding: 17px 12px 14px;
+}
+
+.detail-specs {
+  padding: 17px 8px 0;
+}
+
+/* Restore the weathered Cybernetic frame around the main figure image */
+.detail-main-image {
+  position: relative;
+  border: 0;
+  min-height: 310px;
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.detail-main-image::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: var(--red);
+  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  filter:
+    drop-shadow(0 0 3px var(--red))
+    drop-shadow(0 0 7px rgba(255,27,27,.40));
+  pointer-events: none;
+}
+
+.detail-main-image::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 9px;
+  background: rgba(3,7,11,.10);
+  clip-path: polygon(
+    0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
+    100% calc(100% - 12px), calc(100% - 12px) 100%,
+    12px 100%, 0 calc(100% - 12px)
+  );
+  pointer-events: none;
+}
+
+/* Thumbnail frames get the same visual treatment, but remain compact. */
+.detail-thumbs button {
+  position: relative;
+  isolation: isolate;
+  border: 0;
+  overflow: hidden;
+  min-height: 88px;
+}
+
+.detail-thumbs button::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: var(--red);
+  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  filter:
+    drop-shadow(0 0 2px var(--red))
+    drop-shadow(0 0 5px rgba(255,27,27,.35));
+  pointer-events: none;
+}
+
+.detail-thumbs img {
+  position: relative;
+  z-index: 1;
+}
+
+/* Push Notes and navigation farther down inside the larger frame. */
+.notes {
+  margin-top: 25px;
+  padding: 17px;
+}
+
+.detail-navigation {
+  margin-top: 25px;
+  padding: 0 5px 9px;
+}
+
+@media (max-width: 1100px) {
+  .collection-heading {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .detail-panel {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .collection-heading {
+    min-height: 0;
+    padding: 15px 17px;
+  }
+
+  .collection-heading h2 {
+    min-width: 0;
+  }
+
+  .detail-panel {
+    padding: 24px 17px 36px;
+  }
+}
