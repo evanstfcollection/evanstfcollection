@@ -685,23 +685,18 @@ button {
 }
 
 .autobots-section {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(5, 8, 14, 0.12),
-      rgba(5, 8, 14, 0.35)
-    ),
-    url("images/autobots-background.png") center top / cover no-repeat;
-  background-attachment: scroll;
+  background: transparent;
 }
 
 .autobots-section .folder-content {
   background:
     linear-gradient(
       135deg,
-      rgba(85, 5, 14, 0.76),
-      rgba(24, 6, 12, 0.88)
-    );
+      rgba(85, 5, 14, 0.28),
+      rgba(24, 6, 12, 0.42)
+    ),
+    url("images/autobots-background.png") center center / cover no-repeat;
+  background-attachment: scroll;
 }
 
 .decepticons-section .folder-content {
