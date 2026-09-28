@@ -8,12 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ...document.querySelectorAll(".folder-tab")
   ];
 
-  const menuToggle =
-    document.querySelector(".menu-toggle");
-
-  const mobileNav =
-    document.querySelector("#mobile-nav");
-
   const contactForm =
     document.querySelector("#contact-form");
 
