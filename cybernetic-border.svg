@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer mechanical frame -->
+  <path d="M28 3 H972 L997 28 V492 L972 517 H28 L3 492 V28 Z"
+        fill="none" stroke="currentColor" stroke-width="4" filter="url(#glow)"/>
+  <path d="M18 15 H320 M350 15 H650 M680 15 H940
+           M985 55 V190 M985 220 V365 M985 395 V465
+           M940 505 H720 M690 505 H310 M280 505 H60
+           M15 465 V390 M15 360 V225 M15 195 V55"
+        fill="none" stroke="currentColor" stroke-width="2.5"/>
+
+  <!-- Inner mechanical frame -->
+  <path d="M48 42 H385 L405 62 H595 L615 42 H952
+           V478 H615 L595 458 H405 L385 478 H48 Z"
+        fill="none" stroke="currentColor" stroke-width="2.5"/>
+
+  <!-- Angular corner assemblies -->
+  <path d="M18 28 L42 8 H155 L178 28 L155 48 H65 L48 65 V155"
+        fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M982 28 L958 8 H845 L822 28 L845 48 H935 L952 65 V155"
+        fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M18 492 L42 512 H155 L178 492 L155 472 H65 L48 455 V365"
+        fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M982 492 L958 512 H845 L822 492 L845 472 H935 L952 455 V365"
+        fill="none" stroke="currentColor" stroke-width="2"/>
+
+  <!-- Circuit / panel interruptions -->
+  <path d="M75 28 H210 L225 16 H315
+           M685 16 H775 L790 28 H925"
+        fill="none" stroke="currentColor" stroke-width="3"/>
+  <path d="M28 90 H52 M28 115 H72 M28 140 H45
+           M972 90 H948 M972 115 H928 M972 140 H955"
+        fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M75 492 H210 L225 504 H315
+           M685 504 H775 L790 492 H925"
+        fill="none" stroke="currentColor" stroke-width="3"/>
+
+  <!-- Small mechanical accents -->
+  <path d="M245 42 L260 27 H330 L345 42
+           M655 42 L670 27 H740 L755 42
+           M245 478 L260 493 H330 L345 478
+           M655 478 L670 493 H740 L755 478"
+        fill="none" stroke="currentColor" stroke-width="2"/>
+
+  <circle cx="38" cy="38" r="3.5" fill="currentColor"/>
+  <circle cx="962" cy="38" r="3.5" fill="currentColor"/>
+  <circle cx="38" cy="482" r="3.5" fill="currentColor"/>
+  <circle cx="962" cy="482" r="3.5" fill="currentColor"/>
+</svg>
