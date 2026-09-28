@@ -1,0 +1,249 @@
+:root {
+  --frame-color: #ff1b1b;
+  --frame-glow: rgba(255, 27, 27, .65);
+  --frame-dark: #07090d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  padding: 48px 24px 80px;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(255,255,255,.045), transparent 35%),
+    linear-gradient(135deg, #020305, #0b0f14 50%, #020305);
+  color: #f4f5f7;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.demo-page {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(24px, 4vw, 42px);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin: 8px 0 36px;
+  text-align: center;
+  color: #aeb7c1;
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+
+/* =========================================================
+   STANDARD CYBERNETIC BORDER
+   Reusable frame system
+   ========================================================= */
+
+.cyber-frame {
+  --cut: 30px;
+  position: relative;
+  isolation: isolate;
+  min-height: 420px;
+  padding: 70px 90px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.035), transparent 20%),
+    linear-gradient(315deg, rgba(255,255,255,.025), transparent 20%),
+    rgba(7, 9, 13, .96);
+  overflow: hidden;
+
+  clip-path: polygon(
+    0 var(--cut),
+    var(--cut) 0,
+    calc(100% - var(--cut)) 0,
+    100% var(--cut),
+    100% calc(100% - var(--cut)),
+    calc(100% - var(--cut)) 100%,
+    var(--cut) 100%,
+    0 calc(100% - var(--cut))
+  );
+
+  filter:
+    drop-shadow(0 0 7px var(--frame-glow))
+    drop-shadow(0 0 20px rgba(0,0,0,.85));
+}
+
+/* Outer mechanical SVG frame */
+.cyber-frame::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: var(--frame-color);
+  opacity: .98;
+
+  -webkit-mask:
+    url("cybernetic-border.svg")
+    center / 100% 100%
+    no-repeat;
+  mask:
+    url("cybernetic-border.svg")
+    center / 100% 100%
+    no-repeat;
+
+  filter:
+    drop-shadow(0 0 5px var(--frame-color))
+    drop-shadow(0 0 12px var(--frame-glow));
+  pointer-events: none;
+}
+
+/* Dark inner panel keeps the border clean and readable */
+.cyber-frame::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 16px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.025), transparent 25%),
+    rgba(5, 7, 10, .92);
+
+  clip-path: polygon(
+    0 22px,
+    22px 0,
+    calc(100% - 22px) 0,
+    100% 22px,
+    100% calc(100% - 22px),
+    calc(100% - 22px) 100%,
+    22px 100%,
+    0 calc(100% - 22px)
+  );
+
+  pointer-events: none;
+}
+
+.cyber-frame__content {
+  position: relative;
+  z-index: 5;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--frame-color);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-shadow: 0 0 8px var(--frame-glow);
+}
+
+.cyber-frame h2 {
+  margin: 16px 0 14px;
+  font-size: clamp(30px, 6vw, 68px);
+  line-height: .95;
+  font-weight: 900;
+  letter-spacing: -2px;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 18px var(--frame-glow);
+}
+
+.cyber-frame p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #c4cbd2;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.status {
+  display: inline-flex;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 10px 18px;
+  border: 1px solid color-mix(in srgb, var(--frame-color) 60%, transparent);
+  background: rgba(0,0,0,.45);
+  box-shadow: 0 0 12px rgba(0,0,0,.65);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.status strong {
+  color: var(--frame-color);
+  text-shadow: 0 0 8px var(--frame-glow);
+}
+
+/* =========================================================
+   COLLECTION COLORS
+   ========================================================= */
+
+.cyber-frame--red {
+  --frame-color: #ff1b1b;
+  --frame-glow: rgba(255,27,27,.65);
+}
+
+.cyber-frame--purple {
+  --frame-color: #9a2cff;
+  --frame-glow: rgba(154,44,255,.65);
+}
+
+.cyber-frame--gold {
+  --frame-color: #ffc21c;
+  --frame-glow: rgba(255,194,28,.60);
+}
+
+.cyber-frame--blue {
+  --frame-color: #1d8cff;
+  --frame-glow: rgba(29,140,255,.65);
+}
+
+.cyber-frame--cyan {
+  --frame-color: #00d8ff;
+  --frame-glow: rgba(0,216,255,.65);
+}
+
+.cyber-frame--darkblue {
+  --frame-color: #1856a8;
+  --frame-glow: rgba(24,86,168,.60);
+}
+
+/* Demo color samples */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.color-chip {
+  min-height: 54px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--frame-color);
+  color: var(--frame-color);
+  background: #07090d;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px var(--frame-glow);
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 28px 12px 50px;
+  }
+
+  .cyber-frame {
+    --cut: 22px;
+    min-height: 480px;
+    padding: 64px 34px;
+  }
+
+  .color-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
