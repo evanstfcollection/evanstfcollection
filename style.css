@@ -688,9 +688,11 @@ button {
   background:
     linear-gradient(
       135deg,
-      rgba(85, 5, 14, 0.94),
-      rgba(24, 6, 12, 0.96)
-    );
+      rgba(85, 5, 14, 0.76),
+      rgba(24, 6, 12, 0.88)
+    ),
+    url("images/autobots-background.png") center center / cover no-repeat;
+  background-attachment: scroll;
 }
 
 .decepticons-section .folder-content {
