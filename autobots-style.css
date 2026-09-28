@@ -37,9 +37,10 @@ body::before {
   background-size: 32px 32px;
 }
 
+/* TOP NAVIGATION
+   The bar now scrolls away naturally instead of remaining fixed/sticky. */
 .topbar {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 100;
   min-height: 88px;
   display: flex;
@@ -47,7 +48,7 @@ body::before {
   padding: 7px 18px 7px 20px;
   background: rgba(2, 5, 8, .97);
   border-bottom: 2px solid rgba(0, 207, 255, .65);
-  box-shadow: 0 0 22px rgba(0,0,0,.8);
+  box-shadow: 0 5px 18px rgba(0,0,0,.85);
 }
 
 .site-logo {
@@ -89,6 +90,10 @@ body::before {
   border: 1px solid rgba(0, 207, 255, .7);
   clip-path: polygon(7% 0, 93% 0, 100% 18%, 100% 82%, 93% 100%, 7% 100%, 0 82%, 0 18%);
   transition: .2s ease;
+  box-shadow:
+    0 3px 7px rgba(0,0,0,.9),
+    0 0 8px rgba(0,0,0,.75),
+    inset 0 0 0 1px rgba(255,255,255,.045);
 }
 
 .nav-item img {
@@ -110,16 +115,48 @@ body::before {
   transform: translateY(-1px);
 }
 
-.nav-item.autobots { border-color: var(--red); }
+.nav-item.autobots {
+  border-color: var(--red);
+  box-shadow:
+    0 3px 8px rgba(0,0,0,.95),
+    0 0 8px rgba(255,27,27,.45),
+    inset 0 0 0 1px rgba(255,80,80,.16);
+}
+
 .nav-item.autobots:hover,
-.nav-item.autobots.active { box-shadow: inset 0 0 18px rgba(255, 27, 27, .3), 0 0 18px rgba(255, 27, 27, .45); }
+.nav-item.autobots.active {
+  box-shadow:
+    0 4px 12px rgba(0,0,0,.95),
+    0 0 18px rgba(255, 27, 27, .55),
+    inset 0 0 18px rgba(255, 27, 27, .3);
+}
 
-.nav-item.decepticons { border-color: #9a2cff; }
-.nav-item.masterpiece { border-color: #ffc21c; }
-.nav-item.third-party { border-color: #00d8ff; }
-.nav-item.primes { border-color: #00cfff; }
-.nav-item.contact { border-color: #24aaff; }
+.nav-item.decepticons {
+  border-color: #9a2cff;
+  box-shadow: 0 3px 8px rgba(0,0,0,.95), 0 0 8px rgba(154,44,255,.3);
+}
 
+.nav-item.masterpiece {
+  border-color: #ffc21c;
+  box-shadow: 0 3px 8px rgba(0,0,0,.95), 0 0 8px rgba(255,194,28,.3);
+}
+
+.nav-item.third-party {
+  border-color: #00d8ff;
+  box-shadow: 0 3px 8px rgba(0,0,0,.95), 0 0 8px rgba(0,216,255,.3);
+}
+
+.nav-item.primes {
+  border-color: #00cfff;
+  box-shadow: 0 3px 8px rgba(0,0,0,.95), 0 0 8px rgba(0,207,255,.3);
+}
+
+.nav-item.contact {
+  border-color: #24aaff;
+  box-shadow: 0 3px 8px rgba(0,0,0,.95), 0 0 8px rgba(36,170,255,.3);
+}
+
+/* HERO */
 .hero {
   position: relative;
   height: min(330px, 34vw);
@@ -159,7 +196,7 @@ body::before {
 .hero h1 {
   margin: 0;
   font-size: clamp(42px, 6vw, 88px);
-  letter-spacing: 2px;
+  letter-spacing: -2px;
   font-weight: 900;
   color: #fff;
   -webkit-text-stroke: 2px #10151b;
@@ -176,6 +213,7 @@ body::before {
   font-weight: 700;
 }
 
+/* COLLECTION HEADER */
 .collection-shell {
   width: min(1500px, calc(100% - 30px));
   margin: 0 auto;
@@ -190,7 +228,10 @@ body::before {
   margin-bottom: 12px;
   background: linear-gradient(90deg, rgba(8,14,21,.98), rgba(3,7,11,.92));
   border: 2px solid var(--red);
-  box-shadow: 0 0 14px rgba(255,27,27,.3);
+  box-shadow:
+    0 5px 12px rgba(0,0,0,.9),
+    0 0 14px rgba(255,27,27,.35),
+    inset 0 0 0 1px rgba(255,70,70,.12);
   clip-path: polygon(1% 0, 24% 0, 26% 12%, 100% 12%, 100% 88%, 26% 88%, 24% 100%, 1% 100%);
 }
 
@@ -220,6 +261,7 @@ body::before {
   font: inherit;
   font-size: 11px;
   padding: 7px 10px;
+  box-shadow: 0 3px 7px rgba(0,0,0,.75);
 }
 
 .filters button {
@@ -232,6 +274,7 @@ body::before {
   align-items: center;
   border: 1px solid #557080;
   background: #050b11;
+  box-shadow: 0 3px 7px rgba(0,0,0,.75);
 }
 
 .search span {
@@ -244,8 +287,10 @@ body::before {
   width: 100%;
   border: 0;
   outline: 0;
+  box-shadow: none;
 }
 
+/* COLLECTION CARDS */
 .content-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.65fr) minmax(380px, .95fr);
@@ -263,14 +308,20 @@ body::before {
   overflow: hidden;
   background: linear-gradient(180deg, rgba(11,17,24,.98), rgba(2,6,10,.98));
   border: 2px solid var(--red);
-  box-shadow: 0 0 10px rgba(255, 27, 27, .28);
+  box-shadow:
+    0 5px 10px rgba(0,0,0,.95),
+    0 0 10px rgba(255, 27, 27, .28),
+    inset 0 0 0 1px rgba(255,70,70,.12);
   clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
   transition: transform .18s ease, box-shadow .18s ease;
 }
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(255,27,27,.5);
+  box-shadow:
+    0 8px 14px rgba(0,0,0,.95),
+    0 0 20px rgba(255,27,27,.5),
+    inset 0 0 0 1px rgba(255,90,90,.18);
 }
 
 .card-image {
@@ -306,9 +357,13 @@ body::before {
   font: 800 10px "Orbitron", sans-serif;
   background: linear-gradient(90deg, #8f0000, #ff1616, #8f0000);
   border: 1px solid #ff4b4b;
+  box-shadow:
+    0 3px 7px rgba(0,0,0,.9),
+    0 0 8px rgba(255,27,27,.28);
   cursor: pointer;
 }
 
+/* DETAIL PANEL */
 .detail-panel {
   position: sticky;
   top: 104px;
@@ -317,7 +372,10 @@ body::before {
     radial-gradient(circle at 70% 0%, rgba(255,30,30,.15), transparent 40%),
     rgba(3,8,13,.98);
   border: 2px solid var(--red);
-  box-shadow: 0 0 22px rgba(255,27,27,.28);
+  box-shadow:
+    0 7px 16px rgba(0,0,0,.95),
+    0 0 22px rgba(255,27,27,.28),
+    inset 0 0 0 1px rgba(255,70,70,.12);
   clip-path: polygon(3% 0, 97% 0, 100% 3%, 100% 97%, 97% 100%, 3% 100%, 0 97%, 0 3%);
 }
 
@@ -330,6 +388,7 @@ body::before {
   color: white;
   font-size: 28px;
   cursor: pointer;
+  text-shadow: 0 2px 5px #000;
 }
 
 .detail-top {
@@ -344,6 +403,7 @@ body::before {
   background-size: cover;
   background-position: center;
   border: 1px solid var(--red);
+  box-shadow: 0 4px 9px rgba(0,0,0,.9), 0 0 9px rgba(255,27,27,.25);
 }
 
 .detail-title {
@@ -391,6 +451,7 @@ body::before {
   padding: 0;
   background: #04080d;
   border: 1px solid var(--red);
+  box-shadow: 0 3px 7px rgba(0,0,0,.85);
   cursor: pointer;
 }
 
@@ -406,6 +467,7 @@ body::before {
   padding: 11px;
   border: 1px solid var(--red);
   background: rgba(2,6,10,.75);
+  box-shadow: 0 4px 9px rgba(0,0,0,.85);
 }
 
 .notes h3 {
@@ -432,12 +494,14 @@ body::before {
   color: white;
   background: #050a10;
   border: 1px solid var(--red);
+  box-shadow: 0 3px 7px rgba(0,0,0,.9), 0 0 7px rgba(255,27,27,.25);
   font: 700 10px "Orbitron", sans-serif;
   cursor: pointer;
 }
 
 #detailCounter {
   font-size: 10px;
+  text-shadow: 0 2px 5px #000;
 }
 
 .empty {
@@ -445,6 +509,7 @@ body::before {
   padding: 50px;
   text-align: center;
   border: 1px solid #394653;
+  box-shadow: 0 5px 10px rgba(0,0,0,.85);
   color: #b7c0ca;
 }
 
