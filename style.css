@@ -120,8 +120,8 @@ button {
   z-index: 1;
   inset: 0;
   background: var(--nav-color);
-  -webkit-mask: url("images/cybernetic-border.svg") center / 100% 100% no-repeat;
-  mask: url("images/cybernetic-border.svg") center / 100% 100% no-repeat;
+  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
   filter: drop-shadow(0 0 3px var(--nav-color)) drop-shadow(0 0 8px var(--nav-glow));
   pointer-events: none;
 }
@@ -656,77 +656,36 @@ button {
 }
 
 /* =========================
-   TABLET
+   UNIFIED NAV RESPONSIVE
 ========================= */
 
 @media (max-width: 1050px) {
-
-  .site-header {
-    grid-template-columns: 21% 79%;
-    min-height: 220px;
+  .unified-header .brand {
+    width: 160px;
+    flex-basis: 160px;
   }
 
-  .logo-zone {
-    height: 220px;
+  .unified-header .brand img {
+    width: 150px;
   }
 
-  .menu-zone {
-    height: 220px;
-    min-height: 220px;
+  .unified-header .main-nav {
+    gap: 5px;
   }
 
-  .menu-zone:has(.nav-item.open) {
-    height: 430px;
-    min-height: 430px;
-  }
-
-  .brand {
-    width: min(88%, 205px);
-    max-height: 195px;
-  }
-
-  .brand img {
-    max-height: 195px;
-  }
-
-  .menu-zone-inner {
-    height: 100%;
-    min-height: 220px;
-    padding: 78px 12px 16px;
-  }
-
-  .main-nav {
-    height: 58px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .unified-header .nav-item {
+    min-height: 68px;
+    padding: 6px 7px;
     gap: 6px;
   }
 
-  .nav-item {
-    height: 52px;
-  }
-
-  .nav-tab {
-    min-height: 48px;
-    height: 48px;
-    padding: 6px 9px;
-    gap: 7px;
-    font-size: 0.68rem;
-  }
-
-  .nav-tab img {
+  .unified-header .nav-item img {
     width: 34px;
     height: 34px;
-    flex-basis: 34px;
   }
 
-  .nav-dropdown {
-    top: 54px;
-    width: calc(300% + 12px);
-    min-height: 170px;
-  }
-
-  .dropdown-visual {
-    min-height: 170px;
+  .unified-header .nav-item span {
+    font-size: 0.68rem;
   }
 
   .folder-content,
@@ -735,145 +694,51 @@ button {
   }
 }
 
-/* =========================
-   MOBILE
-========================= */
-
 @media (max-width: 720px) {
-  .menu-zone:has(.nav-item.open) {
-    height: 76px;
-    min-height: 76px;
-  }
-
-
   html {
     scroll-padding-top: 76px;
   }
 
-  .site-header {
-    display: block;
-    height: 76px;
+  .site-header.unified-header {
     min-height: 76px;
-  }
-
-  .logo-zone {
-    position: absolute;
-    inset: 0 auto 0 0;
-
-    width: 145px;
     height: 76px;
-
-    padding: 6px 8px;
-    border-right: 0;
+    padding: 5px;
+    gap: 4px;
   }
 
-  .brand {
-    width: 125px;
-    max-height: 64px;
+  .unified-header .brand {
+    width: 130px;
+    flex-basis: 130px;
   }
 
-  .brand img {
-    max-height: 64px;
+  .unified-header .brand img {
+    width: 122px;
+    max-height: 66px;
   }
 
-  .menu-zone {
-    width: 100%;
-    height: 76px;
-
-    justify-content: flex-end;
-
-    background: transparent;
+  .unified-header .main-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
   }
 
-  .cybertronian-frame {
-    display: none;
+  .unified-header .nav-item {
+    min-height: 66px;
+    padding: 4px;
+    gap: 3px;
   }
 
-  .menu-zone-inner {
-    width: 100%;
-    height: 76px;
-    min-height: 76px;
-
-    justify-content: flex-end;
-    padding: 0 12px;
+  .unified-header .nav-item img {
+    width: 28px;
+    height: 28px;
   }
 
-  .main-nav {
-    display: none;
-  }
-
-  .menu-toggle {
-    margin-left: auto;
-
-    width: 46px;
-    height: 42px;
-
-    display: grid;
-    place-content: center;
-
-    gap: 5px;
-
-    border: 1px solid #4bd5ff;
-
-    background: rgba(0, 0, 0, 0.6);
-  }
-
-  .menu-toggle span {
-    width: 22px;
-    height: 2px;
-
-    display: block;
-
-    background: #fff;
+  .unified-header .nav-item span {
+    font-size: 0.52rem;
+    letter-spacing: .2px;
   }
 
   .mobile-nav {
-    position: sticky;
-    top: 76px;
-
-    z-index: 900;
-
     display: none;
-
-    padding: 8px 12px;
-
-    background: rgba(3, 7, 13, 0.98);
-
-    border-bottom:
-      1px solid rgba(75, 213, 255, 0.4);
-  }
-
-  .mobile-nav.open {
-    display: grid;
-    gap: 6px;
-  }
-
-  .mobile-nav button {
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-    padding: 10px 13px;
-
-    border:
-      1px solid rgba(255, 255, 255, 0.2);
-
-    color: #fff;
-
-    background:
-      rgba(15, 22, 32, 0.95);
-
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: left;
-  }
-
-  .mobile-nav button img {
-    width: 34px;
-    height: 34px;
-
-    object-fit: contain;
-    flex: 0 0 34px;
   }
 
   .hero {
@@ -888,11 +753,8 @@ button {
 
   .folder-tab {
     min-height: 64px;
-
     grid-template-columns: 48px 1fr 35px;
-
     padding: 0 14px;
-
     font-size: 0.95rem;
   }
 
@@ -932,5 +794,42 @@ button {
   .site-footer {
     flex-direction: column;
     gap: 10px;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header.unified-header {
+    min-height: 72px;
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  .unified-header .brand {
+    width: 100%;
+    flex-basis: 100%;
+    min-height: 58px;
+  }
+
+  .unified-header .brand img {
+    width: 145px;
+    max-height: 58px;
+  }
+
+  .unified-header .main-nav {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .unified-header .nav-item {
+    min-height: 52px;
+  }
+
+  .unified-header .nav-item img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .unified-header .nav-item span {
+    font-size: 0.47rem;
   }
 }
