@@ -184,7 +184,6 @@ async function loadFigures() {
     .select("*, figure_images(*)")
     .eq("category", "Autobots")
     .eq("is_published", true)
-    .order("sort_order", { ascending: true })
     .order("name", { ascending: true });
 
   if (error) {
