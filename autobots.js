@@ -113,6 +113,8 @@ const manufacturerFilter = document.getElementById("manufacturerFilter");
 const seriesFilter = document.getElementById("seriesFilter");
 const yearFilter = document.getElementById("yearFilter");
 const clearFilters = document.getElementById("clearFilters");
+const toggleFilters = document.getElementById("toggleFilters");
+const filterControls = document.getElementById("filterControls");
 
 const detailPanel = document.getElementById("detailPanel");
 const closeDetails = document.getElementById("closeDetails");
@@ -127,6 +129,25 @@ const nextFigure = document.getElementById("nextFigure");
 
 let visibleFigures = [...figures];
 let selectedIndex = 0;
+
+function setFiltersOpen(open) {
+  if (!toggleFilters || !filterControls) return;
+  filterControls.classList.toggle("filters-open", open);
+  toggleFilters.setAttribute("aria-expanded", String(open));
+  const icon = toggleFilters.querySelector("span");
+  if (icon) icon.textContent = open ? "−" : "+";
+}
+
+if (toggleFilters) {
+  toggleFilters.addEventListener("click", () => {
+    const isOpen = filterControls.classList.contains("filters-open");
+    setFiltersOpen(!isOpen);
+  });
+}
+
+if (window.matchMedia("(max-width: 520px)").matches) {
+  setFiltersOpen(false);
+}
 
 function uniqueValues(key) {
   return [...new Set(figures.map(item => item[key]))].sort();
