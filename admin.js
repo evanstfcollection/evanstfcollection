@@ -1,4 +1,4 @@
-const SUPABASE_URL="YOUR_SUPABASE_URL";const SUPABASE_ANON_KEY="YOUR_SUPABASE_ANON_KEY";const sb=(!SUPABASE_URL.startsWith("YOUR_")&&!SUPABASE_ANON_KEY.startsWith("YOUR_"))?supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY):null;const $=id=>document.getElementById(id),login=$("login"),editor=$("editor");
+const SUPABASE_URL="https://owshushczghacpdyvqkt.supabase.co";const SUPABASE_ANON_KEY="sb_publishable_3Z-pw2JX5ojxPLKBrbEYdg_AP1tYdTO";const sb=(!SUPABASE_URL.startsWith("YOUR_")&&!SUPABASE_ANON_KEY.startsWith("YOUR_"))?supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY):null;const $=id=>document.getElementById(id),login=$("login"),editor=$("editor");
 async function auth(){if(!sb){$("loginStatus").textContent="Add the Supabase URL and anon key to admin.js.";return}const{data}=await sb.auth.getSession();login.hidden=!!data.session;editor.hidden=!data.session}
 $("loginBtn").onclick=async()=>{if(!sb)return auth();const{error}=await sb.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});$("loginStatus").textContent=error?error.message:"";if(!error)auth()};
 $("logoutBtn").onclick=async()=>{await sb.auth.signOut();auth()};
