@@ -47,8 +47,13 @@
 
     <section class="collection-shell">
       <div class="collection-heading">
-        <h2>AUTOBOT COLLECTION</h2>
-        <div class="filters">
+        <div class="collection-heading-top">
+          <h2>AUTOBOT COLLECTION</h2>
+          <button id="toggleFilters" class="filter-toggle" type="button" aria-expanded="true" aria-controls="filterControls">
+            SEARCH / FILTERS <span aria-hidden="true">−</span>
+          </button>
+        </div>
+        <div id="filterControls" class="filters">
           <label class="search">
             <span>⌕</span>
             <input id="searchInput" type="search" placeholder="Search figures...">
