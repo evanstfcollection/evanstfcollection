@@ -1383,3 +1383,22 @@
     gap: 30px;
   }
 }
+
+
+/* ============================================================
+   IMAGE FIT — KEEP COLLECTION PHOTOS INSIDE THEIR FRAMES
+   Preserve the original image proportions and show the complete
+   photograph without overflowing or cropping the frame.
+   ============================================================ */
+
+.card-image {
+  object-fit: contain;
+  object-position: center;
+}
+
+.detail-main-image {
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #050a10;
+}
