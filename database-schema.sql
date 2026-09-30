@@ -4,7 +4,7 @@ create extension if not exists pgcrypto;
 create table if not exists public.figures (
   id uuid primary key default gen_random_uuid(),
   category text not null check (category in ('Autobots','Decepticons','Masterpiece Movie','3rd Party','The Primes')),
-  name text not null, manufacturer text, toy_line text, series text,
+  name text not null, manufacturer text, toy_line text, series text, movie_reference text,
   year integer, alternate_mode text, scale text, condition text, notes text,
   sort_order integer not null default 0, is_published boolean not null default true,
   created_at timestamptz not null default now(), updated_at timestamptz not null default now()
