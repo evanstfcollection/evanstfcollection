@@ -1354,3 +1354,32 @@
     font-size: 7px;
   }
 }
+
+
+/* ============================================================
+   AUTOBOT COLLECTION — FINAL PANEL SPACING
+   Keep the Cybernetic frame visually clear of the heading text,
+   filter controls, and figure/detail split.
+   ============================================================ */
+
+@media (min-width: 521px) {
+  .collection-heading {
+    padding: 24px 44px;
+  }
+
+  .collection-heading-top {
+    padding: 0 8px;
+  }
+
+  .collection-heading h2 {
+    padding-left: 18px;
+  }
+
+  .filter-toggle {
+    margin-right: 8px;
+  }
+
+  .content-layout {
+    gap: 30px;
+  }
+}
