@@ -1402,3 +1402,24 @@
   background-repeat: no-repeat;
   background-color: #050a10;
 }
+
+
+/* Keep the Cybernetic frame visibly above the preview image.
+   The image remains contained inside the card, while the frame
+   overlays its edges so the artwork can never cover the border. */
+.card {
+  overflow: hidden;
+}
+
+.card::before {
+  z-index: 3;
+}
+
+.card::after {
+  z-index: 1;
+}
+
+.card-image,
+.card-body {
+  z-index: 2;
+}
