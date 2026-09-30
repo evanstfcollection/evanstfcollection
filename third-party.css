@@ -512,3 +512,48 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
     top: auto;
   }
 }
+
+
+/* PREVIEW WINDOWS — MATCH THE AUTOBOT DETAIL IMAGE FRAME */
+.preview-window {
+  position: absolute;
+  z-index: 2;
+  inset: 9px;
+  border: 0;
+  isolation: isolate;
+  overflow: hidden;
+  clip-path: none;
+}
+
+.preview-window::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: var(--accent);
+  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  filter:
+    drop-shadow(0 0 3px var(--accent))
+    drop-shadow(0 0 7px var(--glow));
+  pointer-events: none;
+}
+
+.preview-window::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 9px;
+  background: rgba(3,7,11,.10);
+  clip-path: polygon(
+    0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
+    100% calc(100% - 12px), calc(100% - 12px) 100%,
+    12px 100%, 0 calc(100% - 12px)
+  );
+  pointer-events: none;
+}
+
+.preview-window span {
+  position: relative;
+  z-index: 3;
+}
