@@ -17,6 +17,9 @@ const detailNotes = document.getElementById("detailNotes");
 const detailCounter = document.getElementById("detailCounter");
 const previousFigure = document.getElementById("previousFigure");
 const nextFigure = document.getElementById("nextFigure");
+const imageLightbox = document.getElementById("imageLightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const closeImageLightbox = document.getElementById("closeImageLightbox");
 
 let figures = [];
 let visibleFigures = [];
@@ -166,6 +169,26 @@ function openDetails(index) {
   nextFigure.disabled = visibleFigures.length < 2;
 }
 
+function openImageLightbox() {
+  if (!imageLightbox || !lightboxImage) return;
+
+  const imageUrl = detailMainImage.style.backgroundImage
+    .replace(/^url\(["']?/, "")
+    .replace(/["']?\)$/, "");
+
+  if (!imageUrl) return;
+
+  lightboxImage.src = imageUrl;
+  lightboxImage.alt = detailName.textContent || "Collection image";
+  imageLightbox.showModal();
+}
+
+function closeImageLightboxPanel() {
+  if (imageLightbox?.open) {
+    imageLightbox.close();
+  }
+}
+
 function closeDetailPanel() {
   detailPanel.setAttribute("aria-hidden", "true");
 }
@@ -227,6 +250,15 @@ clearFilters.addEventListener("click", () => {
 });
 
 closeDetails.addEventListener("click", closeDetailPanel);
+detailMainImage.addEventListener("click", openImageLightbox);
+closeImageLightbox.addEventListener("click", closeImageLightboxPanel);
+
+imageLightbox.addEventListener("click", event => {
+  if (event.target === imageLightbox) {
+    closeImageLightboxPanel();
+  }
+});
+
 previousFigure.addEventListener("click", () => moveSelection(-1));
 nextFigure.addEventListener("click", () => moveSelection(1));
 
