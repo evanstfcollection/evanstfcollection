@@ -91,3 +91,48 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+
+/* ============================================================
+   COLLECTION PANEL — MATCH AUTOBOT CYBERNETIC SPACING
+   ============================================================ */
+
+@media (min-width: 521px) {
+  .collection-heading {
+    position: relative;
+    width: calc(100% + 34px);
+    margin-left: -17px;
+    margin-right: -17px;
+    min-height: 74px;
+    padding: 24px 44px;
+    border: 0;
+    clip-path: none;
+    overflow: visible;
+    isolation: isolate;
+    margin-bottom: 30px;
+  }
+
+  .collection-heading::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: -9px;
+    background: var(--accent);
+    -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+    mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+    filter:
+      drop-shadow(0 0 3px var(--accent))
+      drop-shadow(0 0 8px var(--glow));
+    pointer-events: none;
+  }
+
+  .collection-heading h2 {
+    position: relative;
+    z-index: 2;
+    padding: 10px 18px;
+  }
+
+  .collection-placeholder {
+    margin-top: 0;
+  }
+}
