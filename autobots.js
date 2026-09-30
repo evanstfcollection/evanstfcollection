@@ -1,112 +1,3 @@
-const figures = [
-  {
-    name: "OPTIMUS PRIME",
-    manufacturer: "Hasbro",
-    toyLine: "Masterpiece",
-    series: "MP-44",
-    year: "2023",
-    alternate: "Convoy Truck",
-    image: "images/autobots/optimus-prime.jpg",
-    thumbs: [
-      "images/autobots/optimus-prime.jpg",
-      "images/autobots/optimus-prime-truck.jpg",
-      "images/autobots/optimus-prime-action.jpg"
-    ],
-    notes: "Add your collection notes for this figure here."
-  },
-  {
-    name: "BUMBLEBEE",
-    manufacturer: "Hasbro",
-    toyLine: "Studio Series",
-    series: "SS-100",
-    year: "2024",
-    alternate: "Volkswagen Beetle / Camaro",
-    image: "images/autobots/bumblebee.jpg",
-    thumbs: [
-      "images/autobots/bumblebee.jpg"
-    ],
-    notes: "Add your collection notes for this figure here."
-  },
-  {
-    name: "ULTRA MAGNUS",
-    manufacturer: "Hasbro",
-    toyLine: "Generations",
-    series: "War for Cybertron",
-    year: "2020",
-    alternate: "Cybertronian Carrier",
-    image: "images/autobots/ultra-magnus.jpg",
-    thumbs: [
-      "images/autobots/ultra-magnus.jpg"
-    ],
-    notes: "Add your collection notes for this figure here."
-  },
-  {
-    name: "RATCHET",
-    manufacturer: "Hasbro",
-    toyLine: "Generations",
-    series: "Earthrise",
-    year: "2020",
-    alternate: "Cybertronian Ambulance",
-    image: "images/autobots/ratchet.jpg",
-    thumbs: [
-      "images/autobots/ratchet.jpg"
-    ],
-    notes: "Add your collection notes for this figure here."
-  },
-  {
-    name: "IRONHIDE",
-    manufacturer: "Hasbro",
-    toyLine: "Generations",
-    series: "War for Cybertron",
-    year: "2020",
-    alternate: "Cybertronian Van",
-    image: "images/autobots/ironhide.jpg",
-    thumbs: [
-      "images/autobots/ironhide.jpg"
-    ],
-    notes: "Add your collection notes for this figure here."
-  },
-  {
-    name: "JAZZ",
-    manufacturer: "Hasbro",
-    toyLine: "Masterpiece",
-    series: "MP-20",
-    year: "2017",
-    alternate: "Porsche 935",
-    image: "images/autobots/jazz.jpg",
-    thumbs: [
-      "images/autobots/jazz.jpg"
-    ],
-    notes: "Add your collection notes for this figure here."
-  },
-  {
-    name: "WHEELJACK",
-    manufacturer: "Hasbro",
-    toyLine: "Generations",
-    series: "Earthrise",
-    year: "2021",
-    alternate: "Lancia Stratos",
-    image: "images/autobots/wheeljack.jpg",
-    thumbs: [
-      "images/autobots/wheeljack.jpg"
-    ],
-    notes: "Add your collection notes for this figure here."
-  },
-  {
-    name: "GRIMLOCK",
-    manufacturer: "Hasbro",
-    toyLine: "Studio Series",
-    series: "SS-86",
-    year: "2021",
-    alternate: "T. rex",
-    image: "images/autobots/grimlock.jpg",
-    thumbs: [
-      "images/autobots/grimlock.jpg"
-    ],
-    notes: "Add your collection notes for this figure here."
-  }
-];
-
 const gallery = document.getElementById("gallery");
 const searchInput = document.getElementById("searchInput");
 const manufacturerFilter = document.getElementById("manufacturerFilter");
@@ -127,8 +18,23 @@ const detailCounter = document.getElementById("detailCounter");
 const previousFigure = document.getElementById("previousFigure");
 const nextFigure = document.getElementById("nextFigure");
 
-let visibleFigures = [...figures];
+let figures = [];
+let visibleFigures = [];
 let selectedIndex = 0;
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function publicImageUrl(path) {
+  if (!path) return "";
+  return supabaseClient.storage.from("tf-collection").getPublicUrl(path).data.publicUrl;
+}
 
 function setFiltersOpen(open) {
   if (!toggleFilters || !filterControls) return;
@@ -150,20 +56,25 @@ if (window.matchMedia("(max-width: 520px)").matches) {
 }
 
 function uniqueValues(key) {
-  return [...new Set(figures.map(item => item[key]))].sort();
+  return [...new Set(figures.map(item => item[key]).filter(value => value !== null && value !== ""))]
+    .sort((a, b) => String(a).localeCompare(String(b), undefined, { numeric: true }));
 }
 
 function fillFilters() {
+  manufacturerFilter.innerHTML = '<option value="">All Manufacturers</option>';
+  seriesFilter.innerHTML = '<option value="">All Series</option>';
+  yearFilter.innerHTML = '<option value="">All Years</option>';
+
   uniqueValues("manufacturer").forEach(value => {
-    manufacturerFilter.insertAdjacentHTML("beforeend", `<option value="${value}">${value}</option>`);
+    manufacturerFilter.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`);
   });
 
   uniqueValues("series").forEach(value => {
-    seriesFilter.insertAdjacentHTML("beforeend", `<option value="${value}">${value}</option>`);
+    seriesFilter.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`);
   });
 
   uniqueValues("year").forEach(value => {
-    yearFilter.insertAdjacentHTML("beforeend", `<option value="${value}">${value}</option>`);
+    yearFilter.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`);
   });
 }
 
@@ -171,40 +82,38 @@ function renderGallery() {
   const search = searchInput.value.trim().toLowerCase();
 
   visibleFigures = figures.filter(item => {
-    const matchesSearch =
-      !search ||
-      item.name.toLowerCase().includes(search) ||
-      item.manufacturer.toLowerCase().includes(search) ||
-      item.toyLine.toLowerCase().includes(search) ||
-      item.series.toLowerCase().includes(search);
+    const searchable = [
+      item.name,
+      item.manufacturer,
+      item.toy_line,
+      item.series,
+      item.alternate_mode
+    ].filter(Boolean).join(" ").toLowerCase();
 
-    const matchesManufacturer =
-      !manufacturerFilter.value || item.manufacturer === manufacturerFilter.value;
-
-    const matchesSeries =
-      !seriesFilter.value || item.series === seriesFilter.value;
-
-    const matchesYear =
-      !yearFilter.value || item.year === yearFilter.value;
+    const matchesSearch = !search || searchable.includes(search);
+    const matchesManufacturer = !manufacturerFilter.value || item.manufacturer === manufacturerFilter.value;
+    const matchesSeries = !seriesFilter.value || item.series === seriesFilter.value;
+    const matchesYear = !yearFilter.value || String(item.year) === yearFilter.value;
 
     return matchesSearch && matchesManufacturer && matchesSeries && matchesYear;
   });
 
   if (!visibleFigures.length) {
     gallery.innerHTML = `<div class="empty">No figures match the current filters.</div>`;
+    detailPanel.setAttribute("aria-hidden", "true");
     return;
   }
 
   gallery.innerHTML = visibleFigures.map((item, index) => `
     <article class="card">
       <img class="card-image"
-           src="${item.image}"
-           alt="${item.name}"
+           src="${escapeHtml(item.image)}"
+           alt="${escapeHtml(item.name)}"
            onerror="this.style.visibility='hidden'">
       <div class="card-body">
-        <h3>${item.name}</h3>
-        <p>${item.manufacturer} | ${item.toyLine}</p>
-        <p>${item.series}</p>
+        <h3>${escapeHtml(item.name)}</h3>
+        <p>${escapeHtml(item.manufacturer || "Manufacturer not listed")} | ${escapeHtml(item.toy_line || "Toy line not listed")}</p>
+        <p>${escapeHtml(item.series || "Series not listed")}</p>
         <button type="button" data-index="${index}">VIEW DETAILS →</button>
       </div>
     </article>
@@ -216,39 +125,45 @@ function renderGallery() {
 }
 
 function openDetails(index) {
+  if (!visibleFigures.length) return;
+
   selectedIndex = index;
   const item = visibleFigures[selectedIndex];
+  const thumbs = item.thumbs || [];
 
   detailPanel.setAttribute("aria-hidden", "false");
   detailName.textContent = item.name;
-  detailMainImage.style.backgroundImage = `url("${item.image}")`;
+  detailMainImage.style.backgroundImage = item.image ? `url("${item.image}")` : "";
 
   detailSpecs.innerHTML = `
-    <div class="spec"><strong>Manufacturer:</strong><span>${item.manufacturer}</span></div>
-    <div class="spec"><strong>Toy Line:</strong><span>${item.toyLine}</span></div>
-    <div class="spec"><strong>Series:</strong><span>${item.series}</span></div>
-    <div class="spec"><strong>Year Released:</strong><span>${item.year}</span></div>
-    <div class="spec"><strong>Alternate Mode:</strong><span>${item.alternate}</span></div>
+    <div class="spec"><strong>Manufacturer:</strong><span>${escapeHtml(item.manufacturer || "—")}</span></div>
+    <div class="spec"><strong>Toy Line:</strong><span>${escapeHtml(item.toy_line || "—")}</span></div>
+    <div class="spec"><strong>Series:</strong><span>${escapeHtml(item.series || "—")}</span></div>
+    <div class="spec"><strong>Year Released:</strong><span>${escapeHtml(item.year || "—")}</span></div>
+    <div class="spec"><strong>Alternate Mode:</strong><span>${escapeHtml(item.alternate_mode || "—")}</span></div>
+    <div class="spec"><strong>Scale:</strong><span>${escapeHtml(item.scale || "—")}</span></div>
+    <div class="spec"><strong>Condition:</strong><span>${escapeHtml(item.condition || "—")}</span></div>
   `;
 
-  detailThumbs.innerHTML = item.thumbs.map(src => `
-    <button type="button" aria-label="View image">
-      <img src="${src}" alt="${item.name}" onerror="this.style.visibility='hidden'">
-    </button>
-  `).join("");
+  detailThumbs.innerHTML = thumbs.length
+    ? thumbs.map((src, thumbIndex) => `
+        <button type="button" aria-label="View image ${thumbIndex + 1}">
+          <img src="${escapeHtml(src)}" alt="${escapeHtml(item.name)}" onerror="this.style.visibility='hidden'">
+        </button>
+      `).join("")
+    : "";
 
   detailThumbs.querySelectorAll("button").forEach((button, thumbIndex) => {
     button.addEventListener("click", () => {
-      detailMainImage.style.backgroundImage = `url("${item.thumbs[thumbIndex]}")`;
+      detailMainImage.style.backgroundImage = `url("${thumbs[thumbIndex]}")`;
     });
   });
 
-  detailNotes.textContent = item.notes;
+  detailNotes.textContent = item.notes || "No collection notes have been added yet.";
   detailCounter.textContent = `${selectedIndex + 1} of ${visibleFigures.length}`;
 
   previousFigure.disabled = visibleFigures.length < 2;
   nextFigure.disabled = visibleFigures.length < 2;
-
 }
 
 function closeDetailPanel() {
@@ -259,6 +174,44 @@ function moveSelection(direction) {
   if (!visibleFigures.length) return;
   selectedIndex = (selectedIndex + direction + visibleFigures.length) % visibleFigures.length;
   openDetails(selectedIndex);
+}
+
+async function loadFigures() {
+  gallery.innerHTML = '<div class="empty">Loading collection...</div>';
+
+  const { data, error } = await supabaseClient
+    .from("figures")
+    .select("*, figure_images(*)")
+    .eq("category", "Autobots")
+    .eq("is_published", true)
+    .order("sort_order", { ascending: true })
+    .order("name", { ascending: true });
+
+  if (error) {
+    console.error("Unable to load Autobots:", error);
+    gallery.innerHTML = '<div class="empty">Unable to load the Autobots collection right now.</div>';
+    return;
+  }
+
+  figures = (data || []).map(item => {
+    const images = (item.figure_images || [])
+      .sort((a, b) => a.sort_order - b.sort_order)
+      .map(image => publicImageUrl(image.storage_path))
+      .filter(Boolean);
+
+    return {
+      ...item,
+      image: images[0] || "",
+      thumbs: images
+    };
+  });
+
+  fillFilters();
+  renderGallery();
+
+  if (visibleFigures.length) {
+    openDetails(0);
+  }
 }
 
 [searchInput, manufacturerFilter, seriesFilter, yearFilter].forEach(control => {
@@ -278,6 +231,4 @@ closeDetails.addEventListener("click", closeDetailPanel);
 previousFigure.addEventListener("click", () => moveSelection(-1));
 nextFigure.addEventListener("click", () => moveSelection(1));
 
-fillFilters();
-renderGallery();
-openDetails(0);
+loadFigures();
