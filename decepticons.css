@@ -806,3 +806,65 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* ============================================================
+   NAVIGATION GEOMETRY — LOCK ICON/LABEL GROUP POSITION
+   Keep every page's navigation item using the same fixed icon
+   width so the label cannot shift between pages.
+   ============================================================ */
+.nav-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: row !important;
+  gap: 10px !important;
+  padding: 8px 10px !important;
+  text-align: center !important;
+}
+
+.nav-item img {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  flex: 0 0 40px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+.nav-item span {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  font-family: "Orbitron", Arial, sans-serif !important;
+  font-size: clamp(10px, 1vw, 16px) !important;
+  font-weight: 800 !important;
+  line-height: 1.05 !important;
+  letter-spacing: .5px !important;
+}
+
+@media (max-width: 520px) {
+  .nav-item {
+    gap: 3px !important;
+    padding: 5px !important;
+  }
+
+  .nav-item img {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+    max-width: 28px !important;
+    max-height: 28px !important;
+    flex-basis: 28px !important;
+  }
+
+  .nav-item span {
+    font-size: 8px !important;
+  }
+}
