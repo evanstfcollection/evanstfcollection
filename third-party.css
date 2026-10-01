@@ -890,3 +890,68 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
   opacity: .45;
   cursor: default;
 }
+
+
+/* ============================================================
+   FINAL CYBERNETIC IMAGE CONTAINMENT
+   All collection images must remain completely inside their
+   Cybernetic Border frames.
+   ============================================================ */
+
+.info-image {
+  position: relative !important;
+  height: 245px !important;
+  min-height: 245px !important;
+  max-height: 245px !important;
+  overflow: hidden !important;
+  isolation: isolate;
+}
+
+.info-image img {
+  position: relative !important;
+  z-index: 1 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+@media (max-width: 520px) {
+  .info-image {
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
+  }
+
+  .info-image img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+  }
+}
+
+/* Preview cards use the same containment rule. */
+.preview-window {
+  overflow: hidden !important;
+  isolation: isolate;
+}
+
+.preview-window img {
+  position: absolute !important;
+  z-index: 1 !important;
+  inset: 10px !important;
+  width: calc(100% - 20px) !important;
+  height: calc(100% - 20px) !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
