@@ -881,3 +881,71 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
     padding: 22px 12px 12px;
   }
 }
+
+/* ============================================================
+   MASTERPIECE MOVIE — IMAGE FIT + CLEAN THUMBNAILS
+   ============================================================ */
+
+/* Keep preview artwork inside the cybernetic preview window. */
+.preview-window img {
+  position: absolute;
+  z-index: 1;
+  inset: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  max-width: none;
+  max-height: none;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  background: #03070b;
+}
+
+/* Keep the caption above the image. */
+.card-caption {
+  z-index: 4;
+}
+
+/* Remove the browser's default white button treatment from thumbnails. */
+.info-thumbs button {
+  position: relative;
+  min-width: 0;
+  min-height: 70px;
+  padding: 7px;
+  border: 0;
+  border-radius: 0;
+  background: #03070b;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.info-thumbs button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 70px;
+  object-fit: contain;
+  object-position: center;
+  background: #03070b;
+}
+
+.info-thumbs button::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: var(--accent);
+  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
+  filter: drop-shadow(0 0 3px var(--accent));
+  pointer-events: none;
+}
+
+.info-thumbs button:hover {
+  background: #03070b;
+  box-shadow: 0 0 8px var(--glow);
+}
