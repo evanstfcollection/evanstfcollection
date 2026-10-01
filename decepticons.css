@@ -868,3 +868,69 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
     font-size: 8px !important;
   }
 }
+
+/* ============================================================
+   MASTER NAVIGATION GEOMETRY
+   Identical desktop geometry across the home page and all
+   collection pages. The label is centered independently of
+   the icon so it cannot shift from page to page.
+   ============================================================ */
+.nav-item {
+  display: grid !important;
+  grid-template-columns: 40px minmax(0, 1fr) 40px !important;
+  align-items: center !important;
+  justify-items: stretch !important;
+  column-gap: 0 !important;
+  padding: 8px 10px !important;
+  text-align: center !important;
+}
+
+.nav-item img {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  margin: 0 !important;
+  justify-self: center !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+.nav-item span {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  justify-self: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  font-family: "Orbitron", Arial, sans-serif !important;
+  font-size: clamp(10px, 1vw, 16px) !important;
+  font-weight: 800 !important;
+  line-height: 1.05 !important;
+  letter-spacing: .5px !important;
+}
+
+@media (max-width: 520px) {
+  .nav-item {
+    grid-template-columns: 28px minmax(0, 1fr) 28px !important;
+    padding: 5px !important;
+  }
+
+  .nav-item img {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+    max-width: 28px !important;
+    max-height: 28px !important;
+  }
+
+  .nav-item span {
+    font-size: 8px !important;
+  }
+}
