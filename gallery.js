@@ -94,7 +94,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     previousButton.disabled = figures.length < 2;
     nextButton.disabled = figures.length < 2;
 
-    info.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
   function buildCards() {
