@@ -7,50 +7,24 @@
   <link rel="icon" type="image/png" href="images/EvansTFCollection-favicon.png">
   <link rel="stylesheet" href="the-primes.css">
 </head>
-<body>
+<body data-category="The Primes">
 <header class="topbar">
   <a class="site-logo" href="index.html"><img src="images/evanstfcollection-logo.png" alt="Evan's TF Collection"></a>
-  <nav class="main-nav">
+  <nav class="main-nav" aria-label="Main navigation">
     <a class="nav-item autobots" href="autobots.html"><img src="images/autobots-icon.png" alt=""><span>AUTOBOTS</span></a>
     <a class="nav-item decepticons" href="decepticons.html"><img src="images/decepticons-icon.png" alt=""><span>DECEPTICONS</span></a>
     <a class="nav-item masterpiece" href="masterpiece-movie.html"><img src="images/masterpiece-movie-icon.png" alt=""><span>MASTERPIECE<br>MOVIE</span></a>
-    <a class="nav-item third-party" href="third-party.html"><img src="images/3rd-party-icon.png" alt=""><span>3RD PARTY</span></a>
-    <a class="nav-item primes active" href="the-primes.html"><img src="images/primes-icon.png" alt=""><span>THE PRIMES</span></a>
+    <a class="nav-item third-party active" href="third-party.html"><img src="images/primes-icon.png" alt=""><span>THE PRIMES</span></a>
+    <a class="nav-item primes" href="the-primes.html"><img src="images/primes-icon.png" alt=""><span>THE PRIMES</span></a>
     <a class="nav-item contact" href="contact.html"><img src="images/contact-icon.png" alt=""><span>CONTACT</span></a>
   </nav>
 </header>
 <main>
-  <section class="hero"><div class="hero-overlay"></div></section>
+  <section class="hero"></section>
   <section class="collection-shell">
     <div class="collection-heading"><h2>THE PRIMES COLLECTION</h2></div>
     <div class="collection-layout">
-      <div class="preview-grid">
-        <article class="collection-card">
-          <div class="preview-window"><span>PREVIEW 1</span></div>
-          <div class="card-caption">FIGURE 01</div>
-        </article>
-        <article class="collection-card">
-          <div class="preview-window"><span>PREVIEW 2</span></div>
-          <div class="card-caption">FIGURE 02</div>
-        </article>
-        <article class="collection-card">
-          <div class="preview-window"><span>PREVIEW 3</span></div>
-          <div class="card-caption">FIGURE 03</div>
-        </article>
-        <article class="collection-card">
-          <div class="preview-window"><span>PREVIEW 4</span></div>
-          <div class="card-caption">FIGURE 04</div>
-        </article>
-        <article class="collection-card">
-          <div class="preview-window"><span>PREVIEW 5</span></div>
-          <div class="card-caption">FIGURE 05</div>
-        </article>
-        <article class="collection-card">
-          <div class="preview-window"><span>PREVIEW 6</span></div>
-          <div class="card-caption">FIGURE 06</div>
-        </article>
-      </div>
-
+      <div class="preview-grid"></div>
       <aside class="collection-info" aria-label="Selected figure information">
         <button class="info-close" type="button" aria-label="Close information panel">×</button>
         <div class="info-main">
@@ -72,21 +46,18 @@
             </div>
           </div>
         </div>
-        <div class="info-thumbs">
-          <div></div><div></div><div></div>
-        </div>
-        <div class="info-notes">
-          <h3>Collection Notes:</h3>
-          <p>Your Prime figure information and collection notes will appear here.</p>
-        </div>
+        <div class="info-thumbs"></div>
+        <div class="info-notes"><h3>Collection Notes:</h3><p>Loading collection data...</p></div>
         <div class="info-navigation">
           <button type="button">‹ Previous</button>
-          <span>1 of 6</span>
+          <span>1 of 0</span>
           <button type="button">Next ›</button>
         </div>
       </aside>
     </div>
   </section>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="gallery.js"></script>
 </body>
 </html>
