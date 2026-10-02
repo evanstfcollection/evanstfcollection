@@ -1864,3 +1864,43 @@
   background: transparent !important;
 }
 
+
+
+/* AUTOBOT HARD FRAME RULE — CONTENT CANNOT BREAK THE CYBERNETIC BORDER */
+.detail-panel {
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+.detail-panel::before {
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+
+.detail-panel > :not(.close-details) {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.close-details {
+  z-index: 20 !important;
+}
+
+/* Keep the main photograph safely inside its inner frame. */
+.detail-main-image {
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background-size: 76% 76% !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+.detail-main-image::before {
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+
+.detail-main-image::after {
+  z-index: 3 !important;
+  pointer-events: none !important;
+}
