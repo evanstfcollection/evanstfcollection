@@ -2091,3 +2091,99 @@
     object-fit: contain !important;
   }
 }
+
+
+/* ============================================================
+   AUTOBOT DETAIL SPACING PASS
+   Create a protected inner zone so the outer frame never collides
+   with the image frame, thumbnails, text, or notes.
+   ============================================================ */
+
+@media (min-width: 821px) {
+  .detail-panel {
+    box-sizing: border-box !important;
+    padding: 42px 34px 34px !important;
+  }
+
+  .detail-top {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr) !important;
+    gap: 24px !important;
+    padding: 12px 18px 0 !important;
+    align-items: start !important;
+  }
+
+  /* Give the inner image frame its own breathing room. */
+  .detail-main-image {
+    width: 88% !important;
+    justify-self: center !important;
+    aspect-ratio: 1 / 1 !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Keep the title/specs away from both borders. */
+  .detail-info {
+    padding: 8px 12px 0 !important;
+    min-width: 0 !important;
+  }
+
+  .detail-title {
+    padding: 10px 4px 14px !important;
+    margin: 0 !important;
+  }
+
+  .detail-specs {
+    padding: 10px 2px 0 !important;
+  }
+
+  /* Make the alternate-image frames smaller and the actual photos
+     at least 50% smaller than the previous 78% treatment. */
+  .detail-thumbs {
+    width: 86% !important;
+    margin: 20px auto 0 !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .detail-thumbs button {
+    aspect-ratio: 1 / 1 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+
+  .detail-thumbs img {
+    width: 50% !important;
+    height: 50% !important;
+    max-width: 50% !important;
+    max-height: 50% !important;
+    margin: 25% auto !important;
+    object-fit: contain !important;
+  }
+
+  /* Notes get their own protected row, away from the frame. */
+  .notes {
+    width: 92% !important;
+    box-sizing: border-box !important;
+    margin: 24px auto 0 !important;
+    padding: 12px 14px !important;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  .notes h3,
+  .notes p {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .detail-navigation {
+    width: 92% !important;
+    box-sizing: border-box !important;
+    margin: 16px auto 0 !important;
+    padding: 0 4px 4px !important;
+  }
+}
