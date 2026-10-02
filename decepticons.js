@@ -56,8 +56,15 @@ function renderPreviewGrid() {
     `;
   }).join("");
 
-  previewGrid.querySelectorAll(".preview-window").forEach(button => {
-    button.addEventListener("click", () => openDetails(Number(button.dataset.index)));
+  previewGrid.querySelectorAll(".collection-card").forEach(card => {
+    const open = () => openDetails(Number(card.dataset.index));
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        open();
+      }
+    });
   });
 }
 
@@ -67,11 +74,15 @@ function openDetails(index) {
   selectedIndex = index;
   const item = figures[selectedIndex];
   const images = imageList(item);
+  const profile = (item.figure_images || []).find(image => image.image_type === "main") || (item.figure_images || [])[0];
+  const profileUrl = profile ? publicImageUrl(profile.storage_path) : "";
+
+  document.getElementById("collectionInfo").setAttribute("aria-hidden", "false");
 
   infoName.textContent = item.name || "FIGURE NAME";
 
-  infoImage.innerHTML = images[0]
-    ? `<img src="${escapeHtml(images[0])}" alt="${escapeHtml(item.name)}">`
+  infoImage.innerHTML = profileUrl
+    ? `<img src="${escapeHtml(profileUrl)}" alt="${escapeHtml(item.name)}">`
     : "<span>FIGURE PREVIEW</span>";
 
   infoSpecs.innerHTML = `
