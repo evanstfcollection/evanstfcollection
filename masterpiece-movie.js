@@ -44,8 +44,10 @@ function renderPreviewGrid() {
 
   previewGrid.innerHTML = figures.map((item, index) => {
     const images = imageList(item);
+    const profile = (item.figure_images || []).find(image => image.image_type === "main") || (item.figure_images || [])[0];
+    const profileUrl = profile ? publicImageUrl(profile.storage_path) : "";
     return `
-      <article class="collection-card">
+      <article class="collection-card" data-index="${index}" tabindex="0" role="button" aria-label="View details for ${escapeHtml(item.name)}">
         <button class="preview-window" type="button" data-index="${index}" aria-label="View ${escapeHtml(item.name)}">
           ${profileUrl
             ? `<img src="${escapeHtml(profileUrl)}" alt="${escapeHtml(item.name)}">`
