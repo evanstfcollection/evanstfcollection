@@ -2187,3 +2187,112 @@
     padding: 0 4px 4px !important;
   }
 }
+
+
+/* ============================================================
+   AUTOBOT DETAIL FRAME SEPARATION — FINAL LOWER/INNER PROTECTION
+   Keep the inner image frame visually separated from the outer
+   panel frame, and keep notes/navigation in a protected lower row.
+   ============================================================ */
+
+@media (min-width: 821px) {
+  /* The outer Cybernetic frame is decorative only. Keep it behind
+     the protected content zone so it cannot draw across notes or
+     navigation controls. */
+  .detail-panel::before {
+    z-index: 1 !important;
+    pointer-events: none !important;
+  }
+
+  .detail-panel > :not(.close-details) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .detail-panel {
+    padding: 46px 40px 48px !important;
+    overflow: hidden !important;
+  }
+
+  /* Pull the inner image frame farther away from the outer frame. */
+  .detail-top {
+    padding: 16px 28px 0 !important;
+    gap: 28px !important;
+  }
+
+  .detail-main-image {
+    width: 80% !important;
+    justify-self: center !important;
+  }
+
+  /* Alternate-image photos: another 50% reduction from the
+     previous 50% treatment. The frames remain the same size. */
+  .detail-thumbs img {
+    width: 25% !important;
+    height: 25% !important;
+    max-width: 25% !important;
+    max-height: 25% !important;
+    margin: 37.5% auto !important;
+    object-fit: contain !important;
+  }
+
+  /* Give the lower sections their own protected rows and keep them
+     visually clear of the outer frame artwork. */
+  .detail-thumbs {
+    width: 82% !important;
+    margin: 24px auto 0 !important;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  .notes {
+    width: 86% !important;
+    margin: 28px auto 0 !important;
+    position: relative !important;
+    z-index: 3 !important;
+    background: rgba(2, 6, 10, .94) !important;
+  }
+
+  .detail-navigation {
+    width: 86% !important;
+    margin: 20px auto 0 !important;
+    padding: 0 8px 8px !important;
+    position: relative !important;
+    z-index: 3 !important;
+    background: rgba(2, 6, 10, .55) !important;
+  }
+
+  .detail-navigation button,
+  #detailCounter {
+    position: relative !important;
+    z-index: 4 !important;
+  }
+}
+
+@media (max-width: 820px) {
+  /* Maintain the same protected stacking order on smaller screens. */
+  .detail-panel::before {
+    z-index: 1 !important;
+    pointer-events: none !important;
+  }
+
+  .detail-panel > :not(.close-details) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .detail-thumbs img {
+    width: 25% !important;
+    height: 25% !important;
+    max-width: 25% !important;
+    max-height: 25% !important;
+    margin: 37.5% auto !important;
+    object-fit: contain !important;
+  }
+
+  .notes,
+  .detail-navigation {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+}
