@@ -108,7 +108,7 @@ function renderGallery() {
   }
 
   gallery.innerHTML = visibleFigures.map((item, index) => `
-    <article class="card">
+    <article class="card" data-index="${index}" tabindex="0" role="button" aria-label="View details for ${escapeHtml(item.name)}">
       <img class="card-image"
            src="${escapeHtml(item.image)}"
            alt="${escapeHtml(item.name)}"
@@ -122,8 +122,15 @@ function renderGallery() {
     </article>
   `).join("");
 
-  gallery.querySelectorAll("button").forEach(button => {
-    button.addEventListener("click", () => openDetails(Number(button.dataset.index)));
+  gallery.querySelectorAll(".card").forEach(card => {
+    const open = () => openDetails(Number(card.dataset.index));
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        open();
+      }
+    });
   });
 }
 
@@ -216,14 +223,21 @@ async function loadFigures() {
   }
 
   figures = (data || []).map(item => {
-    const images = (item.figure_images || [])
-      .sort((a, b) => a.sort_order - b.sort_order)
+    const imageRecords = (item.figure_images || [])
+      .slice()
+      .sort((a, b) => a.sort_order - b.sort_order);
+
+    const profileRecord =
+      imageRecords.find(image => image.image_type === "main") ||
+      imageRecords[0];
+
+    const images = imageRecords
       .map(image => publicImageUrl(image.storage_path))
       .filter(Boolean);
 
     return {
       ...item,
-      image: images[0] || "",
+      image: profileRecord ? publicImageUrl(profileRecord.storage_path) : "",
       thumbs: images
     };
   });
