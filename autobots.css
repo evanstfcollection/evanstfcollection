@@ -1839,3 +1839,28 @@
   background: transparent !important;
   z-index: 2 !important;
 }
+
+
+/* AUTOBOT INFO IMAGE — LARGER, BUT SAFELY INSIDE THE FRAME */
+.info-image {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate;
+}
+
+.info-image img {
+  position: absolute !important;
+  z-index: 1 !important;
+  width: 80% !important;
+  height: 80% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 80% !important;
+  max-height: 80% !important;
+  left: 10% !important;
+  top: 10% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: transparent !important;
+}
+
