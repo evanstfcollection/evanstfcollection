@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const nextButton = nav?.querySelector("button:last-child");
   const counter = nav?.querySelector("span");
   const closeButton = info.querySelector(".info-close");
+  const imageLightbox = document.getElementById("imageLightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const closeImageLightbox = document.getElementById("closeImageLightbox");
 
   const categoryIcons = {
     "Autobots": "images/autobots-icon.png",
@@ -94,6 +97,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     previousButton.disabled = figures.length < 2;
     nextButton.disabled = figures.length < 2;
 
+  }
+
+  function openImageLightbox() {
+    if (!imageLightbox || !lightboxImage) return;
+
+    const image = infoImage.querySelector("img");
+    if (!image) return;
+
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt || "Collection image";
+    imageLightbox.showModal();
+  }
+
+  function closeLightbox() {
+    if (imageLightbox?.open) imageLightbox.close();
   }
 
   function buildCards() {
@@ -179,6 +197,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Collection database error:", error);
     grid.innerHTML = '<div class="collection-placeholder"><h3>DATABASE CONNECTION ERROR</h3><p>The collection could not be loaded right now. Please refresh the page and try again.</p></div>';
   }
+
+  infoImage.addEventListener("click", openImageLightbox);
+  closeImageLightbox?.addEventListener("click", closeLightbox);
+  imageLightbox?.addEventListener("click", (event) => {
+    if (event.target === imageLightbox) closeLightbox();
+  });
 
   previousButton?.addEventListener("click", () => showFigure(currentIndex - 1));
   nextButton?.addEventListener("click", () => showFigure(currentIndex + 1));
