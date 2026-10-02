@@ -47,7 +47,7 @@ function renderPreviewGrid() {
     return `
       <article class="collection-card">
         <button class="preview-window" type="button" data-index="${index}" aria-label="View ${escapeHtml(item.name)}">
-          ${images[0]
+          ${profileUrl
             ? `<img src="${escapeHtml(profileUrl)}" alt="${escapeHtml(item.name)}">`
             : '<span>NO IMAGE</span>'}
         </button>
@@ -82,7 +82,7 @@ function openDetails(index) {
   infoName.textContent = item.name || "FIGURE NAME";
 
   infoImage.innerHTML = profileUrl
-    ? `<img src="${escapeHtml(images[0])}" alt="${escapeHtml(item.name)}">`
+    ? `<img src="${escapeHtml(profileUrl)}" alt="${escapeHtml(item.name)}">`
     : "<span>FIGURE PREVIEW</span>";
 
   infoSpecs.innerHTML = `
