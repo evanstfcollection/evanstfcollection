@@ -16,6 +16,15 @@
 <div id="newUpload" class="new-upload"><label>Figure Images<input id="images" type="file" accept="image/*" multiple><small>First image becomes the Profile Image. You can change it after saving.</small></label></div>
 <div class="publish-row"><label class="check"><input id="published" type="checkbox" checked><span>Publish this figure</span></label><button id="save" type="submit">SAVE PROFILE</button><button id="cancelEditBtn" class="secondary" type="button" hidden>CANCEL EDIT</button></div><p id="saveStatus" class="status"></p></form>
 <section id="imageManager" class="image-manager" hidden><div class="section-title"><div><h3>FIGURE IMAGES</h3><p>Set one image as the Profile Image, add more images, or remove images.</p></div><label class="add-images">+ ADD IMAGES<input id="additionalImages" type="file" accept="image/*" multiple></label></div><div id="imageGrid" class="image-grid"></div><p id="imageStatus" class="status"></p></section>
-<section class="existing-section"><div class="section-title"><div><h3>EXISTING FIGURES</h3><p>Everything currently stored in the collection database.</p></div><select id="filterCategory"><option value="">ALL CATEGORIES</option><option>Autobots</option><option>Decepticons</option><option>Masterpiece Movie</option><option>3rd Party</option><option>The Primes</option></select></div><div id="figureList" class="figure-list"></div><p id="listStatus" class="status"></p></section>
+<section class="existing-section">
+<div class="section-title">
+  <div><h3>EXISTING FIGURES</h3><p>Profiles are organized by collection category. Search by name, manufacturer, movie reference, alternate mode or other profile details.</p></div>
+  <div class="list-controls">
+    <input id="searchProfiles" class="profile-search" type="search" placeholder="SEARCH PROFILES..." aria-label="Search profiles">
+    <select id="filterCategory" aria-label="Filter by category"><option value="">ALL CATEGORIES</option><option>Autobots</option><option>Decepticons</option><option>Masterpiece Movie</option><option>3rd Party</option><option>The Primes</option></select>
+    <div class="collapse-controls"><button id="expandAllBtn" type="button" class="secondary">EXPAND ALL</button><button id="collapseAllBtn" type="button" class="secondary">COLLAPSE ALL</button></div>
+  </div>
+</div>
+<div id="figureList" class="figure-list"></div><p id="listStatus" class="status"></p></section>
 </section></main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="admin.js"></script></body></html>
