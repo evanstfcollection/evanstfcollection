@@ -762,3 +762,14 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
     padding: 22px 12px 12px;
   }
 }
+
+
+/* PREVIEW IMAGE SIZE TEST — 25% */
+.preview-grid .preview-window img {
+  inset: 37.5% !important;
+  width: 25% !important;
+  height: 25% !important;
+  max-width: 25% !important;
+  max-height: 25% !important;
+  object-fit: contain !important;
+}
