@@ -2523,3 +2523,83 @@
     z-index: 3 !important;
   }
 }
+
+
+/* ============================================================
+   AUTOBOT DETAIL — IMAGE SAFE-ZONE
+   Keep every photograph physically inside its Cybernetic frame.
+   The frame remains full-size; the image gets an internal
+   breathing room so no part of the photograph can touch the
+   decorative border. All image fitting preserves aspect ratio.
+   ============================================================ */
+
+@media (min-width: 821px) {
+  /* Main photograph: enlarge the internal safe padding rather than
+     changing the photograph's aspect ratio. */
+  .detail-main-image {
+    padding: 34px !important;
+    background-origin: content-box !important;
+    background-clip: content-box !important;
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+
+  /* Keep the decorative image frame above the photograph. */
+  .detail-main-image::before {
+    z-index: 10 !important;
+    pointer-events: none !important;
+  }
+
+  /* Thumbnail photographs get a smaller, centered safe zone.
+     The image itself stays at the restored 50% scale. */
+  .detail-thumbs button {
+    padding: 0 !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+  }
+
+  .detail-thumbs img {
+    width: 50% !important;
+    height: 50% !important;
+    max-width: 50% !important;
+    max-height: 50% !important;
+    margin: 25% auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .detail-thumbs button::before {
+    z-index: 10 !important;
+    pointer-events: none !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .detail-main-image {
+    padding: 28px !important;
+    background-origin: content-box !important;
+    background-clip: content-box !important;
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .detail-thumbs img {
+    width: 50% !important;
+    height: 50% !important;
+    max-width: 50% !important;
+    max-height: 50% !important;
+    margin: 25% auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  .detail-thumbs button::before {
+    z-index: 10 !important;
+    pointer-events: none !important;
+  }
+}
