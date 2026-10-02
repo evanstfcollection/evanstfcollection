@@ -44,11 +44,13 @@ function renderPreviewGrid() {
 
   previewGrid.innerHTML = figures.map((item, index) => {
     const images = imageList(item);
+    const profile = (item.figure_images || []).find(image => image.image_type === "main") || (item.figure_images || [])[0];
+    const profileUrl = profile ? publicImageUrl(profile.storage_path) : "";
     return `
       <article class="collection-card" data-index="${index}" tabindex="0" role="button" aria-label="View details for ${escapeHtml(item.name)}">
         <button class="preview-window" type="button" data-index="${index}" aria-label="View ${escapeHtml(item.name)}">
-          ${images[0]
-            ? `<img src="${escapeHtml(images[0])}" alt="${escapeHtml(item.name)}" onerror="this.style.visibility='hidden'">`
+          ${profileUrl
+            ? `<img src="${escapeHtml(profileUrl)}" alt="${escapeHtml(item.name)}" onerror="this.style.visibility='hidden'">`
             : '<span>NO IMAGE</span>'}
         </button>
         <div class="card-caption">${escapeHtml(item.name)}</div>
