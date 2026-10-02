@@ -1886,11 +1886,15 @@
   z-index: 20 !important;
 }
 
-/* Keep the main photograph safely inside its inner frame. */
+/* Keep the main photograph safely inside its inner frame without
+   distorting its original aspect ratio. */
 .detail-main-image {
   overflow: hidden !important;
   isolation: isolate !important;
-  background-size: 76% 76% !important;
+  padding: 18px !important;
+  background-size: contain !important;
+  background-origin: content-box !important;
+  background-clip: content-box !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
 }
