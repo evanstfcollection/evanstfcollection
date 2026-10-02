@@ -45,7 +45,7 @@ function renderPreviewGrid() {
   previewGrid.innerHTML = figures.map((item, index) => {
     const images = imageList(item);
     return `
-      <article class="collection-card">
+      <article class="collection-card" data-index="${index}" tabindex="0" role="button" aria-label="View details for ${escapeHtml(item.name)}">
         <button class="preview-window" type="button" data-index="${index}" aria-label="View ${escapeHtml(item.name)}">
           ${images[0]
             ? `<img src="${escapeHtml(images[0])}" alt="${escapeHtml(item.name)}" onerror="this.style.visibility='hidden'">`
