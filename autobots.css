@@ -1908,3 +1908,186 @@
   z-index: 3 !important;
   pointer-events: none !important;
 }
+
+
+/* ============================================================
+   AUTOBOT FRAME-FIRST LAYOUT
+   Borders define the boxes. Images and text stay safely inside.
+   ============================================================ */
+
+@media (min-width: 821px) {
+  /* Square preview cards */
+  .gallery {
+    align-items: start;
+  }
+
+  .gallery .card {
+    position: relative !important;
+    aspect-ratio: 1 / 1 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+  }
+
+  .gallery .card-image {
+    position: absolute !important;
+    top: 9% !important;
+    left: 9% !important;
+    width: 82% !important;
+    height: 62% !important;
+    max-width: 82% !important;
+    max-height: 62% !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
+    z-index: 2 !important;
+  }
+
+  .gallery .card-body {
+    position: relative !important;
+    z-index: 4 !important;
+    width: calc(100% - 28px) !important;
+    margin: 0 14px 14px !important;
+    padding: 10px 8px 8px !important;
+    background: rgba(3,7,11,.82) !important;
+  }
+
+  /* The information panel grows only as tall as its contents. */
+  .detail-panel {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    padding: 28px 28px 30px !important;
+  }
+
+  .detail-top {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 18px !important;
+    align-items: start !important;
+    padding-top: 18px !important;
+  }
+
+  /* Square main-image frame */
+  .detail-main-image {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 1 / 1 !important;
+    padding: 18px !important;
+    overflow: hidden !important;
+    background-size: contain !important;
+    background-origin: content-box !important;
+    background-clip: content-box !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .detail-main-image::before {
+    z-index: 10 !important;
+  }
+
+  /* Keep the title/specifications completely inside their half. */
+  .detail-info {
+    min-width: 0 !important;
+    padding: 6px 8px 0 !important;
+  }
+
+  .detail-title {
+    min-width: 0 !important;
+    padding: 12px 6px 12px !important;
+    gap: 8px !important;
+  }
+
+  .detail-title h2 {
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .detail-specs {
+    min-width: 0 !important;
+    padding: 12px 4px 0 !important;
+  }
+
+  .spec {
+    min-width: 0 !important;
+    grid-template-columns: 92px minmax(0, 1fr) !important;
+    gap: 6px !important;
+    margin: 7px 0 !important;
+  }
+
+  .spec span {
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  /* Square thumbnail frames */
+  .detail-thumbs {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    margin-top: 14px !important;
+  }
+
+  .detail-thumbs button {
+    aspect-ratio: 1 / 1 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  .detail-thumbs img {
+    width: 78% !important;
+    height: 78% !important;
+    max-width: 78% !important;
+    max-height: 78% !important;
+    margin: 11% auto !important;
+    object-fit: contain !important;
+  }
+
+  .notes {
+    margin-top: 16px !important;
+    padding: 12px !important;
+  }
+
+  .detail-navigation {
+    margin-top: 14px !important;
+    padding: 0 6px 4px !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .detail-panel {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+  }
+
+  .detail-main-image {
+    aspect-ratio: 1 / 1 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 14px !important;
+    background-size: contain !important;
+    background-origin: content-box !important;
+    background-clip: content-box !important;
+  }
+
+  .detail-thumbs button {
+    aspect-ratio: 1 / 1 !important;
+    min-height: 0 !important;
+  }
+
+  .detail-thumbs img {
+    width: 78% !important;
+    height: 78% !important;
+    max-width: 78% !important;
+    max-height: 78% !important;
+    margin: 11% auto !important;
+    object-fit: contain !important;
+  }
+}
