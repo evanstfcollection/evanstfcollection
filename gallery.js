@@ -123,7 +123,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       card.appendChild(window);
       card.appendChild(caption);
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", "View details for " + (figure.name || "figure"));
       card.addEventListener("click", () => showFigure(index));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          showFigure(index);
+        }
+      });
       grid.appendChild(card);
     });
   }
