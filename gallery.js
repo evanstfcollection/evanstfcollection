@@ -141,6 +141,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       card.appendChild(window);
       card.appendChild(caption);
+
+      const detailsButton = document.createElement("button");
+      detailsButton.type = "button";
+      detailsButton.className = "view-details-button";
+      detailsButton.textContent = "VIEW DETAILS →";
+      detailsButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        showFigure(index);
+      });
+      card.appendChild(detailsButton);
+
       card.setAttribute("tabindex", "0");
       card.setAttribute("role", "button");
       card.setAttribute("aria-label", "View details for " + (figure.name || "figure"));
