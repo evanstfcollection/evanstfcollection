@@ -51,7 +51,7 @@ linear-gradient(180deg,#eef2f4 0,#a7b1b7 3%,#4b565e 8%,#171e24 15%,#737e85 20%,#
 }
 .detail-image .module-label,.detail-copy .module-label{display:block;margin-bottom:8px}
 .image-frame.hero{
-  min-height:560px;
+  min-height:1120px;
   margin:0;
 }
 .image-frame.hero .mock-figure{
