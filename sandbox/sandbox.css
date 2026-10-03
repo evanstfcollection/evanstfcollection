@@ -49,3 +49,17 @@ linear-gradient(180deg,#eef2f4 0,#a7b1b7 3%,#4b565e 8%,#171e24 15%,#737e85 20%,#
 .component-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.mini{min-height:150px}.mini h3{font-size:15px;margin-top:12px}
 @media(max-width:900px){.sandbox-top{display:block}.theme-switcher{justify-content:flex-start;margin-top:20px}.demo-grid,.detail-layout,.component-row{grid-template-columns:1fr}}
 @media(max-width:560px){.frame{clip-path:polygon(22px 0,calc(100% - 22px) 0,100% 22px,100% calc(100% - 22px),calc(100% - 22px) 100%,22px 100%,0 calc(100% - 22px),0 22px)}.frame-content{padding:15px}.spec-list div{grid-template-columns:1fr;gap:4px}}
+/* LAYERED CYBERTRONIAN ARMOR HARDWARE */
+.armor-hardware{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.armor-plate{position:absolute;display:block;background:linear-gradient(180deg,#edf1f3 0,#8b969d 9%,#303a42 24%,#11171c 50%,#4f5b63 78%,#d0d6d9 96%,#f0f3f4 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 -2px 0 #0a0e12,0 2px 5px rgba(0,0,0,.8)}
+.plate-top,.plate-bottom{height:13px;left:8%;right:8%;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 100%,0 100%)}
+.plate-top{top:2px}.plate-bottom{bottom:2px;transform:scaleY(-1)}
+.plate-left,.plate-right{width:13px;top:9%;bottom:9%;clip-path:polygon(0 12px,100% 0,100% calc(100% - 12px),0 100%)}
+.plate-left{left:2px}.plate-right{right:2px;transform:scaleX(-1)}
+.armor-joint{position:absolute;width:25px;height:25px;border-radius:50%;background:radial-gradient(circle,#f4f7f8 0 12%,#8a959b 13% 28%,#252e34 29% 46%,#090d11 47% 62%,#59656c 63% 68%,#0a0e12 69%);box-shadow:0 2px 4px #000,inset 0 1px 1px rgba(255,255,255,.75)}
+.joint-tl{left:7px;top:7px}.joint-tr{right:7px;top:7px}.joint-bl{left:7px;bottom:7px}.joint-br{right:7px;bottom:7px}
+.frame-content{z-index:2}
+/* exposed armor seams */
+.frame-content:before{border-radius:3px}
+.image-frame{box-shadow:inset 0 0 0 2px #e1e6e8,inset 0 0 0 5px #10171c,inset 0 0 0 8px #59666e,inset 0 0 0 10px #171e24,inset 0 0 30px #000,0 0 7px var(--glow),0 4px 8px rgba(0,0,0,.75)}
+.image-frame:before{background:linear-gradient(135deg,transparent 0 11%,rgba(255,255,255,.07) 11.2% 11.6%,transparent 11.8% 88.2%,rgba(255,255,255,.04) 88.4% 88.8%,transparent 89%),linear-gradient(315deg,transparent 0 11%,rgba(0,0,0,.28) 11.2% 12%,transparent 12.2% 87.8%,rgba(0,0,0,.22) 88% 88.8%,transparent 89%)}
