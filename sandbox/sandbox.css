@@ -569,3 +569,131 @@ linear-gradient(180deg,#eef2f4 0,#a7b1b7 3%,#4b565e 8%,#171e24 15%,#737e85 20%,#
     inset 0 0 38px #000,
     0 10px 18px rgba(0,0,0,.95);
 }
+
+
+/* =========================================================
+   ASSEMBLED ARMOR PASS — overlapping plates / exposed seams
+   ========================================================= */
+
+.frame::before{
+  background:
+    linear-gradient(90deg,
+      #11181d 0 5%,#7b878d 5.2% 6%,#cdd3d6 6.2% 7%,
+      #252f35 7.2% 15%,#0b1014 15.2% 17%,
+      #657178 17.2% 28%,#202a30 28.2% 31%,
+      #7d898f 31.2% 40%,#151d22 40.2% 44%,
+      #59666d 44.2% 56%,#151d22 56.2% 60%,
+      #7d898f 60.2% 69%,#202a30 69.2% 72%,
+      #657178 72.2% 82.8%,#0b1014 83% 84.8%,
+      #252f35 85% 92.8%,#cdd3d6 93% 93.8%,#7b878d 94% 94.8%,#11181d 95% 100%),
+    linear-gradient(180deg,#aeb8bd 0,#4d5a61 4%,#171f25 11%,#69757c 17%,#252f35 24%,#11181d 33%,#4c5960 40%,#080d11 50%,#273239 60%,#68747b 68%,#171f25 76%,#4c5960 84%,#202a30 91%,#9ca7ac 97%,#cbd1d4 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 -3px 0 #040709,0 5px 0 #05080b,0 10px 16px rgba(0,0,0,.85);
+}
+
+/* exposed structural gaps between armor pieces */
+.armor-hardware::before{
+  top:19px;height:5px;left:6%;right:6%;
+  background:
+    linear-gradient(90deg,
+      #020405 0 14%,transparent 14% 16%,#020405 16% 31%,
+      transparent 31% 34%,#020405 34% 47%,transparent 47% 53%,
+      #020405 53% 66%,transparent 66% 69%,#020405 69% 84%,
+      transparent 84% 86%,#020405 86% 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 1px 4px #000;
+}
+.armor-hardware::after{
+  left:19px;width:5px;top:6%;bottom:6%;
+  background:
+    linear-gradient(180deg,#020405 0 13%,transparent 13% 16%,#020405 16% 30%,
+    transparent 30% 34%,#020405 34% 48%,transparent 48% 52%,#020405 52% 67%,
+    transparent 67% 71%,#020405 71% 86%,transparent 86% 89%,#020405 89%);
+}
+
+/* Individual raised top/bottom armor modules */
+.plate-top,.plate-bottom{
+  height:25px;left:9%;right:9%;
+  background:linear-gradient(180deg,#d5dbde 0,#879399 9%,#3d494f 22%,#151d22 47%,#283239 69%,#6d797f 88%,#b9c1c5 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 -4px 0 #080b0e,0 3px 0 #05080b,0 7px 10px rgba(0,0,0,.9);
+}
+.plate-top{
+  top:-2px;
+  clip-path:polygon(0 0,19% 0,22% 38%,39% 38%,42% 7%,59% 7%,62% 50%,77% 50%,81% 0,100% 0,97% 100%,3% 100%);
+}
+.plate-bottom{
+  bottom:-2px;
+  clip-path:polygon(3% 0,97% 0,100% 100%,81% 100%,77% 50%,62% 50%,59% 93%,42% 93%,39% 62%,22% 62%,19% 100%,0 100%);
+}
+
+/* Add narrow secondary armor lips through pseudo-elements. */
+.frame-content{
+  position:relative;
+}
+.frame-content > .module-label::before{
+  content:"";
+  display:inline-block;
+  width:9px;height:9px;
+  margin-right:7px;
+  vertical-align:-1px;
+  border:1px solid #748188;
+  background:linear-gradient(135deg,#c8d0d3,#252f35 42%,#070b0e 60%,#758188);
+  transform:rotate(45deg);
+  box-shadow:0 1px 2px #000;
+}
+
+/* asymmetric shallow bevels inside the outer shell */
+.frame-content::marker{display:none}
+.frame-content::selection{background:transparent}
+.frame-content{
+  clip-path:polygon(0 0,98% 0,100% 3%,100% 97%,98% 100%,0 100%,0 2%);
+}
+
+/* Make the side armor appear as overlapping pieces. */
+.plate-left,.plate-right{
+  width:29px;top:10%;bottom:10%;
+  background:linear-gradient(90deg,#9da8ad 0,#59666d 12%,#202a30 30%,#0c1216 52%,#46535a 74%,#9aa5aa 100%);
+  box-shadow:inset 1px 0 0 rgba(255,255,255,.55),inset -4px 0 0 #070a0d,3px 0 0 #05080b,6px 0 9px rgba(0,0,0,.9);
+}
+.plate-left{
+  clip-path:polygon(0 0,72% 3%,100% 10%,78% 20%,100% 30%,78% 40%,100% 51%,77% 61%,100% 72%,73% 82%,100% 94%,66% 100%,0 96%,27% 80%,0 65%,24% 51%,0 38%,26% 21%);
+}
+.plate-right{
+  clip-path:polygon(28% 3%,100% 0,74% 21%,100% 38%,76% 51%,100% 65%,73% 80%,100% 96%,34% 100%,0 94%,27% 82%,0 72%,23% 61%,0 51%,22% 40%,0 30%,22% 20%,0 10%);
+}
+
+/* Corner hardware gets a recessed socket beneath each fastener. */
+.armor-joint{
+  width:40px;height:40px;
+  background:linear-gradient(135deg,#f0f3f4 0,#a0abb0 12%,#424e55 30%,#0a0f13 55%,#56636a 77%,#d6dcdf 100%);
+}
+.armor-joint::before{
+  inset:5px;
+  background:linear-gradient(135deg,#6f7b82,#151d22 32%,#030608 65%,#7b878d);
+  box-shadow:inset 0 0 0 2px #263138,0 2px 3px #000;
+}
+.armor-joint::after{
+  inset:11px;
+  background:radial-gradient(circle at 30% 28%,#d3d9dc 0 8%,#69767d 9% 18%,#171f24 20% 58%,#04080b 60%);
+  box-shadow:inset 0 0 0 1px #87939a,0 1px 2px #000;
+}
+
+/* Physical bolts along the display mounting rail. */
+.image-frame .mock-figure::before,.image-frame .mock-figure::after{
+  width:5px;
+  background:
+    radial-gradient(circle at 50% 12%,#b9c2c6 0 2px,#202a30 2.5px 4px,transparent 4.5px),
+    linear-gradient(180deg,#1b252b,#68757c 22%,#182127 47%,#59666d 74%,#11181d);
+}
+
+/* Make the purple channel sit behind the front lip. */
+.frame-content:before{
+  height:7px;
+  background:linear-gradient(180deg,#05090c 0 20%,#29353c 21% 38%,#7a858b 39% 43%,var(--accent) 44% 58%,#26323a 59% 78%,#05090c 79%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 0 5px var(--glow);
+  opacity:.65;
+}
+
+/* Slightly thicker inner cavity lips */
+.image-frame{
+  border-width:10px;
+  box-shadow:inset 0 0 0 2px #d0d6d9,inset 0 0 0 5px #3b474e,inset 0 0 0 9px #68757c,inset 0 0 0 13px #0b1116,inset 0 0 0 17px #05090c,inset 0 0 40px #000,0 10px 18px rgba(0,0,0,.95);
+}
