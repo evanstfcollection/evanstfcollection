@@ -68,9 +68,18 @@ linear-gradient(180deg,#eef2f4 0,#a7b1b7 3%,#4b565e 8%,#171e24 15%,#737e85 20%,#
   max-height:calc(100% - 52px);
 }
 .image-frame.hero .mock-figure{
+  width:100%;
+  height:100%;
+  max-width:none;
+  max-height:none;
+  min-width:0;
+  aspect-ratio:auto;
   overflow:hidden;
+  border:0;
+  background:none;
 }
 .image-frame.hero .mock-figure img{
+  display:block;
   width:100%;
   height:100%;
   max-width:none;
