@@ -1599,3 +1599,25 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
   object-fit: contain !important;
   object-position: center center !important;
 }
+
+
+/* ============================================================
+   INFO WINDOW — NORMAL PAGE FLOW
+   The selected information panel scrolls naturally with the page.
+   It must not remain sticky while the collection is scrolled.
+   ============================================================ */
+
+.detail-panel,
+.collection-info {
+  position: relative !important;
+  top: auto !important;
+  bottom: auto !important;
+  inset-block-start: auto !important;
+  inset-block-end: auto !important;
+}
+
+/* Close controls have been removed from the collection UI. */
+.close-details,
+.info-close {
+  display: none !important;
+}
