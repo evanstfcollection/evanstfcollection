@@ -19,7 +19,7 @@
     <a class="cyber-nav-item masterpiece" href="./?theme=masterpiece" data-theme="masterpiece"><img src="../images/masterpiece-movie-icon.png" alt=""> <span>MASTERPIECE<br>MOVIE</span></a>
     <a class="cyber-nav-item third-party" href="./?theme=third-party" data-theme="third-party"><img src="../images/3rd-party-icon.png" alt=""> <span>3RD PARTY</span></a>
     <a class="cyber-nav-item primes" href="./?theme=primes" data-theme="primes"><img src="../images/primes-icon.png" alt=""> <span>THE PRIMES</span></a>
-    <a class="cyber-nav-item contact" href="./?theme=neutral" data-theme="neutral"><img src="../images/contact-icon.png" alt=""> <span>CONTACT</span></a>
+    <a class="cyber-nav-item contact" href="#contact" data-contact="true"><img src="../images/contact-icon.png" alt=""> <span>CONTACT</span></a>
   </div>
 </nav>
 
@@ -93,6 +93,31 @@
       <div class="collection-grid" data-collection-grid></div>
     </div>
   </section>
+  <section class="frame contact-panel" id="contact" hidden>
+    <div class="armor-hardware" aria-hidden="true">
+      <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i>
+      <i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
+      <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i>
+      <i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
+    </div>
+    <div class="frame-content contact-content">
+      <span class="module-label">TRANSMISSION CHANNEL</span>
+      <h2>CONTACT EVAN'S TF COLLECTION</h2>
+      <p class="contact-intro">Send a message directly to Evan's TF Collection.</p>
+      <form class="contact-form" action="https://formsubmit.co/evanstfcollection@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Evan's TF Collection — Website Contact">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="contact-honey" aria-hidden="true">
+        <label>Name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+        <label>Subject<input type="text" name="subject" required></label>
+        <label>Message<textarea name="message" rows="9" required></textarea></label>
+        <button type="submit" class="contact-submit">SEND TRANSMISSION</button>
+      </form>
+    </div>
+  </section>
+
 </main>
 <script src="sandbox.js"></script>
 </body>
