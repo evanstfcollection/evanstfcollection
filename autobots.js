@@ -263,7 +263,7 @@ clearFilters.addEventListener("click", () => {
   renderGallery();
 });
 
-closeDetails.addEventListener("click", closeDetailPanel);
+if (closeDetails) closeDetails.addEventListener("click", closeDetailPanel);
 detailMainImage.addEventListener("click", openImageLightbox);
 closeImageLightbox.addEventListener("click", closeImageLightboxPanel);
 
