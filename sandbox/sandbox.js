@@ -43,7 +43,9 @@ const menuBarImages={
 };
 function updateMenuBarImage(theme){
   const image=document.querySelector("[data-menu-bar-image]");
+  const header=document.querySelector(".section-header");
   if(image && menuBarImages[theme]) image.src=menuBarImages[theme];
+  if(header && menuBarImages[theme]) header.style.setProperty("--menu-art", `url("${menuBarImages[theme]}")`);
 }
 let collection=[];
 let selectedFigureId=null;
