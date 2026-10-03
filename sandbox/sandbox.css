@@ -1691,3 +1691,42 @@ body[data-theme="decepticons"] .armor-joint:after{filter:saturate(1.15)}
   object-fit:cover;
   object-position:center center;
 }
+
+
+/* Final hero housing correction:
+   remove legacy percentage sizing and decorative side rails from the primary
+   figure cavity so the photograph can use the full usable display area. */
+.image-frame.hero .mock-figure{
+  position:absolute;
+  inset:20px;
+  width:auto;
+  height:auto;
+  max-width:none;
+  max-height:none;
+  min-width:0;
+  min-height:0;
+  aspect-ratio:auto;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+}
+.image-frame.hero .mock-figure::before,
+.image-frame.hero .mock-figure::after{
+  display:none;
+}
+.image-frame.hero .mock-figure img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-width:none;
+  max-height:none;
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+  object-fit:cover;
+  object-position:center center;
+}
