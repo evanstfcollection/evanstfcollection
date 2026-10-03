@@ -63,9 +63,10 @@ function mainImage(figure){
   const images=imageList(figure);
   return images.find(i=>i.image_type==="main")||images[0]||null;
 }
-function setFigureImage(container,src,alt){
+function setFigureImage(container,src,alt,fitMode="main"){
   if(!container)return;
-  container.innerHTML=src?'<img src="'+esc(src)+'" alt="'+esc(alt)+'">':'<span>NO IMAGE</span>';
+  const fitClass=fitMode==="alternative"?" fit-alternative":"";
+  container.innerHTML=src?'<img class="'+fitClass.trim()+'" src="'+esc(src)+'" alt="'+esc(alt)+'">':'<span>NO IMAGE</span>';
 }
 function displayValue(value){
   return value===null||value===undefined||value===""?"—":value;
@@ -94,7 +95,7 @@ function renderSelectedFigure(figure){
     btn.addEventListener("click",()=>{
       const image=images[Number(btn.dataset.galleryIndex)];
       const url=publicImageUrl(image.storage_path);
-      document.querySelectorAll("[data-figure-image]").forEach(el=>setFigureImage(el,url,figure.name));
+      document.querySelectorAll("[data-figure-image]").forEach(el=>setFigureImage(el,url,figure.name,"alternative"));
       gallery.querySelectorAll(".gallery-thumb").forEach(b=>b.classList.toggle("active",b===btn));
     });
   });
