@@ -2989,3 +2989,20 @@
     transform: translateY(20px) !important;
   }
 }
+
+
+/* ============================================================
+   AUTOBOT DETAIL — MATCH THREE PREVIEW ROWS
+   The desktop gallery uses two square preview cards per row.
+   Standardize the detail panel to the visual height of three
+   preview-card rows plus their two inter-row gaps.
+   ============================================================ */
+
+@media (min-width: 821px) {
+  .detail-panel {
+    height: 1120px !important;
+    min-height: 1120px !important;
+    max-height: 1120px !important;
+    box-sizing: border-box !important;
+  }
+}
