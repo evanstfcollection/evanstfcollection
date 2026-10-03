@@ -242,3 +242,12 @@ body[data-cyber-theme="contact"]{--cyber-color:#2870bb;--cyber-glow:rgba(24,86,1
   }
 }
 
+/* Image presentation: suppress dark baked-in image fields while
+   preserving the figure artwork itself. */
+.info-image img,
+.detail-main-image img,
+.info-thumbs img,
+.detail-thumbs img{
+  mix-blend-mode:screen;
+}
+
