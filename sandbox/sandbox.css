@@ -697,3 +697,260 @@ linear-gradient(180deg,#eef2f4 0,#a7b1b7 3%,#4b565e 8%,#171e24 15%,#737e85 20%,#
   border-width:10px;
   box-shadow:inset 0 0 0 2px #d0d6d9,inset 0 0 0 5px #3b474e,inset 0 0 0 9px #68757c,inset 0 0 0 13px #0b1116,inset 0 0 0 17px #05090c,inset 0 0 40px #000,0 10px 18px rgba(0,0,0,.95);
 }
+
+
+/* =========================================================
+   INTERNAL MACHINING PASS — recessed panels, fasteners,
+   mechanical controls and profile hardware
+   ========================================================= */
+
+/* Fine structural seams inside each chassis */
+.frame-content::after{
+  height:6px;
+  bottom:8px;
+  left:12%;
+  right:12%;
+  background:
+    linear-gradient(180deg,#05090c 0 18%,#202b32 19% 34%,#657178 35% 42%,var(--accent) 43% 57%,#1a252b 58% 78%,#06090c 79%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 4px var(--glow);
+  opacity:.38;
+}
+
+/* Small recessed mechanical sockets around the display area */
+.image-frame::before{
+  z-index:5;
+  background:
+    radial-gradient(circle at 12px 12px,#c4cdd0 0 1.5px,#39454c 2px 4px,#080c10 4.5px 6px,transparent 6.5px),
+    radial-gradient(circle at calc(100% - 12px) 12px,#c4cdd0 0 1.5px,#39454c 2px 4px,#080c10 4.5px 6px,transparent 6.5px),
+    radial-gradient(circle at 12px calc(100% - 12px),#c4cdd0 0 1.5px,#39454c 2px 4px,#080c10 4.5px 6px,transparent 6.5px),
+    radial-gradient(circle at calc(100% - 12px) calc(100% - 12px),#c4cdd0 0 1.5px,#39454c 2px 4px,#080c10 4.5px 6px,transparent 6.5px);
+  opacity:.9;
+}
+
+/* Angular internal brace pieces */
+.image-frame .mock-figure{
+  box-shadow:
+    inset 0 0 35px rgba(0,0,0,.95),
+    0 0 0 1px rgba(114,127,135,.22),
+    0 12px 22px rgba(0,0,0,.75);
+}
+.image-frame .mock-figure img{
+  filter:drop-shadow(0 14px 18px rgba(0,0,0,.78));
+}
+
+/* Physical mounting brackets behind the figure */
+.image-frame .mock-figure::before,
+.image-frame .mock-figure::after{
+  top:7%;
+  bottom:7%;
+  width:6px;
+  border-radius:1px;
+  background:
+    linear-gradient(180deg,
+      #0a0f13 0 8%,
+      #66737a 9% 13%,
+      #1b252b 14% 31%,
+      #8a969c 32% 35%,
+      #11181d 36% 62%,
+      #68757c 63% 67%,
+      #1a2329 68% 91%,
+      #77848a 92% 95%,
+      #080c10 96%);
+  box-shadow:
+    inset 0 0 0 1px #05090c,
+    0 0 5px rgba(0,0,0,.9);
+}
+.image-frame .mock-figure::before{left:-11px}
+.image-frame .mock-figure::after{right:-11px}
+
+/* Mechanical micro-panel behind profile information */
+.detail-copy{
+  position:relative;
+  padding:12px 16px 16px 18px;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.018),transparent 18% 82%,rgba(0,0,0,.16)),
+    linear-gradient(180deg,rgba(25,35,42,.18),transparent 30% 70%,rgba(0,0,0,.18));
+  box-shadow:inset 1px 0 0 rgba(157,170,177,.08);
+}
+.detail-copy::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:14px;
+  bottom:14px;
+  width:5px;
+  background:linear-gradient(180deg,#172127,#69767d 16%,#1a2329 42%,var(--accent) 43% 57%,#1b252b 58%,#66737a 84%,#11181d);
+  box-shadow:0 0 5px var(--glow);
+  opacity:.75;
+}
+.detail-copy::after{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:42%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent));
+  opacity:.55;
+}
+
+/* Profile title gets a machined underline instead of a plain UI rule */
+.detail-copy h2{
+  position:relative;
+  border-bottom:0;
+  padding-bottom:16px;
+}
+.detail-copy h2::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:5px;
+  width:100%;
+  height:4px;
+  background:linear-gradient(180deg,#070b0f,#27333a 24%,var(--accent) 40% 58%,#182329 60%,#06090c);
+  box-shadow:0 0 5px var(--glow);
+  opacity:.75;
+}
+
+/* Spec rows become physical data rails */
+.spec-list{
+  position:relative;
+  margin:20px 0;
+  padding:8px 0;
+  border-left:1px solid rgba(111,125,133,.16);
+  border-right:1px solid rgba(111,125,133,.10);
+  background:linear-gradient(90deg,rgba(255,255,255,.012),transparent 20% 80%,rgba(0,0,0,.08));
+}
+.spec-list div{
+  position:relative;
+  min-height:30px;
+  align-items:center;
+  padding:6px 10px 6px 14px;
+  border-bottom:1px solid rgba(255,255,255,.055);
+}
+.spec-list div::before{
+  content:"";
+  position:absolute;
+  left:3px;
+  width:5px;
+  height:5px;
+  background:#6e7b82;
+  border:1px solid #aeb7bb;
+  transform:rotate(45deg);
+  box-shadow:0 0 3px #000;
+}
+.spec-list div::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-1px;
+  width:28px;
+  height:1px;
+  background:var(--accent);
+  opacity:.3;
+}
+.spec-list b{
+  letter-spacing:.2px;
+}
+.spec-list span{
+  color:#9aa5ab;
+}
+
+/* Notes box gets a physical recessed housing */
+.notes-box{
+  position:relative;
+  margin-top:20px;
+  padding:20px 18px 18px;
+  border:1px solid #39464d;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.02),transparent 20% 80%,rgba(0,0,0,.2)),
+    linear-gradient(180deg,#0a1116,#030609);
+  box-shadow:
+    inset 0 0 0 2px #11191f,
+    inset 0 0 20px #000,
+    0 4px 8px rgba(0,0,0,.65);
+}
+.notes-box::before{
+  content:"";
+  position:absolute;
+  left:-1px;
+  top:-1px;
+  width:34px;
+  height:6px;
+  background:linear-gradient(90deg,#69767d,var(--accent),#182127);
+  box-shadow:0 0 5px var(--glow);
+}
+.notes-box::after{
+  content:"";
+  position:absolute;
+  right:8px;
+  top:8px;
+  width:9px;
+  height:9px;
+  border:1px solid #758188;
+  background:#10181d;
+  transform:rotate(45deg);
+}
+
+/* VIEW DETAILS becomes a mechanical actuator */
+.card-bottom button{
+  position:relative;
+  min-width:88px;
+  padding:10px 14px 9px;
+  border:1px solid #6f7c83;
+  background:
+    linear-gradient(180deg,#68757b 0,#2b363d 12%,#0b1116 27%,#111a20 72%,#3f4b52 88%,#7e898f 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.55),
+    inset 0 -2px 0 #05080b,
+    0 3px 6px rgba(0,0,0,.8);
+  color:#e5eaec;
+}
+.card-bottom button::before{
+  content:"";
+  position:absolute;
+  left:5px;
+  top:50%;
+  width:4px;
+  height:4px;
+  transform:translateY(-50%) rotate(45deg);
+  background:var(--accent);
+  box-shadow:0 0 5px var(--glow);
+}
+.card-bottom button:hover{
+  border-color:var(--accent);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 0 #05080b,0 0 9px var(--glow);
+}
+
+/* Tiny mechanical indicators on small modules */
+.mini .frame-content{
+  position:relative;
+}
+.mini .frame-content::before{
+  content:"";
+  position:absolute;
+  top:38px;
+  right:18px;
+  width:42px;
+  height:8px;
+  background:linear-gradient(180deg,#070b0e,#263239 25%,var(--accent) 42% 58%,#131c21 60%,#05090c);
+  box-shadow:0 0 5px var(--glow);
+  opacity:.6;
+}
+.mini .frame-content::after{
+  content:"";
+  position:absolute;
+  right:18px;
+  bottom:28px;
+  width:18px;
+  height:18px;
+  border:1px solid #59666d;
+  background:radial-gradient(circle,#9ca7ab 0 12%,#263239 14% 45%,#070b0f 48%);
+  transform:rotate(45deg);
+  box-shadow:0 2px 4px #000;
+}
+
+/* Slightly more physical section labels */
+.module-label{
+  text-shadow:0 0 5px rgba(255,255,255,.08);
+}
