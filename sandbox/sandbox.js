@@ -38,7 +38,6 @@ function renderSelectedFigure(figure){
   const main=mainImage(figure);
   const src=main?publicImageUrl(main.storage_path):"";
   document.querySelectorAll("[data-figure-image]").forEach(el=>setFigureImage(el,src,figure.name));
-  document.querySelector("[data-figure-name]").textContent=figure.name;
   document.querySelector("[data-detail-name]").textContent=figure.name;
 
   ["manufacturer","toy_line","series","movie_reference","alternate_mode","scale","condition","year","notes"].forEach(key=>{
