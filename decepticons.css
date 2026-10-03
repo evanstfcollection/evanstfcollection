@@ -1686,3 +1686,16 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
   ) !important;
 }
 
+/* Remove the final legacy neon frame from the information window. */
+.collection-info::before,
+.info-image::before,
+.info-thumbs div::before,
+.info-thumbs button::before{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  filter:none!important;
+}
+
