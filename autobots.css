@@ -2623,3 +2623,79 @@
     margin-top: 20px !important;
   }
 }
+
+
+/* ============================================================
+   AUTOBOT DETAIL — STANDARDIZED PANEL DIMENSIONS
+   Every figure uses the same information-window footprint,
+   regardless of title length, image dimensions, or thumbnail count.
+   ============================================================ */
+
+@media (min-width: 821px) {
+  .detail-panel {
+    width: 100% !important;
+    height: 760px !important;
+    min-height: 760px !important;
+    max-height: 760px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Give the upper section a fixed footprint so different title
+     lengths cannot change the overall panel geometry. */
+  .detail-top {
+    min-height: 390px !important;
+    max-height: 390px !important;
+    box-sizing: border-box !important;
+  }
+
+  .detail-main-image {
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    aspect-ratio: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .detail-info {
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Keep thumbnails in a standardized footprint as well. */
+  .detail-thumbs {
+    min-height: 112px !important;
+    max-height: 112px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Notes and navigation occupy fixed rows at the bottom. */
+  .notes {
+    height: 68px !important;
+    min-height: 68px !important;
+    max-height: 68px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .detail-navigation {
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .detail-panel {
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    box-sizing: border-box !important;
+  }
+}
