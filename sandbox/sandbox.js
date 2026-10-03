@@ -38,7 +38,7 @@ const menuBarImages={
   autobots:"../images/autobots-background.png",
   decepticons:"../images/decepticons-background.png",
   masterpiece:"../images/masterpiece-background.png",
-  "third-party":"../images/main-page-background.png",
+  "third-party":"../images/3rd-party-background.png",
   primes:"../images/primes-background.png"
 };
 function updateMenuBarImage(theme){
