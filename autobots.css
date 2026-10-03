@@ -2699,3 +2699,148 @@
     box-sizing: border-box !important;
   }
 }
+
+
+/* ============================================================
+   AUTOBOT DETAIL — EXPANDED STANDARD FOOTPRINT
+   Reserve a fixed, taller panel for up to 9 alternate images,
+   notes, and navigation. The panel never changes size based on
+   the amount of content a figure happens to have.
+   ============================================================ */
+
+@media (min-width: 821px) {
+  .detail-panel {
+    height: 1000px !important;
+    min-height: 1000px !important;
+    max-height: 1000px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Main image + specifications remain in a fixed upper zone. */
+  .detail-top {
+    height: 390px !important;
+    min-height: 390px !important;
+    max-height: 390px !important;
+    box-sizing: border-box !important;
+  }
+
+  .detail-main-image,
+  .detail-info {
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Dedicated 3 x 3 alternate-image area.
+     Empty slots simply remain unused; they never change the panel size. */
+  .detail-thumbs {
+    width: 82% !important;
+    height: 270px !important;
+    min-height: 270px !important;
+    max-height: 270px !important;
+    margin: 28px auto 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .detail-thumbs button {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  .detail-thumbs img {
+    width: 50% !important;
+    height: 50% !important;
+    max-width: 50% !important;
+    max-height: 50% !important;
+    margin: 25% auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  /* Notes get their own fixed row, separated from thumbnails. */
+  .notes {
+    width: 92% !important;
+    height: 76px !important;
+    min-height: 76px !important;
+    max-height: 76px !important;
+    margin: 28px auto 0 !important;
+    padding: 12px 14px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Navigation gets its own fixed row below the notes. */
+  .detail-navigation {
+    width: 92% !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    margin: 24px auto 0 !important;
+    padding: 0 8px 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  .detail-navigation button,
+  #detailCounter {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+}
+
+@media (max-width: 820px) {
+  /* Mobile remains content-responsive, but still reserves room for
+     a full 3 x 3 thumbnail arrangement without collapsing rows. */
+  .detail-panel {
+    min-height: 980px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .detail-thumbs {
+    width: 90% !important;
+    min-height: 270px !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+    overflow: hidden !important;
+  }
+
+  .detail-thumbs button {
+    min-height: 0 !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+  }
+
+  .detail-thumbs img {
+    width: 50% !important;
+    height: 50% !important;
+    max-width: 50% !important;
+    max-height: 50% !important;
+    margin: 25% auto !important;
+    object-fit: contain !important;
+  }
+
+  .notes {
+    margin-top: 22px !important;
+  }
+
+  .detail-navigation {
+    margin-top: 20px !important;
+  }
+}
