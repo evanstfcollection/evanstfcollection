@@ -1,11 +1,20 @@
-const buttons=document.querySelectorAll("[data-theme]");
-buttons.forEach(button=>{
-  button.addEventListener("click",()=>{
-    document.body.dataset.theme=button.dataset.theme;
-    buttons.forEach(b=>b.classList.toggle("active",b===button));
-  });
+const themeButtons=document.querySelectorAll(".theme-switcher [data-theme]");
+const navButtons=document.querySelectorAll(".cyber-nav-item[data-theme]");
+
+function setSandboxTheme(theme){
+  document.body.dataset.theme=theme;
+  themeButtons.forEach(b=>b.classList.toggle("active",b.dataset.theme===theme));
+  navButtons.forEach(b=>b.classList.toggle("active",b.dataset.theme===theme));
+}
+
+themeButtons.forEach(button=>{
+  button.addEventListener("click",()=>setSandboxTheme(button.dataset.theme));
 });
-document.querySelector('[data-theme="neutral"]').classList.add("active");
+navButtons.forEach(button=>{
+  button.addEventListener("click",()=>setSandboxTheme(button.dataset.theme));
+});
+
+setSandboxTheme("decepticons");
 
 const DECEPTICON_CATEGORY="Decepticons";
 let collection=[];
@@ -112,7 +121,8 @@ async function loadSandboxCollection(){
 
   collection=data;
   document.body.dataset.theme="decepticons";
-  buttons.forEach(b=>b.classList.toggle("active",b.dataset.theme==="decepticons"));
+  themeButtons.forEach(b=>b.classList.toggle("active",b.dataset.theme==="decepticons"));
+  navButtons.forEach(b=>b.classList.toggle("active",b.dataset.theme==="decepticons"));
   renderCollection();
   renderSelectedFigure(collection.find(f=>f.name==="Blitzwing")||collection[0]);
 }
