@@ -3,6 +3,7 @@ const navButtons=document.querySelectorAll(".cyber-nav-item[data-theme]");
 
 function setSandboxTheme(theme){
   document.body.dataset.theme=theme;
+  updateMenuBarImage(theme);
   themeButtons.forEach(b=>b.classList.toggle("active",b.dataset.theme===theme));
   navButtons.forEach(b=>b.classList.toggle("active",b.dataset.theme===theme));
 }
@@ -17,6 +18,18 @@ navButtons.forEach(button=>{
 setSandboxTheme("decepticons");
 
 const DECEPTICON_CATEGORY="Decepticons";
+const menuBarImages={
+  neutral:"../images/contact-menubar-image.png",
+  autobots:"../images/autobots-menubar-image.png",
+  decepticons:"../images/decepticons-menubar-image.png",
+  masterpiece:"../images/masterpiece-movie-menubar-image.png",
+  "third-party":"../images/3rd-party-menubar-image.png",
+  primes:"../images/the-primes-menubar-image.png"
+};
+function updateMenuBarImage(theme){
+  const image=document.querySelector("[data-menu-bar-image]");
+  if(image && menuBarImages[theme]) image.src=menuBarImages[theme];
+}
 let collection=[];
 let selectedFigureId=null;
 
