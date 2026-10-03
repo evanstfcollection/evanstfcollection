@@ -1730,3 +1730,11 @@ body[data-theme="decepticons"] .armor-joint:after{filter:saturate(1.15)}
   object-fit:cover;
   object-position:center center;
 }
+
+
+/* Alternative gallery images: maximize within the same window while preserving
+   the original photograph's aspect ratio. */
+.image-frame.hero .mock-figure img.fit-alternative{
+  object-fit:contain;
+  object-position:center center;
+}
