@@ -276,3 +276,48 @@ linear-gradient(180deg,#eef2f4 0,#a7b1b7 3%,#4b565e 8%,#171e24 15%,#737e85 20%,#
 /* live collection image */
 .mock-figure img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:drop-shadow(0 12px 16px rgba(0,0,0,.75));}
 .image-frame .mock-figure img{padding:10px;}
+
+
+/* =========================================================
+   CYBERTRONIAN ARMOR PASS — machined chassis / physical depth
+   ========================================================= */
+.frame{overflow:visible;--metal-hi:#d9dfe2;--metal-mid:#66737a;--metal-dark:#182127;--metal-deep:#070b0f}
+.frame::before{
+  border-radius:2px;
+  background:
+    linear-gradient(90deg,#11181d 0 4.5%,#65727a 4.7% 5.4%,#c8d0d4 5.6% 6.2%,#273239 6.4% 13%,#11181d 13.2% 20%,#46535b 20.2% 20.8%,#151d22 21% 79%,#46535b 79.2% 79.8%,#11181d 80% 86.8%,#273239 87% 93.6%,#c8d0d4 93.8% 94.4%,#65727a 94.6% 95.3%,#11181d 95.5% 100%),
+    linear-gradient(180deg,#d9dfe2 0,#8b979d 3%,#343f46 9%,#121a20 15%,#536068 22%,#1b242a 30%,#080d11 49%,#222d34 69%,#68747b 78%,#20292f 86%,#8c989e 94%,#d8dde0 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -2px 0 #05080b,inset 8px 0 0 rgba(0,0,0,.28),inset -8px 0 0 rgba(0,0,0,.28),0 4px 0 #05080b,0 9px 14px rgba(0,0,0,.8);
+}
+.frame::after{
+  border-radius:1px;
+  background:linear-gradient(135deg,transparent 0 12%,rgba(255,255,255,.035) 12.2% 12.5%,transparent 12.7% 87.3%,rgba(0,0,0,.25) 87.5% 87.8%,transparent 88%),linear-gradient(180deg,#111a20,#030608 38%,#020406 72%,#0b1217);
+  box-shadow:inset 0 0 0 2px #05090c,inset 0 0 0 6px #354149,inset 0 0 0 8px #11181e,inset 0 0 22px #000,0 1px 0 rgba(255,255,255,.08);
+}
+.armor-hardware{z-index:8;inset:-1px}
+.armor-hardware::before,.armor-hardware::after{content:"";position:absolute;pointer-events:none;background:#030608;box-shadow:0 0 5px rgba(0,0,0,.9)}
+.armor-hardware::before{left:8%;right:8%;top:18px;height:3px}
+.armor-hardware::after{top:8%;bottom:8%;left:18px;width:3px}
+.plate-top,.plate-bottom{
+  height:22px;left:8%;right:8%;border:1px solid #202a30;
+  background:linear-gradient(90deg,#202a30 0 5%,#849097 5.5% 13%,#303b42 13.5% 19%,#aab3b8 19.5% 29%,#252f35 29.5% 40%,#707c83 40.5% 47%,#1b242a 47.5% 58%,#68747b 58.5% 69%,#252f35 69.5% 81%,#aab3b8 81.5% 91%,#303a40 91.5% 96%,#1b2329 96.5% 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75),inset 0 -3px 0 #070a0d,0 3px 0 #06090c,0 5px 8px rgba(0,0,0,.9);
+}
+.plate-top{top:-1px}.plate-bottom{bottom:-1px}
+.plate-left,.plate-right{
+  width:25px;top:9%;bottom:9%;border:1px solid #1b242a;
+  background:linear-gradient(180deg,#707c83 0 7%,#20292f 7.5% 16%,#9ca7ac 16.5% 28%,#2c363d 28.5% 41%,#11181d 41.5% 54%,#5b6870 54.5% 68%,#202a30 68.5% 83%,#929da2 83.5% 94%,#2a343a 94.5% 100%);
+  box-shadow:inset 1px 0 0 rgba(255,255,255,.55),inset -3px 0 0 #080b0e,3px 0 0 #06090c,5px 0 8px rgba(0,0,0,.85);
+}
+.plate-left{left:-1px}.plate-right{right:-1px}
+.armor-joint{z-index:4;width:38px;height:38px;border-radius:4px;background:linear-gradient(135deg,#e3e8ea 0,#929da2 14%,#3b474e 31%,#090e12 57%,#536067 78%,#c6cdd0 100%);box-shadow:0 3px 0 #05080b,0 6px 10px rgba(0,0,0,.95),inset 0 1px 1px rgba(255,255,255,.9)}
+.armor-joint::before{content:"";position:absolute;inset:6px;border:1px solid #87939a;background:linear-gradient(135deg,#182127,#05090c);transform:rotate(45deg)}
+.armor-joint::after{inset:10px;background:radial-gradient(circle at 35% 30%,#c9d0d3 0 7%,#5c6970 8% 18%,#151d22 20% 54%,#05090c 56%);box-shadow:inset 0 0 0 1px #69757c,0 1px 2px #000}
+.frame-content > .module-label:first-child{position:relative;z-index:3}
+.frame-content > .module-label:first-child::after{content:"";display:inline-block;width:34px;height:3px;margin-left:12px;vertical-align:middle;background:var(--accent);box-shadow:0 0 6px var(--glow);opacity:.75}
+.image-frame{border-radius:2px;position:relative;background-color:#020609}
+.image-frame::before{z-index:4}.image-frame::after{z-index:4;pointer-events:none}.image-frame .mock-figure{z-index:2}
+.image-frame .mock-figure::before,.image-frame .mock-figure::after{content:"";position:absolute;top:9%;bottom:9%;width:4px;background:linear-gradient(180deg,#263239,#748188 18%,#151d22 45%,#6a777e 72%,#1a2329);box-shadow:0 0 0 1px #05090c,0 0 5px rgba(0,0,0,.8);pointer-events:none}
+.image-frame .mock-figure::before{left:-9px}.image-frame .mock-figure::after{right:-9px}
+.mock-figure img{position:relative;z-index:2;mix-blend-mode:normal}
+.section-header,.figure-card,.image-module,.detail-panel,.mini{margin-bottom:24px}
