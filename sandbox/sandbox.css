@@ -321,3 +321,251 @@ linear-gradient(180deg,#eef2f4 0,#a7b1b7 3%,#4b565e 8%,#171e24 15%,#737e85 20%,#
 .image-frame .mock-figure::before{left:-9px}.image-frame .mock-figure::after{right:-9px}
 .mock-figure img{position:relative;z-index:2;mix-blend-mode:normal}
 .section-header,.figure-card,.image-module,.detail-panel,.mini{margin-bottom:24px}
+
+
+/* =========================================================
+   MACHINED ARMOR PASS — break the repeated striping into
+   individual Cybertronian armor sections
+   ========================================================= */
+
+/* Outer armor is now a collection of distinct plates. */
+.frame::before{
+  background:
+    linear-gradient(90deg,
+      #10171c 0 4%,
+      #647178 4.2% 5%,
+      #c7ced1 5.2% 6.3%,
+      #303b42 6.5% 12.5%,
+      #151d22 12.7% 15.5%,
+      #6d797f 15.7% 17.5%,
+      #202a30 17.7% 29%,
+      #59666d 29.2% 30.5%,
+      #11181d 30.7% 47%,
+      #4f5c63 47.2% 48.4%,
+      #11181d 48.6% 51.4%,
+      #4f5c63 51.6% 52.8%,
+      #11181d 53% 69.3%,
+      #59666d 69.5% 70.8%,
+      #202a30 71% 82.3%,
+      #6d797f 82.5% 84.3%,
+      #151d22 84.5% 87.3%,
+      #303b42 87.5% 93.5%,
+      #c7ced1 93.7% 94.8%,
+      #647178 95% 95.8%,
+      #10171c 96% 100%),
+    linear-gradient(180deg,
+      #aeb8bd 0,
+      #5b686f 4%,
+      #1b242a 10%,
+      #6f7b82 14%,
+      #252f35 20%,
+      #11181d 27%,
+      #5a676e 34%,
+      #1b242a 42%,
+      #090e12 50%,
+      #29343b 59%,
+      #68747b 67%,
+      #1b242a 74%,
+      #4e5b62 82%,
+      #202a30 89%,
+      #7e898f 96%,
+      #c3cace 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.75),
+    inset 0 -2px 0 #05080b,
+    inset 7px 0 0 rgba(0,0,0,.28),
+    inset -7px 0 0 rgba(0,0,0,.28),
+    0 4px 0 #05080b,
+    0 9px 14px rgba(0,0,0,.8);
+}
+
+/* Armor plate interruption seams. */
+.armor-hardware::before{
+  left:7%;
+  right:7%;
+  top:20px;
+  height:4px;
+  background:
+    linear-gradient(90deg,
+      #030608 0 11%,
+      transparent 11% 13%,
+      #030608 13% 27%,
+      transparent 27% 29%,
+      #030608 29% 44%,
+      transparent 44% 47%,
+      #030608 47% 53%,
+      transparent 53% 56%,
+      #030608 56% 71%,
+      transparent 71% 73%,
+      #030608 73% 87%,
+      transparent 87% 89%,
+      #030608 89% 100%);
+  box-shadow:0 1px 0 rgba(255,255,255,.18),0 0 5px rgba(0,0,0,.95);
+}
+.armor-hardware::after{
+  top:7%;
+  bottom:7%;
+  left:20px;
+  width:4px;
+  background:
+    linear-gradient(180deg,
+      #030608 0 12%,transparent 12% 15%,
+      #030608 15% 29%,transparent 29% 32%,
+      #030608 32% 48%,transparent 48% 51%,
+      #030608 51% 68%,transparent 68% 71%,
+      #030608 71% 87%,transparent 87% 90%,
+      #030608 90% 100%);
+}
+
+/* Replace the long top/bottom bars with visibly different armor blocks. */
+.plate-top,.plate-bottom{
+  height:24px;
+  left:7%;
+  right:7%;
+  border:1px solid #1a2329;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.20),transparent 23%,rgba(0,0,0,.22) 82%,rgba(0,0,0,.42)),
+    linear-gradient(90deg,
+      #56636a 0 9%,
+      #9da8ad 9.5% 17%,
+      #2a343a 17.5% 28%,
+      #707c83 28.5% 38%,
+      #252f35 38.5% 49%,
+      #8e999e 49.5% 58%,
+      #202a30 58.5% 69%,
+      #69757c 69.5% 79%,
+      #283238 79.5% 90%,
+      #919ca1 90.5% 96%,
+      #39454c 96.5%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.65),
+    inset 0 -3px 0 #070a0d,
+    0 3px 0 #06090c,
+    0 6px 10px rgba(0,0,0,.9);
+}
+.plate-top{
+  clip-path:polygon(
+    0 0, 17% 0, 20% 38%, 35% 38%, 38% 0,
+    59% 0, 62% 55%, 78% 55%, 81% 0, 100% 0,
+    97% 100%, 3% 100%);
+}
+.plate-bottom{
+  clip-path:polygon(
+    3% 0, 97% 0, 100% 100%, 81% 100%, 78% 45%,
+    62% 45%, 59% 100%, 38% 100%, 35% 62%, 20% 62%, 17% 100%, 0 100%);
+}
+
+/* Side plates get stepped mechanical cuts rather than a continuous stripe. */
+.plate-left,.plate-right{
+  width:27px;
+  top:8%;
+  bottom:8%;
+  border:1px solid #172127;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.14),transparent 35%,rgba(0,0,0,.28) 88%),
+    linear-gradient(180deg,
+      #707c83 0 10%,
+      #202a30 10.5% 19%,
+      #a0aaaf 19.5% 31%,
+      #313b42 31.5% 43%,
+      #11181d 43.5% 56%,
+      #657279 56.5% 69%,
+      #232d33 69.5% 82%,
+      #929da2 82.5% 93%,
+      #303a41 93.5% 100%);
+  box-shadow:
+    inset 1px 0 0 rgba(255,255,255,.5),
+    inset -3px 0 0 #080b0e,
+    3px 0 0 #06090c,
+    5px 0 8px rgba(0,0,0,.85);
+}
+.plate-left{
+  clip-path:polygon(
+    0 0,72% 3%,100% 11%,76% 20%,100% 31%,
+    76% 40%,100% 51%,76% 61%,100% 73%,
+    70% 84%,100% 94%,68% 100%,0 96%,28% 79%,
+    0 63%,23% 51%,0 38%,27% 21%);
+}
+.plate-right{
+  clip-path:polygon(
+    28% 3%,100% 0,73% 21%,100% 38%,77% 51%,
+    100% 63%,72% 79%,100% 96%,32% 100%,
+    0 94%,30% 84%,0 73%,24% 61%,0 51%,
+    24% 40%,0 31%,24% 20%,0 11%);
+}
+
+/* Give the armor a few deliberate bright machined facets instead of an even shine. */
+.armor-joint{
+  background:
+    linear-gradient(135deg,
+      #eef2f4 0 8%,
+      #9da8ad 9% 20%,
+      #3e4a51 21% 36%,
+      #0a0f13 37% 63%,
+      #56636a 64% 81%,
+      #d1d7da 82% 100%);
+}
+.armor-joint::before{
+  border-color:#a2adb2;
+  box-shadow:inset 0 0 0 1px #263138;
+}
+
+/* Recess the accent channel into the armor. */
+.frame-content:before{
+  height:8px;
+  top:8px;
+  left:10%;
+  right:10%;
+  background:
+    linear-gradient(180deg,
+      #05090c 0 20%,
+      #1c272e 21% 35%,
+      #55636a 36% 42%,
+      var(--accent) 43% 58%,
+      #27333a 59% 76%,
+      #070b0f 77%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.30),
+    inset 0 -1px 0 #020405,
+    0 0 5px var(--glow);
+  opacity:.68;
+}
+.frame-content:after{
+  height:6px;
+  bottom:8px;
+  left:12%;
+  right:12%;
+  background:
+    linear-gradient(180deg,#05090c,#202b32 25%,var(--accent) 39% 57%,#182329 59%,#06090c);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 4px var(--glow);
+  opacity:.38;
+}
+
+/* Add shallow diagonal machining cuts to the inner chassis. */
+.frame-content{
+  background:
+    linear-gradient(135deg,
+      transparent 0 10%,
+      rgba(255,255,255,.025) 10.2% 10.6%,
+      transparent 10.8% 24%,
+      rgba(0,0,0,.20) 24.2% 24.8%,
+      transparent 25% 75%,
+      rgba(255,255,255,.018) 75.2% 75.6%,
+      transparent 75.8% 89.2%,
+      rgba(0,0,0,.20) 89.4% 90%,
+      transparent 90.2%),
+    linear-gradient(180deg,rgba(255,255,255,.012),transparent 20% 80%,rgba(0,0,0,.18));
+}
+
+/* More substantial cavity wall around the actual photograph. */
+.image-frame{
+  border-width:9px;
+  box-shadow:
+    inset 0 0 0 2px #c3cbcf,
+    inset 0 0 0 5px #303c43,
+    inset 0 0 0 9px #68757c,
+    inset 0 0 0 13px #0b1116,
+    inset 0 0 0 17px #05090c,
+    inset 0 0 38px #000,
+    0 10px 18px rgba(0,0,0,.95);
+}
