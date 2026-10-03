@@ -251,3 +251,41 @@ body[data-cyber-theme="contact"]{--cyber-color:#2870bb;--cyber-glow:rgba(24,86,1
   mix-blend-mode:screen;
 }
 
+/* ============================================================
+   COMPACT INFORMATION WINDOW
+   Let the Cybernetic figure panel wrap its actual content.
+   ============================================================ */
+
+.collection-info,
+.detail-panel{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+
+/* The main image should have enough room for the figure, but
+   should not force a tall empty information window. */
+.info-main,
+.detail-top{
+  min-height:0!important;
+}
+
+/* Keep the notes immediately below the thumbnail row. */
+.info-notes,
+.notes{
+  margin-bottom:0!important;
+}
+
+/* Prevent the content inside the panel from creating accidental
+   viewport-height spacing. */
+.collection-info > *,
+.detail-panel > *{
+  max-height:none;
+}
+
+.info-navigation,
+.detail-navigation{
+  margin-bottom:0!important;
+}
+
