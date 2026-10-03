@@ -1535,3 +1535,24 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
 .info-close {
   z-index: 20 !important;
 }
+
+
+/* Final card-content alignment: caption sits above the button,
+   matching the Autobots card-body composition. */
+.collection-card .card-caption {
+  left: 14px !important;
+  right: 14px !important;
+  bottom: 52px !important;
+  padding: 8px !important;
+  background: rgba(3,7,11,.86) !important;
+  text-align: left !important;
+  box-sizing: border-box !important;
+}
+
+.collection-card .preview-window {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
