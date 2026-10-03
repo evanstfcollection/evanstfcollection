@@ -143,7 +143,9 @@ function openDetails(index) {
 
   detailPanel.setAttribute("aria-hidden", "false");
   detailName.textContent = item.name;
-  detailMainImage.style.backgroundImage = item.image ? `url("${item.image}")` : "";
+  detailMainImage.innerHTML = item.image
+    ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}">`
+    : `<span>NO IMAGE</span>`;
 
   detailSpecs.innerHTML = `
     <div class="spec"><strong>Manufacturer:</strong><span>${escapeHtml(item.manufacturer || "—")}</span></div>
@@ -165,7 +167,7 @@ function openDetails(index) {
 
   detailThumbs.querySelectorAll("button").forEach((button, thumbIndex) => {
     button.addEventListener("click", () => {
-      detailMainImage.style.backgroundImage = `url("${thumbs[thumbIndex]}")`;
+      detailMainImage.innerHTML = `<img src="${escapeHtml(thumbs[thumbIndex])}" alt="${escapeHtml(item.name)}">`;
     });
   });
 
