@@ -1399,3 +1399,175 @@ body[data-theme="autobots"] .armor-plate:after,
 body[data-theme="autobots"] .armor-joint:after{filter:saturate(1.2)}
 body[data-theme="decepticons"] .armor-plate:after,
 body[data-theme="decepticons"] .armor-joint:after{filter:saturate(1.15)}
+
+
+/* =========================================================
+   HYBRID TOP NAV — production navigation married to the
+   new Cybertronian chassis language
+   ========================================================= */
+
+.cyber-nav{
+  width:min(1500px,96vw);
+  margin:12px auto 24px;
+  display:flex;
+  align-items:stretch;
+  gap:8px;
+  padding:6px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.035),transparent 28%,rgba(0,0,0,.35)),
+    #03070a;
+  border:1px solid #263138;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.15),
+    inset 0 -3px 0 #020405,
+    0 8px 18px rgba(0,0,0,.8);
+  position:relative;
+  isolation:isolate;
+}
+.cyber-nav:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,
+      transparent 0 4%,
+      rgba(110,125,133,.13) 4.2% 4.5%,
+      transparent 4.7% 95.3%,
+      rgba(110,125,133,.13) 95.5% 95.8%,
+      transparent 96%),
+    linear-gradient(180deg,rgba(255,255,255,.06),transparent 20%,rgba(0,0,0,.2));
+}
+.cyber-nav-logo{
+  width:118px;
+  min-width:118px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border:1px solid #58656d;
+  background:
+    linear-gradient(135deg,#66737a,#1b252b 24%,#05090c 55%,#4d5a61 88%,#aab3b8);
+  clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.7),
+    inset 0 0 0 3px #10171c,
+    0 2px 0 #05080b;
+}
+.cyber-nav-logo:after{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border:1px solid #263239;
+  pointer-events:none;
+}
+.cyber-nav-logo img{
+  position:relative;
+  z-index:1;
+  width:102px;
+  max-height:76px;
+  object-fit:contain;
+  filter:drop-shadow(0 4px 5px rgba(0,0,0,.9));
+}
+.cyber-nav-items{
+  flex:1;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:7px;
+}
+.cyber-nav-item{
+  position:relative;
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:7px 12px;
+  border:1px solid #4a565d;
+  color:#edf3f6;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.08),transparent 17%,rgba(0,0,0,.2)),
+    linear-gradient(135deg,#253139,#080d11 24%,#030609 75%,#202b32);
+  clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.35),
+    inset 0 -3px 0 #05080b,
+    0 2px 4px rgba(0,0,0,.75);
+  transition:.16s ease;
+}
+.cyber-nav-item:before{
+  content:"";
+  position:absolute;
+  inset:3px;
+  clip-path:inherit;
+  border:1px solid currentColor;
+  opacity:.16;
+  pointer-events:none;
+}
+.cyber-nav-item:after{
+  content:"";
+  position:absolute;
+  left:12%;
+  right:12%;
+  bottom:5px;
+  height:3px;
+  background:var(--nav-accent,#4aa9ff);
+  box-shadow:0 0 7px var(--nav-glow,#329bff);
+  opacity:.45;
+}
+.cyber-nav-item img{
+  width:34px;
+  height:34px;
+  object-fit:contain;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.8));
+}
+.cyber-nav-item span{
+  position:relative;
+  z-index:2;
+  font:800 11px Orbitron,Arial,sans-serif;
+  letter-spacing:.4px;
+  text-align:center;
+  line-height:1.15;
+}
+.cyber-nav-item.autobots{--nav-accent:#e1262f;--nav-glow:rgba(255,30,40,.55)}
+.cyber-nav-item.decepticons{--nav-accent:#9d35e8;--nav-glow:rgba(160,45,255,.55)}
+.cyber-nav-item.masterpiece{--nav-accent:#d6a21b;--nav-glow:rgba(255,190,35,.5)}
+.cyber-nav-item.third-party{--nav-accent:#11aebc;--nav-glow:rgba(0,220,235,.5)}
+.cyber-nav-item.primes{--nav-accent:#2588df;--nav-glow:rgba(35,140,235,.5)}
+.cyber-nav-item.contact{--nav-accent:#2588df;--nav-glow:rgba(35,140,235,.5)}
+.cyber-nav-item:hover,
+.cyber-nav-item.active{
+  border-color:var(--nav-accent);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.55),
+    inset 0 -3px 0 #05080b,
+    0 0 10px var(--nav-glow);
+  transform:translateY(-1px);
+}
+.cyber-nav-item.active:after{opacity:1}
+.cyber-nav-item.autobots.active{color:#ffdfe1}
+.cyber-nav-item.decepticons.active{color:#f0d7ff}
+.cyber-nav-item.masterpiece.active{color:#fff0b0}
+.cyber-nav-item.third-party.active{color:#d0fcff}
+.cyber-nav-item.primes.active,.cyber-nav-item.contact.active{color:#d4edff}
+
+@media(max-width:1050px){
+  .cyber-nav-logo{width:90px;min-width:90px}
+  .cyber-nav-logo img{width:80px}
+  .cyber-nav-item{gap:5px;padding:6px}
+  .cyber-nav-item img{width:27px;height:27px}
+  .cyber-nav-item span{font-size:8px}
+}
+@media(max-width:720px){
+  .cyber-nav{display:block;padding:7px}
+  .cyber-nav-logo{width:100%;height:64px;margin-bottom:7px}
+  .cyber-nav-logo img{height:56px;width:auto}
+  .cyber-nav-items{grid-template-columns:repeat(3,1fr)}
+  .cyber-nav-item{min-height:58px}
+}
+@media(max-width:460px){
+  .cyber-nav-items{grid-template-columns:repeat(2,1fr)}
+}
+
+/* The sandbox controls remain available, but sit visually below the real nav. */
+.sandbox-top{margin-top:0;padding-top:4px}
