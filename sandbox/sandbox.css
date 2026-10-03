@@ -115,3 +115,91 @@ linear-gradient(180deg,#eef2f4 0,#a7b1b7 3%,#4b565e 8%,#171e24 15%,#737e85 20%,#
  linear-gradient(90deg,transparent 0 8%,#263239 10%,#56636b 12%,var(--accent) 17%,var(--accent) 83%,#56636b 88%,#263239 90%,transparent 92%);
  box-shadow:0 0 3px var(--glow);opacity:.4}
 @media(max-width:560px){.armor-joint{width:28px;height:28px}.plate-top,.plate-bottom{height:15px}.plate-left,.plate-right{width:18px}}
+
+/* MATERIAL + MACHINED DETAIL PASS */
+.armor-plate{
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.12),transparent 9% 91%,rgba(0,0,0,.16)),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 22px,rgba(0,0,0,.025) 22px 44px),
+    linear-gradient(180deg,#cbd2d6 0,#69757c 8%,#303a41 20%,#12191e 47%,#252f36 68%,#59656c 88%,#b9c1c5 97%,#dce1e3 100%);
+}
+.plate-top,.plate-bottom{
+  height:18px;
+  left:7%;
+  right:7%;
+}
+.plate-top{
+  clip-path:polygon(0 0,12% 0,14% 65%,29% 65%,32% 18%,48% 18%,51% 70%,67% 70%,70% 8%,87% 8%,90% 62%,100% 62%,98% 100%,2% 100%);
+}
+.plate-bottom{
+  clip-path:polygon(2% 0,98% 0,100% 100%,90% 100%,87% 38%,70% 38%,67% 92%,51% 92%,48% 30%,32% 30%,29% 82%,14% 82%,12% 100%,0 100%);
+}
+.plate-left,.plate-right{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.12),transparent 15% 85%,rgba(0,0,0,.2)),
+    repeating-linear-gradient(180deg,rgba(255,255,255,.025) 0 20px,rgba(0,0,0,.03) 20px 40px),
+    linear-gradient(90deg,#cbd2d6,#59666d 12%,#20292f 30%,#0f151a 52%,#354149 78%,#aeb8bd);
+}
+.armor-joint{
+  width:32px;height:32px;
+  background:linear-gradient(135deg,#e5eaec 0,#89959b 14%,#414c53 31%,#0b1014 58%,#59666d 78%,#d3d9dc);
+}
+.armor-joint:before{
+  content:"";position:absolute;inset:5px;border-radius:2px;
+  border:1px solid #87939a;transform:rotate(45deg);
+}
+.armor-joint:after{
+  inset:10px;background:radial-gradient(circle,#b7c0c4 0 10%,#20282e 12% 44%,#070b0f 46% 100%);
+  box-shadow:inset 0 0 0 1px #67737a,0 1px 2px #000;
+}
+/* break up the long bright edges with dark machined interruptions */
+.frame:before{
+  background:
+    linear-gradient(90deg,transparent 0 7%,#11181d 7.2% 9%,transparent 9.2% 21%,#11181d 21.2% 22.5%,transparent 22.7% 77.3%,#11181d 77.5% 78.8%,transparent 79% 90.8%,#11181d 91% 92.8%,transparent 93%),
+    linear-gradient(180deg,#d6dcdf 0,#7c878e 4%,#303a41 10%,#11171c 17%,#4b575e 23%,#171e24 31%,#0b1014 50%,#263139 69%,#626d74 78%,#222b31 86%,#8c979d 94%,#d9dee0 100%);
+}
+/* recessed lighting channel rather than a floating neon line */
+.frame-content:before{
+  height:7px;
+  top:8px;left:10%;right:10%;
+  background:
+    linear-gradient(180deg,#11171b 0 22%,#263139 23% 38%,var(--accent) 40% 58%,#172127 60% 78%,#080c10 79%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 0 4px var(--glow);
+  opacity:.72;
+  border-radius:2px;
+}
+.frame-content:after{
+  height:5px;bottom:8px;left:12%;right:12%;
+  background:linear-gradient(180deg,#080c10,#1d282f 24%,var(--accent) 38% 56%,#172127 58%,#060a0d);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 0 3px var(--glow);
+  opacity:.45;
+}
+/* machining marks and plate seams inside the housing */
+.frame-content{
+  background:
+    linear-gradient(135deg,transparent 0 18%,rgba(255,255,255,.018) 18.2% 18.5%,transparent 18.7% 81.3%,rgba(0,0,0,.12) 81.5% 82%,transparent 82.2%),
+    repeating-linear-gradient(90deg,transparent 0 96px,rgba(255,255,255,.012) 97px,transparent 98px 192px),
+    linear-gradient(180deg,rgba(255,255,255,.015),transparent 20% 80%,rgba(0,0,0,.18));
+}
+/* stronger physical lip around the display opening */
+.image-frame{
+  border-color:#46535b;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.035),transparent 18% 82%,rgba(0,0,0,.22)),
+    linear-gradient(180deg,#0a1116,#020609);
+}
+.image-frame:after{
+  inset:15px;
+  border:1px solid var(--accent);
+  box-shadow:0 0 4px var(--glow),inset 0 0 22px rgba(0,0,0,.85);
+  opacity:.22;
+}
+/* tiny mechanical fasteners at the display corners */
+.image-frame:before{
+  background:
+    radial-gradient(circle at 10px 10px,#bfc7ca 0 2px,#39444b 2.5px 4px,transparent 4.5px),
+    radial-gradient(circle at calc(100% - 10px) 10px,#bfc7ca 0 2px,#39444b 2.5px 4px,transparent 4.5px),
+    radial-gradient(circle at 10px calc(100% - 10px),#bfc7ca 0 2px,#39444b 2.5px 4px,transparent 4.5px),
+    radial-gradient(circle at calc(100% - 10px) calc(100% - 10px),#bfc7ca 0 2px,#39444b 2.5px 4px,transparent 4.5px),
+    linear-gradient(135deg,transparent 0 10%,rgba(255,255,255,.05) 10.2% 10.7%,transparent 10.9% 89.1%,rgba(0,0,0,.3) 89.3% 90%,transparent 90.2%);
+}
