@@ -356,3 +356,74 @@ body[data-cyber-theme="contact"]{
     --frame-cut:18px;
   }
 }
+
+/* ============================================================
+   REMOVE LEGACY NEON FRAME LAYERS
+   The new metallic system must not have the old SVG circuitry
+   showing through on image/preview areas.
+   ============================================================ */
+
+.preview-window::before,
+.info-image::before,
+.detail-main-image::before{
+  content:none!important;
+  display:none!important;
+}
+
+/* Preview/image windows are now recessed metallic modules,
+   matching the reference style guide. */
+.preview-window,
+.info-image,
+.detail-main-image{
+  background:
+    linear-gradient(145deg,#273039 0%,#0b1117 12%,#03070b 50%,#111920 88%,#2b343b 100%)!important;
+  border:2px solid #5c6871!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(210,220,226,.16),
+    inset 0 0 0 4px #090e13,
+    inset 0 0 22px rgba(0,0,0,.88),
+    0 0 8px var(--cyber-soft)!important;
+}
+
+/* A restrained illuminated inner edge replaces the old neon
+   circuitry while retaining the collection's faction identity. */
+.preview-window::after,
+.info-image::after,
+.detail-main-image::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:5px!important;
+  z-index:2!important;
+  pointer-events:none!important;
+  border:1px solid color-mix(in srgb,var(--cyber-color) 72%,#ffffff 10%)!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.035),
+    0 0 7px var(--cyber-soft)!important;
+  clip-path:polygon(
+    9px 0,calc(100% - 9px) 0,100% 9px,
+    100% calc(100% - 9px),calc(100% - 9px) 100%,
+    9px 100%,0 calc(100% - 9px),0 9px
+  );
+}
+
+/* Collection preview cards should read as metallic modules,
+   not neon outlined boxes. */
+.collection-card{
+  background:
+    linear-gradient(145deg,#303941 0%,#11171d 9%,#05090d 22%,#090e13 78%,#2a333a 100%)!important;
+}
+
+.card{
+  background:
+    linear-gradient(145deg,#303941 0%,#11171d 9%,#05090d 22%,#090e13 78%,#2a333a 100%)!important;
+}
+
+/* Remove any legacy glow-heavy image treatment. */
+.card-image{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  mix-blend-mode:normal!important;
+}
+
