@@ -1152,3 +1152,250 @@ linear-gradient(180deg,#eef2f4 0,#a7b1b7 3%,#4b565e 8%,#171e24 15%,#737e85 20%,#
   max-height:100%;
   object-fit:cover;
 }
+
+
+/* =========================================================
+   STYLE-GUIDE MATCH PASS — heavier Cybertronian hardware
+   ========================================================= */
+
+/* The reference uses a substantial metal chassis around a
+   recessed black core, with illuminated accent channels. */
+.frame{
+  clip-path:polygon(
+    34px 0,calc(100% - 34px) 0,
+    calc(100% - 10px) 10px,100% 34px,
+    100% calc(100% - 34px),calc(100% - 10px) calc(100% - 10px),
+    calc(100% - 34px) 100%,34px 100%,
+    10px calc(100% - 10px),0 calc(100% - 34px),
+    0 34px,10px 10px);
+  padding:24px;
+}
+.frame:before{
+  background:
+    radial-gradient(circle at 23px 23px,#f6f8f9 0 2px,#9aa5ab 2.5px 5px,#273139 5.5px 8px,#05090d 8.5px 11px,transparent 11.5px),
+    radial-gradient(circle at calc(100% - 23px) 23px,#f6f8f9 0 2px,#9aa5ab 2.5px 5px,#273139 5.5px 8px,#05090d 8.5px 11px,transparent 11.5px),
+    radial-gradient(circle at 23px calc(100% - 23px),#f6f8f9 0 2px,#9aa5ab 2.5px 5px,#273139 5.5px 8px,#05090d 8.5px 11px,transparent 11.5px),
+    radial-gradient(circle at calc(100% - 23px) calc(100% - 23px),#f6f8f9 0 2px,#9aa5ab 2.5px 5px,#273139 5.5px 8px,#05090d 8.5px 11px,transparent 11.5px),
+    linear-gradient(90deg,#0a1015 0 4%,#53616a 4.2% 5.2%,#d7dde0 5.4% 6.2%,#354149 6.5% 11%,#11191f 11.3% 18%,#59666d 18.3% 19.2%,#222d34 19.5% 80.5%,#59666d 80.8% 81.7%,#11191f 82% 88.7%,#354149 89% 93.5%,#d7dde0 93.8% 94.6%,#53616a 94.8% 95.8%,#0a1015 96%),
+    linear-gradient(180deg,#dce1e4 0,#89959b 3%,#303c43 8%,#11191e 15%,#56636a 21%,#202a31 29%,#080d11 50%,#202b32 71%,#68757c 79%,#273139 87%,#8f9a9f 95%,#d7dcdf 100%);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    inset 0 -3px 0 #040709,
+    0 5px 0 #05080b,
+    0 10px 18px rgba(0,0,0,.9);
+}
+.frame:after{
+  inset:15px;
+  clip-path:inherit;
+  background:
+    linear-gradient(135deg,
+      transparent 0 7%,
+      rgba(82,166,255,.045) 7.2% 7.7%,
+      transparent 7.9% 92.1%,
+      rgba(82,166,255,.035) 92.3% 92.8%,
+      transparent 93%),
+    linear-gradient(180deg,#0d151b,#020608 54%,#080f14);
+  box-shadow:
+    inset 0 0 0 2px #04080b,
+    inset 0 0 0 7px #536069,
+    inset 0 0 0 9px #11191f,
+    inset 0 0 25px #000,
+    0 1px 0 rgba(255,255,255,.18);
+}
+
+/* Stronger, irregular armor plates matching the reference frame. */
+.armor-plate{
+  background:
+    linear-gradient(180deg,
+      #edf1f3 0,#aab5ba 8%,#59666d 16%,#202a31 29%,
+      #0a1015 46%,#2d383f 60%,#6e7a81 75%,#252f36 88%,#c3cbd0 100%);
+  border:1px solid #11181d;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -3px 0 #05080b,
+    0 2px 0 #06090c,
+    0 6px 11px rgba(0,0,0,.9);
+}
+.plate-top,.plate-bottom{
+  height:30px;
+  left:7%;
+  right:7%;
+}
+.plate-top{
+  top:-2px;
+  clip-path:polygon(
+    0 0,13% 0,15% 48%,29% 48%,32% 0,
+    48% 0,51% 68%,67% 68%,70% 0,
+    87% 0,89% 42%,100% 42%,97% 100%,3% 100%);
+}
+.plate-bottom{
+  bottom:-2px;
+  clip-path:polygon(
+    3% 0,97% 0,100% 58%,89% 58%,87% 100%,
+    70% 100%,67% 32%,51% 32%,48% 100%,
+    32% 100%,29% 52%,15% 52%,13% 100%,0 100%);
+}
+.plate-left,.plate-right{
+  width:30px;
+  top:8%;
+  bottom:8%;
+  background:
+    linear-gradient(90deg,#c0c8cc 0,#66737a 10%,#263139 25%,#0a1014 44%,#334047 60%,#7b878e 78%,#1a2329 91%,#aeb7bc 100%);
+}
+.plate-left{
+  left:-2px;
+  clip-path:polygon(
+    0 0,70% 4%,100% 13%,75% 24%,100% 35%,
+    72% 45%,100% 56%,74% 67%,100% 80%,
+    68% 94%,100% 100%,0 96%,26% 82%,0 70%,
+    24% 56%,0 44%,25% 30%,0 18%);
+}
+.plate-right{
+  right:-2px;
+  clip-path:polygon(
+    30% 4%,100% 0,100% 18%,75% 30%,100% 44%,
+    76% 56%,100% 70%,0 96%,32% 94%,0 80%,
+    26% 67%,0 56%,28% 45%,0 35%,25% 24%,0 13%);
+}
+
+/* Accent channels are physically recessed into the metal. */
+.armor-plate:after{
+  content:"";
+  position:absolute;
+  display:block;
+  background:linear-gradient(180deg,
+    #05090c 0,#172229 24%,var(--accent) 40% 60%,
+    #172229 76%,#05090c 100%);
+  box-shadow:0 0 7px var(--glow),inset 0 1px 0 rgba(255,255,255,.4);
+  opacity:.9;
+}
+.plate-top:after,.plate-bottom:after{
+  left:9%;right:9%;height:5px;top:8px;
+  clip-path:polygon(0 0,21% 0,24% 100%,47% 100%,50% 0,73% 0,76% 100%,100% 100%,100% 100%,0 100%);
+}
+.plate-bottom:after{top:17px}
+.plate-left:after,.plate-right:after{
+  top:10%;bottom:10%;width:5px;
+}
+.plate-left:after{right:7px}
+.plate-right:after{left:7px}
+
+/* Larger mechanical corner housings with illuminated sockets. */
+.armor-joint{
+  width:46px;height:46px;
+  border-radius:3px;
+  transform:rotate(45deg);
+  background:
+    linear-gradient(135deg,#f4f7f8 0,#aab4b9 10%,#526068 22%,#202a31 37%,#070b0f 57%,#59666d 75%,#dce2e5 100%);
+  border:1px solid #131b21;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 4px 0 #05080b,
+    0 7px 11px rgba(0,0,0,.95);
+}
+.armor-joint:before{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border:1px solid #6e7b82;
+  background:linear-gradient(135deg,#2d3940,#080d11 52%,#647178);
+  box-shadow:inset 0 0 0 2px #11181d;
+}
+.armor-joint:after{
+  inset:12px;
+  border-radius:2px;
+  background:
+    radial-gradient(circle at 35% 30%,#e1e6e8 0 5%,#657279 6% 18%,#10171c 20% 48%,var(--accent) 50% 58%,#04080b 60%);
+  box-shadow:0 0 8px var(--glow),inset 0 0 0 1px #859198;
+}
+.joint-tl{left:2px;top:2px}.joint-tr{right:2px;top:2px}.joint-bl{left:2px;bottom:2px}.joint-br{right:2px;bottom:2px}
+
+/* Make the recessed core feel more like the reference's black armored cavity. */
+.frame-content{
+  padding:26px;
+  background:
+    linear-gradient(135deg,
+      transparent 0 10%,
+      rgba(255,255,255,.018) 10.2% 10.6%,
+      transparent 10.8% 89.2%,
+      rgba(0,0,0,.22) 89.4% 90%,
+      transparent 90.2%),
+    linear-gradient(180deg,#091117,#020608 55%,#071016);
+  box-shadow:
+    inset 0 0 0 1px rgba(190,201,206,.15),
+    inset 0 0 0 3px rgba(0,0,0,.6),
+    inset 0 0 26px #000;
+}
+
+/* Reference-style illuminated inner rails. */
+.frame-content:before{
+  top:11px;
+  left:10%;
+  right:10%;
+  height:6px;
+  background:
+    linear-gradient(90deg,
+      transparent 0 4%,#26333a 6%,#657279 8%,
+      var(--accent) 11% 89%,#657279 92%,#26333a 94%,transparent 96%);
+  box-shadow:0 0 5px var(--accent),0 0 11px var(--glow),inset 0 1px 0 rgba(255,255,255,.5);
+  opacity:.85;
+}
+.frame-content:after{
+  bottom:11px;
+  left:12%;
+  right:12%;
+  height:4px;
+  background:linear-gradient(90deg,transparent,#344149 8%,#78848a 11%,var(--accent) 16% 84%,#78848a 89%,#344149 92%,transparent);
+  box-shadow:0 0 5px var(--accent);
+  opacity:.7;
+}
+
+/* Image housing becomes the smaller version of the same physical frame. */
+.image-frame{
+  border:0;
+  clip-path:polygon(
+    18px 0,calc(100% - 18px) 0,100% 18px,
+    100% calc(100% - 18px),calc(100% - 18px) 100%,
+    18px 100%,0 calc(100% - 18px),0 18px);
+  box-shadow:
+    inset 0 0 0 2px #eef2f3,
+    inset 0 0 0 6px #3d4a52,
+    inset 0 0 0 9px #10171c,
+    inset 0 0 0 13px #66737a,
+    inset 0 0 0 17px #10171c,
+    inset 0 0 0 20px #030709,
+    inset 0 0 35px #000,
+    0 8px 18px #000;
+}
+.image-frame:after{
+  inset:18px;
+  border:2px solid var(--accent);
+  box-shadow:0 0 6px var(--glow),inset 0 0 20px #000;
+  opacity:.28;
+}
+
+/* Hero image itself remains contained but feels mounted inside the chassis. */
+.image-frame.hero .mock-figure{
+  max-width:calc(100% - 52px);
+  max-height:calc(100% - 52px);
+  box-shadow:0 12px 20px #000,inset 0 0 26px rgba(0,0,0,.7);
+}
+
+/* Style-guide-like mechanical section labels. */
+.module-label{
+  text-shadow:0 0 5px var(--glow);
+  letter-spacing:1.6px;
+}
+.module-label:before{
+  width:7px!important;
+  height:7px!important;
+  border-color:#7d898f!important;
+  background:linear-gradient(135deg,#d7dde0,#263239 48%,#070b0f)!important;
+  box-shadow:0 0 4px #000!important;
+}
+
+/* Theme variants: preserve steel hardware while changing only illumination. */
+body[data-theme="autobots"] .armor-plate:after,
+body[data-theme="autobots"] .armor-joint:after{filter:saturate(1.2)}
+body[data-theme="decepticons"] .armor-plate:after,
+body[data-theme="decepticons"] .armor-joint:after{filter:saturate(1.15)}
