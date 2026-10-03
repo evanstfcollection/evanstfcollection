@@ -101,39 +101,38 @@
         </div>
         <div class="notes-box">
           <span class="module-label">COLLECTION NOTES</span>
-          <p>Prototype content area for the finished collection profile.</p>
+          <p data-spec="notes">—</p>
+          <div class="profile-meta">
+            <span data-spec="condition">—</span>
+            <span data-spec="year">—</span>
+          </div>
+          <div class="figure-gallery" data-gallery></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="component-row">
-    <div class="frame mini">
-      <div class="armor-hardware" aria-hidden="true">
-  <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i>
-  <i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
-  <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i>
-  <i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
-</div>
-        <div class="frame-content"><span class="module-label">SMALL MODULE</span><h3>Section Panel</h3></div>
+  <section class="frame collection-browser">
+    <div class="armor-hardware" aria-hidden="true">
+      <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i>
+      <i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
+      <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i>
+      <i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
     </div>
-    <div class="frame mini">
-      <div class="armor-hardware" aria-hidden="true">
-  <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i>
-  <i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
-  <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i>
-  <i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
-</div>
-        <div class="frame-content"><span class="module-label">SMALL MODULE</span><h3>Filter Panel</h3></div>
-    </div>
-    <div class="frame mini">
-      <div class="armor-hardware" aria-hidden="true">
-  <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i>
-  <i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
-  <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i>
-  <i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
-</div>
-        <div class="frame-content"><span class="module-label">SMALL MODULE</span><h3>Navigation Panel</h3></div>
+    <div class="frame-content">
+      <span class="module-label">DECEPTICON ARMORY / COLLECTION INDEX</span>
+      <div class="collection-toolbar">
+        <div>
+          <h3>Decepticon Collection</h3>
+          <p><span data-count>0</span> published figures connected to the live collection.</p>
+        </div>
+        <div class="collection-filter">
+          <button class="filter-button active" data-filter="all">ALL</button>
+          <button class="filter-button" data-filter="Studio Series">STUDIO SERIES</button>
+          <button class="filter-button" data-filter="Hasbro">HASBRO</button>
+        </div>
+      </div>
+      <div class="collection-grid" data-collection-grid></div>
     </div>
   </section>
 </main>
