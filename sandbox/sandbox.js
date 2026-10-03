@@ -2,6 +2,8 @@ const themeButtons=document.querySelectorAll(".theme-switcher [data-theme]");
 const navButtons=document.querySelectorAll(".cyber-nav-item[data-theme]");
 const contactButton=document.querySelector(".cyber-nav-item[data-contact]");
 const contactPanel=document.querySelector(".contact-panel");
+const homeButton=document.querySelector(".cyber-nav-logo[data-home]");
+const homePanel=document.querySelector(".sandbox-home");
 const sandboxSections=document.querySelectorAll(".section-header,.detail-panel,.collection-browser");
 
 function setSandboxTheme(theme){
@@ -18,6 +20,7 @@ navButtons.forEach(button=>{
   button.addEventListener("click",async event=>{
     event.preventDefault();
     hideContact();
+    hideHome();
     const theme=button.dataset.theme;
     if(!themeConfig[theme]) return;
     activeTheme=theme;
@@ -26,7 +29,26 @@ navButtons.forEach(button=>{
   });
 });
 
+function showHome(){
+  if(homePanel) homePanel.hidden=false;
+  if(contactPanel) contactPanel.hidden=true;
+  sandboxSections.forEach(section=>section.hidden=true);
+  navButtons.forEach(button=>button.classList.remove("active"));
+  contactButton?.classList.remove("active");
+  history.pushState({home:true},"","#home");
+}
+
+function hideHome(){
+  if(homePanel) homePanel.hidden=true;
+}
+
+homeButton?.addEventListener("click",event=>{
+  event.preventDefault();
+  showHome();
+});
+
 function showContact(){
+  hideHome();
   if(contactPanel) contactPanel.hidden=false;
   sandboxSections.forEach(section=>section.hidden=true);
   navButtons.forEach(button=>button.classList.remove("active"));
@@ -37,6 +59,7 @@ function showContact(){
 function hideContact(){
   if(contactPanel) contactPanel.hidden=true;
   sandboxSections.forEach(section=>section.hidden=false);
+}
   contactButton?.classList.remove("active");
 }
 
@@ -195,13 +218,19 @@ document.querySelectorAll(".filter-button").forEach(button=>{
 });
 loadSandboxCollection(activeTheme);
 window.addEventListener("popstate",()=>{
+  if(window.location.hash==="#home"){
+    showHome();
+    return;
+  }
   if(window.location.hash==="#contact"){
     showContact();
     return;
   }
   hideContact();
+  hideHome();
   const theme=new URLSearchParams(window.location.search).get("theme")||"decepticons";
   loadSandboxCollection(themeConfig[theme]?theme:"decepticons");
 });
 
+if(window.location.hash==="#home") showHome();
 if(window.location.hash==="#contact") showContact();
