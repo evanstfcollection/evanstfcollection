@@ -60,19 +60,18 @@ linear-gradient(180deg,#eef2f4 0,#a7b1b7 3%,#4b565e 8%,#171e24 15%,#737e85 20%,#
 .image-frame.hero{
   min-height:1120px;
   margin:0;
+  position:relative;
+  overflow:hidden;
 }
 .image-frame.hero .mock-figure{
-  height:82%;
-  width:50%;
-  max-width:calc(100% - 52px);
-  max-height:calc(100% - 52px);
-}
-.image-frame.hero .mock-figure{
-  width:100%;
-  height:100%;
+  position:absolute;
+  inset:0;
+  width:auto;
+  height:auto;
   max-width:none;
   max-height:none;
   min-width:0;
+  min-height:0;
   aspect-ratio:auto;
   overflow:hidden;
   border:0;
@@ -80,12 +79,14 @@ linear-gradient(180deg,#eef2f4 0,#a7b1b7 3%,#4b565e 8%,#171e24 15%,#737e85 20%,#
 }
 .image-frame.hero .mock-figure img{
   display:block;
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   max-width:none;
   max-height:none;
   object-fit:cover;
-  object-position:center bottom;
+  object-position:center center;
 }
 .detail-copy{
   min-width:0;
