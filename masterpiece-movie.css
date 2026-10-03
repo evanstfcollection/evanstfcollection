@@ -1572,3 +1572,39 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
   height: 100% !important;
   overflow: hidden !important;
 }
+
+
+/* ============================================================
+   TRANSPARENT IMAGE SAFE-ZONE
+   Collection photographs do not receive an artificial black
+   rectangle from the page. The Cybernetic frame remains visible.
+   ============================================================ */
+
+.preview-window,
+.collection-card .preview-window,
+.info-image,
+.info-thumbs button,
+.info-thumbs div {
+  background: transparent !important;
+}
+
+.preview-window img,
+.collection-card .preview-window img,
+.info-image img,
+.info-thumbs button img,
+.info-thumbs div img {
+  background: transparent !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Let each photograph use the available frame area without
+   stretching it or adding a background behind transparent space. */
+.preview-window img {
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+.info-image img {
+  object-fit: contain !important;
+  object-position: center center !important;
+}
