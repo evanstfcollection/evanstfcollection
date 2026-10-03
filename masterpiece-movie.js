@@ -164,9 +164,11 @@ async function loadFigures() {
 }
 
 infoImage.addEventListener("click", openImageLightbox);
-infoClose.addEventListener("click", () => {
-  document.getElementById("collectionInfo").setAttribute("aria-hidden", "true");
-});
+if (infoClose) {
+  infoClose.addEventListener("click", () => {
+    document.getElementById("collectionInfo").setAttribute("aria-hidden", "true");
+  });
+}
 previousFigure.addEventListener("click", () => moveSelection(-1));
 nextFigure.addEventListener("click", () => moveSelection(1));
 closeImageLightbox.addEventListener("click", closeLightbox);
