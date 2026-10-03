@@ -60,8 +60,6 @@ function hideContact(){
   if(contactPanel) contactPanel.hidden=true;
   sandboxSections.forEach(section=>section.hidden=false);
 }
-  contactButton?.classList.remove("active");
-}
 
 contactButton?.addEventListener("click",event=>{
   event.preventDefault();
