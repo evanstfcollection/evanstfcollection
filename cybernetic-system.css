@@ -491,3 +491,126 @@ body .detail-main-image img{
   mix-blend-mode:normal!important;
 }
 
+/* ============================================================
+   METALLIC HARDWARE PASS
+   Make the frame read as physical Cybertronian hardware rather
+   than a thin border around a web panel.
+   ============================================================ */
+
+.collection-heading,
+.collection-card,
+.card,
+.collection-info,
+.detail-panel,
+.contact-shell,
+.contact-panel,
+.collection-placeholder,
+.notes,
+.info-notes,
+.filters{
+  border:0!important;
+  box-shadow:
+    0 16px 30px rgba(0,0,0,.78),
+    0 0 14px var(--cyber-soft),
+    inset 0 0 0 1px rgba(220,230,235,.08)!important;
+}
+
+/* Metallic shell: multiple highlights, dark bevels and faction
+   lighting are layered into the outer hardware. */
+.collection-heading::before,
+.collection-card::before,
+.card::before,
+.collection-info::before,
+.detail-panel::before,
+.contact-shell::before,
+.contact-panel::before,
+.collection-placeholder::before,
+.notes::before,
+.info-notes::before,
+.filters::before{
+  background:
+    radial-gradient(ellipse at 18% 7%,rgba(255,255,255,.55) 0 2px,transparent 3px),
+    radial-gradient(ellipse at 82% 7%,rgba(255,255,255,.42) 0 2px,transparent 3px),
+    radial-gradient(ellipse at 18% 93%,rgba(255,255,255,.35) 0 2px,transparent 3px),
+    radial-gradient(ellipse at 82% 93%,rgba(255,255,255,.35) 0 2px,transparent 3px),
+    linear-gradient(180deg,
+      #d2d8dc 0%,
+      #8b969e 5%,
+      #3f4951 11%,
+      #151c22 19%,
+      #59656d 22%,
+      #20282f 27%,
+      #0a0f14 73%,
+      #303a42 78%,
+      #11171c 86%,
+      #7c878f 94%,
+      #c5cbd0 100%)!important;
+  box-shadow:
+    0 0 7px var(--cyber-color),
+    0 0 18px var(--cyber-glow),
+    inset 0 2px 0 rgba(255,255,255,.22),
+    inset 0 -2px 0 rgba(0,0,0,.75)!important;
+}
+
+/* Recessed panel: deeper than before, creating the physical
+   "screen set into machinery" appearance from the reference. */
+.collection-heading::after,
+.collection-card::after,
+.card::after,
+.collection-info::after,
+.detail-panel::after,
+.contact-shell::after,
+.contact-panel::after,
+.collection-placeholder::after,
+.notes::after,
+.info-notes::after,
+.filters::after{
+  inset:12px!important;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.045),transparent 18%),
+    linear-gradient(180deg,#111920 0%,#060b10 34%,#020508 100%)!important;
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.025),
+    inset 0 0 28px rgba(0,0,0,.95),
+    0 0 0 1px rgba(0,0,0,.9)!important;
+}
+
+/* Mechanical top/bottom rail highlights. */
+.collection-heading,
+.collection-card,
+.card,
+.collection-info,
+.detail-panel{
+  background-image:
+    linear-gradient(90deg,
+      transparent 0 7%,
+      rgba(255,255,255,.14) 7.5%,
+      transparent 8% 92%,
+      rgba(255,255,255,.12) 92.5%,
+      transparent 93%)!important;
+}
+
+/* Main information image: substantial inner hardware bezel. */
+.info-image,
+.detail-main-image,
+.preview-window{
+  border:3px solid #4f5a63!important;
+  box-shadow:
+    inset 0 0 0 2px #a0a9ae,
+    inset 0 0 0 4px #151c22,
+    inset 0 0 0 6px #05090d,
+    inset 0 0 30px rgba(0,0,0,.95),
+    0 0 9px var(--cyber-soft)!important;
+}
+
+/* Subtle faction light catches on the bezel. */
+.info-image::after,
+.detail-main-image::after,
+.preview-window::after{
+  inset:4px!important;
+  border:1px solid color-mix(in srgb,var(--cyber-color) 78%,white 8%)!important;
+  box-shadow:
+    0 0 5px var(--cyber-color),
+    inset 0 0 7px var(--cyber-soft)!important;
+}
+
