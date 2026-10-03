@@ -1170,3 +1170,122 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
     max-height: 64% !important;
   }
 }
+
+
+/* ============================================================
+   AUTOBOT-MATCHING COLLECTION CARD FRAME
+   Remove the plain rectangular card outline. The Cybernetic
+   artwork itself is the card boundary, matching Autobots.
+   ============================================================ */
+
+.collection-card {
+  border: 0 !important;
+  box-shadow:
+    0 5px 10px rgba(0,0,0,.95),
+    0 0 10px var(--glow) !important;
+  clip-path: none !important;
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+.collection-card::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  background: var(--accent) !important;
+  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat !important;
+  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat !important;
+  filter:
+    drop-shadow(0 0 3px var(--accent))
+    drop-shadow(0 0 8px var(--glow)) !important;
+  pointer-events: none !important;
+}
+
+.collection-card::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 6px !important;
+  z-index: 0 !important;
+  background: linear-gradient(180deg, rgba(11,17,24,.98), rgba(2,6,10,.98)) !important;
+  clip-path: polygon(
+    1.5% 0, 98.5% 0, 100% 2%, 100% 98%,
+    98.5% 100%, 1.5% 100%, 0 98%, 0 2%
+  ) !important;
+  pointer-events: none !important;
+}
+
+.collection-card .preview-window {
+  z-index: 1 !important;
+  border: 0 !important;
+  background: transparent !important;
+  clip-path: none !important;
+}
+
+.collection-card .preview-window::before {
+  display: none !important;
+}
+
+.collection-card .card-caption {
+  z-index: 5 !important;
+}
+
+/* ============================================================
+   AUTOBOT-MATCHING VIEW DETAILS BUTTON
+   ============================================================ */
+
+.collection-card .view-details-button {
+  position: absolute !important;
+  z-index: 6 !important;
+  left: 14px !important;
+  right: 14px !important;
+  bottom: 14px !important;
+  width: calc(100% - 28px) !important;
+  margin: 0 !important;
+  padding: 9px 8px !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 85%, white) !important;
+  color: white !important;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 55%, black),
+    var(--accent),
+    color-mix(in srgb, var(--accent) 55%, black)
+  ) !important;
+  box-shadow:
+    0 3px 7px rgba(0,0,0,.9),
+    0 0 8px var(--glow) !important;
+  font: 800 10px "Orbitron", Arial, sans-serif !important;
+  cursor: pointer !important;
+}
+
+.collection-card .view-details-button:hover {
+  filter: brightness(1.12) !important;
+}
+
+/* ============================================================
+   AUTOBOT-MATCHING INFO WINDOW FRAME
+   No plain rectangular outline around the Cybernetic frame.
+   ============================================================ */
+
+.collection-info {
+  border: 0 !important;
+  box-shadow:
+    0 7px 16px rgba(0,0,0,.95),
+    0 0 22px var(--glow) !important;
+  clip-path: none !important;
+}
+
+.collection-info::before {
+  z-index: 10 !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+}
+
+.collection-info > * {
+  z-index: 11 !important;
+}
+
+.info-close {
+  z-index: 20 !important;
+}
