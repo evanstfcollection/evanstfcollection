@@ -1571,3 +1571,33 @@ body[data-theme="decepticons"] .armor-joint:after{filter:saturate(1.15)}
 
 /* The sandbox controls remain available, but sit visually below the real nav. */
 .sandbox-top{margin-top:0;padding-top:4px}
+
+
+
+/* =========================================================
+   PRODUCTION NAVIGATION MODE
+   ========================================================= */
+
+.cyber-nav{
+  margin:12px auto 24px;
+}
+.cyber-nav-logo,
+.cyber-nav-item{
+  text-decoration:none;
+}
+.cyber-nav-logo{
+  cursor:pointer;
+}
+.cyber-nav-item{
+  cursor:pointer;
+}
+.cyber-nav-item span{
+  color:#edf3f6;
+}
+.cyber-nav-item:hover span,
+.cyber-nav-item.active span{
+  color:inherit;
+}
+
+/* The experimental sandbox heading is intentionally gone.
+   The navigation is now the site's actual identity layer. */
