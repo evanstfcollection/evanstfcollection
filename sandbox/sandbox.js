@@ -1,5 +1,8 @@
 const themeButtons=document.querySelectorAll(".theme-switcher [data-theme]");
 const navButtons=document.querySelectorAll(".cyber-nav-item[data-theme]");
+const contactButton=document.querySelector(".cyber-nav-item[data-contact]");
+const contactPanel=document.querySelector(".contact-panel");
+const sandboxSections=document.querySelectorAll(".section-header,.detail-panel,.collection-browser");
 
 function setSandboxTheme(theme){
   document.body.dataset.theme=theme;
@@ -14,12 +17,32 @@ themeButtons.forEach(button=>{
 navButtons.forEach(button=>{
   button.addEventListener("click",async event=>{
     event.preventDefault();
+    hideContact();
     const theme=button.dataset.theme;
     if(!themeConfig[theme]) return;
     activeTheme=theme;
     history.pushState({theme},"",`?theme=${encodeURIComponent(theme)}`);
     await loadSandboxCollection(theme);
   });
+});
+
+function showContact(){
+  if(contactPanel) contactPanel.hidden=false;
+  sandboxSections.forEach(section=>section.hidden=true);
+  navButtons.forEach(button=>button.classList.remove("active"));
+  contactButton?.classList.add("active");
+  history.pushState({contact:true},"","#contact");
+}
+
+function hideContact(){
+  if(contactPanel) contactPanel.hidden=true;
+  sandboxSections.forEach(section=>section.hidden=false);
+  contactButton?.classList.remove("active");
+}
+
+contactButton?.addEventListener("click",event=>{
+  event.preventDefault();
+  showContact();
 });
 
 const themeConfig={
@@ -172,6 +195,13 @@ document.querySelectorAll(".filter-button").forEach(button=>{
 });
 loadSandboxCollection(activeTheme);
 window.addEventListener("popstate",()=>{
+  if(window.location.hash==="#contact"){
+    showContact();
+    return;
+  }
+  hideContact();
   const theme=new URLSearchParams(window.location.search).get("theme")||"decepticons";
   loadSandboxCollection(themeConfig[theme]?theme:"decepticons");
 });
+
+if(window.location.hash==="#contact") showContact();
