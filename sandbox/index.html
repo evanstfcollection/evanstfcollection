@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cybertronian UI Sandbox</title>
 <link rel="stylesheet" href="sandbox.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase-config.js"></script>
 </head>
 <body data-theme="neutral">
 <header class="sandbox-top">
@@ -25,6 +27,10 @@
 
 <main>
   <section class="frame section-header">
+    <div class="armor-hardware" aria-hidden="true">
+      <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i><i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
+      <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i><i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
+    </div>
     <div class="frame-content">
       <span class="module-label">COLLECTION SYSTEM / 01</span>
       <h2>DECEPTICON COLLECTION</h2>
@@ -34,14 +40,20 @@
 
   <section class="demo-grid">
     <article class="frame figure-card">
-      <div class="frame-content">
+      <div class="armor-hardware" aria-hidden="true">
+  <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i>
+  <i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
+  <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i>
+  <i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
+</div>
+        <div class="frame-content">
         <div class="image-frame">
-          <div class="mock-figure">BLITZWING</div>
+          <div class="mock-figure" data-figure-image><span>LOADING FIGURE</span></div>
         </div>
         <div class="card-bottom">
           <div>
             <span class="module-label">FIGURE</span>
-            <h3>Blitzwing</h3>
+            <h3 data-figure-name>Loading...</h3>
           </div>
           <button>VIEW DETAILS</button>
         </div>
@@ -49,33 +61,43 @@
     </article>
 
     <article class="frame image-module">
-      <div class="frame-content">
+      <div class="armor-hardware" aria-hidden="true">
+  <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i>
+  <i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
+  <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i>
+  <i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
+</div>
+        <div class="frame-content">
         <span class="module-label">IMAGE / DISPLAY</span>
         <div class="image-frame large">
-          <div class="mock-figure">FIGURE<br>IMAGE</div>
+          <div class="mock-figure" data-figure-image><span>LOADING FIGURE</span></div>
         </div>
       </div>
     </article>
   </section>
 
   <section class="frame detail-panel">
+    <div class="armor-hardware" aria-hidden="true">
+      <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i><i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
+      <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i><i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
+    </div>
     <div class="frame-content detail-layout">
       <div class="detail-image">
         <span class="module-label">PRIMARY DISPLAY</span>
         <div class="image-frame hero">
-          <div class="mock-figure">BLITZWING</div>
+          <div class="mock-figure" data-figure-image><span>LOADING FIGURE</span></div>
         </div>
       </div>
       <div class="detail-copy">
         <span class="module-label">FIGURE PROFILE</span>
-        <h2>Blitzwing</h2>
+        <h2 data-detail-name>Loading...</h2>
         <div class="spec-list">
-          <div><b>Manufacturer</b><span>Hasbro</span></div>
-          <div><b>Toy Line</b><span>Studio Series</span></div>
-          <div><b>Series</b><span>SS65</span></div>
-          <div><b>Movie Reference</b><span>Transformers: Bumblebee (2018)</span></div>
-          <div><b>Alternate Mode</b><span>McDonnell Douglas F-4 Phantom II</span></div>
-          <div><b>Scale</b><span>Voyager Class</span></div>
+          <div><b>Manufacturer</b><span data-spec="manufacturer">—</span></div>
+          <div><b>Toy Line</b><span data-spec="toy_line">—</span></div>
+          <div><b>Series</b><span data-spec="series">—</span></div>
+          <div><b>Movie Reference</b><span data-spec="movie_reference">—</span></div>
+          <div><b>Alternate Mode</b><span data-spec="alternate_mode">—</span></div>
+          <div><b>Scale</b><span data-spec="scale">—</span></div>
         </div>
         <div class="notes-box">
           <span class="module-label">COLLECTION NOTES</span>
@@ -87,13 +109,31 @@
 
   <section class="component-row">
     <div class="frame mini">
-      <div class="frame-content"><span class="module-label">SMALL MODULE</span><h3>Section Panel</h3></div>
+      <div class="armor-hardware" aria-hidden="true">
+  <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i>
+  <i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
+  <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i>
+  <i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
+</div>
+        <div class="frame-content"><span class="module-label">SMALL MODULE</span><h3>Section Panel</h3></div>
     </div>
     <div class="frame mini">
-      <div class="frame-content"><span class="module-label">SMALL MODULE</span><h3>Filter Panel</h3></div>
+      <div class="armor-hardware" aria-hidden="true">
+  <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i>
+  <i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
+  <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i>
+  <i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
+</div>
+        <div class="frame-content"><span class="module-label">SMALL MODULE</span><h3>Filter Panel</h3></div>
     </div>
     <div class="frame mini">
-      <div class="frame-content"><span class="module-label">SMALL MODULE</span><h3>Navigation Panel</h3></div>
+      <div class="armor-hardware" aria-hidden="true">
+  <i class="armor-plate plate-top"></i><i class="armor-plate plate-bottom"></i>
+  <i class="armor-plate plate-left"></i><i class="armor-plate plate-right"></i>
+  <i class="armor-joint joint-tl"></i><i class="armor-joint joint-tr"></i>
+  <i class="armor-joint joint-bl"></i><i class="armor-joint joint-br"></i>
+</div>
+        <div class="frame-content"><span class="module-label">SMALL MODULE</span><h3>Navigation Panel</h3></div>
     </div>
   </section>
 </main>
