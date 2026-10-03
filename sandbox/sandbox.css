@@ -1738,3 +1738,19 @@ body[data-theme="decepticons"] .armor-joint:after{filter:saturate(1.15)}
   object-fit:contain;
   object-position:center center;
 }
+
+
+/* Contact transmission panel */
+.contact-panel[hidden]{display:none}
+.contact-content{max-width:900px;margin:0 auto;padding:36px}
+.contact-content h2{margin:12px 0 8px;font-size:30px;color:#eef5f9;text-shadow:0 0 8px var(--glow);border-bottom:1px solid var(--accent);padding-bottom:14px}
+.contact-intro{color:#8f9ba4;margin:0 0 26px;font-size:12px}
+.contact-form{display:grid;gap:18px}
+.contact-form label{display:grid;gap:7px;color:#d7e0e5;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.contact-form input,.contact-form textarea{width:100%;box-sizing:border-box;border:1px solid #46535c;background:#050a0f;color:#eef5f9;padding:12px 14px;font:inherit;letter-spacing:.3px;outline:none;box-shadow:inset 0 0 16px rgba(0,0,0,.7)}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent);box-shadow:0 0 7px var(--glow),inset 0 0 16px rgba(0,0,0,.7)}
+.contact-form textarea{resize:vertical;min-height:180px}
+.contact-submit{justify-self:start;border:1px solid var(--accent);background:linear-gradient(180deg,#18232c,#070c11);color:#eef5f9;padding:13px 22px;cursor:pointer;letter-spacing:1px;font-size:11px;box-shadow:0 0 7px var(--glow)}
+.contact-submit:hover{box-shadow:0 0 12px var(--glow)}
+.contact-honey{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important}
+@media(max-width:560px){.contact-content{padding:22px 16px}.contact-content h2{font-size:23px}.contact-submit{width:100%}}
