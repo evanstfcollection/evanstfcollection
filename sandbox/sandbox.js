@@ -34,12 +34,12 @@ const initialTheme=new URLSearchParams(window.location.search).get("theme")||"de
 let activeTheme=themeConfig[initialTheme]?initialTheme:"decepticons";
 const DECEPTICON_CATEGORY=themeConfig[activeTheme].category;
 const menuBarImages={
-  neutral:"../images/contact-menubar-image.png",
-  autobots:"../images/autobots-menubar-image.png",
-  decepticons:"../images/decepticons-menubar-image.png",
-  masterpiece:"../images/masterpiece-movie-menubar-image.png",
-  "third-party":"../images/3rd-party-menubar-image.png",
-  primes:"../images/the-primes-menubar-image.png"
+  neutral:"../images/contact-background.png",
+  autobots:"../images/autobots-background.png",
+  decepticons:"../images/decepticons-background.png",
+  masterpiece:"../images/masterpiece-background.png",
+  "third-party":"../images/main-page-background.png",
+  primes:"../images/primes-background.png"
 };
 function updateMenuBarImage(theme){
   const image=document.querySelector("[data-menu-bar-image]");
