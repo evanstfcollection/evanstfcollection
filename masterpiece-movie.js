@@ -54,6 +54,7 @@ function renderPreviewGrid() {
             : '<span>NO IMAGE</span>'}
         </button>
         <div class="card-caption">${escapeHtml(item.name)}</div>
+        <button class="view-details-button" type="button" data-index="${index}">VIEW DETAILS →</button>
       </article>
     `;
   }).join("");
