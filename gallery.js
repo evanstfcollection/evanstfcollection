@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const previousButton = nav?.querySelector("button:first-child");
   const nextButton = nav?.querySelector("button:last-child");
   const counter = nav?.querySelector("span");
-  const closeButton = info.querySelector(".info-close");
   const imageLightbox = document.getElementById("imageLightbox");
   const lightboxImage = document.getElementById("lightboxImage");
   const closeImageLightbox = document.getElementById("closeImageLightbox");
