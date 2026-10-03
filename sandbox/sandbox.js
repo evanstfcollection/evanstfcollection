@@ -12,10 +12,15 @@ themeButtons.forEach(button=>{
   button.addEventListener("click",()=>setSandboxTheme(button.dataset.theme));
 });
 navButtons.forEach(button=>{
-  button.addEventListener("click",()=>setSandboxTheme(button.dataset.theme));
+  button.addEventListener("click",async event=>{
+    event.preventDefault();
+    const theme=button.dataset.theme;
+    if(!themeConfig[theme]) return;
+    activeTheme=theme;
+    history.pushState({theme},"",`?theme=${encodeURIComponent(theme)}`);
+    await loadSandboxCollection(theme);
+  });
 });
-
-setSandboxTheme("decepticons");
 
 const themeConfig={
   neutral:{category:null,title:"COLLECTION SYSTEM / 00",label:"TF COLLECTION"},
@@ -26,7 +31,7 @@ const themeConfig={
   primes:{category:"The Primes",title:"COLLECTION SYSTEM / 05",label:"THE PRIMES"}
 };
 const initialTheme=new URLSearchParams(window.location.search).get("theme")||"decepticons";
-const activeTheme=themeConfig[initialTheme]?initialTheme:"decepticons";
+let activeTheme=themeConfig[initialTheme]?initialTheme:"decepticons";
 const DECEPTICON_CATEGORY=themeConfig[activeTheme].category;
 const menuBarImages={
   neutral:"../images/contact-menubar-image.png",
@@ -127,7 +132,8 @@ function applyFilter(filter){
   });
 }
 
-async function loadSandboxCollection(){
+async function loadSandboxCollection(theme=activeTheme){
+  activeTheme=themeConfig[theme]?theme:activeTheme;
   setSandboxTheme(activeTheme);
   const config=themeConfig[activeTheme];
   const query=supabaseClient
@@ -155,10 +161,14 @@ async function loadSandboxCollection(){
   if(headerTitle) headerTitle.textContent=themeConfig[activeTheme].label;
 
   renderCollection();
-  renderSelectedFigure(collection.find(f=>f.name==="Blitzwing")||collection[0]);
+  renderSelectedFigure(collection[0]);
 }
 
 document.querySelectorAll(".filter-button").forEach(button=>{
   button.addEventListener("click",()=>applyFilter(button.dataset.filter));
 });
-loadSandboxCollection();
+loadSandboxCollection(activeTheme);
+window.addEventListener("popstate",()=>{
+  const theme=new URLSearchParams(window.location.search).get("theme")||"decepticons";
+  loadSandboxCollection(themeConfig[theme]?theme:"decepticons");
+});
