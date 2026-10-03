@@ -17,7 +17,17 @@ navButtons.forEach(button=>{
 
 setSandboxTheme("decepticons");
 
-const DECEPTICON_CATEGORY="Decepticons";
+const themeConfig={
+  neutral:{category:null,title:"COLLECTION SYSTEM / 00",label:"TF COLLECTION"},
+  autobots:{category:"Autobots",title:"COLLECTION SYSTEM / 01",label:"AUTOBOT COLLECTION"},
+  decepticons:{category:"Decepticons",title:"COLLECTION SYSTEM / 02",label:"DECEPTICON COLLECTION"},
+  masterpiece:{category:"Masterpiece Movie",title:"COLLECTION SYSTEM / 03",label:"MASTERPIECE MOVIE COLLECTION"},
+  "third-party":{category:"3rd Party",title:"COLLECTION SYSTEM / 04",label:"3RD PARTY COLLECTION"},
+  primes:{category:"The Primes",title:"COLLECTION SYSTEM / 05",label:"THE PRIMES"}
+};
+const initialTheme=new URLSearchParams(window.location.search).get("theme")||"decepticons";
+const activeTheme=themeConfig[initialTheme]?initialTheme:"decepticons";
+const DECEPTICON_CATEGORY=themeConfig[activeTheme].category;
 const menuBarImages={
   neutral:"../images/contact-menubar-image.png",
   autobots:"../images/autobots-menubar-image.png",
@@ -118,10 +128,15 @@ function applyFilter(filter){
 }
 
 async function loadSandboxCollection(){
-  const {data,error}=await supabaseClient
+  setSandboxTheme(activeTheme);
+  const config=themeConfig[activeTheme];
+  const query=supabaseClient
     .from("figures")
     .select("*, figure_images(*)")
-    .eq("category",DECEPTICON_CATEGORY)
+    .eq("is_published",true);
+  const {data,error}=config.category
+    ? await query.eq("category",config.category).order("sort_order",{ascending:true}).order("name",{ascending:true})
+    : await query.order("category",{ascending:true}).order("sort_order",{ascending:true}).order("name",{ascending:true})
     .eq("is_published",true)
     .order("sort_order",{ascending:true})
     .order("name",{ascending:true});
@@ -133,9 +148,12 @@ async function loadSandboxCollection(){
   }
 
   collection=data;
-  document.body.dataset.theme="decepticons";
-  themeButtons.forEach(b=>b.classList.toggle("active",b.dataset.theme==="decepticons"));
-  navButtons.forEach(b=>b.classList.toggle("active",b.dataset.theme==="decepticons"));
+  document.body.dataset.theme=activeTheme;
+  themeButtons.forEach(b=>b.classList.toggle("active",b.dataset.theme===activeTheme));
+  navButtons.forEach(b=>b.classList.toggle("active",b.dataset.theme===activeTheme));
+  const headerTitle=document.querySelector("[data-collection-title]");
+  if(headerTitle) headerTitle.textContent=themeConfig[activeTheme].label;
+
   renderCollection();
   renderSelectedFigure(collection.find(f=>f.name==="Blitzwing")||collection[0]);
 }
