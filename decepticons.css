@@ -1332,3 +1332,87 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
     pointer-events: none !important;
   }
 }
+
+
+/* ============================================================
+   INFO WINDOW — HARD IMAGE SAFE ZONES
+   The Cybernetic frame defines a protected container. Images are
+   fitted inside an inset content area so they can never cross the
+   decorative border, regardless of their original aspect ratio.
+   ============================================================ */
+
+.info-image {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  box-sizing: border-box !important;
+  padding: 28px !important;
+}
+
+.info-image img {
+  position: relative !important;
+  z-index: 1 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  box-sizing: border-box !important;
+}
+
+.info-image::before {
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+
+/* Alternate-image frames get their own hard safe zone. */
+.info-thumbs button,
+.info-thumbs div {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  box-sizing: border-box !important;
+}
+
+.info-thumbs button img,
+.info-thumbs div img {
+  position: absolute !important;
+  z-index: 1 !important;
+  left: 18% !important;
+  top: 18% !important;
+  width: 64% !important;
+  height: 64% !important;
+  max-width: 64% !important;
+  max-height: 64% !important;
+  margin: 0 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+.info-thumbs button::before,
+.info-thumbs div::before {
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 820px) {
+  .info-image {
+    padding: 24px !important;
+  }
+
+  .info-thumbs button img,
+  .info-thumbs div img {
+    left: 18% !important;
+    top: 18% !important;
+    width: 64% !important;
+    height: 64% !important;
+    max-width: 64% !important;
+    max-height: 64% !important;
+  }
+}
