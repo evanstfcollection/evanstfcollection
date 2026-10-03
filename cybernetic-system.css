@@ -1,70 +1,324 @@
-/* Evan's TF Collection — Reusable Cybernetic Border System */
+/* Evan's TF Collection — Cybertronian UI Master Frame
+   New metallic/recessed visual system based on the Cybertronian UI
+   style guide. This replaces the previous thin neon-line treatment. */
+
 :root{
-  --cyber-color:#1d8cff;
-  --cyber-glow:rgba(29,140,255,.42);
-  --cyber-soft:rgba(29,140,255,.15);
+  --cyber-color:#2b91e8;
+  --cyber-bright:#66c7ff;
+  --cyber-glow:rgba(43,145,232,.45);
+  --cyber-soft:rgba(43,145,232,.16);
+  --metal-dark:#151a20;
+  --metal-mid:#5e6872;
+  --metal-light:#b8c1c8;
+  --panel:#050a0f;
+  --panel-2:#0a1118;
 }
-body[data-cyber-theme="autobots"]{--cyber-color:#e3262e;--cyber-glow:rgba(255,27,27,.48);--cyber-soft:rgba(255,27,27,.15)}
-body[data-cyber-theme="decepticons"]{--cyber-color:#8e38d6;--cyber-glow:rgba(154,44,255,.48);--cyber-soft:rgba(154,44,255,.15)}
-body[data-cyber-theme="masterpiece"]{--cyber-color:#d0a329;--cyber-glow:rgba(255,194,28,.42);--cyber-soft:rgba(255,194,28,.14)}
-body[data-cyber-theme="third-party"]{--cyber-color:#16c6d9;--cyber-glow:rgba(0,216,255,.46);--cyber-soft:rgba(0,216,255,.14)}
-body[data-cyber-theme="primes"]{--cyber-color:#2b91e8;--cyber-glow:rgba(29,140,255,.46);--cyber-soft:rgba(29,140,255,.14)}
-body[data-cyber-theme="contact"]{--cyber-color:#2870bb;--cyber-glow:rgba(24,86,168,.42);--cyber-soft:rgba(24,86,168,.14)}
 
-.collection-heading,.collection-card,.card,.collection-info,.detail-panel,.contact-shell,.contact-panel,.collection-placeholder,.notes,.info-notes,.filters{
-  position:relative;isolation:isolate;border:0!important;
-  background:linear-gradient(145deg,rgba(19,24,29,.98),rgba(4,7,10,.98))!important;
-  box-shadow:0 10px 25px rgba(0,0,0,.62),0 0 16px var(--cyber-soft)!important;
+body[data-cyber-theme="autobots"]{
+  --cyber-color:#d51f28;
+  --cyber-bright:#ff4a4f;
+  --cyber-glow:rgba(255,35,42,.50);
+  --cyber-soft:rgba(255,35,42,.15);
 }
-.collection-heading::before,.collection-card::before,.card::before,.collection-info::before,.detail-panel::before,.contact-shell::before,.contact-panel::before,.collection-placeholder::before,.notes::before,.info-notes::before,.filters::before{
-  content:"";position:absolute;z-index:1;inset:-2px;background:var(--cyber-color);
-  -webkit-mask:url("cybernetic-border.svg") center/100% 100% no-repeat;
-  mask:url("cybernetic-border.svg") center/100% 100% no-repeat;
-  opacity:.92;filter:drop-shadow(0 0 3px var(--cyber-color)) drop-shadow(0 0 8px var(--cyber-glow));pointer-events:none;
+body[data-cyber-theme="decepticons"]{
+  --cyber-color:#8736c8;
+  --cyber-bright:#c56cff;
+  --cyber-glow:rgba(155,55,255,.50);
+  --cyber-soft:rgba(155,55,255,.15);
 }
-.collection-heading::after,.collection-card::after,.card::after,.collection-info::after,.detail-panel::after,.contact-shell::after,.contact-panel::after,.collection-placeholder::after,.notes::after,.info-notes::after,.filters::after{
-  content:"";position:absolute;z-index:0;inset:7px;
-  background:linear-gradient(135deg,rgba(255,255,255,.025),transparent 24%),radial-gradient(circle at 14% 18%,var(--cyber-soft),transparent 22%),linear-gradient(180deg,rgba(12,17,22,.98),rgba(3,6,9,.99));
-  clip-path:polygon(0 12px,12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px));
-  pointer-events:none;
+body[data-cyber-theme="masterpiece"]{
+  --cyber-color:#d39b18;
+  --cyber-bright:#ffd65b;
+  --cyber-glow:rgba(255,190,35,.45);
+  --cyber-soft:rgba(255,190,35,.14);
 }
-.collection-heading>*,.collection-card>*,.card>*,.collection-info>*,.detail-panel>*,.contact-shell>*,.contact-panel>*,.collection-placeholder>*,.notes>*,.info-notes>*,.filters>*{position:relative;z-index:3}
-
-.card-image,.preview-window,.info-image,.detail-main-image,.detail-thumbs button,.info-thumbs button,.image-card img{
-  background:#05080b!important;border:0!important;box-shadow:inset 0 0 20px rgba(0,0,0,.85)!important;
+body[data-cyber-theme="third-party"]{
+  --cyber-color:#11aebe;
+  --cyber-bright:#4deaff;
+  --cyber-glow:rgba(0,220,245,.48);
+  --cyber-soft:rgba(0,220,245,.14);
 }
-.detail-panel,.collection-info{position:relative!important;top:auto!important}
-.close-details,#infoClose{display:none!important}
-
-.collection-button,.view-details-button,.detail-navigation button,.info-navigation button,.send-button,.filters button,.card button{
-  border-color:var(--cyber-color)!important;box-shadow:0 3px 8px rgba(0,0,0,.9),0 0 8px var(--cyber-soft)!important;
+body[data-cyber-theme="primes"]{
+  --cyber-color:#237fcf;
+  --cyber-bright:#63c7ff;
+  --cyber-glow:rgba(35,145,235,.48);
+  --cyber-soft:rgba(35,145,235,.14);
 }
-.collection-button:hover,.view-details-button:hover,.detail-navigation button:hover,.info-navigation button:hover,.send-button:hover,.filters button:hover,.card button:hover{
-  box-shadow:0 3px 10px rgba(0,0,0,.9),0 0 18px var(--cyber-glow)!important;
-}
-.detail-title,.info-title{border-bottom-color:var(--cyber-color)!important}
-.detail-title img,.info-title img,.tab-icon img{filter:drop-shadow(0 0 6px var(--cyber-color)) drop-shadow(0 0 12px var(--cyber-glow))}
-
-.nav-item{--nav-color:var(--cyber-color);--nav-glow:var(--cyber-glow)}
-.nav-item.autobots{--nav-color:#ff1b1b;--nav-glow:rgba(255,27,27,.46)}
-.nav-item.decepticons{--nav-color:#9a2cff;--nav-glow:rgba(154,44,255,.46)}
-.nav-item.masterpiece{--nav-color:#ffc21c;--nav-glow:rgba(255,194,28,.42)}
-.nav-item.third-party{--nav-color:#00d8ff;--nav-glow:rgba(0,216,255,.46)}
-.nav-item.primes{--nav-color:#1d8cff;--nav-glow:rgba(29,140,255,.46)}
-.nav-item.contact{--nav-color:#1856a8;--nav-glow:rgba(24,86,168,.42)}
-
-@media(max-width:700px){
-  .collection-heading::before,.collection-card::before,.card::before,.collection-info::before,.detail-panel::before,.contact-shell::before,.contact-panel::before,.collection-placeholder::before,.notes::before,.info-notes::before,.filters::before{inset:-1px}
-  .collection-heading::after,.collection-card::after,.card::after,.collection-info::after,.detail-panel::after,.contact-shell::after,.contact-panel::after,.collection-placeholder::after,.notes::after,.info-notes::after,.filters::after{inset:5px}
+body[data-cyber-theme="contact"]{
+  --cyber-color:#286bb0;
+  --cyber-bright:#62aef0;
+  --cyber-glow:rgba(40,110,185,.42);
+  --cyber-soft:rgba(40,110,185,.13);
 }
 
 /* ============================================================
-   CYBERNETIC INFORMATION WINDOW — LARGE / NON-STICKY
-   The selected-figure panel is a full page-flow component.
-   It stays in the document while scrolling rather than
-   behaving like a fixed or independently scrolling window.
+   MASTER CYBERTRONIAN FRAME
    ============================================================ */
 
+.collection-heading,
+.collection-card,
+.card,
+.collection-info,
+.detail-panel,
+.contact-shell,
+.contact-panel,
+.collection-placeholder,
+.notes,
+.info-notes,
+.filters{
+  --frame-cut:18px;
+  position:relative;
+  isolation:isolate;
+  border:0!important;
+  border-radius:0!important;
+  background:
+    linear-gradient(145deg,rgba(24,30,36,.98),rgba(6,10,14,.98)) padding-box!important;
+  box-shadow:
+    0 14px 28px rgba(0,0,0,.72),
+    0 0 20px var(--cyber-soft),
+    inset 0 0 0 1px rgba(255,255,255,.05)!important;
+  clip-path:polygon(
+    var(--frame-cut) 0,
+    calc(100% - var(--frame-cut)) 0,
+    100% var(--frame-cut),
+    100% calc(100% - var(--frame-cut)),
+    calc(100% - var(--frame-cut)) 100%,
+    var(--frame-cut) 100%,
+    0 calc(100% - var(--frame-cut)),
+    0 var(--frame-cut)
+  );
+}
+
+/* Thick metallic outer shell. */
+.collection-heading::before,
+.collection-card::before,
+.card::before,
+.collection-info::before,
+.detail-panel::before,
+.contact-shell::before,
+.contact-panel::before,
+.collection-placeholder::before,
+.notes::before,
+.info-notes::before,
+.filters::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  clip-path:inherit;
+  background:
+    /* faction illumination */
+    linear-gradient(90deg,
+      transparent 0 7%,
+      var(--cyber-color) 7.4% 8%,
+      transparent 8.5% 91.5%,
+      var(--cyber-color) 92% 92.6%,
+      transparent 93%),
+    /* steel face */
+    linear-gradient(180deg,
+      var(--metal-light) 0%,
+      #707a83 8%,
+      var(--metal-dark) 18%,
+      #2b3239 48%,
+      #090d12 82%,
+      #6c757d 94%,
+      #c1c8cd 100%);
+  box-shadow:
+    0 0 7px var(--cyber-color),
+    0 0 18px var(--cyber-glow);
+}
+
+/* Recess the actual content area, leaving a substantial metal rim. */
+.collection-heading::after,
+.collection-card::after,
+.card::after,
+.collection-info::after,
+.detail-panel::after,
+.contact-shell::after,
+.contact-panel::after,
+.collection-placeholder::after,
+.notes::after,
+.info-notes::after,
+.filters::after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:10px;
+  pointer-events:none;
+  clip-path:polygon(
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px),
+    0 10px
+  );
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.035),transparent 20%),
+    linear-gradient(180deg,var(--panel-2),var(--panel));
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.95),
+    inset 0 0 24px rgba(0,0,0,.72);
+}
+
+/* Content always sits above the recessed panel. */
+.collection-heading>*,
+.collection-card>*,
+.card>*,
+.collection-info>*,
+.detail-panel>*,
+.contact-shell>*,
+.contact-panel>*,
+.collection-placeholder>*,
+.notes>*,
+.info-notes>*,
+.filters>*{
+  position:relative;
+  z-index:3;
+}
+
+/* Mechanical accent plates along the top/bottom edges. */
+.collection-info,
+.detail-panel{
+  --frame-cut:28px;
+}
+
+.collection-info > .info-main,
+.detail-panel > .detail-top{
+  position:relative;
+}
+
+.collection-info > .info-main::before,
+.detail-panel > .detail-top::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  top:-8px;
+  left:8%;
+  width:20%;
+  height:5px;
+  background:linear-gradient(90deg,transparent,var(--metal-light),var(--cyber-bright),var(--metal-dark));
+  box-shadow:
+    0 0 5px var(--cyber-color),
+    0 0 12px var(--cyber-glow);
+}
+
+/* Inner image/display frames get their own recessed mechanical treatment. */
+.info-image,
+.detail-main-image{
+  position:relative;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(255,255,255,.035),transparent 38%),
+    linear-gradient(180deg,#0b1219,#03070b)!important;
+  border:0!important;
+  box-shadow:
+    inset 0 0 0 2px #202a32,
+    inset 0 0 0 4px #070b10,
+    inset 0 0 22px rgba(0,0,0,.88)!important;
+  clip-path:polygon(15px 0,calc(100% - 15px) 0,100% 15px,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 calc(100% - 15px),0 15px);
+}
+
+.info-image::after,
+.detail-main-image::after{
+  content:"";
+  position:absolute;
+  inset:4px;
+  z-index:2;
+  pointer-events:none;
+  border:1px solid color-mix(in srgb,var(--cyber-color) 55%,transparent);
+  clip-path:inherit;
+  box-shadow:0 0 10px var(--cyber-soft);
+}
+
+.info-image img,
+.detail-main-image img{
+  position:relative;
+  z-index:3;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+
+/* Thumbnail frames. */
+.info-thumbs button,
+.info-thumbs div,
+.detail-thumbs button{
+  position:relative;
+  background:linear-gradient(180deg,#161d24,#05090d)!important;
+  border:2px solid #56616b!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.08),
+    0 0 8px var(--cyber-soft)!important;
+  clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 9px,100% calc(100% - 9px),calc(100% - 9px) 100%,9px 100%,0 calc(100% - 9px),0 9px);
+}
+
+.info-thumbs button::before,
+.detail-thumbs button::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  z-index:1;
+  pointer-events:none;
+  border:1px solid var(--cyber-color);
+  clip-path:inherit;
+  opacity:.75;
+}
+
+.info-thumbs img,
+.detail-thumbs img{
+  position:relative;
+  z-index:2;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  mix-blend-mode:screen;
+}
+
+/* Faction-colored controls. */
+.collection-button,
+.view-details-button,
+.detail-navigation button,
+.info-navigation button,
+.send-button,
+.filters button,
+.card button{
+  border:1px solid var(--cyber-color)!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.05),
+    0 4px 10px rgba(0,0,0,.85),
+    0 0 10px var(--cyber-soft)!important;
+}
+
+.collection-button:hover,
+.view-details-button:hover,
+.detail-navigation button:hover,
+.info-navigation button:hover,
+.send-button:hover,
+.filters button:hover,
+.card button:hover{
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.08),
+    0 5px 12px rgba(0,0,0,.9),
+    0 0 20px var(--cyber-glow)!important;
+}
+
+.detail-title,
+.info-title{
+  border-bottom:1px solid color-mix(in srgb,var(--cyber-color) 72%,transparent)!important;
+}
+
+.detail-title img,
+.info-title img,
+.tab-icon img{
+  filter:
+    drop-shadow(0 0 5px var(--cyber-color))
+    drop-shadow(0 0 11px var(--cyber-glow));
+}
+
+/* Information panels must flow with the page. */
 .collection-info,
 .detail-panel{
   position:relative!important;
@@ -74,218 +328,31 @@ body[data-cyber-theme="contact"]{--cyber-color:#2870bb;--cyber-glow:rgba(24,86,1
   max-height:none!important;
   overflow:visible!important;
   align-self:start!important;
-  padding:18px!important;
-  border:0!important;
-  clip-path:none!important;
 }
 
-/* Give the information window a stronger, larger frame. */
-.collection-info::before,
-.detail-panel::before{
-  inset:-3px!important;
-  opacity:1!important;
-  filter:
-    drop-shadow(0 0 4px var(--cyber-color))
-    drop-shadow(0 0 12px var(--cyber-glow))!important;
+/* No information-window close X. */
+.close-details,
+#infoClose{
+  display:none!important;
 }
 
-.collection-info::after,
-.detail-panel::after{
-  inset:9px!important;
-}
-
-/* Main figure area: let transparent figure artwork sit directly
-   over the Cybernetic panel instead of inside a black box. */
-.info-image,
-.detail-main-image{
-  background:transparent!important;
-  box-shadow:none!important;
-  border:0!important;
-  min-height:340px!important;
-  height:340px!important;
-  overflow:hidden;
-  position:relative;
-  display:grid;
-  place-items:center;
-}
-
-.info-image::before,
-.detail-main-image::before{
-  inset:0!important;
-  opacity:.9;
-}
-
-.info-image img,
-.detail-main-image img{
-  position:relative;
-  z-index:3;
-  width:100%;
-  height:100%;
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain!important;
-  background:transparent!important;
-  border:0!important;
-  box-shadow:none!important;
-}
-
-/* Keep the figure information itself spacious and readable. */
-.info-main,
-.detail-top{
-  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
-  gap:18px!important;
-  padding-top:10px!important;
-}
-
-.info-details,
-.detail-info{
-  min-width:0;
-  display:flex;
-  flex-direction:column;
-}
-
-.info-title,
-.detail-title{
-  padding:12px 8px 14px!important;
-  min-height:68px;
-}
-
-.info-title h2,
-.detail-title h2{
-  line-height:1.15;
-  letter-spacing:.5px;
-}
-
-.info-specs,
-.detail-specs{
-  padding:12px 8px 4px!important;
-}
-
-.info-specs > div,
-.spec{
-  grid-template-columns:125px minmax(0,1fr)!important;
-  font-size:11px!important;
-  line-height:1.4;
-}
-
-/* Thumbnail strip becomes part of the framed information area. */
-.info-thumbs,
-.detail-thumbs{
-  grid-template-columns:repeat(3,minmax(0,1fr))!important;
-  gap:10px!important;
-  margin-top:14px!important;
-}
-
-.info-thumbs div,
-.info-thumbs button,
-.detail-thumbs button{
-  min-height:82px!important;
-  background:transparent!important;
-  border:1px solid color-mix(in srgb,var(--cyber-color) 65%,transparent)!important;
-  box-shadow:0 0 8px var(--cyber-soft)!important;
-}
-
-.info-thumbs img,
-.detail-thumbs img{
-  width:100%;
-  height:82px!important;
-  max-height:82px!important;
-  object-fit:contain!important;
-  background:transparent!important;
-  border:0!important;
-}
-
-/* Notes and navigation sit naturally inside the same window. */
-.info-notes,
-.notes{
-  margin-top:14px!important;
-  padding:13px!important;
-  border:1px solid color-mix(in srgb,var(--cyber-color) 55%,transparent)!important;
-}
-
-.info-navigation,
-.detail-navigation{
-  margin-top:14px!important;
-  padding-top:4px;
-}
-
-/* On smaller screens, stack the large information window cleanly. */
-@media(max-width:820px){
-  .info-main,
-  .detail-top{
-    grid-template-columns:1fr!important;
+@media(max-width:700px){
+  .collection-heading,
+  .collection-card,
+  .card,
+  .collection-info,
+  .detail-panel,
+  .contact-shell,
+  .contact-panel,
+  .collection-placeholder,
+  .notes,
+  .info-notes,
+  .filters{
+    --frame-cut:12px;
   }
 
-  .info-image,
-  .detail-main-image{
-    height:320px!important;
-    min-height:320px!important;
-  }
-}
-
-@media(max-width:520px){
   .collection-info,
   .detail-panel{
-    padding:12px!important;
-  }
-
-  .info-image,
-  .detail-main-image{
-    height:280px!important;
-    min-height:280px!important;
-  }
-
-  .info-specs > div,
-  .spec{
-    grid-template-columns:105px minmax(0,1fr)!important;
-    font-size:10px!important;
+    --frame-cut:18px;
   }
 }
-
-/* Image presentation: suppress dark baked-in image fields while
-   preserving the figure artwork itself. */
-.info-image img,
-.detail-main-image img,
-.info-thumbs img,
-.detail-thumbs img{
-  mix-blend-mode:screen;
-}
-
-/* ============================================================
-   COMPACT INFORMATION WINDOW
-   Let the Cybernetic figure panel wrap its actual content.
-   ============================================================ */
-
-.collection-info,
-.detail-panel{
-  height:auto!important;
-  min-height:0!important;
-  max-height:none!important;
-  overflow:visible!important;
-}
-
-/* The main image should have enough room for the figure, but
-   should not force a tall empty information window. */
-.info-main,
-.detail-top{
-  min-height:0!important;
-}
-
-/* Keep the notes immediately below the thumbnail row. */
-.info-notes,
-.notes{
-  margin-bottom:0!important;
-}
-
-/* Prevent the content inside the panel from creating accidental
-   viewport-height spacing. */
-.collection-info > *,
-.detail-panel > *{
-  max-height:none;
-}
-
-.info-navigation,
-.detail-navigation{
-  margin-bottom:0!important;
-}
-
