@@ -1779,3 +1779,16 @@ body .topbar .main-nav {
     max-height: 62px !important;
   }
 }
+
+
+/* Dark backing for transparent areas of the chassis prevents the homepage's
+   background artwork from showing through and creating a doubled logo. */
+body .site-header.unified-header::before,
+body .topbar::before {
+  background-color: #03070b !important;
+  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 142% !important;
+  opacity: 1 !important;
+}
