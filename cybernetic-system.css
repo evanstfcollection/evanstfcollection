@@ -1467,3 +1467,27 @@ body .site-header.unified-header .main-nav {
     margin: 0 0 5px !important;
   }
 }
+
+
+/* Chassis-to-logo fit: enlarge the left mounting opening while keeping
+   its center aligned with the navigation logo bay. Anchor at the left
+   edge so scaling does not shift the opening away from the logo. */
+body .topbar,
+body .site-header.unified-header {
+  background-size: 108% 130% !important;
+  background-position: left center !important;
+}
+@media (max-width: 900px) {
+  body .topbar,
+  body .site-header.unified-header {
+    background-size: 106% 126% !important;
+    background-position: left center !important;
+  }
+}
+@media (max-width: 620px) {
+  body .topbar,
+  body .site-header.unified-header {
+    background-size: 104% 120% !important;
+    background-position: left center !important;
+  }
+}
