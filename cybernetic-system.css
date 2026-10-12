@@ -1683,3 +1683,99 @@ body .topbar::before {
   body .site-header.unified-header,
   body .topbar { min-height: 82px !important; }
 }
+
+
+/* CHASSIS VISIBILITY / DIMENSION TUNING
+   Put the chassis layer above the header's page background but below the
+   logo and clickable tabs. Give the shallow rails more vertical presence
+   without changing the width of the artwork. */
+body .site-header.unified-header,
+body .topbar {
+  position: relative !important;
+  isolation: isolate !important;
+  min-height: 148px !important;
+  overflow: visible !important;
+}
+body .site-header.unified-header::before,
+body .topbar::before {
+  z-index: 0 !important;
+  inset: -12px 0 -12px 0 !important;
+  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 142% !important;
+  transform: none !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+/* Keep interactive controls above the chassis artwork. */
+body .site-header.unified-header > *,
+body .topbar > * {
+  position: relative;
+  z-index: 1;
+}
+body .site-header.unified-header .brand,
+body .topbar .site-logo {
+  flex: 0 0 350px !important;
+  width: 350px !important;
+  min-height: 112px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body .site-header.unified-header .brand img,
+body .topbar .site-logo img {
+  width: 310px !important;
+  max-width: 100% !important;
+  max-height: 104px !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+body .site-header.unified-header .main-nav,
+body .topbar .main-nav {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header,
+  body .topbar { min-height: 128px !important; }
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -8px 0 !important;
+    background-size: 100% 138% !important;
+  }
+  body .site-header.unified-header .brand,
+  body .topbar .site-logo {
+    flex-basis: 30% !important;
+    width: 30% !important;
+    min-height: 94px !important;
+  }
+  body .site-header.unified-header .brand img,
+  body .topbar .site-logo img {
+    width: 94% !important;
+    max-height: 88px !important;
+  }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header,
+  body .topbar { min-height: 90px !important; }
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -4px 0 !important;
+    background-size: 100% 125% !important;
+  }
+  body .site-header.unified-header .brand,
+  body .topbar .site-logo {
+    flex-basis: 28% !important;
+    width: 28% !important;
+    min-height: 66px !important;
+  }
+  body .site-header.unified-header .brand img,
+  body .topbar .site-logo img {
+    width: 96% !important;
+    max-height: 62px !important;
+  }
+}
