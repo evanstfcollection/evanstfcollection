@@ -1890,3 +1890,65 @@ body .topbar::before {
     background-size: 100% 200% !important;
   }
 }
+
+
+/* Fine-tune chassis height and logo-bay alignment.
+   Reduce the oversized vertical artwork and center the separate logo plate
+   over the chassis' left mounting opening. */
+body .site-header.unified-header,
+body .topbar {
+  overflow: hidden !important;
+  clip-path: inset(0) !important;
+}
+body .site-header.unified-header::before,
+body .topbar::before {
+  inset: -56px -12.5% !important;
+  width: 125% !important;
+  background-size: 100% 150% !important;
+  background-position: center center !important;
+}
+body .site-header.unified-header .brand,
+body .topbar .site-logo {
+  flex: 0 0 350px !important;
+  width: 350px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateX(-8px) !important;
+}
+body .site-header.unified-header .brand img,
+body .topbar .site-logo img {
+  display: block !important;
+  margin-inline: auto !important;
+  object-fit: contain !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -42px -12.5% !important;
+    width: 125% !important;
+    background-size: 100% 150% !important;
+  }
+  body .site-header.unified-header .brand,
+  body .topbar .site-logo {
+    flex-basis: 30% !important;
+    width: 30% !important;
+    transform: translateX(-4px) !important;
+  }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -24px -12.5% !important;
+    width: 125% !important;
+    background-size: 100% 150% !important;
+  }
+  body .site-header.unified-header .brand,
+  body .topbar .site-logo {
+    flex-basis: 28% !important;
+    width: 28% !important;
+    transform: none !important;
+  }
+}
