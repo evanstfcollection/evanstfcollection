@@ -36,6 +36,21 @@
     </nav>
   </header>
 
+  <section class="nav-expansion" id="navExpansion" aria-label="Expanded collection menu" hidden>
+    <div class="nav-expansion-emblem" aria-hidden="true">✦</div>
+    <div class="nav-expansion-content">
+      <p class="nav-expansion-kicker">COLLECTION ACCESS TERMINAL</p>
+      <h2 class="nav-expansion-title">QUICK ACCESS</h2>
+      <div class="nav-expansion-links">
+        <a href="#top" data-nav-shortcut="overview">COLLECTION OVERVIEW</a>
+        <a href="#collection-shell" data-nav-shortcut="browse">BROWSE FIGURES</a>
+        <a href="#filterControls" data-nav-shortcut="filters">SEARCH / FILTERS</a>
+      </div>
+    </div>
+    <button class="nav-expansion-close" type="button" aria-label="Close expanded menu">×</button>
+  </section>
+
+
   <main>
     <section class="hero">
       <div class="hero-overlay"></div>
@@ -109,5 +124,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <script src="autobots.js"></script>
+<script src="nav-expansion.js"></script>
 </body>
 </html>
