@@ -1049,3 +1049,118 @@ body .site-header .nav-item.active {
   body .topbar .nav-item,
   body .site-header .nav-item { transition: none !important; }
 }
+
+
+/* EXPANDING MENU: battle-damaged lower control deck */
+.nav-expansion[hidden] { display: none !important; }
+.nav-expansion {
+  position: relative;
+  z-index: 900;
+  width: calc(100% - 42px);
+  max-width: 1880px;
+  margin: -24px auto 28px;
+  min-height: 150px;
+  display: grid;
+  grid-template-columns: 100px minmax(0,1fr) 42px;
+  align-items: stretch;
+  gap: 18px;
+  padding: 16px 18px;
+  color: #f5f7fa;
+  border: 0;
+  background:
+    radial-gradient(ellipse at 15% 50%, color-mix(in srgb,var(--cyber-color) 28%,transparent),transparent 48%),
+    repeating-linear-gradient(165deg,transparent 0 23px,rgba(255,255,255,.07) 24px,rgba(0,0,0,.55) 25px,transparent 27px 45px),
+    linear-gradient(180deg,#8b949a 0%,#353d43 5%,#11171d 13%,#05090e 58%,#1b2228 84%,#737c82 96%,#252c32 100%);
+  box-shadow: 0 13px 24px rgba(0,0,0,.82), inset 0 1px 0 rgba(255,255,255,.28), inset 0 -3px 0 rgba(0,0,0,.9), 0 0 18px var(--cyber-soft);
+  clip-path: polygon(18px 0,calc(100% - 34px) 0,100% 25px,100% calc(100% - 16px),calc(100% - 16px) 100%,18px 100%,0 calc(100% - 18px),0 18px);
+  animation: navDeckDeploy .28s ease-out both;
+}
+.nav-expansion::before {
+  content:"";
+  position:absolute;
+  inset:6px;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 1.5% 18%,#c4c9cc 0 2px,#1a2025 3px 4px,transparent 5px),
+    radial-gradient(circle at 1.5% 82%,#c4c9cc 0 2px,#1a2025 3px 4px,transparent 5px),
+    repeating-linear-gradient(112deg,transparent 0 39px,rgba(255,255,255,.09) 40px,rgba(0,0,0,.65) 41px,transparent 43px 67px);
+}
+.nav-expansion-emblem {
+  z-index:1;
+  display:grid;
+  place-items:center;
+  align-self:stretch;
+  font-size:48px;
+  color:var(--cyber-bright);
+  text-shadow:0 0 8px var(--cyber-color),0 0 22px var(--cyber-glow);
+  border-right:2px solid color-mix(in srgb,var(--cyber-color) 65%,#7d858b);
+}
+.nav-expansion-content { position:relative; z-index:1; min-width:0; }
+.nav-expansion-kicker {
+  margin:0 0 4px;
+  font-size:10px;
+  letter-spacing:3px;
+  color:var(--cyber-bright);
+}
+.nav-expansion-title {
+  margin:0 0 14px;
+  font-size:clamp(17px,2vw,25px);
+  letter-spacing:2px;
+  text-shadow:0 2px 3px #000;
+}
+.nav-expansion-links {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+}
+.nav-expansion-links a {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:8px 12px;
+  color:#f4f6f8;
+  text-decoration:none;
+  text-align:center;
+  font-size:clamp(9px,.9vw,13px);
+  font-weight:800;
+  letter-spacing:.6px;
+  background:
+    repeating-linear-gradient(155deg,transparent 0 18px,rgba(255,255,255,.06) 19px,rgba(0,0,0,.5) 20px,transparent 22px 37px),
+    linear-gradient(180deg,#333c43,#090e13 45%,#20282e);
+  border:1px solid #6b747a;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 3px 7px #000,0 0 8px var(--cyber-soft);
+  clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 9px,100% calc(100% - 9px),calc(100% - 9px) 100%,9px 100%,0 calc(100% - 9px),0 9px);
+}
+.nav-expansion-links a:hover,
+.nav-expansion-links a:focus-visible {
+  outline:none;
+  border-color:var(--cyber-bright);
+  box-shadow:inset 0 0 0 1px var(--cyber-color),0 0 15px var(--cyber-glow);
+  background-color:var(--cyber-soft);
+}
+.nav-expansion-close {
+  position:relative;
+  z-index:2;
+  align-self:start;
+  width:36px;
+  height:36px;
+  color:#f6f8fa;
+  font-size:25px;
+  background:linear-gradient(#555f67,#11171d);
+  border:1px solid #89939a;
+  cursor:pointer;
+}
+@keyframes navDeckDeploy {
+  from { opacity:0; transform:translateY(-8px); }
+  to { opacity:1; transform:translateY(0); }
+}
+@media(max-width:620px) {
+  .nav-expansion { width:calc(100% - 16px); margin:-14px auto 20px; grid-template-columns:44px minmax(0,1fr) 30px; gap:9px; padding:12px 9px; }
+  .nav-expansion-emblem { font-size:27px; }
+  .nav-expansion-links { grid-template-columns:1fr; gap:7px; }
+  .nav-expansion-links a { min-height:38px; }
+  .nav-expansion-close { width:28px; height:28px; font-size:20px; }
+}
+@media(prefers-reduced-motion:reduce) { .nav-expansion { animation:none; } }
