@@ -1331,3 +1331,26 @@ body .site-header .nav-item:hover::after {height:4px!important;opacity:1}
     linear-gradient(180deg,#656e74 0%,#22292f 8%,#070b10 48%,#151b21 82%,#555e64 100%)!important;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -2px 0 rgba(0,0,0,.98),0 4px 8px rgba(0,0,0,.95),0 0 8px var(--cyber-soft)!important;
 }
+
+
+/* New custom-generated navigation logo plate artwork. */
+body .topbar .site-logo img,
+body .site-header.unified-header .brand img {
+  width: min(100%, 370px) !important;
+  max-width: 100% !important;
+  max-height: 108px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 3px 3px rgba(0,0,0,.9)) drop-shadow(0 0 5px var(--nav-active-glow)) !important;
+}
+@media (max-width: 900px) {
+  body .topbar .site-logo img,
+  body .site-header.unified-header .brand img { max-height: 94px !important; }
+}
+@media (max-width: 620px) {
+  body .topbar .site-logo img,
+  body .site-header.unified-header .brand img {
+    max-height: 62px !important;
+    width: auto !important;
+  }
+}
