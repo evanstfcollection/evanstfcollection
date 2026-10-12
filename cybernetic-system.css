@@ -1636,3 +1636,20 @@ body .topbar::after {
   content: none !important;
   display: none !important;
 }
+
+
+/* Chassis proportion correction: the previous 2x vertical transform made
+   the frame dominate the page. Keep the wide chassis shallow so the logo
+   and six separate tabs remain the visual focus. */
+body .site-header.unified-header::before,
+body .topbar::before {
+  background-size: 100% 100% !important;
+  transform: scaleY(.78) !important;
+  transform-origin: center center !important;
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    transform: scaleY(.9) !important;
+  }
+}
