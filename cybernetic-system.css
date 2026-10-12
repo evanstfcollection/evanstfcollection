@@ -1573,3 +1573,33 @@ body .site-header.unified-header {
     min-height: 0 !important;
   }
 }
+
+
+/* Chassis height correction: render the chassis on its own layer and
+   scale that layer vertically. Background-size percentages on the header
+   were being cropped by the header box, making the visual change subtle. */
+body .site-header.unified-header {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+  background-image: none !important;
+}
+body .site-header.unified-header::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+  transform: scaleY(2) !important;
+  transform-origin: center center !important;
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header::before {
+    transform: scaleY(1.5) !important;
+  }
+}
