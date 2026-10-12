@@ -1653,3 +1653,33 @@ body .topbar::before {
     transform: scaleY(.9) !important;
   }
 }
+
+
+/* FINAL CHASSIS FIT PASS
+   Keep the generated artwork shallow and undistorted. The earlier scaleY
+   overrides stretched the transparent canvas and created oversized metal
+   bands around the logo. Use a shallow rail behind the existing controls. */
+body .site-header.unified-header,
+body .topbar {
+  min-height: 126px !important;
+  background-image: none !important;
+  overflow: visible !important;
+}
+body .site-header.unified-header::before,
+body .topbar::before {
+  inset: 0 !important;
+  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header,
+  body .topbar { min-height: 112px !important; }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header,
+  body .topbar { min-height: 82px !important; }
+}
