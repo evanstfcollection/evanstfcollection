@@ -4,17 +4,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const activeItem = document.querySelector(".topbar .nav-item.active");
   const closeButton = panel.querySelector(".nav-expansion-close");
-  const overview = panel.querySelector('[data-nav-shortcut="overview"]');
-  const browse = panel.querySelector('[data-nav-shortcut="browse"]');
-  const filters = panel.querySelector('[data-nav-shortcut="filters"]');
+  const targets = {
+    overview: document.querySelector(".collection-shell") || document.querySelector("main"),
+    browse: document.querySelector("#gallery, #previewGrid, .preview-grid") || document.querySelector(".collection-shell"),
+    filters: document.querySelector("#filterControls, #toggleFilters") || document.querySelector("#gallery, #previewGrid, .preview-grid")
+  };
 
-  const collection = document.querySelector(".collection-shell") || document.querySelector("main");
-  const gallery = document.querySelector("#gallery, #previewGrid, .preview-grid") || collection;
-  const filterTarget = document.querySelector("#filterControls, #toggleFilters") || gallery;
-
-  if (overview && collection) overview.href = "#" + (collection.id || "");
-  if (browse && gallery) browse.href = "#" + (gallery.id || "");
-  if (filters && filterTarget) filters.href = "#" + (filterTarget.id || "");
+  Object.entries(targets).forEach(([key, target]) => {
+    const link = panel.querySelector('[data-nav-shortcut="' + key + '"]');
+    if (!link || !target) return;
+    link.href = "#" + (target.id || "collection-target");
+    link.addEventListener("click", (event) => {
+      if (!target.id) event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (key === "filters" && target.id === "toggleFilters") target.click();
+      setOpen(false);
+    });
+  });
 
   function setOpen(open) {
     panel.hidden = !open;
@@ -36,8 +42,5 @@ document.addEventListener("DOMContentLoaded", () => {
   closeButton?.addEventListener("click", () => setOpen(false));
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !panel.hidden) setOpen(false);
-  });
-  panel.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => setOpen(false));
   });
 });
