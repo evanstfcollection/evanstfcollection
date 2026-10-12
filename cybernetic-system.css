@@ -1792,3 +1792,37 @@ body .topbar::before {
   background-size: 100% 142% !important;
   opacity: 1 !important;
 }
+
+
+/* Increase the visible chassis height 2x while keeping the navigation
+   artwork centered behind the existing logo and tab controls. */
+body .site-header.unified-header::before,
+body .topbar::before {
+  inset: -74px 0 !important;
+  background-size: 100% 200% !important;
+  background-position: center center !important;
+  transform: none !important;
+}
+body .site-header.unified-header,
+body .topbar {
+  min-height: 148px !important;
+  overflow: visible !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -56px 0 !important;
+    background-size: 100% 200% !important;
+  }
+  body .site-header.unified-header,
+  body .topbar { min-height: 128px !important; }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -30px 0 !important;
+    background-size: 100% 200% !important;
+  }
+  body .site-header.unified-header,
+  body .topbar { min-height: 90px !important; }
+}
