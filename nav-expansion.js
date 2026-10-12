@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const header = document.querySelector(".topbar, .site-header.unified-header");
   const activeItem = document.querySelector(".topbar .nav-item.active, .site-header .nav-item.active");
+  const autobotsItem = document.querySelector(".topbar .nav-item.autobots, .site-header .nav-item.autobots");
+  const triggers = [...new Set([activeItem, autobotsItem].filter(Boolean))];
   const closeButton = panel.querySelector(".nav-expansion-close");
   const targets = {
     overview: document.querySelector(".collection-shell") || document.querySelector("main"),
@@ -19,6 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
     panel.style.width = rect.width + "px";
   }
 
+  function setOpen(open) {
+    panel.hidden = !open;
+    triggers.forEach(item => {
+      item.setAttribute("aria-expanded", String(open));
+      item.classList.toggle("menu-expanded", open);
+    });
+    if (open) positionPanel();
+  }
+
   Object.entries(targets).forEach(([key, target]) => {
     const link = panel.querySelector('[data-nav-shortcut="' + key + '"]');
     if (!link || !target) return;
@@ -31,23 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  function setOpen(open) {
-    panel.hidden = !open;
-    if (activeItem) {
-      activeItem.setAttribute("aria-expanded", String(open));
-      activeItem.classList.toggle("menu-expanded", open);
-    }
-    if (open) positionPanel();
-  }
-
-  if (activeItem) {
-    activeItem.setAttribute("aria-haspopup", "true");
-    activeItem.setAttribute("aria-expanded", "false");
-    activeItem.addEventListener("click", (event) => {
+  triggers.forEach(item => {
+    item.setAttribute("aria-haspopup", "true");
+    item.setAttribute("aria-expanded", "false");
+    item.addEventListener("click", (event) => {
       event.preventDefault();
       setOpen(panel.hidden);
     });
-  }
+  });
 
   closeButton?.addEventListener("click", () => setOpen(false));
   document.addEventListener("keydown", (event) => {
