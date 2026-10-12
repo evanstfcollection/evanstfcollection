@@ -1164,3 +1164,35 @@ body .site-header .nav-item.active {
   .nav-expansion-close { width:28px; height:28px; font-size:20px; }
 }
 @media(prefers-reduced-motion:reduce) { .nav-expansion { animation:none; } }
+
+
+/* NAV REVISION: clean logo plate and overlay expansion */
+body .topbar .site-logo,
+body .site-header.unified-header .brand {
+  background:
+    radial-gradient(ellipse at 18% 15%, rgba(255,255,255,.17), transparent 22%),
+    linear-gradient(145deg,#bfc5c8 0%,#555e65 5%,#171e24 11%,#343c42 18%,#161c22 26%,#080c11 67%,#343b40 79%,#a4aaad 89%,#4c5459 94%,#171d22 100%) !important;
+}
+
+/* Remove the diagonal wear-stripe overlays from the logo plate only. */
+body .topbar .site-logo::after,
+body .site-header.unified-header .brand::after {
+  content: none !important;
+  display: none !important;
+}
+body .topbar .site-logo::before,
+body .site-header.unified-header .brand::before {
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.07),transparent 28%),
+    linear-gradient(180deg,#202a32,#060b10 60%,#1c252d) !important;
+}
+
+/* The expansion panel overlays the page instead of pushing content down.
+   JavaScript positions it immediately beneath the navigation chassis. */
+.nav-expansion {
+  position: absolute !important;
+  z-index: 2000 !important;
+  margin: 0 !important;
+  width: auto;
+  max-width: none;
+}
