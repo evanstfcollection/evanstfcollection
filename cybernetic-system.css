@@ -1426,3 +1426,44 @@ body .site-header.unified-header {
     min-height: 0 !important;
   }
 }
+
+
+/* Fine alignment pass: reduce vertical chassis zoom while retaining full width. */
+body .topbar,
+body .site-header.unified-header {
+  background-size: 100% 125% !important;
+  background-position: center center !important;
+  min-height: 126px !important;
+}
+body .topbar .site-logo,
+body .site-header.unified-header .brand {
+  align-self: center !important;
+  min-height: 104px !important;
+  margin-top: -1px !important;
+  margin-bottom: -10px !important;
+}
+body .topbar .main-nav,
+body .site-header.unified-header .main-nav {
+  align-self: center !important;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+}
+@media (max-width: 900px) {
+  body .topbar,
+  body .site-header.unified-header {
+    background-size: 100% 125% !important;
+    min-height: 112px !important;
+  }
+}
+@media (max-width: 620px) {
+  body .topbar,
+  body .site-header.unified-header {
+    background-size: 100% 120% !important;
+    min-height: 0 !important;
+  }
+  body .topbar .site-logo,
+  body .site-header.unified-header .brand {
+    min-height: 66px !important;
+    margin: 0 0 5px !important;
+  }
+}
