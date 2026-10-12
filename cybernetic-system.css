@@ -1603,3 +1603,36 @@ body .site-header.unified-header::before {
     transform: scaleY(1.5) !important;
   }
 }
+
+
+/* APPLY THE SAME CHASSIS LAYER TO LEGACY COLLECTION-PAGE HEADERS.
+   index.html uses .site-header.unified-header, while collection pages
+   still use .topbar. Both header variants must share the same artwork. */
+body .topbar {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+body .topbar::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+  transform: scaleY(2) !important;
+  transform-origin: center center !important;
+}
+@media (max-width: 620px) {
+  body .topbar::before { transform: scaleY(1.5) !important; }
+}
+body .topbar::after {
+  content: none !important;
+  display: none !important;
+}
