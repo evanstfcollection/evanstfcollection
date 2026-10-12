@@ -949,3 +949,103 @@ body .site-header .nav-item.active {
     transform: none !important;
   }
 }
+
+
+/* ============================================================
+   BATTLE-WORN CYBERTRONIAN NAVIGATION FINISH
+   Scraped edges, worn steel, scoring, rivets and heat discoloration.
+   ============================================================ */
+
+body .topbar,
+body .site-header.unified-header {
+  background:
+    radial-gradient(ellipse at 12% 16%, rgba(255,255,255,.18), transparent 13%),
+    radial-gradient(ellipse at 72% 82%, rgba(218,112,45,.16), transparent 20%),
+    repeating-linear-gradient(167deg, transparent 0 13px, rgba(0,0,0,.22) 14px, transparent 16px 27px),
+    repeating-linear-gradient(12deg, transparent 0 31px, rgba(221,229,234,.09) 32px, transparent 33px 49px),
+    linear-gradient(180deg,#b7bdc1 0%,#6b747b 3%,#222a30 8%,#4e5355 12%,#171e24 18%,#343b40 23%,#0a0f14 34%,#151b20 70%,#373d41 81%,#171d21 88%,#7c858a 95%,#c0c5c8 100%) !important;
+  box-shadow:
+    0 13px 25px rgba(0,0,0,.9),
+    0 0 14px var(--nav-active-glow),
+    inset 0 2px 0 rgba(255,255,255,.32),
+    inset 0 -4px 0 rgba(0,0,0,.95) !important;
+}
+
+body .topbar::after,
+body .site-header.unified-header::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 4px;
+  pointer-events: none;
+  opacity: .82;
+  background:
+    radial-gradient(circle at 2.4% 24%, #c8cdd0 0 2px, #20272c 2.7px 4px, transparent 4.5px),
+    radial-gradient(circle at 2.4% 76%, #c8cdd0 0 2px, #20272c 2.7px 4px, transparent 4.5px),
+    radial-gradient(circle at 97.6% 24%, #c8cdd0 0 2px, #20272c 2.7px 4px, transparent 4.5px),
+    radial-gradient(circle at 97.6% 76%, #c8cdd0 0 2px, #20272c 2.7px 4px, transparent 4.5px),
+    repeating-linear-gradient(112deg, transparent 0 39px, rgba(0,0,0,.75) 40px 41px, rgba(255,255,255,.22) 42px, transparent 43px 67px),
+    repeating-linear-gradient(4deg, transparent 0 54px, rgba(255,255,255,.13) 55px, transparent 56px 82px);
+  mix-blend-mode: screen;
+}
+
+body .topbar .site-logo,
+body .site-header.unified-header .brand {
+  background:
+    radial-gradient(ellipse at 18% 15%, rgba(255,255,255,.23), transparent 22%),
+    repeating-linear-gradient(118deg, transparent 0 19px, rgba(0,0,0,.5) 20px 22px, transparent 23px 36px),
+    linear-gradient(145deg,#bfc5c8 0%,#555e65 5%,#171e24 11%,#4b5052 17%,#161c22 26%,#080c11 67%,#343b40 79%,#a4aaad 89%,#4c5459 94%,#171d22 100%) !important;
+}
+
+body .topbar .site-logo::after,
+body .site-header.unified-header .brand::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 8% 15%, #d1d5d7 0 2px, #20272d 2.8px 4px, transparent 4.5px),
+    radial-gradient(circle at 8% 85%, #d1d5d7 0 2px, #20272d 2.8px 4px, transparent 4.5px),
+    repeating-linear-gradient(165deg, transparent 0 25px, rgba(255,255,255,.18) 26px, rgba(0,0,0,.55) 27px, transparent 29px 44px);
+  opacity: .85;
+  clip-path: inherit;
+}
+
+body .topbar .nav-item,
+body .site-header.unified-header .nav-item {
+  background:
+    radial-gradient(ellipse at 18% 7%, rgba(255,255,255,.2), transparent 20%),
+    repeating-linear-gradient(155deg, transparent 0 22px, rgba(255,255,255,.055) 23px, rgba(0,0,0,.45) 24px, transparent 26px 43px),
+    linear-gradient(180deg,#687179 0%,#292f35 5%,#10161c 15%,#05090e 54%,#171e24 83%,#4c555b 94%,#20272d 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.26),
+    inset 0 -2px 0 rgba(0,0,0,.95),
+    0 3px 4px rgba(0,0,0,.9) !important;
+}
+
+body .topbar .nav-item::before,
+body .site-header.unified-header .nav-item::before {
+  background:
+    radial-gradient(circle at 8% 14%, #aeb6bb 0 1.5px, #080d11 2.5px, transparent 3.5px),
+    radial-gradient(circle at 92% 86%, #aeb6bb 0 1.5px, #080d11 2.5px, transparent 3.5px),
+    repeating-linear-gradient(108deg, transparent 0 31px, rgba(255,255,255,.11) 32px, rgba(0,0,0,.7) 33px, transparent 35px 57px),
+    linear-gradient(145deg,rgba(255,255,255,.09),transparent 24%),
+    linear-gradient(180deg,#20272e,#05090d 62%,#171e24) !important;
+}
+
+body .topbar .nav-item.active,
+body .site-header .nav-item.active {
+  background:
+    radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--tab-color) 35%, transparent), transparent 65%),
+    repeating-linear-gradient(155deg, transparent 0 22px, rgba(255,255,255,.065) 23px, rgba(0,0,0,.5) 24px, transparent 26px 43px),
+    linear-gradient(180deg,#687179 0%,#292f35 5%,#10161c 15%,#05090e 54%,#171e24 83%,#4c555b 94%,#20272d 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.28),
+    inset 0 -2px 0 rgba(0,0,0,.95),
+    0 0 12px var(--tab-glow) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .topbar .nav-item,
+  body .site-header .nav-item { transition: none !important; }
+}
