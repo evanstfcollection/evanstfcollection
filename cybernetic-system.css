@@ -1354,3 +1354,52 @@ body .site-header.unified-header .brand img {
     width: auto !important;
   }
 }
+
+
+/* CUSTOM TRANSPARENT NAVIGATION CHASSIS ARTWORK
+   The chassis image supplies the weathered metal frame; the separate
+   navigation logo remains layered above its empty left-side bay. */
+body .topbar,
+body .site-header.unified-header {
+  background-color: transparent !important;
+  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,.6) !important;
+  clip-path: none !important;
+}
+
+body .topbar::before,
+body .site-header.unified-header::before,
+body .topbar::after,
+body .site-header.unified-header::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Remove the CSS-drawn logo plaque: the uploaded logo artwork supplies it. */
+body .topbar .site-logo,
+body .site-header.unified-header .brand {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+  filter: none !important;
+}
+body .topbar .site-logo::before,
+body .topbar .site-logo::after,
+body .site-header.unified-header .brand::before,
+body .site-header.unified-header .brand::after {
+  content: none !important;
+  display: none !important;
+}
+
+@media (max-width: 620px) {
+  body .topbar,
+  body .site-header.unified-header {
+    background-size: 100% 100% !important;
+  }
+}
