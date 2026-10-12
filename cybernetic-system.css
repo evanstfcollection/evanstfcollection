@@ -1491,3 +1491,63 @@ body .site-header.unified-header {
     background-position: left center !important;
   }
 }
+
+
+/* RESET after visual testing: scale the chassis as a single, undistorted
+   asset and size the logo independently inside its left mounting bay.
+   Stretching the entire background also shifts the bay relative to tabs. */
+body .site-header.unified-header {
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+  min-height: 126px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  gap: 0 !important;
+}
+body .site-header.unified-header .brand {
+  flex: 0 0 390px !important;
+  width: 390px !important;
+  min-width: 0 !important;
+  min-height: 108px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body .site-header.unified-header .brand img {
+  width: 330px !important;
+  max-width: 100% !important;
+  max-height: 100px !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+body .site-header.unified-header .main-nav {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header .brand {
+    flex-basis: 34% !important;
+    width: 34% !important;
+  }
+  body .site-header.unified-header .brand img {
+    width: 92% !important;
+    max-height: 92px !important;
+  }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header {
+    background-size: 100% 100% !important;
+    min-height: 0 !important;
+  }
+  body .site-header.unified-header .brand {
+    flex-basis: 34% !important;
+    width: 34% !important;
+    min-height: 66px !important;
+  }
+  body .site-header.unified-header .brand img {
+    width: 96% !important;
+    max-height: 62px !important;
+  }
+}
