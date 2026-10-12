@@ -1852,3 +1852,41 @@ body .topbar::before {
   body .site-header.unified-header::before,
   body .topbar::before { inset: -30px -12.5% !important; width: 125% !important; }
 }
+
+
+/* Chassis final sizing/cropping: double the current vertical artwork height
+   and clip it to the navigation band so the chassis cannot spill down the page. */
+body .site-header.unified-header,
+body .topbar {
+  position: relative !important;
+  overflow: hidden !important;
+  clip-path: inset(0) !important;
+}
+body .site-header.unified-header::before,
+body .topbar::before {
+  inset: -148px -12.5% !important;
+  width: 125% !important;
+  background-size: 100% 200% !important;
+  background-position: center center !important;
+  overflow: hidden !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header,
+  body .topbar { overflow: hidden !important; clip-path: inset(0) !important; }
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -112px -12.5% !important;
+    width: 125% !important;
+    background-size: 100% 200% !important;
+  }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header,
+  body .topbar { overflow: hidden !important; clip-path: inset(0) !important; }
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -60px -12.5% !important;
+    width: 125% !important;
+    background-size: 100% 200% !important;
+  }
+}
