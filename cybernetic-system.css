@@ -1362,7 +1362,7 @@ body .site-header.unified-header .brand img {
 body .topbar,
 body .site-header.unified-header {
   background-color: transparent !important;
-  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
@@ -1591,7 +1591,7 @@ body .site-header.unified-header::before {
   z-index: -1 !important;
   inset: 0 !important;
   pointer-events: none !important;
-  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
@@ -1622,7 +1622,7 @@ body .topbar::before {
   z-index: -1 !important;
   inset: 0 !important;
   pointer-events: none !important;
-  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
@@ -1668,7 +1668,7 @@ body .topbar {
 body .site-header.unified-header::before,
 body .topbar::before {
   inset: 0 !important;
-  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
@@ -1700,7 +1700,7 @@ body .site-header.unified-header::before,
 body .topbar::before {
   z-index: 0 !important;
   inset: -12px 0 -12px 0 !important;
-  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 142% !important;
@@ -1786,7 +1786,7 @@ body .topbar .main-nav {
 body .site-header.unified-header::before,
 body .topbar::before {
   background-color: #03070b !important;
-  background-image: url("images/navigation-bar-chassis.png") !important;
+  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 142% !important;
