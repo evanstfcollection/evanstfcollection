@@ -1991,3 +1991,11 @@ body .topbar .site-logo {
     transform: none !important;
   }
 }
+
+
+/* Logo alignment micro-adjustment: move the logo plate right slightly
+   to center it within the chassis opening. Do not move or resize the tabs. */
+body .site-header.unified-header .brand,
+body .topbar .site-logo {
+  transform: translateX(0px) !important;
+}
