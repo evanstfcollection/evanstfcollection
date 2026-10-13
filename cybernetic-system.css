@@ -2268,3 +2268,38 @@ body .topbar::before {
     background-position: center center !important;
   }
 }
+
+
+/* CHASSIS HORIZONTAL ALIGNMENT — bring the right end close to the viewport
+   edge without letting the artwork run off-screen. Keep a small safety gap
+   at both sides and fill the navigation band vertically. */
+body .site-header.unified-header::before,
+body .topbar::before {
+  left: 8px !important;
+  right: 8px !important;
+  width: auto !important;
+  inset-block: -10px !important;
+  background-image: url("images/navigation-bar-chassis.png?v=20261013-horizontalfit") !important;
+  background-size: 100% 125% !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  transform: none !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    left: 5px !important;
+    right: 5px !important;
+    inset-block: -7px !important;
+    background-size: 100% 118% !important;
+  }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    left: 3px !important;
+    right: 3px !important;
+    inset-block: -4px !important;
+    background-size: 100% 112% !important;
+  }
+}
