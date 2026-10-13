@@ -3278,3 +3278,37 @@
     min-height: 186px !important;
   }
 }
+
+
+/* FINAL COLLECTION BAR CLEANUP — remove both the image outline and
+   the outer collection-shell frame visible around the texture. */
+.collection-heading {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.collection-heading::before,
+.collection-heading::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+  filter: none !important;
+}
+
+.collection-heading-top {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  background-image:
+    linear-gradient(rgba(5, 9, 14, .12), rgba(5, 9, 14, .12)),
+    url("images/decorative%20elements/panel-background-02.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+}
