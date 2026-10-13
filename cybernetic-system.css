@@ -2725,3 +2725,170 @@ body .topbar::after {
   mix-blend-mode: screen !important;
   opacity: .78 !important;
 }
+
+
+/* ==========================================================
+   VISIBLE ASSET PASS — 2026-10-13
+   The chassis and tab plate were already in use before the first
+   pass. This pass gives the newly-added panel and faction artwork
+   a visible place in the interface instead of only subtle overlays.
+   ========================================================== */
+
+/* Keep the chassis artwork, but use the dedicated transparent corner pieces
+   and rivet plate to make the frame additions visibly distinct. */
+body .topbar,
+body .site-header.unified-header {
+  background: transparent !important;
+}
+body .topbar::after,
+body .site-header.unified-header::after {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 4 !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    url("images/decorative%20elements/corner-piece-large.png?v=visible-assets-2") left top / 84px 84px no-repeat,
+    url("images/decorative%20elements/corner-piece-large.png?v=visible-assets-2") right top / 84px 84px no-repeat,
+    url("images/decorative%20elements/edge-strip-01.png?v=visible-assets-2") center top / 100% 13px no-repeat,
+    url("images/decorative%20elements/edge-strip-02.png?v=visible-assets-2") center bottom / 100% 13px no-repeat !important;
+  opacity: .95 !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Make the plate asset the only tab surface and show faction watermarks
+   clearly enough to be seen without competing with the live icons. */
+body .topbar .main-nav .nav-item,
+body .site-header.unified-header .main-nav .nav-item {
+  background: transparent url("images/nav-tab-plate.png?v=visible-assets-2") center / 100% 100% no-repeat !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body .topbar .main-nav .nav-item::before,
+body .site-header.unified-header .main-nav .nav-item::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  inset: 12% 17% 18% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  opacity: .22 !important;
+  filter: none !important;
+  pointer-events: none !important;
+}
+body .topbar .main-nav .nav-item.autobots::before,
+body .site-header.unified-header .main-nav .nav-item.autobots::before {
+  background-image: url("images/decorative%20elements/autobot-symbol-faded.png?v=visible-assets-2") !important;
+}
+body .topbar .main-nav .nav-item.decepticons::before,
+body .site-header.unified-header .main-nav .nav-item.decepticons::before {
+  background-image: url("images/decorative%20elements/decepticon-symbol-faded.png?v=visible-assets-2") !important;
+}
+body .topbar .main-nav .nav-item img,
+body .topbar .main-nav .nav-item span,
+body .site-header.unified-header .main-nav .nav-item img,
+body .site-header.unified-header .main-nav .nav-item span {
+  z-index: 2 !important;
+}
+
+/* Expanded menu: use the new panel art and show the matching faction's
+   menubar artwork in a dedicated, large visual slot. */
+body .nav-expansion {
+  position: fixed !important;
+  z-index: 9999 !important;
+  display: grid !important;
+  grid-template-columns: minmax(110px, 20%) minmax(0, 1fr) 44px !important;
+  align-items: center !important;
+  gap: 18px !important;
+  min-height: 180px !important;
+  padding: 24px 30px !important;
+  background: transparent url("images/decorative%20elements/expanded-menu-panel.png?v=visible-assets-2") center / 100% 100% no-repeat !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+  overflow: visible !important;
+}
+body .nav-expansion[hidden] {
+  display: none !important;
+}
+body .nav-expansion::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 0 !important;
+  inset: 20px 72px !important;
+  background: url("images/decorative%20elements/panel-background-01.png?v=visible-assets-2") center / 100% 100% no-repeat !important;
+  opacity: .85 !important;
+  pointer-events: none !important;
+}
+body .nav-expansion::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  inset: 0 !important;
+  background:
+    url("images/decorative%20elements/lightstrip-cyan.png?v=visible-assets-2") left 18px center / 7px 65% no-repeat,
+    url("images/decorative%20elements/lightstrip-red.png?v=visible-assets-2") right 18px center / 7px 65% no-repeat !important;
+  pointer-events: none !important;
+}
+body .nav-expansion > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+body .nav-expansion .nav-expansion-emblem {
+  display: block !important;
+  width: 100% !important;
+  min-width: 110px !important;
+  height: 104px !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  filter: drop-shadow(0 0 10px var(--cyber-glow)) !important;
+}
+body[data-cyber-theme="autobots"] .nav-expansion .nav-expansion-emblem {
+  background-image: url("images/autobots-menubar-image.png?v=visible-assets-2") !important;
+}
+body[data-cyber-theme="decepticons"] .nav-expansion .nav-expansion-emblem {
+  background-image: url("images/decepticons-menubar-image.png?v=visible-assets-2") !important;
+}
+body[data-cyber-theme="masterpiece"] .nav-expansion .nav-expansion-emblem {
+  background-image: url("images/masterpiece-movie-menubar-image.png?v=visible-assets-2") !important;
+}
+body[data-cyber-theme="third-party"] .nav-expansion .nav-expansion-emblem {
+  background-image: url("images/3rd-party-menubar-image.png?v=visible-assets-2") !important;
+}
+body[data-cyber-theme="primes"] .nav-expansion .nav-expansion-emblem {
+  background-image: url("images/the-primes-menubar-image.png?v=visible-assets-2") !important;
+}
+body[data-cyber-theme="contact"] .nav-expansion .nav-expansion-emblem {
+  background-image: url("images/contact-menubar-image.png?v=visible-assets-2") !important;
+}
+body .nav-expansion .nav-expansion-content {
+  min-width: 0 !important;
+  padding: 8px 16px !important;
+}
+body .nav-expansion .nav-expansion-close {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Keep the expanded panel readable on smaller screens. */
+@media (max-width: 700px) {
+  body .nav-expansion {
+    grid-template-columns: 76px minmax(0, 1fr) 32px !important;
+    gap: 8px !important;
+    min-height: 140px !important;
+    padding: 18px 20px !important;
+  }
+  body .nav-expansion .nav-expansion-emblem {
+    min-width: 70px !important;
+    height: 70px !important;
+  }
+}
