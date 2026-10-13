@@ -3384,3 +3384,36 @@ body .nav-expansion .nav-expansion-links::after {
   box-shadow: none !important;
   background: none !important;
 }
+
+
+/* CYBERTRONIAN ACCENT LIGHTS — decorate the shared frame, not the buttons. */
+body .nav-expansion .nav-expansion-accent-frame {
+  border: 2px solid var(--menu-accent, #ff302f) !important;
+  background: transparent !important;
+  box-shadow:
+    0 0 5px var(--menu-accent, #ff302f),
+    0 0 12px color-mix(in srgb, var(--menu-accent, #ff302f) 60%, transparent) !important;
+}
+body .nav-expansion .nav-expansion-accent-frame::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -2px !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(90deg, var(--menu-accent) 0 9%, transparent 9% 13%, var(--menu-accent) 13% 22%, transparent 22% 78%, var(--menu-accent) 78% 87%, transparent 87% 91%, var(--menu-accent) 91% 100%) top / 100% 3px no-repeat,
+    linear-gradient(90deg, var(--menu-accent) 0 9%, transparent 9% 13%, var(--menu-accent) 13% 22%, transparent 22% 78%, var(--menu-accent) 78% 87%, transparent 87% 91%, var(--menu-accent) 91% 100%) bottom / 100% 3px no-repeat,
+    linear-gradient(180deg, var(--menu-accent) 0 20%, transparent 20% 34%, var(--menu-accent) 34% 66%, transparent 66% 80%, var(--menu-accent) 80% 100%) left / 3px 100% no-repeat,
+    linear-gradient(180deg, var(--menu-accent) 0 20%, transparent 20% 34%, var(--menu-accent) 34% 66%, transparent 66% 80%, var(--menu-accent) 80% 100%) right / 3px 100% no-repeat !important;
+  filter: drop-shadow(0 0 4px var(--menu-accent)) !important;
+  opacity: .95 !important;
+}
+body .nav-expansion .nav-expansion-accent-frame::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: -5px 12% !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(90deg, transparent, var(--menu-accent), transparent) top / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent, var(--menu-accent), transparent) bottom / 100% 1px no-repeat !important;
+  opacity: .7 !important;
+}
