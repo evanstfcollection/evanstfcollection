@@ -2553,3 +2553,24 @@ body .topbar .site-logo {
     top: 8px !important;
   }
 }
+
+
+/* Remove the rectangular outline/backing around each navigation tab.
+   The metallic tab-plate PNG and coloured lighting remain visible. */
+body .topbar .main-nav .nav-item,
+body .site-header.unified-header .main-nav .nav-item {
+  outline: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+body .topbar .main-nav .nav-item:focus,
+body .topbar .main-nav .nav-item:focus-visible,
+body .site-header.unified-header .main-nav .nav-item:focus,
+body .site-header.unified-header .main-nav .nav-item:focus-visible {
+  outline: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
