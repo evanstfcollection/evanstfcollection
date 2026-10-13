@@ -23,6 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setOpen(open) {
     panel.hidden = !open;
+    if (open) {
+      const themeItem = document.querySelector(".topbar .nav-item.active, .site-header .nav-item.active") || activeItem || autobotsItem;
+      const themeClasses = ["autobots", "decepticons", "masterpiece", "third-party", "primes", "contact"];
+      const theme = themeClasses.find(name => themeItem && themeItem.classList.contains(name)) || "autobots";
+      document.body.dataset.cyberTheme = theme;
+    }
     triggers.forEach(item => {
       item.setAttribute("aria-expanded", String(open));
       item.classList.toggle("menu-expanded", open);
