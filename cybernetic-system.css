@@ -3545,3 +3545,44 @@ body .nav-expansion .nav-expansion-accent-frame {
   filter: none !important;
   box-shadow: none !important;
 }
+
+
+/* AUTOBOTS COLLECTION — remove the remaining bright vertical frame lines.
+   These are coming from card/panel border and pseudo-frame styling, not the photos. */
+body[data-cyber-theme="autobots"] .collection-shell,
+body[data-cyber-theme="autobots"] .content-layout,
+body[data-cyber-theme="autobots"] .gallery,
+body[data-cyber-theme="autobots"] .gallery .card,
+body[data-cyber-theme="autobots"] .gallery .card:hover,
+body[data-cyber-theme="autobots"] .detail-panel,
+body[data-cyber-theme="autobots"] .detail-main-image,
+body[data-cyber-theme="autobots"] .detail-thumbs,
+body[data-cyber-theme="autobots"] .detail-thumbs button {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body[data-cyber-theme="autobots"] .gallery .card::before,
+body[data-cyber-theme="autobots"] .gallery .card::after,
+body[data-cyber-theme="autobots"] .detail-panel::before,
+body[data-cyber-theme="autobots"] .detail-panel::after,
+body[data-cyber-theme="autobots"] .detail-main-image::before,
+body[data-cyber-theme="autobots"] .detail-main-image::after,
+body[data-cyber-theme="autobots"] .detail-thumbs button::before,
+body[data-cyber-theme="autobots"] .detail-thumbs button::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  background: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+body[data-cyber-theme="autobots"] .gallery .card {
+  background: transparent !important;
+}
