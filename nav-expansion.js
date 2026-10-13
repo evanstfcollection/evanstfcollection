@@ -51,11 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
     item.addEventListener("click", (event) => {
       const isAutobotsLink = item.classList.contains("autobots");
 
-      // From another page, Autobots should navigate to its own collection page.
-      // The hash tells that page to expand the quick-access menu after loading.
+      // From another page, let Autobots navigate normally without opening
+      // the expanded quick-access menu automatically.
       if (isAutobotsLink && !isAutobotsPage) {
-        event.preventDefault();
-        window.location.href = item.href.split("#")[0] + "#expand-nav";
         return;
       }
 
@@ -64,11 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setOpen(panel.hidden);
     });
   });
-
-  if (isAutobotsPage && window.location.hash === "#expand-nav") {
-    setOpen(true);
-    history.replaceState(null, "", window.location.pathname + window.location.search);
-  }
 
   closeButton?.addEventListener("click", () => setOpen(false));
   document.addEventListener("keydown", (event) => {
