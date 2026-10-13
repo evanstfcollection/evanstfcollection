@@ -3009,3 +3009,28 @@ body .nav-expansion {
   background-position: center center !important;
   background-repeat: no-repeat !important;
 }
+
+
+/* Expanded menu should use ONE panel image only. Remove the extra inner
+   panel texture and light-strip overlays that make it look double-layered. */
+body .nav-expansion {
+  background-image: url("images/decorative%20elements/expanded-menu-panel.png?v=single-panel") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 150% !important;
+}
+body .nav-expansion::before,
+body .nav-expansion::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove the close X entirely; the panel can still close via its tab toggle
+   or the Escape key. */
+body .nav-expansion .nav-expansion-close {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
