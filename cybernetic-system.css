@@ -2361,3 +2361,17 @@ body .topbar::before {
     background-size: 100% 168% !important;
   }
 }
+
+
+/* NAV TAB BUTTONS — reduce each tab to 75% of its previous visual size.
+   Scale the plate, icon, and label together from the center while preserving
+   the existing six-column navigation layout and click targets. */
+body .topbar .nav-item,
+body .site-header.unified-header .nav-item {
+  transform: scale(.75) !important;
+  transform-origin: center center !important;
+}
+body .topbar .nav-item.active,
+body .site-header.unified-header .nav-item.active {
+  transform: scale(.75) translateY(-4px) !important;
+}
