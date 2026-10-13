@@ -3651,3 +3651,15 @@ body[data-cyber-theme="autobots"] .topbar {
 body[data-cyber-theme="autobots"] .topbar::before {
   clip-path: inset(22px 0 22px 0) !important;
 }
+
+
+/* ISOLATION TEST: keep the top navigation controls, but temporarily remove
+   only the chassis artwork layer. Earlier tests removed the whole header,
+   so this isolates whether the lines are caused by the header's image layer. */
+body[data-cyber-theme="autobots"] .topbar::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+  clip-path: none !important;
+}
