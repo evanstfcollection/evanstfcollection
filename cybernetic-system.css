@@ -3648,3 +3648,40 @@ body .detail-main-image::after {
   -webkit-mask: none !important;
   mask: none !important;
 }
+
+
+/* MENU BAR FINAL CLEANUP — remove the remaining chassis artwork itself.
+   The visible metallic frame is baked into navigation-bar-chassis.png, rather
+   than being a separate CSS border. Keep the navigation controls and layout. */
+body .topbar,
+body .site-header.unified-header {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+body .topbar::before,
+body .topbar::after,
+body .site-header.unified-header::before,
+body .site-header.unified-header::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+}
+
+body .topbar .main-nav .nav-item,
+body .site-header.unified-header .main-nav .nav-item {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
