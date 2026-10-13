@@ -3373,3 +3373,14 @@ body .nav-expansion .nav-expansion-links {
     width: 92% !important;
   }
 }
+
+
+/* Disable legacy pseudo-element frames so only the live accent overlay is visible. */
+body .nav-expansion .nav-expansion-links::before,
+body .nav-expansion .nav-expansion-links::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+}
