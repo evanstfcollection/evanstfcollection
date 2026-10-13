@@ -42,14 +42,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const isAutobotsPage = currentPath === "autobots.html";
+
   triggers.forEach(item => {
     item.setAttribute("aria-haspopup", "true");
     item.setAttribute("aria-expanded", "false");
     item.addEventListener("click", (event) => {
+      const isAutobotsLink = item.classList.contains("autobots");
+
+      // From another page, Autobots should navigate to its own collection page.
+      // The hash tells that page to expand the quick-access menu after loading.
+      if (isAutobotsLink && !isAutobotsPage) {
+        event.preventDefault();
+        window.location.href = item.href.split("#")[0] + "#expand-nav";
+        return;
+      }
+
+      // On the Autobots page itself, clicking the active tab toggles the menu.
       event.preventDefault();
       setOpen(panel.hidden);
     });
   });
+
+  if (isAutobotsPage && window.location.hash === "#expand-nav") {
+    setOpen(true);
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
 
   closeButton?.addEventListener("click", () => setOpen(false));
   document.addEventListener("keydown", (event) => {
