@@ -1621,3 +1621,43 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
 .info-close {
   display: none !important;
 }
+
+
+/* GLOBAL DESIGN RESET — Cybertronian border artwork and accent frames are retired.
+   Keep the underlying panels, images, layout, and text; remove decorative frame overlays. */
+.nav-item::before,
+.nav-item::after,
+.collection-heading::before,
+.collection-heading::after,
+.detail-panel::before,
+.card::before,
+.card::after,
+.preview-window::before,
+.preview-window::after,
+.collection-info::before,
+.collection-info::after,
+.info-image::before,
+.info-image::after,
+.info-thumbs button::before,
+.info-thumbs button::after,
+.info-thumbs div::before,
+.info-thumbs div::after {
+  content: none !important;
+  display: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+/* Remove any remaining image-mask references from visible pseudo-element frames. */
+.nav-item,
+.collection-heading,
+.detail-panel,
+.card,
+.preview-window,
+.collection-info,
+.info-image {
+  --nav-glow: transparent !important;
+}
