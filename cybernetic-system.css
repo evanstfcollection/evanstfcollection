@@ -2468,3 +2468,15 @@ body .site-header.unified-header .main-nav {
     transform: translateX(-100px) !important;
   }
 }
+
+
+/* Increase navigation tabs by 25% from the current 75% scale (to 93.75%). */
+body .topbar .nav-item,
+body .site-header.unified-header .nav-item {
+  transform: scale(.9375) !important;
+  transform-origin: center center !important;
+}
+body .topbar .nav-item.active,
+body .site-header.unified-header .nav-item.active {
+  transform: scale(.9375) translateY(-4px) !important;
+}
