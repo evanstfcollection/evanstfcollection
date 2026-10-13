@@ -3706,3 +3706,29 @@ body[data-cyber-theme="autobots"] main > .hero {
   background: #050b14 !important;
   background-image: none !important;
 }
+
+
+/* DIAGNOSTIC 4: hero art and chassis art are already disabled. Remove the
+   remaining likely source: decorative pseudo-elements on the collection shell,
+   its heading wrapper, and the expanded-menu container. */
+body[data-cyber-theme="autobots"] main::before,
+body[data-cyber-theme="autobots"] main::after,
+body[data-cyber-theme="autobots"] .collection-shell::before,
+body[data-cyber-theme="autobots"] .collection-shell::after,
+body[data-cyber-theme="autobots"] .collection-heading::before,
+body[data-cyber-theme="autobots"] .collection-heading::after,
+body[data-cyber-theme="autobots"] .nav-expansion::before,
+body[data-cyber-theme="autobots"] .nav-expansion::after,
+body[data-cyber-theme="autobots"] .nav-expansion-content::before,
+body[data-cyber-theme="autobots"] .nav-expansion-content::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+}
