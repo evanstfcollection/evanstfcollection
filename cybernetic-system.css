@@ -3240,3 +3240,75 @@ body .nav-expansion .nav-expansion-links a:focus-visible {
     inset 0 0 16px var(--menu-accent) !important;
   filter: brightness(1.12) drop-shadow(0 0 14px var(--menu-accent)) !important;
 }
+
+
+/* CYBERTRONIAN ACCENT FRAME — one angular border around the whole button row.
+   Remove the two outer panel outlines and all individual button outlines. */
+body .nav-expansion {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+body .nav-expansion::before,
+body .nav-expansion::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+body .nav-expansion .nav-expansion-links {
+  position: relative !important;
+  isolation: isolate !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  width: min(100%, 1160px) !important;
+  margin: 0 auto !important;
+  padding: 13px !important;
+  box-sizing: border-box !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body .nav-expansion .nav-expansion-links::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: -2 !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(90deg, transparent 0 4%, var(--menu-accent) 4% 18%, transparent 18% 82%, var(--menu-accent) 82% 96%, transparent 96%),
+    linear-gradient(180deg, var(--menu-accent), rgba(255,255,255,.35) 50%, var(--menu-accent)) !important;
+  clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px) !important;
+  opacity: .95 !important;
+  box-shadow: 0 0 12px var(--menu-accent) !important;
+}
+body .nav-expansion .nav-expansion-links::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  inset: 2px !important;
+  pointer-events: none !important;
+  background: rgba(4, 8, 12, .45) !important;
+  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px) !important;
+}
+body .nav-expansion .nav-expansion-links a,
+body .nav-expansion .nav-expansion-links a:hover,
+body .nav-expansion .nav-expansion-links a:focus-visible {
+  position: relative !important;
+  z-index: 1 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+@media (max-width: 700px) {
+  body .nav-expansion .nav-expansion-links {
+    grid-template-columns: 1fr !important;
+    padding: 10px !important;
+    gap: 8px !important;
+  }
+}
