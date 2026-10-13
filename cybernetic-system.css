@@ -3384,3 +3384,47 @@ body .nav-expansion .nav-expansion-links::after {
   box-shadow: none !important;
   background: none !important;
 }
+
+
+/* FINAL CLEANUP: remove all expanded-menu accent lighting from legacy CSS. */
+body .nav-expansion {
+  --menu-accent: transparent !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+body .nav-expansion::before,
+body .nav-expansion::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+body .nav-expansion .nav-expansion-links::before,
+body .nav-expansion .nav-expansion-links::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+body .nav-expansion .nav-expansion-links a,
+body .nav-expansion .nav-expansion-links a:hover,
+body .nav-expansion .nav-expansion-links a:focus-visible {
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+body .nav-expansion .nav-expansion-accent-frame {
+  display: none !important;
+  visibility: hidden !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+}
