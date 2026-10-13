@@ -2174,3 +2174,36 @@ body .topbar::before {
     background-size: 100% 100% !important;
   }
 }
+
+
+/* NAVIGATION CHASSIS — FIRST HEIGHT PASS
+   Enlarge the replacement chassis vertically and anchor it to the top edge
+   so the upper rail reaches the top of the page rather than sitting low. */
+body .site-header.unified-header::before,
+body .topbar::before {
+  inset: 0 -12.5% !important;
+  width: 125% !important;
+  background-image: url("images/navigation-bar-chassis.png?v=20261013-height1") !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 150% !important;
+  background-position: center top !important;
+  transform: none !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: 0 -12.5% !important;
+    width: 125% !important;
+    background-size: 100% 145% !important;
+    background-position: center top !important;
+  }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: 0 -12.5% !important;
+    width: 125% !important;
+    background-size: 100% 135% !important;
+    background-position: center top !important;
+  }
+}
