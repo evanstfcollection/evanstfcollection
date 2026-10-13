@@ -3179,3 +3179,80 @@
   border: 1px solid rgba(145, 158, 169, .45);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 3px 8px rgba(0, 0, 0, .45);
 }
+
+
+/* AUTOBOT COLLECTION BAR — remove the old angular accent frame and
+   center the heading independently of the Search / Filters control. */
+.collection-heading::before {
+  content: none !important;
+  display: none !important;
+}
+
+.collection-heading-top {
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: calc(100% + 40px) !important;
+  min-height: 76px !important;
+  margin-left: -20px !important;
+  padding: 16px 20px !important;
+  box-sizing: border-box !important;
+  background-size: 100% 100% !important;
+  background-position: center !important;
+  border: 1px solid rgba(145, 158, 169, .45) !important;
+}
+
+.collection-heading-top h2 {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.collection-heading-top .filter-toggle {
+  position: relative !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  transform: translateX(-150%) !important;
+}
+
+@media (max-width: 820px) {
+  .collection-heading-top {
+    width: 100% !important;
+    margin-left: 0 !important;
+    min-height: 68px !important;
+    padding: 12px 8px !important;
+  }
+
+  .collection-heading-top h2 {
+    font-size: clamp(12px, 2.3vw, 18px) !important;
+    max-width: 58% !important;
+    white-space: normal !important;
+  }
+
+  .collection-heading-top .filter-toggle {
+    transform: translateX(-15%) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .collection-heading-top {
+    min-height: 62px !important;
+  }
+
+  .collection-heading-top h2 {
+    font-size: 12px !important;
+    max-width: 54% !important;
+  }
+
+  .collection-heading-top .filter-toggle {
+    transform: none !important;
+    padding: 5px 7px !important;
+    font-size: 8px !important;
+  }
+}
