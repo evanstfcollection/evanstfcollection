@@ -2229,3 +2229,42 @@ body .topbar::before {
   background-size: 100% 100% !important;
   transform: none !important;
 }
+
+
+/* NAVIGATION CHASSIS — background-scale tuning
+   Make the chassis artwork fill more of the navigation band while keeping
+   the entire source canvas visible. Slight vertical overscan fills the
+   header; centered positioning keeps the top and bottom rails balanced. */
+body .site-header.unified-header,
+body .topbar {
+  position: relative !important;
+  overflow: visible !important;
+  clip-path: none !important;
+}
+body .site-header.unified-header::before,
+body .topbar::before {
+  inset: -10px 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  background-image: url("images/navigation-bar-chassis.png?v=20261013-bgscale2") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 125% !important;
+  transform: none !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -7px 0 !important;
+    background-size: 100% 118% !important;
+    background-position: center center !important;
+  }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -4px 0 !important;
+    background-size: 100% 112% !important;
+    background-position: center center !important;
+  }
+}
