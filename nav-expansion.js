@@ -49,12 +49,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const linksFrame = panel.querySelector(".nav-expansion-links");
       if (linksFrame) {
         linksFrame.style.setProperty("--menu-accent", accent);
-        linksFrame.style.border = "0";
-        linksFrame.style.boxShadow = "none";
+        /* Apply the shared frame directly to the live element. This avoids
+           pseudo-element stacking and CSS override conflicts entirely. */
+        linksFrame.style.boxSizing = "border-box";
+        linksFrame.style.padding = "16px";
+        linksFrame.style.border = "3px solid " + accent;
+        linksFrame.style.clipPath = "polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px)";
+        linksFrame.style.background = "linear-gradient(180deg, rgba(255,255,255,.12), rgba(4,8,12,.45) 35%, rgba(0,0,0,.2))";
+        linksFrame.style.boxShadow = "0 0 5px " + accent + ", 0 0 16px " + accent + ", inset 0 0 12px " + accent;
       }
       panel.querySelectorAll(".nav-expansion-links a").forEach((link) => {
         link.style.setProperty("--menu-accent", accent);
         link.style.border = "0";
+        link.style.outline = "0";
         link.style.boxShadow = "none";
         link.style.filter = "none";
       });
