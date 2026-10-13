@@ -2207,3 +2207,25 @@ body .topbar::before {
     background-position: center top !important;
   }
 }
+
+
+/* CHASSIS PLACEMENT — fit the full image inside the navigation section.
+   Keep all four edges visible: no oversized negative vertical inset and no
+   cropping. The image itself scales to the section's box. */
+body .site-header.unified-header,
+body .topbar {
+  position: relative !important;
+  overflow: visible !important;
+  clip-path: none !important;
+}
+body .site-header.unified-header::before,
+body .topbar::before {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: url("images/navigation-bar-chassis.png?v=20261013-edgefit1") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  transform: none !important;
+}
