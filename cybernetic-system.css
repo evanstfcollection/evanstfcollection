@@ -3349,3 +3349,27 @@ body .nav-expansion .nav-expansion-links a:hover,
 body .nav-expansion .nav-expansion-links a:focus-visible {
   z-index: 1 !important;
 }
+
+
+/* WIDEN THE ACCENT FRAME — authoritative CSS sizing.
+   The earlier JavaScript width was overridden by this stylesheet's !important
+   width cap. Make the content span the panel and the shared frame 92% wide. */
+body .nav-expansion .nav-expansion-content {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  justify-self: stretch !important;
+}
+body .nav-expansion .nav-expansion-links {
+  width: 92% !important;
+  max-width: none !important;
+  justify-self: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 700px) {
+  body .nav-expansion .nav-expansion-links {
+    width: 92% !important;
+  }
+}
