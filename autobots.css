@@ -3532,3 +3532,21 @@ body .detail-main-image::after {
   -webkit-mask: none !important;
   mask: none !important;
 }
+
+
+/* TEMPORARY DIAGNOSTIC: isolate the two vertical light lines.
+   Disable the page background artwork and grid overlay without changing layout. */
+body[data-cyber-theme="autobots"] {
+  background-image: linear-gradient(180deg, #020812, #061426 55%, #020812) !important;
+}
+
+body[data-cyber-theme="autobots"]::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  opacity: 0 !important;
+}
+
+body[data-cyber-theme="autobots"] .hero {
+  background-image: none !important;
+}
