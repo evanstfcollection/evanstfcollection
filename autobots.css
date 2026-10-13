@@ -3165,3 +3165,17 @@
 .info-close {
   display: none !important;
 }
+
+
+/* AUTOBOT COLLECTION BAR — use the new industrial panel texture. */
+.collection-heading-top {
+  background-color: #111820;
+  background-image:
+    linear-gradient(rgba(5, 9, 14, .22), rgba(5, 9, 14, .22)),
+    url("images/decorative%20elements/panel-background-02.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(145, 158, 169, .45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 3px 8px rgba(0, 0, 0, .45);
+}
