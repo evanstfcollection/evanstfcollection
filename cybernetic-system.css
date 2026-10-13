@@ -2053,3 +2053,78 @@ body .topbar::before {
     background-size: 100% 154% !important;
   }
 }
+
+
+/* NAV TAB PLATE ASSET
+   Use the shared transparent, weathered plate artwork as the base for each
+   of the six real links. Keep labels/icons live HTML and faction lighting
+   in CSS so tabs remain clickable, responsive, and accessible. */
+body .topbar .nav-item,
+body .site-header.unified-header .nav-item {
+  background-color: transparent !important;
+  background-image: url("images/nav-tab-plate.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  clip-path: none !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  padding: 9px 8px 11px !important;
+}
+
+/* Let the artwork supply the metal surface; keep the coloured energy strip. */
+body .topbar .nav-item::before,
+body .site-header.unified-header .nav-item::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+body .topbar .nav-item::after,
+body .site-header.unified-header .nav-item::after {
+  z-index: 3 !important;
+  left: 14% !important;
+  right: 14% !important;
+  bottom: 7px !important;
+  height: 3px !important;
+  inset: auto 14% 7px !important;
+  background: var(--tab-color) !important;
+  box-shadow: 0 0 5px var(--tab-color), 0 0 12px var(--tab-glow) !important;
+  opacity: .85 !important;
+}
+
+/* Hover/active states change only the faction-coloured glow, never the plate. */
+body .topbar .nav-item:hover,
+body .topbar .nav-item.active,
+body .site-header.unified-header .nav-item:hover,
+body .site-header.unified-header .nav-item.active {
+  background-color: transparent !important;
+  background-image: url("images/nav-tab-plate.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  filter: drop-shadow(0 0 7px var(--tab-glow)) drop-shadow(0 4px 3px rgba(0,0,0,.9)) !important;
+  border: 0 !important;
+  border-top: 0 !important;
+}
+body .topbar .nav-item.active,
+body .site-header.unified-header .nav-item.active {
+  transform: translateY(-4px) !important;
+}
+
+/* Smaller screens retain the plate proportions without hiding the labels. */
+@media (max-width: 900px) {
+  body .topbar .nav-item,
+  body .site-header.unified-header .nav-item {
+    background-size: 100% 100% !important;
+    padding: 7px 4px 10px !important;
+  }
+}
+@media (max-width: 620px) {
+  body .topbar .nav-item,
+  body .site-header.unified-header .nav-item {
+    background-size: 100% 100% !important;
+    padding: 5px 2px 8px !important;
+  }
+}
