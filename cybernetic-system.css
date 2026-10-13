@@ -3384,3 +3384,77 @@ body .nav-expansion .nav-expansion-links::after {
   box-shadow: none !important;
   background: none !important;
 }
+
+
+/* EXPANDED MENU — compact, more Cybertronian shortcut plates.
+   Narrow the plates inside their grid cells and add angular mechanical
+   edge-lighting without changing the shared outer accent frame. */
+body .nav-expansion .nav-expansion-links {
+  column-gap: 8px !important;
+}
+body .nav-expansion .nav-expansion-links > a {
+  width: 86% !important;
+  justify-self: center !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  clip-path: polygon(
+    13px 0, calc(100% - 13px) 0,
+    calc(100% - 5px) 6px, 100% 15px,
+    100% calc(100% - 15px), calc(100% - 5px) calc(100% - 6px),
+    calc(100% - 13px) 100%, 13px 100%,
+    5px calc(100% - 6px), 0 calc(100% - 15px),
+    0 15px, 5px 6px
+  ) !important;
+  background-color: transparent !important;
+  background-image:
+    linear-gradient(90deg, var(--menu-accent, #ff302f), transparent 12%, transparent 88%, var(--menu-accent, #ff302f)),
+    linear-gradient(180deg, rgba(255,255,255,.2), transparent 24%, rgba(0,0,0,.18)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.45),
+    inset 0 -2px 0 rgba(0,0,0,.8),
+    0 0 0 1px rgba(255,255,255,.18),
+    0 4px 8px rgba(0,0,0,.8) !important;
+  text-shadow: 0 1px 2px #000, 0 0 5px rgba(255,255,255,.18) !important;
+}
+body .nav-expansion .nav-expansion-links > a::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 4px 7px !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  border-top: 1px solid rgba(255,255,255,.45) !important;
+  border-bottom: 1px solid var(--menu-accent, #ff302f) !important;
+  clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0 50%) !important;
+  opacity: .9 !important;
+}
+body .nav-expansion .nav-expansion-links > a::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  background:
+    linear-gradient(135deg, transparent 0 12px, var(--menu-accent, #ff302f) 12px 14px, transparent 14px) top left / 24px 18px no-repeat,
+    linear-gradient(225deg, transparent 0 12px, var(--menu-accent, #ff302f) 12px 14px, transparent 14px) top right / 24px 18px no-repeat,
+    linear-gradient(45deg, transparent 0 12px, var(--menu-accent, #ff302f) 12px 14px, transparent 14px) bottom left / 24px 18px no-repeat,
+    linear-gradient(315deg, transparent 0 12px, var(--menu-accent, #ff302f) 12px 14px, transparent 14px) bottom right / 24px 18px no-repeat !important;
+  opacity: .85 !important;
+}
+body .nav-expansion .nav-expansion-links > a:hover,
+body .nav-expansion .nav-expansion-links > a:focus-visible {
+  filter: brightness(1.12) drop-shadow(0 0 5px var(--menu-accent, #ff302f)) !important;
+}
+body .nav-expansion .nav-expansion-links > a > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+@media (max-width: 700px) {
+  body .nav-expansion .nav-expansion-links > a {
+    width: 94% !important;
+  }
+}
