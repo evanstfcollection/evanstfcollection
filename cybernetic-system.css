@@ -3312,3 +3312,40 @@ body .nav-expansion .nav-expansion-links a:focus-visible {
     gap: 8px !important;
   }
 }
+
+
+/* FIX: keep the shared Cybertronian frame in the visible stacking layer.
+   The previous negative z-index put the frame behind the menu's own artwork. */
+body .nav-expansion .nav-expansion-links {
+  position: relative !important;
+  isolation: isolate !important;
+  padding: 15px !important;
+  overflow: visible !important;
+}
+body .nav-expansion .nav-expansion-links::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 0 !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  border: 3px solid var(--menu-accent, #ff302f) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.18), transparent 24%, transparent 76%, rgba(0,0,0,.2)) !important;
+  clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px) !important;
+  box-shadow: 0 0 6px var(--menu-accent, #ff302f), 0 0 18px var(--menu-accent, #ff302f) !important;
+}
+body .nav-expansion .nav-expansion-links::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 0 !important;
+  inset: 3px !important;
+  pointer-events: none !important;
+  background: rgba(4, 8, 12, .28) !important;
+  clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px) !important;
+}
+body .nav-expansion .nav-expansion-links a,
+body .nav-expansion .nav-expansion-links a:hover,
+body .nav-expansion .nav-expansion-links a:focus-visible {
+  z-index: 1 !important;
+}
