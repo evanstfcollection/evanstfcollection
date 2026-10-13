@@ -3740,3 +3740,53 @@ body[data-cyber-theme="autobots"] main > .hero {
   background: url("images/autobots-background.png") center center / cover no-repeat !important;
   background-image: url("images/autobots-background.png") !important;
 }
+
+
+/* RESTORE AUTOBOTS NAVIGATION after diagnostic isolation.
+   Keep the actual header, logo, and menu controls visible; restore chassis artwork. */
+body[data-cyber-theme="autobots"] .topbar {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 100 !important;
+  overflow: visible !important;
+  min-height: 88px !important;
+  background: rgba(2, 5, 8, .97) !important;
+}
+
+body[data-cyber-theme="autobots"] .topbar .site-logo,
+body[data-cyber-theme="autobots"] .topbar .main-nav,
+body[data-cyber-theme="autobots"] .topbar .nav-item {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body[data-cyber-theme="autobots"] .topbar .main-nav {
+  display: grid !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+body[data-cyber-theme="autobots"] .topbar::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 0 !important;
+  inset: -22px 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  background: url("images/navigation-bar-chassis.png?v=step2-assets") center center / 100% 187.5% no-repeat !important;
+  pointer-events: none !important;
+  clip-path: none !important;
+}
+
+body[data-cyber-theme="autobots"] .topbar > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+body[data-cyber-theme="autobots"] main > .hero {
+  background: url("images/autobots-background.png") center center / cover no-repeat !important;
+}
