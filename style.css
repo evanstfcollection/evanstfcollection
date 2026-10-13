@@ -915,3 +915,14 @@ button {
     font-size: 8px !important;
   }
 }
+
+
+/* Keep the unified header's legacy glow variables aligned with the shared tab palette. */
+.unified-header .masterpiece {
+  --nav-color: #ffc21c !important;
+  --nav-glow: rgba(255, 194, 28, .42) !important;
+}
+.unified-header .primes {
+  --nav-color: #00d8ff !important;
+  --nav-glow: rgba(0, 216, 255, .46) !important;
+}
