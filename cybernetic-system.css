@@ -2501,3 +2501,31 @@ body .site-header.unified-header .main-nav {
     top: 8px !important;
   }
 }
+
+
+/* LOGO PLACEMENT — move the brand right into the gap before the tabs and
+   vertically center it in the chassis opening. Navigation tabs stay put. */
+body .site-header.unified-header .brand,
+body .topbar .site-logo {
+  position: relative !important;
+  left: 120px !important;
+  top: 0 !important;
+  transform: none !important;
+  align-self: center !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header .brand,
+  body .topbar .site-logo {
+    left: 45px !important;
+    top: 0 !important;
+    transform: none !important;
+  }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header .brand,
+  body .topbar .site-logo {
+    left: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+  }
+}
