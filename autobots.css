@@ -3550,3 +3550,34 @@ body[data-cyber-theme="autobots"]::before {
 body[data-cyber-theme="autobots"] .hero {
   background-image: none !important;
 }
+
+
+/* DIAGNOSTIC PASS 2: the lines survived removal of the page artwork and grid.
+   Disable every page-level/header pseudo-element that could draw vertical rails,
+   including legacy fixed overlays. The metallic heading image is a real element
+   background and is intentionally left alone. */
+html::before,
+html::after,
+body::before,
+body::after,
+body[data-cyber-theme="autobots"]::before,
+body[data-cyber-theme="autobots"]::after,
+body[data-cyber-theme="autobots"] .topbar::before,
+body[data-cyber-theme="autobots"] .topbar::after,
+body[data-cyber-theme="autobots"] .site-shell::before,
+body[data-cyber-theme="autobots"] .site-shell::after,
+body[data-cyber-theme="autobots"] main::before,
+body[data-cyber-theme="autobots"] main::after,
+body[data-cyber-theme="autobots"] .hero::before,
+body[data-cyber-theme="autobots"] .hero::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+}
