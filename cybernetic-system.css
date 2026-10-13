@@ -3106,3 +3106,30 @@ body .nav-expansion .nav-expansion-links a:focus-visible {
     font-size: 12px !important;
   }
 }
+
+
+/* Expanded menu: show the full top and bottom edges of the panel artwork.
+   Give the container more vertical room and fit the image to the full panel
+   instead of scaling it beyond the boundaries where it gets clipped. */
+body .nav-expansion {
+  min-height: 300px !important;
+  height: auto !important;
+  padding-top: 38px !important;
+  padding-bottom: 38px !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  overflow: visible !important;
+}
+body .nav-expansion .nav-expansion-content {
+  min-height: 0 !important;
+  height: auto !important;
+}
+@media (max-width: 700px) {
+  body .nav-expansion {
+    min-height: 235px !important;
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+    background-size: 100% 100% !important;
+  }
+}
