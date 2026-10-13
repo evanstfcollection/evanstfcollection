@@ -2375,3 +2375,23 @@ body .topbar .nav-item.active,
 body .site-header.unified-header .nav-item.active {
   transform: scale(.75) translateY(-4px) !important;
 }
+
+
+/* NAV TABS SIDE-BY-SIDE — keep all six tabs in one horizontal row.
+   Prevent wrapping and let each tab share the available navigation width. */
+body .topbar .main-nav,
+body .site-header.unified-header .main-nav {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0 !important;
+  min-width: 0 !important;
+}
+body .topbar .main-nav .nav-item,
+body .site-header.unified-header .main-nav .nav-item {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  white-space: nowrap !important;
+}
