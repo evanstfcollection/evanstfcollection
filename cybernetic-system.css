@@ -3000,3 +3000,12 @@ body .nav-expansion .nav-expansion-close {
     right: 14px !important;
   }
 }
+
+
+/* EXPANDED MENU PANEL ARTWORK — increase vertical display size by 50%.
+   Preserve the panel's width and keep the artwork centered in its opening. */
+body .nav-expansion {
+  background-size: 100% 150% !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
