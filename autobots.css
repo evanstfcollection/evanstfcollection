@@ -3256,3 +3256,25 @@
     font-size: 8px !important;
   }
 }
+
+
+/* COLLECTION TEXTURE — remove the outline and triple the texture's height. */
+.collection-heading-top {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  min-height: 228px !important;
+  background-size: 100% 100% !important;
+}
+
+@media (max-width: 820px) {
+  .collection-heading-top {
+    min-height: 204px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .collection-heading-top {
+    min-height: 186px !important;
+  }
+}
