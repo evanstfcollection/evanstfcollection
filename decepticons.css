@@ -1739,3 +1739,80 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
 .info-image {
   --nav-glow: transparent !important;
 }
+
+
+/* DEFINITIVE BORDER-EFFECT REMOVAL
+   Disable remaining decorative borders, glow filters, and inset/outer shadows.
+   Keep structural spacing and the original images intact. */
+.collection-shell,
+.collection-heading,
+.collection-heading-top,
+.content-layout,
+.gallery,
+.card,
+.preview-window,
+.detail-panel,
+.detail-main-image,
+.detail-main-image img,
+.detail-info,
+.detail-title,
+.detail-specs,
+.detail-thumbs,
+.detail-thumbs button,
+.collection-info,
+.info-image,
+.info-thumbs button,
+.info-thumbs div {
+  outline: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+.collection-shell,
+.collection-heading,
+.collection-heading-top,
+.content-layout,
+.gallery,
+.card,
+.preview-window,
+.detail-panel,
+.detail-main-image,
+.detail-info,
+.detail-title,
+.detail-specs,
+.detail-thumbs,
+.detail-thumbs button,
+.collection-info,
+.info-image,
+.info-thumbs button,
+.info-thumbs div {
+  border-color: transparent !important;
+}
+
+.detail-panel::before,
+.detail-panel::after,
+.card::before,
+.card::after,
+.preview-window::before,
+.preview-window::after,
+.detail-main-image::before,
+.detail-main-image::after,
+.detail-thumbs button::before,
+.detail-thumbs button::after,
+.collection-info::before,
+.collection-info::after,
+.info-image::before,
+.info-image::after,
+.info-thumbs button::before,
+.info-thumbs button::after,
+.info-thumbs div::before,
+.info-thumbs div::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
