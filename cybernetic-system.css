@@ -2927,3 +2927,76 @@ body .nav-expansion .nav-expansion-close {
     padding: 8px 12px !important;
   }
 }
+
+
+/* EXPANDED MENU CONTROLS — smaller button group centered in the panel. */
+body .nav-expansion {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 270px !important;
+  padding: 34px 54px !important;
+}
+body .nav-expansion .nav-expansion-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+body .nav-expansion .nav-expansion-kicker,
+body .nav-expansion .nav-expansion-title {
+  text-align: center !important;
+}
+body .nav-expansion .nav-expansion-links {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  width: min(100%, 1120px) !important;
+  margin: 14px auto 0 !important;
+}
+body .nav-expansion .nav-expansion-links a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 42px !important;
+  padding: 8px 12px !important;
+  box-sizing: border-box !important;
+  font-size: clamp(11px, .85vw, 14px) !important;
+  line-height: 1.15 !important;
+  text-align: center !important;
+}
+body .nav-expansion .nav-expansion-close {
+  position: absolute !important;
+  top: 22px !important;
+  right: 24px !important;
+}
+@media (max-width: 700px) {
+  body .nav-expansion {
+    min-height: 220px !important;
+    padding: 26px 24px !important;
+  }
+  body .nav-expansion .nav-expansion-links {
+    grid-template-columns: 1fr !important;
+    width: min(100%, 420px) !important;
+    gap: 8px !important;
+    margin-top: 10px !important;
+  }
+  body .nav-expansion .nav-expansion-links a {
+    min-height: 36px !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+  }
+  body .nav-expansion .nav-expansion-close {
+    top: 12px !important;
+    right: 14px !important;
+  }
+}
