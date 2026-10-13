@@ -2448,3 +2448,23 @@ body .site-header.unified-header .main-nav .nav-item {
     max-width: 100px !important;
   }
 }
+
+
+/* SHIFT THE ENTIRE TAB ROW LEFT BY ONE TAB WIDTH.
+   The Contact tab remains inside the chassis; only the nav row position changes. */
+body .topbar .main-nav,
+body .site-header.unified-header .main-nav {
+  transform: translateX(-190px) !important;
+}
+@media (max-width: 1100px) {
+  body .topbar .main-nav,
+  body .site-header.unified-header .main-nav {
+    transform: translateX(-150px) !important;
+  }
+}
+@media (max-width: 620px) {
+  body .topbar .main-nav,
+  body .site-header.unified-header .main-nav {
+    transform: translateX(-100px) !important;
+  }
+}
