@@ -3133,3 +3133,28 @@ body .nav-expansion .nav-expansion-content {
     background-size: 100% 100% !important;
   }
 }
+
+
+/* Expanded menu final spacing and controls:
+   move the panel upward by one navigation-tab height, remove its headings,
+   and double the height of the rusted-plate shortcut buttons. */
+body .nav-expansion .nav-expansion-kicker,
+body .nav-expansion .nav-expansion-title {
+  display: none !important;
+}
+body .nav-expansion .nav-expansion-links {
+  margin-top: 0 !important;
+}
+body .nav-expansion .nav-expansion-links a {
+  min-height: 108px !important;
+  padding: 18px 18px !important;
+}
+@media (max-width: 700px) {
+  body .nav-expansion {
+    min-height: 360px !important;
+  }
+  body .nav-expansion .nav-expansion-links a {
+    min-height: 88px !important;
+    padding: 14px !important;
+  }
+}
