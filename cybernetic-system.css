@@ -3051,3 +3051,24 @@ body .nav-expansion {
     width: calc(100% - 16px) !important;
   }
 }
+
+
+/* Expanded panel position and height refinement:
+   lower it by roughly two tab-heights and reduce its vertical footprint 15%. */
+body .nav-expansion {
+  margin-top: 150px !important;
+  min-height: 229.5px !important; /* 270px reduced by 15% */
+  padding-top: 29px !important;
+  padding-bottom: 29px !important;
+  background-size: 100% 127.5% !important; /* 150% scaled down 15% */
+  background-position: center center !important;
+}
+@media (max-width: 620px) {
+  body .nav-expansion {
+    margin-top: 90px !important;
+    min-height: 187px !important; /* 220px reduced by 15% */
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+    background-size: 100% 127.5% !important;
+  }
+}
