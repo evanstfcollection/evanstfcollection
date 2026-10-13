@@ -53,15 +53,43 @@ document.addEventListener("DOMContentLoaded", () => {
            pseudo-element stacking and CSS override conflicts entirely. */
         linksFrame.style.boxSizing = "border-box";
         /* Match the horizontal span of the inset opening in expanded-menu-panel.png. */
-        linksFrame.style.width = "84%";
+        linksFrame.style.width = "82%";
         linksFrame.style.maxWidth = "none";
         linksFrame.style.marginLeft = "auto";
         linksFrame.style.marginRight = "auto";
         linksFrame.style.padding = "14.4px 16px";
-        linksFrame.style.border = "3px solid " + accent;
-        linksFrame.style.clipPath = "polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px)";
-        linksFrame.style.background = "linear-gradient(180deg, rgba(255,255,255,.12), rgba(4,8,12,.45) 35%, rgba(0,0,0,.2))";
-        linksFrame.style.boxShadow = "0 0 5px " + accent + ", 0 0 16px " + accent + ", inset 0 0 12px " + accent;
+        linksFrame.style.position = "relative";
+        linksFrame.style.border = "0";
+        linksFrame.style.background = "transparent";
+        linksFrame.style.boxShadow = "none";
+
+        /* Draw the accent frame as a separate overlay so its vertical size
+           can change without shrinking or moving the shortcut buttons. */
+        let accentFrame = linksFrame.querySelector(":scope > .nav-expansion-accent-frame");
+        if (!accentFrame) {
+          accentFrame = document.createElement("div");
+          accentFrame.className = "nav-expansion-accent-frame";
+          accentFrame.setAttribute("aria-hidden", "true");
+          linksFrame.prepend(accentFrame);
+        }
+        Object.assign(accentFrame.style, {
+          position: "absolute",
+          left: "0",
+          right: "0",
+          top: "5%",
+          bottom: "5%",
+          zIndex: "0",
+          pointerEvents: "none",
+          boxSizing: "border-box",
+          border: "3px solid " + accent,
+          clipPath: "polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px)",
+          background: "linear-gradient(180deg, rgba(255,255,255,.12), rgba(4,8,12,.45) 35%, rgba(0,0,0,.2))",
+          boxShadow: "0 0 5px " + accent + ", 0 0 16px " + accent + ", inset 0 0 12px " + accent
+        });
+        linksFrame.querySelectorAll(":scope > a").forEach(link => {
+          link.style.position = "relative";
+          link.style.zIndex = "1";
+        });
       }
       panel.querySelectorAll(".nav-expansion-links a").forEach((link) => {
         link.style.setProperty("--menu-accent", accent);
