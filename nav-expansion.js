@@ -41,14 +41,22 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       const accent = accentMap[theme] || accentMap.autobots;
       panel.style.setProperty("--menu-accent", accent);
-      panel.style.border = "2px solid " + accent;
-      panel.style.boxShadow = "inset 0 0 0 2px " + accent + ", inset 0 0 28px " + accent + ", 0 0 22px " + accent;
-      panel.style.filter = "drop-shadow(0 0 10px " + accent + ")";
+      /* Keep the outer menu artwork clean; place one accent frame around
+         the complete row of shortcut buttons, not around each button. */
+      panel.style.border = "0";
+      panel.style.boxShadow = "none";
+      panel.style.filter = "none";
+      const linksFrame = panel.querySelector(".nav-expansion-links");
+      if (linksFrame) {
+        linksFrame.style.setProperty("--menu-accent", accent);
+        linksFrame.style.border = "0";
+        linksFrame.style.boxShadow = "none";
+      }
       panel.querySelectorAll(".nav-expansion-links a").forEach((link) => {
         link.style.setProperty("--menu-accent", accent);
-        link.style.border = "1px solid " + accent;
-        link.style.boxShadow = "0 0 0 1px " + accent + ", 0 0 16px " + accent + ", inset 0 0 14px " + accent;
-        link.style.filter = "drop-shadow(0 0 8px " + accent + ")";
+        link.style.border = "0";
+        link.style.boxShadow = "none";
+        link.style.filter = "none";
       });
     }
     triggers.forEach(item => {
