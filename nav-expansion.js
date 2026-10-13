@@ -28,6 +28,28 @@ document.addEventListener("DOMContentLoaded", () => {
       const themeClasses = ["autobots", "decepticons", "masterpiece", "third-party", "primes", "contact"];
       const theme = themeClasses.find(name => themeItem && themeItem.classList.contains(name)) || "autobots";
       document.body.dataset.cyberTheme = theme;
+
+      /* Apply the active faction lighting directly to the rendered elements.
+         Inline styles avoid the layered legacy CSS rules masking the accents. */
+      const accentMap = {
+        autobots: "#ff302f",
+        decepticons: "#b44aff",
+        masterpiece: "#ffc34c",
+        "third-party": "#39e879",
+        primes: "#00d5f5",
+        contact: "#d8e5f4"
+      };
+      const accent = accentMap[theme] || accentMap.autobots;
+      panel.style.setProperty("--menu-accent", accent);
+      panel.style.border = "2px solid " + accent;
+      panel.style.boxShadow = "inset 0 0 0 2px " + accent + ", inset 0 0 28px " + accent + ", 0 0 22px " + accent;
+      panel.style.filter = "drop-shadow(0 0 10px " + accent + ")";
+      panel.querySelectorAll(".nav-expansion-links a").forEach((link) => {
+        link.style.setProperty("--menu-accent", accent);
+        link.style.border = "1px solid " + accent;
+        link.style.boxShadow = "0 0 0 1px " + accent + ", 0 0 16px " + accent + ", inset 0 0 14px " + accent;
+        link.style.filter = "drop-shadow(0 0 8px " + accent + ")";
+      });
     }
     triggers.forEach(item => {
       item.setAttribute("aria-expanded", String(open));
