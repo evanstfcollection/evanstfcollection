@@ -3697,3 +3697,12 @@ html body[data-cyber-theme="autobots"]::after {
   box-shadow: none !important;
   filter: none !important;
 }
+
+
+/* NEXT ISOLATION TEST: remove only the hero background artwork while leaving
+   the hero's height, red divider, top navigation, and collection content intact.
+   If the rails vanish, they are baked into or layered with the hero artwork. */
+body[data-cyber-theme="autobots"] main > .hero {
+  background: #050b14 !important;
+  background-image: none !important;
+}
