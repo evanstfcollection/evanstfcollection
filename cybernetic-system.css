@@ -2128,3 +2128,17 @@ body .site-header.unified-header .nav-item.active {
     padding: 5px 2px 8px !important;
   }
 }
+
+
+/* NAV TAB COLOUR SWAP — Masterpiece Movie gold, The Primes cyan/blue.
+   Shared across homepage and all collection pages; functionality unchanged. */
+body .topbar .nav-item.masterpiece,
+body .site-header .nav-item.masterpiece {
+  --tab-color: #ffc34c !important;
+  --tab-glow: rgba(255, 195, 76, .65) !important;
+}
+body .topbar .nav-item.primes,
+body .site-header .nav-item.primes {
+  --tab-color: #00d5f5 !important;
+  --tab-glow: rgba(0, 213, 245, .65) !important;
+}
