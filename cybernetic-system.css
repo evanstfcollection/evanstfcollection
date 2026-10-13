@@ -3034,3 +3034,20 @@ body .nav-expansion .nav-expansion-close {
   visibility: hidden !important;
   pointer-events: none !important;
 }
+
+
+/* EXPANDED MENU SPACING — separate the deployed panel from the top chassis.
+   Positive top margin prevents the panel from overlapping/cropping against
+   the navigation bar and leaves a small visible gap between the two. */
+body .nav-expansion {
+  margin-top: 18px !important;
+  margin-bottom: 28px !important;
+  width: calc(100% - 24px) !important;
+}
+@media (max-width: 620px) {
+  body .nav-expansion {
+    margin-top: 12px !important;
+    margin-bottom: 20px !important;
+    width: calc(100% - 16px) !important;
+  }
+}
