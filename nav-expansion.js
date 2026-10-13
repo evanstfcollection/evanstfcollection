@@ -52,6 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
         /* Apply the shared frame directly to the live element. This avoids
            pseudo-element stacking and CSS override conflicts entirely. */
         linksFrame.style.boxSizing = "border-box";
+        /* Match the horizontal span of the inset opening in expanded-menu-panel.png. */
+        linksFrame.style.width = "84%";
+        linksFrame.style.maxWidth = "none";
+        linksFrame.style.marginLeft = "auto";
+        linksFrame.style.marginRight = "auto";
         linksFrame.style.padding = "16px";
         linksFrame.style.border = "3px solid " + accent;
         linksFrame.style.clipPath = "polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px)";
