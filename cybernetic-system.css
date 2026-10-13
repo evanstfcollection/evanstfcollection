@@ -2142,3 +2142,35 @@ body .site-header .nav-item.primes {
   --tab-color: #00d5f5 !important;
   --tab-glow: rgba(0, 213, 245, .65) !important;
 }
+
+
+/* UPDATED NAVIGATION CHASSIS FIT
+   The chassis artwork has been replaced, so size it to the actual navigation
+   band instead of using the previous oversized/cropped artwork settings.
+   Cache-buster ensures browsers load the replacement image. */
+body .site-header.unified-header::before,
+body .topbar::before {
+  inset: 0 -12.5% !important;
+  width: 125% !important;
+  background-image: url("images/navigation-bar-chassis.png?v=20261013-fit1") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  transform: none !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: 0 -12.5% !important;
+    width: 125% !important;
+    background-size: 100% 100% !important;
+  }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: 0 -12.5% !important;
+    width: 125% !important;
+    background-size: 100% 100% !important;
+  }
+}
