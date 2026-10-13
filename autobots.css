@@ -3663,3 +3663,37 @@ body[data-cyber-theme="autobots"] .topbar::before {
   background-image: none !important;
   clip-path: none !important;
 }
+
+
+/* GAP-ONLY DIAGNOSTIC: the chassis image is already disabled and the rails
+   remain. Remove decorative pseudo-elements from the hero/header and strip
+   their shadows/backgrounds, without hiding the real hero or nav content. */
+body[data-cyber-theme="autobots"] .hero::before,
+body[data-cyber-theme="autobots"] .hero::after,
+body[data-cyber-theme="autobots"] .hero-overlay::before,
+body[data-cyber-theme="autobots"] .hero-overlay::after,
+body[data-cyber-theme="autobots"] .topbar::after,
+body[data-cyber-theme="autobots"] .site-header.unified-header::before,
+body[data-cyber-theme="autobots"] .site-header.unified-header::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+}
+
+/* Disable only the fixed page overlay while retaining all page backgrounds. */
+html body[data-cyber-theme="autobots"]::before,
+html body[data-cyber-theme="autobots"]::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
