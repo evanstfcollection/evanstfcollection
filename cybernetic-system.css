@@ -2574,3 +2574,154 @@ body .site-header.unified-header .main-nav .nav-item:focus-visible {
   border: 0 !important;
   box-shadow: none !important;
 }
+
+
+/* ==========================================================
+   STEP 1 + 2 ASSET INTEGRATION
+   Use the supplied transparent PNG assets as the actual visual
+   surfaces, with HTML labels/icons and faction glow left live.
+   ========================================================== */
+
+/* Main navigation chassis: use the new transparent chassis as the full-width
+   background, retaining the height and position tuning already established. */
+body .site-header.unified-header::before,
+body .topbar::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 0 !important;
+  inset: -22px 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  background: url("images/navigation-bar-chassis.png?v=step2-assets") center center / 100% 187.5% no-repeat !important;
+  pointer-events: none !important;
+  transform: none !important;
+}
+body .site-header.unified-header > *,
+body .topbar > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* The logo artwork is already a dedicated transparent logo plate. Remove the
+   old CSS-drawn metal box so the PNG itself defines the silhouette. */
+body .topbar .site-logo,
+body .site-header.unified-header .brand {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+body .topbar .site-logo::before,
+body .topbar .site-logo::after,
+body .site-header.unified-header .brand::before,
+body .site-header.unified-header .brand::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Transparent nav tab plate asset + low-opacity faction watermark. */
+body .topbar .main-nav .nav-item,
+body .site-header.unified-header .main-nav .nav-item {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  outline: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  background-image: url("images/nav-tab-plate.png?v=step2-assets") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  box-shadow: none !important;
+}
+body .topbar .main-nav .nav-item::before,
+body .site-header.unified-header .main-nav .nav-item::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 0 !important;
+  inset: 16% 24% 22% !important;
+  pointer-events: none !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  opacity: .12 !important;
+  filter: grayscale(1) brightness(1.6) !important;
+}
+body .topbar .nav-item.autobots::before,
+body .site-header.unified-header .nav-item.autobots::before {
+  background-image: url("images/decorative%20elements/autobot-symbol-faded.png") !important;
+}
+body .topbar .nav-item.decepticons::before,
+body .site-header.unified-header .nav-item.decepticons::before {
+  background-image: url("images/decorative%20elements/decepticon-symbol-faded.png") !important;
+}
+body .topbar .nav-item img,
+body .topbar .nav-item span,
+body .site-header.unified-header .nav-item img,
+body .site-header.unified-header .nav-item span {
+  position: relative !important;
+  z-index: 2 !important;
+}
+body .topbar .nav-item::after,
+body .site-header.unified-header .nav-item::after {
+  z-index: 4 !important;
+}
+
+/* The supplied expanded-menu panel becomes the menu's real frame. */
+body .nav-expansion {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  clip-path: none !important;
+  background-color: transparent !important;
+  background-image: url("images/decorative%20elements/expanded-menu-panel.png?v=step2-assets") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  box-shadow: none !important;
+}
+body .nav-expansion::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  inset: 10% 18% !important;
+  pointer-events: none !important;
+  background: url("images/decorative%20elements/panel-background-01.png") center / 100% 100% no-repeat !important;
+  opacity: .42 !important;
+}
+body .nav-expansion::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 0 !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    url("images/decorative%20elements/lightstrip-cyan.png") left 18px center / 5px 62% no-repeat,
+    url("images/decorative%20elements/lightstrip-yellow.png") right 18px center / 5px 62% no-repeat !important;
+  opacity: .8 !important;
+}
+body .nav-expansion > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Reuse supplied industrial details as subtle header edge accents. */
+body .site-header.unified-header::after,
+body .topbar::after {
+  background:
+    url("images/decorative%20elements/edge-strip-01.png") center top / 100% 16px no-repeat,
+    url("images/decorative%20elements/edge-strip-02.png") center bottom / 100% 16px no-repeat,
+    url("images/decorative%20elements/hatch-ring.png") left 12px center / 24px 24px no-repeat,
+    url("images/decorative%20elements/hatch-ring.png") right 12px center / 24px 24px no-repeat !important;
+  mix-blend-mode: screen !important;
+  opacity: .78 !important;
+}
