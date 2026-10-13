@@ -3732,3 +3732,11 @@ body[data-cyber-theme="autobots"] .nav-expansion-content::after {
   -webkit-mask: none !important;
   mask: none !important;
 }
+
+
+/* RESTORE HERO ARTWORK: the isolation test confirmed the rails remain without it.
+   Restore the faction background while leaving the other diagnostic changes intact. */
+body[data-cyber-theme="autobots"] main > .hero {
+  background: url("images/autobots-background.png") center center / cover no-repeat !important;
+  background-image: url("images/autobots-background.png") !important;
+}
