@@ -3158,3 +3158,33 @@ body .nav-expansion .nav-expansion-links a {
     padding: 14px !important;
   }
 }
+
+
+/* FACTION-THEMED EXPANDED MENU ACCENTS.
+   The active collection tab sets data-cyber-theme via nav-expansion.js.
+   Accent colour is applied to the panel edge lighting and rusted shortcut plates. */
+body .nav-expansion {
+  --menu-accent: #ff332f;
+  border-color: transparent !important;
+  box-shadow: inset 0 0 24px color-mix(in srgb, var(--menu-accent) 22%, transparent) !important;
+}
+body[data-cyber-theme="autobots"] .nav-expansion { --menu-accent: #ff332f; }
+body[data-cyber-theme="decepticons"] .nav-expansion { --menu-accent: #b44aff; }
+body[data-cyber-theme="masterpiece"] .nav-expansion { --menu-accent: #ffc34c; }
+body[data-cyber-theme="third-party"] .nav-expansion { --menu-accent: #39e879; }
+body[data-cyber-theme="primes"] .nav-expansion { --menu-accent: #00d5f5; }
+body[data-cyber-theme="contact"] .nav-expansion { --menu-accent: #d8e5f4; }
+
+body .nav-expansion .nav-expansion-links a {
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--menu-accent) 72%, transparent)) !important;
+  transition: filter .18s ease, transform .18s ease !important;
+}
+body .nav-expansion .nav-expansion-links a:hover,
+body .nav-expansion .nav-expansion-links a:focus-visible {
+  filter: brightness(1.1) drop-shadow(0 0 12px var(--menu-accent)) !important;
+  box-shadow: none !important;
+}
+@supports not (color: color-mix(in srgb, red, transparent)) {
+  body .nav-expansion { box-shadow: inset 0 0 18px rgba(255,51,47,.22) !important; }
+  body .nav-expansion .nav-expansion-links a { filter: drop-shadow(0 0 5px var(--menu-accent)) !important; }
+}
