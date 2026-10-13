@@ -1999,3 +1999,57 @@ body .site-header.unified-header .brand,
 body .topbar .site-logo {
   transform: translateX(0px) !important;
 }
+
+
+/* Navigation chassis finishing pass:
+   nudge logo slightly farther right and increase the navigation band's
+   height so the chassis bottom edge is fully visible instead of clipped. */
+body .site-header.unified-header,
+body .topbar {
+  min-height: 164px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+body .site-header.unified-header .brand,
+body .topbar .site-logo {
+  transform: translateX(8px) !important;
+}
+body .site-header.unified-header::before,
+body .topbar::before {
+  inset: -62px -12.5% !important;
+  width: 125% !important;
+  background-size: 100% 162% !important;
+  background-position: center center !important;
+}
+@media (max-width: 1100px) {
+  body .site-header.unified-header,
+  body .topbar {
+    min-height: 142px !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+  body .site-header.unified-header .brand,
+  body .topbar .site-logo { transform: translateX(4px) !important; }
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -46px -12.5% !important;
+    width: 125% !important;
+    background-size: 100% 158% !important;
+  }
+}
+@media (max-width: 620px) {
+  body .site-header.unified-header,
+  body .topbar {
+    min-height: 100px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
+  body .site-header.unified-header .brand,
+  body .topbar .site-logo { transform: none !important; }
+  body .site-header.unified-header::before,
+  body .topbar::before {
+    inset: -26px -12.5% !important;
+    width: 125% !important;
+    background-size: 100% 154% !important;
+  }
+}
