@@ -76,15 +76,15 @@ document.addEventListener("DOMContentLoaded", () => {
           position: "absolute",
           left: "0",
           right: "0",
-          top: "5%",
-          bottom: "5%",
+          top: "10%",
+          bottom: "10%",
           zIndex: "0",
           pointerEvents: "none",
           boxSizing: "border-box",
           border: "3px solid " + accent,
           clipPath: "polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px)",
           background: "linear-gradient(180deg, rgba(255,255,255,.12), rgba(4,8,12,.45) 35%, rgba(0,0,0,.2))",
-          boxShadow: "0 0 5px " + accent + ", 0 0 16px " + accent + ", inset 0 0 12px " + accent
+          boxShadow: "0 0 8px " + accent
         });
         linksFrame.querySelectorAll(":scope > a").forEach(link => {
           link.style.position = "relative";
