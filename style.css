@@ -1043,3 +1043,65 @@ button {
   filter: none !important;
   box-shadow: none !important;
 }
+
+
+/* FINAL RETIREMENT OF THE OLD BORDER SYSTEM:
+   remove chassis overlays on the site header and remaining detail-panel frame/glow. */
+body .topbar::after,
+body .site-header.unified-header::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body .topbar,
+body .site-header.unified-header {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+body .detail-panel,
+body .collection-info {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  background-image: none !important;
+}
+
+body .detail-panel::before,
+body .detail-panel::after,
+body .collection-info::before,
+body .collection-info::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+}
+
+body .detail-main-image,
+body .detail-main-image::before,
+body .detail-main-image::after {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+body .detail-main-image::before,
+body .detail-main-image::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+}
