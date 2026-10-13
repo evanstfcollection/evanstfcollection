@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!header || panel.hidden) return;
     const rect = header.getBoundingClientRect();
     panel.style.left = (rect.left + window.scrollX) + "px";
-    panel.style.top = (rect.bottom + window.scrollY - 93) + "px";
+    panel.style.top = (rect.bottom + window.scrollY - 123) + "px";
     panel.style.width = rect.width + "px";
   }
 
