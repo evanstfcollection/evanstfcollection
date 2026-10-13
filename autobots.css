@@ -3639,3 +3639,15 @@ body[data-cyber-theme="autobots"] {
 body[data-cyber-theme="autobots"] .hero {
   background: url("images/autobots-background.png") center center / cover no-repeat !important;
 }
+
+
+/* TARGETED TEST: constrain the oversized navigation chassis artwork to the
+   actual topbar box. This tests whether its transparent/oversized image area
+   is drawing the two vertical rails into the gap below the hero. */
+body[data-cyber-theme="autobots"] .topbar {
+  overflow: hidden !important;
+}
+
+body[data-cyber-theme="autobots"] .topbar::before {
+  clip-path: inset(22px 0 22px 0) !important;
+}
