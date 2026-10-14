@@ -133,13 +133,13 @@ body .hero-frame-top { top: 0; }
 body .hero-frame-bottom { bottom: 0; transform: scaleY(-1); }
 body .hero-frame-left,
 body .hero-frame-right {
-  top: clamp(144px, 17.6vw, 272px);
-  bottom: clamp(144px, 17.6vw, 272px);
-  width: clamp(16px, 2vw, 30px);
-  height: calc(100% - 2 * clamp(144px, 17.6vw, 272px));
+  top: 50%;
+  bottom: auto;
+  width: clamp(48px, 6vw, 90px);
+  height: calc((100% - 2 * clamp(144px, 17.6vw, 272px)) * 5);
 }
-body .hero-frame-left { left: 0; }
-body .hero-frame-right { right: 0; transform: scaleX(-1); }
+body .hero-frame-left { left: 0; transform: translateY(-50%); }
+body .hero-frame-right { right: 0; transform: translateY(-50%) scaleX(-1); }
 body .hero-content {
   position: relative;
   z-index: 2;
@@ -152,10 +152,12 @@ body .hero-content {
   body .hero-frame-bottom { height: 176px; }
   body .hero-frame-left,
   body .hero-frame-right {
-    top: 176px;
-    bottom: 176px;
-    height: calc(100% - 352px);
-    width: 18px;
+    top: 50%;
+    bottom: auto;
+    height: calc((100% - 352px) * 5);
+    width: 54px;
   }
+  body .hero-frame-left { transform: translateY(-50%); }
+  body .hero-frame-right { transform: translateY(-50%) scaleX(-1); }
   body .hero-content { padding: 200px 28px; }
 }
