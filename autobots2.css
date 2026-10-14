@@ -323,3 +323,14 @@ body .hero {
     background-position: center top;
   }
 }
+
+
+/* Lower the Autobots background artwork within the metallic frame. */
+body .hero {
+  background-position: center 50px;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-position: center 50px;
+  }
+}
