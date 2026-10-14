@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d13">
+  <title>Autobots Collection | Evan's TF Collection</title>
+  <link rel="icon" type="image/png" href="images/EvansTFCollection-favicon.png">
+  <link rel="stylesheet" href="autobots2.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Evan's TF Collection home">
+      <img src="evanstfcollection-navigation-logo.png" alt="Evan's TF Collection">
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-item active" href="autobots2.html"><img src="images/autobots-icon.png" alt=""><span>Autobots</span></a>
+      <a class="nav-item" href="decepticons.html"><img src="images/decepticons-icon.png" alt=""><span>Decepticons</span></a>
+      <a class="nav-item" href="masterpiece-movie.html"><img src="images/masterpiece-movie-icon.png" alt=""><span>Masterpiece Movie</span></a>
+      <a class="nav-item" href="third-party.html"><img src="images/3rd-party-icon.png" alt=""><span>3rd Party</span></a>
+      <a class="nav-item" href="the-primes.html"><img src="images/primes-icon.png" alt=""><span>The Primes</span></a>
+      <a class="nav-item" href="contact.html"><img src="images/contact-icon.png" alt=""><span>Contact</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Autobots collection banner">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <img src="images/autobots-icon.png" alt="" class="hero-symbol">
+        <div>
+          <p class="eyebrow">EVAN'S TF COLLECTION</p>
+          <h1>AUTOBOTS COLLECTION</h1>
+          <p class="hero-subtitle">Freedom. Courage. Unity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection-area" id="collection-shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">ARCHIVE / FACTION 01</p>
+          <h2>Autobots Collection</h2>
+          <p class="section-intro">Select a figure to open its collection profile.</p>
+        </div>
+        <div class="collection-count" id="collectionCount">CONNECTING TO ARCHIVE</div>
+      </div>
+
+      <section class="controls-panel" aria-label="Sort and filter collection">
+        <div class="controls-title"><span class="status-light"></span><h3>SORT / FILTER</h3></div>
+        <div class="controls-grid" id="filterControls">
+          <label class="control search-control"><span>Search figures</span><input id="searchInput" type="search" placeholder="Name, line, mode..."></label>
+          <label class="control"><span>Manufacturer</span><select id="manufacturerFilter"><option value="">All Manufacturers</option></select></label>
+          <label class="control"><span>Series</span><select id="seriesFilter"><option value="">All Series</option></select></label>
+          <label class="control"><span>Year</span><select id="yearFilter"><option value="">All Years</option></select></label>
+          <label class="control"><span>Sort by</span><select id="sortFilter"><option value="name-asc">Name: A–Z</option><option value="name-desc">Name: Z–A</option><option value="year-desc">Year: Newest</option><option value="year-asc">Year: Oldest</option><option value="manufacturer">Manufacturer</option></select></label>
+          <button id="clearFilters" class="clear-button" type="button">Reset</button>
+        </div>
+      </section>
+
+      <div class="collection-layout">
+        <section class="gallery-column" aria-label="Autobot figures">
+          <div class="gallery-heading"><h3>FIGURE ARCHIVE</h3><span id="resultCount">Loading figures…</span></div>
+          <div id="gallery" class="gallery"><div class="empty-state">Connecting to the collection archive…</div></div>
+        </section>
+
+        <aside id="detailPanel" class="detail-panel" aria-label="Selected figure information" aria-hidden="true">
+          <div class="panel-heading"><span class="panel-mark">A</span><div><p class="eyebrow">SELECTED UNIT</p><h2 id="detailName">Choose a figure</h2></div></div>
+          <div class="detail-image-frame" id="detailMainImage"><div class="image-placeholder">SELECT A FIGURE<br><span>IMAGE DISPLAY</span></div></div>
+          <div id="detailThumbs" class="detail-thumbs" aria-label="Additional figure images"></div>
+          <section class="info-section">
+            <h3><span class="section-index">01</span> INFO</h3>
+            <div id="detailSpecs" class="detail-specs"><p class="muted">Figure information will appear here.</p></div>
+          </section>
+          <section class="notes-section">
+            <h3><span class="section-index">02</span> COLLECTOR'S NOTES</h3>
+            <p id="detailNotes" class="notes-copy">Select a figure to view your notes.</p>
+          </section>
+          <div class="detail-navigation">
+            <button id="previousFigure" type="button" disabled>← PREVIOUS</button>
+            <span id="detailCounter">—</span>
+            <button id="nextFigure" type="button" disabled>NEXT →</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="imageLightbox" class="image-lightbox" aria-label="Full-size figure image">
+    <button id="closeImageLightbox" class="lightbox-close" type="button" aria-label="Close image">×</button>
+    <img id="lightboxImage" src="" alt="Full-size collection figure">
+  </dialog>
+
+  <footer class="site-footer"><span>EVAN'S TF COLLECTION</span><span>ARCHIVE STATUS: <b>ONLINE</b></span></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="autobots2.js"></script>
+</body>
+</html>
