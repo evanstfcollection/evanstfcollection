@@ -33,8 +33,8 @@
       .replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
   }
   function publicImageUrl(path) {
-    if (!path || !window.supabaseClient) return "";
-    return window.supabaseClient.storage.from("tf-collection").getPublicUrl(path).data.publicUrl;
+    if (!path || typeof supabaseClient === "undefined") return "";
+    return supabaseClient.storage.from("tf-collection").getPublicUrl(path).data.publicUrl;
   }
   function uniqueValues(key) {
     return [...new Set(figures.map(item => item[key]).filter(value => value !== null && value !== "" && value !== undefined))]
