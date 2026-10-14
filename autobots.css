@@ -3532,3 +3532,145 @@ body .detail-main-image::after {
   -webkit-mask: none !important;
   mask: none !important;
 }
+
+/* MOCKUP VISUAL RESTORATION — collection panels and figure frames.
+   Keep the existing HTML, Supabase data flow, navigation, and responsive layout.
+   Re-enable the repository's decorative PNG assets for the collection area only. */
+body[data-cyber-theme="autobots"] .collection-shell {
+  position: relative !important;
+  padding: 22px 0 48px !important;
+  background:
+    url("images/decorative%20elements/edge-strip-01.png") left 18px top 16px / 12px auto repeat-y,
+    url("images/decorative%20elements/edge-strip-02.png") right 18px top 16px / 12px auto repeat-y,
+    linear-gradient(180deg, rgba(5, 12, 19, .48), rgba(1, 4, 8, .88)) !important;
+}
+body[data-cyber-theme="autobots"] .collection-heading {
+  position: relative !important;
+  min-height: 76px !important;
+  padding: 14px 18px !important;
+  background:
+    url("images/decorative%20elements/panel-background-02.png") center / 100% 100% no-repeat,
+    linear-gradient(90deg, #171b20, #05090e) !important;
+  border: 0 !important;
+  clip-path: none !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.75) !important;
+}
+body[data-cyber-theme="autobots"] .content-layout {
+  gap: 18px !important;
+  align-items: start !important;
+}
+body[data-cyber-theme="autobots"] .gallery .card {
+  position: relative !important;
+  padding: 10px !important;
+  background:
+    url("images/decorative%20elements/icon-frame-square.png") center / 100% 100% no-repeat,
+    linear-gradient(180deg, rgba(22,27,31,.98), rgba(3,7,11,.99)) !important;
+  border: 0 !important;
+  clip-path: none !important;
+  box-shadow: 0 8px 16px rgba(0,0,0,.7) !important;
+  transition: transform .18s ease, filter .18s ease !important;
+}
+body[data-cyber-theme="autobots"] .gallery .card:hover {
+  transform: translateY(-3px) !important;
+  filter: brightness(1.12) drop-shadow(0 0 7px rgba(255,48,48,.45)) !important;
+}
+body[data-cyber-theme="autobots"] .gallery .card-image {
+  aspect-ratio: 1 / 1 !important;
+  object-fit: contain !important;
+  background:
+    url("images/decorative%20elements/panel-background-01.png") center / cover no-repeat,
+    rgba(2,6,10,.92) !important;
+}
+body[data-cyber-theme="autobots"] .gallery .card-body {
+  padding: 10px 8px 8px !important;
+}
+body[data-cyber-theme="autobots"] .gallery .card h3 {
+  color: #f5f0e7 !important;
+  text-shadow: 0 2px 4px #000 !important;
+}
+body[data-cyber-theme="autobots"] .gallery .card p {
+  color: #c8cdd1 !important;
+}
+body[data-cyber-theme="autobots"] .gallery .card button {
+  background:
+    url("images/decorative%20elements/rusted-panel-plate.png") center / 100% 100% no-repeat,
+    linear-gradient(180deg, #5c1a16, #160809) !important;
+  border: 0 !important;
+  min-height: 36px !important;
+  text-shadow: 0 1px 3px #000 !important;
+}
+body[data-cyber-theme="autobots"] .detail-panel {
+  position: sticky !important;
+  top: 18px !important;
+  padding: 24px 22px !important;
+  background:
+    url("images/decorative%20elements/info-window.png") center / 100% 100% no-repeat,
+    url("images/decorative%20elements/panel-background-02.png") center / cover no-repeat,
+    rgba(4,8,12,.98) !important;
+  border: 0 !important;
+  clip-path: none !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.8) !important;
+}
+body[data-cyber-theme="autobots"] .detail-main-image {
+  min-height: 280px !important;
+  background:
+    url("images/decorative%20elements/panel-background-01.png") center / cover no-repeat,
+    rgba(2,5,8,.95) !important;
+  border: 0 !important;
+  box-shadow: inset 0 0 0 1px rgba(208,145,77,.42), 0 5px 12px rgba(0,0,0,.8) !important;
+}
+body[data-cyber-theme="autobots"] .detail-main-image img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 280px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+body[data-cyber-theme="autobots"] .detail-title {
+  border-bottom: 1px solid rgba(195,117,57,.65) !important;
+}
+body[data-cyber-theme="autobots"] .detail-thumbs button {
+  background:
+    url("images/decorative%20elements/icon-frame-square.png") center / 100% 100% no-repeat,
+    #05090d !important;
+  padding: 5px !important;
+  border: 0 !important;
+  box-shadow: 0 4px 9px rgba(0,0,0,.7) !important;
+}
+body[data-cyber-theme="autobots"] .detail-thumbs img {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+  aspect-ratio: 1.2 / 1 !important;
+  object-fit: contain !important;
+}
+body[data-cyber-theme="autobots"] .notes {
+  background:
+    url("images/decorative%20elements/panel-background-01.png") center / cover no-repeat,
+    rgba(3,7,11,.9) !important;
+  border: 0 !important;
+  box-shadow: inset 0 0 0 1px rgba(195,117,57,.45) !important;
+  padding: 16px !important;
+}
+body[data-cyber-theme="autobots"] .detail-navigation button {
+  background:
+    url("images/decorative%20elements/rusted-panel-plate.png") center / 100% 100% no-repeat,
+    #090d11 !important;
+  border: 0 !important;
+  padding: 11px 15px !important;
+}
+@media (max-width: 1100px) {
+  body[data-cyber-theme="autobots"] .detail-panel {
+    position: relative !important;
+    top: auto !important;
+  }
+}
+@media (max-width: 520px) {
+  body[data-cyber-theme="autobots"] .detail-panel {
+    padding: 20px 16px !important;
+  }
+  body[data-cyber-theme="autobots"] .gallery .card {
+    padding: 12px !important;
+  }
+}
