@@ -334,3 +334,21 @@ body .hero {
     background-position: center 50px;
   }
 }
+
+
+/* Remove the dark overlay from the hero and extend the artwork toward the frame. */
+body .hero-shade {
+  display: none !important;
+  background: none !important;
+  opacity: 0 !important;
+}
+body .hero {
+  background-size: 86.7% 42.5%;
+  background-position: center 50px;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 86.7% 42.5%;
+    background-position: center 50px;
+  }
+}
