@@ -352,3 +352,34 @@ body .hero {
     background-position: center 50px;
   }
 }
+
+
+/* Collapse the hero to the frame itself so no empty hero area remains below it. */
+body .hero {
+  height: 320px;
+  min-height: 320px;
+  max-height: 320px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+body .hero {
+  background-size: 86.7% 100%;
+  background-position: center 0;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 240px;
+    min-height: 240px;
+    max-height: 240px;
+    background-size: 86.7% 100%;
+    background-position: center 0;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
