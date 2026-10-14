@@ -281,3 +281,19 @@ body .hero-metallic-frame {
     object-fit: fill;
   }
 }
+
+
+/* Fit the Autobots artwork into the same area as the shortened metallic frame. */
+body .hero {
+  background-image: url('images/autobots-background.png');
+  background-position: center top;
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-position: center top;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+  }
+}
