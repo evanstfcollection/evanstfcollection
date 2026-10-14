@@ -606,3 +606,14 @@ body .hero-metallic-frame {
     bottom: auto;
   }
 }
+
+
+/* Reduce the Autobots background image's vertical size by 4%, preserving width and position. */
+body .hero {
+  background-size: 91.23% 89.376%;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 91.23% 89.376%;
+  }
+}
