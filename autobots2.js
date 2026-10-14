@@ -121,14 +121,14 @@
   }
   function moveSelection(direction) { if (visibleFigures.length) openDetails(selectedIndex+direction); }
   async function loadFigures() {
-    if (!window.supabaseClient) {
+    if (typeof supabaseClient === "undefined") {
       gallery.innerHTML = '<div class="empty-state">The collection connection could not start. Please check supabase-config.js.</div>';
       collectionCount.textContent = "CONNECTION ERROR";
       return;
     }
     gallery.innerHTML = '<div class="empty-state">Connecting to the Autobots archive…</div>';
     try {
-      const {data,error} = await window.supabaseClient.from("figures").select("*, figure_images(*)")
+      const {data,error} = await supabaseClient.from("figures").select("*, figure_images(*)")
         .eq("category","Autobots").eq("is_published",true).order("name",{ascending:true});
       if (error) throw error;
       figures = (data||[]).map(item => {
