@@ -135,7 +135,7 @@ body .hero-frame-left,
 body .hero-frame-right {
   top: 50%;
   bottom: auto;
-  width: clamp(72px, 9vw, 135px);
+  width: clamp(288px, 36vw, 540px);
   height: calc((100% - 2 * clamp(144px, 17.6vw, 272px)) * 15);
 }
 body .hero-frame-left { left: 0; transform: translateY(-50%) rotate(90deg); }
@@ -155,7 +155,7 @@ body .hero-content {
     top: 50%;
     bottom: auto;
     height: calc((100% - 352px) * 15);
-    width: 81px;
+    width: 324px;
   }
   body .hero-frame-left { transform: translateY(-50%) rotate(90deg); }
   body .hero-frame-right { transform: translateY(-50%) rotate(90deg) scaleX(-1); }
