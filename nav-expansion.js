@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
-  const isAutobotsPage = currentPath === "autobots.html";
+  const isAutobotsPage = currentPath === "autobots.html" || currentPath === "autobots2.html";
 
   triggers.forEach(item => {
     item.setAttribute("aria-haspopup", "true");
