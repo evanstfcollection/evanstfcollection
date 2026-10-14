@@ -123,6 +123,10 @@ body .hero-frame-edge {
   pointer-events: none;
   object-fit: fill;
 }
+body .hero-frame-left,
+body .hero-frame-right { z-index: 3; }
+body .hero-frame-top,
+body .hero-frame-bottom { z-index: 4; }
 body .hero-frame-top,
 body .hero-frame-bottom {
   left: 0;
