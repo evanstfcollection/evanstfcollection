@@ -514,3 +514,16 @@ body .hero-metallic-frame {
     bottom: auto;
   }
 }
+
+
+/* Reposition the Autobots artwork behind the frame and keep the title fully visible. */
+body .hero {
+  background-size: 95% 93.1%;
+  background-position: calc(50% - 24px) 45px;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 95% 93.1%;
+    background-position: calc(50% - 12px) 45px;
+  }
+}
