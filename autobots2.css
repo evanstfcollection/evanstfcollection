@@ -617,3 +617,14 @@ body .hero {
     background-size: 91.23% 89.376%;
   }
 }
+
+
+/* Reduce the Autobots background image's vertical size by another 2%. */
+body .hero {
+  background-size: 91.23% 87.58848%;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 91.23% 87.58848%;
+  }
+}
