@@ -297,3 +297,16 @@ body .hero {
     background-repeat: no-repeat;
   }
 }
+
+
+/* Shrink the Autobots background artwork 15% in both dimensions. */
+body .hero {
+  background-size: 85% 42.5%;
+  background-position: center top;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 85% 42.5%;
+    background-position: center top;
+  }
+}
