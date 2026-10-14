@@ -310,3 +310,16 @@ body .hero {
     background-position: center top;
   }
 }
+
+
+/* Latest artwork sizing: increase width 2% and reduce height 10% from the prior size. */
+body .hero {
+  background-size: 86.7% 38.25%;
+  background-position: center top;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 86.7% 38.25%;
+    background-position: center top;
+  }
+}
