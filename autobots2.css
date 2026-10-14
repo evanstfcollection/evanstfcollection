@@ -581,3 +581,28 @@ body .hero-metallic-frame {
     bottom: auto;
   }
 }
+
+
+/* Increase the frame height by 3% to bring the lower border closer to the artwork edge. */
+body .hero {
+  height: 585.34px;
+  min-height: 585.34px;
+  max-height: 585.34px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 438.94px;
+    min-height: 438.94px;
+    max-height: 438.94px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
