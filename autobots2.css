@@ -264,3 +264,20 @@ body .hero-frame-edge { display: none !important; }
     object-fit: fill;
   }
 }
+
+
+/* Reduce the metallic frame's displayed height to 50% while keeping its width. */
+body .hero-metallic-frame {
+  top: 0;
+  bottom: auto;
+  height: 50%;
+  object-fit: fill;
+}
+@media (max-width: 760px) {
+  body .hero-metallic-frame {
+    top: 0;
+    bottom: auto;
+    height: 50%;
+    object-fit: fill;
+  }
+}
