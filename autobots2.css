@@ -554,3 +554,30 @@ body .hero-metallic-frame {
     bottom: auto;
   }
 }
+
+
+/* Fine-tune artwork width and increase frame height by another 5%. */
+body .hero {
+  background-size: 91.23% 93.1%;
+  height: 568.29px;
+  min-height: 568.29px;
+  max-height: 568.29px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 91.23% 93.1%;
+    height: 426.16px;
+    min-height: 426.16px;
+    max-height: 426.16px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
