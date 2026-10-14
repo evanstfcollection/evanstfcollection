@@ -243,3 +243,24 @@ body .site-footer {
   body .hero-frame-top,
   body .hero-frame-bottom { height: 176px; }
 }
+
+
+/* Single-piece metallic hero frame replaces the separate divider images. */
+body .hero-metallic-frame {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 4;
+  pointer-events: none;
+}
+body .hero-frame-edge { display: none !important; }
+@media (max-width: 760px) {
+  body .hero-metallic-frame {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+}
