@@ -489,3 +489,28 @@ body .hero-metallic-frame {
     bottom: auto;
   }
 }
+
+
+/* Increase the frame's vertical height by another 10%. */
+body .hero {
+  height: 515.46px;
+  min-height: 515.46px;
+  max-height: 515.46px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 386.54px;
+    min-height: 386.54px;
+    max-height: 386.54px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
