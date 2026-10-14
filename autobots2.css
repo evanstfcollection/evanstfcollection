@@ -108,3 +108,54 @@ body .topbar .nav-item:hover, body .topbar .nav-item.active { transform:translat
 }
 
 /* The shared expansion panel is positioned and toggled by nav-expansion.js. */
+
+
+/* Decorative Cybertronian frame around the Autobots hero. */
+body .hero {
+  border: 0;
+  overflow: hidden;
+  padding: 0;
+}
+body .hero-frame-edge {
+  position: absolute;
+  display: block;
+  z-index: 4;
+  pointer-events: none;
+  object-fit: fill;
+}
+body .hero-frame-top,
+body .hero-frame-bottom {
+  left: 0;
+  width: 100%;
+  height: clamp(28px, 4vw, 54px);
+}
+body .hero-frame-top { top: 0; }
+body .hero-frame-bottom { bottom: 0; transform: scaleY(-1); }
+body .hero-frame-left,
+body .hero-frame-right {
+  top: clamp(28px, 4vw, 54px);
+  bottom: clamp(28px, 4vw, 54px);
+  width: clamp(24px, 3.2vw, 44px);
+  height: calc(100% - 2 * clamp(28px, 4vw, 54px));
+}
+body .hero-frame-left { left: 0; }
+body .hero-frame-right { right: 0; transform: scaleX(-1); }
+body .hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: inherit;
+  padding: clamp(58px, 6vw, 82px) clamp(48px, 6vw, 84px);
+}
+@media(max-width:760px) {
+  body .hero-frame-top,
+  body .hero-frame-bottom { height: 30px; }
+  body .hero-frame-left,
+  body .hero-frame-right {
+    top: 30px;
+    bottom: 30px;
+    height: calc(100% - 60px);
+    width: 24px;
+  }
+  body .hero-content { padding: 54px 34px; }
+}
