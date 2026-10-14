@@ -142,7 +142,7 @@ body .hero-frame-right {
   width: clamp(288px, 36vw, 540px);
   height: calc((100% - 2 * clamp(144px, 17.6vw, 272px)) * 3.75);
 }
-body .hero-frame-left { left: calc(14.7% - 0.45 * clamp(288px, 36vw, 540px)); transform: translate(-50%, -50%) rotate(90deg); }
+body .hero-frame-left { left: calc(14.7% - 0.4 * clamp(288px, 36vw, 540px)); transform: translate(-50%, -50%) rotate(90deg); }
 body .hero-frame-right { left: 85.3%; right: auto; transform: translate(-50%, -50%) rotate(90deg) scaleX(-1); }
 body .hero-content {
   position: relative;
@@ -161,7 +161,7 @@ body .hero-content {
     height: calc((100% - 352px) * 3.75);
     width: 324px;
   }
-  body .hero-frame-left { left: calc(14.7% - 145.8px); transform: translate(-50%, -50%) rotate(90deg); }
+  body .hero-frame-left { left: calc(14.7% - 129.6px); transform: translate(-50%, -50%) rotate(90deg); }
   body .hero-frame-right { left: 85.3%; right: auto; transform: translate(-50%, -50%) rotate(90deg) scaleX(-1); }
   body .hero-content { padding: 200px 28px; }
 }
