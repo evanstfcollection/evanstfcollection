@@ -191,7 +191,11 @@ body main { position: relative; z-index: 1; }
 /* Hero reset: preserve the established divider positions and original hero background/content sizing. */
 body .hero {
   min-height: clamp(1050px, 130vw, 1700px);
-  background: #10151b url('images/autobots-background.png') center center / 50% auto no-repeat;
+  background-color: transparent;
+  background-image: url('images/autobots-background.png');
+  background-position: center center;
+  background-size: 50% auto;
+  background-repeat: no-repeat;
   border: 0;
   overflow: hidden;
   padding: 0;
