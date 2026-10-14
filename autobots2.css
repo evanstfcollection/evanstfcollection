@@ -165,3 +165,82 @@ body .hero-content {
   body .hero-frame-right { left: calc(85.3% + 106.92px); right: auto; transform: translate(-50%, -50%) rotate(90deg) scaleX(-1); }
   body .hero-content { padding: 200px 28px; }
 }
+
+
+/* Continuous Cybertron backdrop with the Autobots artwork contained inside its frame. */
+html { background: #070a0e; }
+body {
+  background-color: #070a0e;
+  background-image: url('images/main-page-background.png');
+  background-position: center top;
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  background-attachment: scroll;
+}
+body::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg,rgba(3,6,10,.28),rgba(3,6,10,.5) 55%,rgba(3,6,10,.72));
+}
+body .topbar {
+  background: linear-gradient(180deg,rgba(8,13,19,.84),rgba(3,6,10,.9));
+  border-bottom-color: rgba(0,207,255,.55);
+}
+body main { position: relative; z-index: 1; }
+body .hero {
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+  border: 0;
+  min-height: clamp(270px, 31vw, 430px);
+}
+/* Keep the figure artwork inside the clear inner opening of the decorative frame. */
+body .hero::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: clamp(34px, 5.2vw, 76px) clamp(30px, 4.2vw, 62px);
+  background: #10151b url('images/autobots-background.png') center center / cover no-repeat;
+  box-shadow: 0 0 0 1px rgba(255,45,55,.35), 0 12px 34px rgba(0,0,0,.62);
+}
+body .hero-shade {
+  z-index: -1;
+  inset: clamp(34px, 5.2vw, 76px) clamp(30px, 4.2vw, 62px);
+  background: linear-gradient(90deg,rgba(3,6,10,.38),rgba(3,6,10,.08) 55%,rgba(3,6,10,.28));
+}
+body .hero-content {
+  z-index: 2;
+  min-height: inherit;
+  padding: clamp(100px, 12vw, 170px) clamp(60px, 8vw, 120px);
+}
+body .hero-frame-top,
+body .hero-frame-bottom { z-index: 4; }
+body .hero-frame-left,
+body .hero-frame-right { z-index: 3; }
+body .collection-area {
+  position: relative;
+  z-index: 1;
+  background: rgba(5,8,12,.34);
+  backdrop-filter: blur(1.5px);
+}
+body .controls-panel,
+body .detail-panel {
+  background: linear-gradient(145deg,rgba(18,25,33,.92),rgba(5,8,12,.94));
+}
+body .site-footer {
+  position: relative;
+  z-index: 1;
+  background: rgba(3,6,10,.84);
+}
+@media(max-width:760px) {
+  body .hero { min-height: 270px; }
+  body .hero::before {
+    inset: 48px 18px;
+    background-position: center center;
+  }
+  body .hero-shade { inset: 48px 18px; }
+  body .hero-content { padding: 94px 42px; }
+  body .hero-frame-top,
+  body .hero-frame-bottom { height: 176px; }
+}
