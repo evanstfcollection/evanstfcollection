@@ -383,3 +383,28 @@ body .hero {
     bottom: auto;
   }
 }
+
+
+/* Increase hero and metallic frame height by 10% from the previous dimensions. */
+body .hero {
+  height: 352px;
+  min-height: 352px;
+  max-height: 352px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 264px;
+    min-height: 264px;
+    max-height: 264px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
