@@ -126,7 +126,7 @@ body .hero-frame-edge {
 body .hero-frame-left,
 body .hero-frame-right { z-index: 3; }
 body .hero-frame-top,
-body .hero-frame-bottom { z-index: 4; }
+body .hero-frame-bottom { z-index: 4; height: clamp(720px, 88vw, 1360px); }
 body .hero-frame-top,
 body .hero-frame-bottom {
   left: 0;
@@ -153,7 +153,7 @@ body .hero-content {
 }
 @media(max-width:760px) {
   body .hero-frame-top,
-  body .hero-frame-bottom { height: 176px; }
+  body .hero-frame-bottom { height: 880px; }
   body .hero-frame-left,
   body .hero-frame-right {
     top: 50%;
@@ -190,7 +190,7 @@ body .topbar {
 body main { position: relative; z-index: 1; }
 /* Hero reset: preserve the established divider positions and original hero background/content sizing. */
 body .hero {
-  min-height: clamp(210px, 26vw, 340px);
+  min-height: clamp(1050px, 130vw, 1700px);
   background: #10151b url('images/autobots-background.png') center center / 50% auto no-repeat;
   border: 0;
   overflow: hidden;
@@ -229,7 +229,7 @@ body .site-footer {
   background: rgba(3,6,10,.84);
 }
 @media(max-width:760px) {
-  body .hero { min-height: 205px; }
+  body .hero { min-height: 1025px; }
   body .hero::before { content: none; }
   body .hero-shade {
     inset: 0;
