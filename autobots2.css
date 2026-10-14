@@ -527,3 +527,30 @@ body .hero {
     background-position: calc(50% - 12px) 45px;
   }
 }
+
+
+/* Reduce the Autobots artwork width by 3% and increase frame height by 5%. */
+body .hero {
+  background-size: 92.15% 93.1%;
+  height: 541.23px;
+  min-height: 541.23px;
+  max-height: 541.23px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 92.15% 93.1%;
+    height: 405.87px;
+    min-height: 405.87px;
+    max-height: 405.87px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
