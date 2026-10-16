@@ -1261,3 +1261,30 @@ body .hero {
     height: 83% !important;
   }
 }
+
+
+/* Preserve photo proportions; adjust the frame opening to the photo instead of stretching the photo. */
+#collection-shell #detailMainImage > img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  z-index: 1 !important;
+}
+/* Use the image's measured aspect ratio for the frame box; overlay artwork stretches around it. */
+#collection-shell #detailMainImage {
+  overflow: visible !important;
+  aspect-ratio: var(--frame-aspect, .72) !important;
+  height: auto !important;
+}
+#collection-shell #detailMainImage::after {
+  inset: 0 !important;
+  background-size: 100% 100% !important;
+}
+/* For the current portrait image, tighten the top opening without distorting the photo. */
+#collection-shell #detailMainImage > img {
+  object-fit: contain !important;
+  transform: scale(1.02);
+}
