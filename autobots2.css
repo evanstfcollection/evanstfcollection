@@ -1499,3 +1499,10 @@ body .hero {
     flex-basis: 270px !important;
   }
 }
+
+
+/* Narrow the frame horizontally so its side rails sit closer to the photo, while retaining the tuned vertical fit. */
+#collection-shell #detailMainImage::after {
+  background-size: 82% 100% !important;
+  background-position: center center !important;
+}
