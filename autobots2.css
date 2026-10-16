@@ -794,3 +794,16 @@ body .hero {
     padding-bottom: 60px !important;
   }
 }
+
+
+/* Double the Sort / Filter panel's vertical spacing again. */
+#collection-shell .controls-panel {
+  padding-top: 144px !important;
+  padding-bottom: 160px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .controls-panel {
+    padding-top: 112px !important;
+    padding-bottom: 120px !important;
+  }
+}
