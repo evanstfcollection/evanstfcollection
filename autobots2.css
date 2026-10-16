@@ -1116,3 +1116,70 @@ body .hero {
     height: clamp(200px, 64vw, 290px) !important;
   }
 }
+
+
+/* Responsive nine-slice frame: corners remain distinct while rails stretch with each photo's shape. */
+#collection-shell .detail-panel .detail-image-frame {
+  position: relative !important;
+  isolation: isolate;
+  display: block !important;
+  width: min(100%, 560px) !important;
+  height: auto !important;
+  aspect-ratio: var(--frame-aspect, .72);
+  margin: 0 auto 0 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  border: 0 !important;
+  background: transparent !important;
+  cursor: zoom-in;
+}
+#collection-shell .detail-panel .detail-image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  border-style: solid;
+  border-width: clamp(38px, 6.5vw, 76px) clamp(34px, 5.5vw, 68px);
+  border-image-source: url("images/decorative%20elements/main-image-frame.png");
+  border-image-slice: 150 150 150 150 fill;
+  border-image-width: clamp(38px, 6.5vw, 76px) clamp(34px, 5.5vw, 68px);
+  border-image-repeat: stretch;
+  background: transparent;
+}
+#collection-shell .detail-panel .detail-image-frame > img {
+  position: absolute !important;
+  z-index: 1;
+  inset: 8.5% 13% 9% !important;
+  width: 74% !important;
+  height: 82.5% !important;
+  object-fit: contain !important;
+  display: block;
+  background: transparent !important;
+}
+#collection-shell .detail-panel .detail-image-frame > .image-placeholder {
+  position: absolute;
+  z-index: 1;
+  inset: 8.5% 13% 9%;
+  display: grid;
+  place-content: center;
+  background: transparent;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .detail-image-frame {
+    width: min(100%, 430px) !important;
+  }
+  #collection-shell .detail-panel .detail-image-frame::after {
+    border-width: clamp(32px, 8vw, 58px) clamp(28px, 7vw, 52px);
+    border-image-width: clamp(32px, 8vw, 58px) clamp(28px, 7vw, 52px);
+  }
+}
+@media (max-width: 520px) {
+  #collection-shell .detail-panel .detail-image-frame {
+    width: min(100%, 340px) !important;
+  }
+  #collection-shell .detail-panel .detail-image-frame::after {
+    border-width: 32px 28px;
+    border-image-width: 32px 28px;
+  }
+}
