@@ -1375,3 +1375,12 @@ body .hero {
   height: 90.8% !important;
   object-fit: contain !important;
 }
+
+
+/* Reduce the frame's overall height while keeping the photo's natural aspect ratio and current image fit. */
+#collection-shell #detailMainImage {
+  aspect-ratio: calc(var(--frame-aspect, .84) * 1.10) !important;
+}
+#collection-shell #detailMainImage::after {
+  background-size: 100% 100% !important;
+}
