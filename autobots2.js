@@ -86,6 +86,29 @@
       card.addEventListener("keydown",event => { if(event.key==="Enter"||event.key===" "){event.preventDefault();open();} });
     });
   }
+
+  function setFramedMainImage(src, alt) {
+    if (!src) {
+      detailMainImage.style.setProperty("--frame-aspect", "0.72");
+      detailMainImage.innerHTML = '<div class="image-placeholder">NO IMAGE<br><span>AVAILABLE FOR THIS FIGURE</span></div>';
+      return;
+    }
+    detailMainImage.style.setProperty("--frame-aspect", "0.72");
+    detailMainImage.innerHTML = '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(alt) + '">';
+    const image = detailMainImage.querySelector("img");
+    const applyRatio = () => {
+      if (!image.naturalWidth || !image.naturalHeight) return;
+      const photoRatio = image.naturalWidth / image.naturalHeight;
+      /* Account for the transparent opening in the frame art, then keep extremes usable. */
+      const frameRatio = Math.max(0.48, Math.min(1.55, photoRatio * 0.90));
+      detailMainImage.style.setProperty("--frame-aspect", String(frameRatio));
+      detailMainImage.dataset.photoOrientation = photoRatio < 0.88 ? "portrait" : photoRatio > 1.12 ? "landscape" : "square";
+    };
+    if (image.complete) applyRatio();
+    else image.addEventListener("load", applyRatio, {once:true});
+    image.addEventListener("error", () => detailMainImage.dataset.photoOrientation = "unknown", {once:true});
+  }
+
   function openDetails(index) {
     if (!visibleFigures.length) return;
     selectedIndex = (index + visibleFigures.length) % visibleFigures.length;
@@ -94,9 +117,7 @@
     selectedImageUrl = item.image || "";
     detailPanel.setAttribute("aria-hidden","false");
     detailName.textContent = item.name || "Unnamed figure";
-    detailMainImage.innerHTML = selectedImageUrl
-      ? '<img src="' + escapeHtml(selectedImageUrl) + '" alt="' + escapeHtml(item.name) + '">'
-      : '<div class="image-placeholder">NO IMAGE<br><span>AVAILABLE FOR THIS FIGURE</span></div>';
+    setFramedMainImage(selectedImageUrl, item.name || "Unnamed figure");
     detailSpecs.innerHTML = [
       ["Manufacturer",item.manufacturer],["Toy Line",item.toy_line],["Model",item.series],
       ["Year Released",item.year],["Alternate Mode",item.alternate_mode],["Scale",item.scale],["Condition",item.condition]
@@ -104,7 +125,7 @@
     detailThumbs.innerHTML = thumbs.map((src,i) => '<button type="button" class="'+(src===selectedImageUrl?"active":"")+'" data-image-index="'+i+'" aria-label="Show image '+(i+1)+'"><img src="'+escapeHtml(src)+'" alt="" loading="lazy"></button>').join("");
     detailThumbs.querySelectorAll("button").forEach(button => button.addEventListener("click",() => {
       selectedImageUrl = thumbs[Number(button.dataset.imageIndex)];
-      detailMainImage.innerHTML = '<img src="'+escapeHtml(selectedImageUrl)+'" alt="'+escapeHtml(item.name)+'">';
+      setFramedMainImage(selectedImageUrl, item.name || "Unnamed figure");
       detailThumbs.querySelectorAll("button").forEach(b => b.classList.toggle("active",b===button));
     }));
     detailNotes.textContent = item.notes || "No collection notes have been added yet.";
