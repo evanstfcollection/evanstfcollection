@@ -1411,3 +1411,27 @@ body .hero {
     flex-basis: 420px !important;
   }
 }
+
+
+/* Scale the entire main-image frame stage to 75%, keeping it centered and leaving the info panel dimensions fixed. */
+#collection-shell #detailMainImage {
+  width: min(75%, 420px) !important;
+  height: 465px !important;
+  min-height: 465px !important;
+  max-height: 465px !important;
+  flex: 0 0 465px !important;
+  margin-left: 0 !important;
+  transform: scale(.75);
+  transform-origin: top left;
+  margin-bottom: -116px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
+    width: min(75%, 315px) !important;
+    height: 315px !important;
+    min-height: 315px !important;
+    max-height: 315px !important;
+    flex-basis: 315px !important;
+    margin-bottom: -105px !important;
+  }
+}
