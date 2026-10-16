@@ -1288,3 +1288,35 @@ body .hero {
   object-fit: contain !important;
   transform: scale(1.02);
 }
+
+
+/* Keep photo inside the frame's aperture: the frame follows the photo ratio, not vice versa. */
+#collection-shell #detailMainImage {
+  width: min(100%, 560px) !important;
+  height: auto !important;
+  aspect-ratio: var(--frame-aspect, .72) !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+#collection-shell #detailMainImage > img {
+  position: absolute !important;
+  z-index: 1 !important;
+  left: 13% !important;
+  right: 13% !important;
+  top: 8.5% !important;
+  bottom: 8.5% !important;
+  width: 74% !important;
+  height: 83% !important;
+  max-width: 74% !important;
+  max-height: 83% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+}
+#collection-shell #detailMainImage::after {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
