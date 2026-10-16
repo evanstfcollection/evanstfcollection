@@ -112,6 +112,8 @@
       }
       detailMainImage.style.setProperty("--frame-aspect", String(frameRatio));
       detailMainImage.style.setProperty("--photo-ratio", String(photoRatio));
+      detailMainImage.style.setProperty("--frame-width", frameWidth + "px");
+      detailMainImage.style.setProperty("--frame-height", frameHeight + "px");
       detailMainImage.style.width = frameWidth + "px";
       detailMainImage.style.height = frameHeight + "px";
       detailMainImage.style.minHeight = frameHeight + "px";
