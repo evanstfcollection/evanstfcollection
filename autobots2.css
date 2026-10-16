@@ -1724,3 +1724,13 @@ body .hero {
 #collection-shell .detail-hero-row .panel-heading {
   transform: translateX(-14px) !important;
 }
+
+
+/* Remove the faction letter badge and the "SELECTED UNIT" eyebrow from the nameplate. */
+#collection-shell .detail-hero-row .panel-mark,
+#collection-shell .detail-hero-row .panel-heading .eyebrow {
+  display: none !important;
+}
+#collection-shell .detail-hero-row .panel-heading {
+  gap: 0 !important;
+}
