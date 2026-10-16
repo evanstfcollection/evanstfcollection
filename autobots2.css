@@ -1183,3 +1183,11 @@ body .hero {
     border-image-width: 32px 28px;
   }
 }
+
+
+/* Prevent the legacy full-frame overlay from stacking with the responsive border-image frame. */
+#collection-shell #detailMainImage::after {
+  background: none !important;
+  border: 0 !important;
+  content: none !important;
+}
