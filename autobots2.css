@@ -1384,3 +1384,30 @@ body .hero {
 #collection-shell #detailMainImage::after {
   background-size: 100% 100% !important;
 }
+
+
+/* Keep the info window and its image stage a fixed size across all selected figures. */
+#collection-shell .detail-panel {
+  align-self: start !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+#collection-shell #detailMainImage {
+  width: min(100%, 560px) !important;
+  height: 620px !important;
+  min-height: 620px !important;
+  max-height: 620px !important;
+  aspect-ratio: auto !important;
+  flex: 0 0 620px !important;
+}
+#collection-shell #detailMainImage > img {
+  object-fit: contain !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
+    height: 420px !important;
+    min-height: 420px !important;
+    max-height: 420px !important;
+    flex-basis: 420px !important;
+  }
+}
