@@ -1320,3 +1320,34 @@ body .hero {
   background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
 }
+
+
+/* Match the frame's inner aperture to the photo ratio. The frame changes shape; the photo never does. */
+#collection-shell #detailMainImage {
+  width: min(100%, 560px) !important;
+  height: auto !important;
+  aspect-ratio: var(--frame-aspect, .84) !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+#collection-shell #detailMainImage > img {
+  position: absolute !important;
+  left: 13% !important;
+  top: 8.5% !important;
+  width: 74% !important;
+  height: 83% !important;
+  right: auto !important;
+  bottom: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: none !important;
+}
+#collection-shell #detailMainImage::after {
+  content: "" !important;
+  inset: 0 !important;
+  background-image: url("images/decorative%20elements/main-image-frame.png") !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
