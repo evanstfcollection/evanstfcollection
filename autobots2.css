@@ -710,3 +710,26 @@ body .hero {
   border-color: var(--red-bright) !important;
   box-shadow: 0 0 14px var(--red-glow) !important;
 }
+
+
+/* Selected figure info window: remove dark backing behind the main image and alternative thumbnails. */
+#detailMainImage,
+#detailMainImage img {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+#detailMainImage {
+  background-image: none !important;
+  border-color: transparent !important;
+}
+#detailThumbs button,
+#detailThumbs img {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+#detailThumbs button {
+  border-color: transparent !important;
+}
+#detailThumbs button.active {
+  border-color: var(--red-bright) !important;
+}
