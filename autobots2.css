@@ -891,3 +891,14 @@ body .hero {
   #collection-shell #gallery .card-image-wrap { padding: 12%; }
   #collection-shell #gallery .card-name { font-size: 10px; }
 }
+
+
+/* Use the supplied info-window artwork as the selected figure panel background. */
+#collection-shell .detail-panel {
+  background: url("images/decorative%20elements/info-window.png") center / 100% 100% no-repeat !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+#collection-shell .detail-navigation {
+  display: none !important;
+}
