@@ -818,3 +818,9 @@ body .hero {
     transform: translateY(-18px);
   }
 }
+
+
+/* Hide the Search Figures label while keeping the search field usable. */
+#collection-shell .search-control > span {
+  display: none !important;
+}
