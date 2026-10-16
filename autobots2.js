@@ -101,8 +101,22 @@
       const photoRatio = image.naturalWidth / image.naturalHeight;
       /* Frame dimensions are calculated from the photo ratio; the photo itself is never stretched. */
       const frameRatio = Math.max(0.52, Math.min(1.65, photoRatio * 1.12));
+      /* Fit a ratio-aware frame inside a fixed stage; landscape and portrait selections reshape the frame. */
+      const maxFrameWidth = window.matchMedia("(max-width: 760px)").matches ? 315 : 420;
+      const maxFrameHeight = window.matchMedia("(max-width: 760px)").matches ? 270 : 365;
+      let frameWidth = Math.min(maxFrameWidth, maxFrameHeight * frameRatio);
+      let frameHeight = frameWidth / frameRatio;
+      if (frameHeight > maxFrameHeight) {
+        frameHeight = maxFrameHeight;
+        frameWidth = frameHeight * frameRatio;
+      }
       detailMainImage.style.setProperty("--frame-aspect", String(frameRatio));
       detailMainImage.style.setProperty("--photo-ratio", String(photoRatio));
+      detailMainImage.style.width = frameWidth + "px";
+      detailMainImage.style.height = frameHeight + "px";
+      detailMainImage.style.minHeight = frameHeight + "px";
+      detailMainImage.style.maxHeight = frameHeight + "px";
+      detailMainImage.style.flexBasis = frameHeight + "px";
       detailMainImage.dataset.photoOrientation = photoRatio < 0.88 ? "portrait" : photoRatio > 1.12 ? "landscape" : "square";
     };
     if (image.complete) applyRatio();
