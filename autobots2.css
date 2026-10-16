@@ -1537,3 +1537,22 @@ body .hero {
     flex-basis: 270px;
   }
 }
+
+
+/* Final alignment rule: size the frame using its measured inner-opening proportions.
+   The photo stays proportional and fills that opening for portrait, square, and landscape images. */
+#collection-shell #detailMainImage {
+  aspect-ratio: var(--frame-aspect, .72) !important;
+}
+#collection-shell #detailMainImage::after {
+  background-size: 100% 100% !important;
+  background-position: center !important;
+}
+#collection-shell #detailMainImage > img {
+  left: 13% !important;
+  top: 4.6% !important;
+  width: 74% !important;
+  height: 90.8% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
