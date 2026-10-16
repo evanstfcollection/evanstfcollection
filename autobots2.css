@@ -1435,3 +1435,49 @@ body .hero {
     margin-bottom: -105px !important;
   }
 }
+
+
+/* Correct 75% sizing without CSS transforms: frame and photo share the same resized coordinate box. */
+#collection-shell #detailMainImage {
+  box-sizing: border-box !important;
+  width: min(75%, 420px) !important;
+  height: 465px !important;
+  min-height: 465px !important;
+  max-height: 465px !important;
+  flex: 0 0 465px !important;
+  aspect-ratio: auto !important;
+  transform: none !important;
+  transform-origin: initial !important;
+  margin: 0 0 0 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+#collection-shell #detailMainImage > img {
+  position: absolute !important;
+  left: 13% !important;
+  top: 4.6% !important;
+  width: 74% !important;
+  height: 90.8% !important;
+  right: auto !important;
+  bottom: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+}
+#collection-shell #detailMainImage::after {
+  position: absolute !important;
+  inset: 0 !important;
+  background-size: 100% 100% !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
+    width: min(75%, 315px) !important;
+    height: 315px !important;
+    min-height: 315px !important;
+    max-height: 315px !important;
+    flex-basis: 315px !important;
+    margin: 0 !important;
+  }
+}
