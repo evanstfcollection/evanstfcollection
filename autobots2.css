@@ -665,3 +665,24 @@ body .hero {
   background: transparent !important;
   box-shadow: none !important;
 }
+
+
+/* Make the entire Figure Archive gallery area transparent, not just the image windows. */
+.gallery-column,
+.gallery,
+#gallery,
+#gallery .card,
+#gallery .card-body,
+#gallery .card-image-wrap {
+  background: transparent !important;
+}
+#gallery .card {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+#gallery .card:hover,
+#gallery .card.selected {
+  background: transparent !important;
+  border-color: var(--red-bright) !important;
+  box-shadow: 0 0 14px var(--red-glow) !important;
+}
