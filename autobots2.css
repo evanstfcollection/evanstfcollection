@@ -744,3 +744,20 @@ body .hero {
 #collection-shell .collection-count {
   display: none !important;
 }
+
+
+/* Sort / Filter panel sizing: double its vertical height and increase its horizontal width by 75%. */
+#collection-shell .controls-panel {
+  min-height: 2em;
+  padding-top: 36px;
+  padding-bottom: 40px;
+  width: 175%;
+  max-width: none;
+}
+@media (max-width: 760px) {
+  #collection-shell .controls-panel {
+    width: 100%;
+    padding-top: 28px;
+    padding-bottom: 30px;
+  }
+}
