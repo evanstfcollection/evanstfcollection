@@ -56,6 +56,7 @@
       if (mode === "name-desc") return String(b.name||"").localeCompare(String(a.name||""),undefined,{numeric:true});
       if (mode === "year-desc") return Number(b.year||0)-Number(a.year||0) || String(a.name||"").localeCompare(String(b.name||""));
       if (mode === "year-asc") return Number(a.year||0)-Number(b.year||0) || String(a.name||"").localeCompare(String(b.name||""));
+      if (mode === "model-asc") return String(a.series||"").localeCompare(String(b.series||""),undefined,{numeric:true}) || String(a.name||"").localeCompare(String(b.name||""),undefined,{numeric:true});
       if (mode === "manufacturer") return String(a.manufacturer||"").localeCompare(String(b.manufacturer||"")) || String(a.name||"").localeCompare(String(b.name||""));
       return String(a.name||"").localeCompare(String(b.name||""),undefined,{numeric:true});
     });
@@ -102,7 +103,7 @@
       ? '<img src="' + escapeHtml(selectedImageUrl) + '" alt="' + escapeHtml(item.name) + '">'
       : '<div class="image-placeholder">NO IMAGE<br><span>AVAILABLE FOR THIS FIGURE</span></div>';
     detailSpecs.innerHTML = [
-      ["Manufacturer",item.manufacturer],["Toy Line",item.toy_line],["Series",item.series],
+      ["Manufacturer",item.manufacturer],["Toy Line",item.toy_line],["Model",item.series],
       ["Year Released",item.year],["Alternate Mode",item.alternate_mode],["Scale",item.scale],["Condition",item.condition]
     ].map(([label,value]) => '<div class="spec"><strong>'+label+'</strong><span>'+escapeHtml(value || "—")+'</span></div>').join("");
     detailThumbs.innerHTML = thumbs.map((src,i) => '<button type="button" class="'+(src===selectedImageUrl?"active":"")+'" data-image-index="'+i+'" aria-label="Show image '+(i+1)+'"><img src="'+escapeHtml(src)+'" alt="" loading="lazy"></button>').join("");
