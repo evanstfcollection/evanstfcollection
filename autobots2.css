@@ -1556,3 +1556,41 @@ body .hero {
   object-fit: contain !important;
   object-position: center !important;
 }
+
+
+/* Override older fixed-size rules: use the dimensions calculated from each photo's aspect ratio. */
+#collection-shell #detailMainImage {
+  width: var(--frame-width, min(75%, 420px)) !important;
+  height: var(--frame-height, 365px) !important;
+  min-height: var(--frame-height, 365px) !important;
+  max-height: var(--frame-height, 365px) !important;
+  flex: 0 0 var(--frame-height, 365px) !important;
+  aspect-ratio: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+#collection-shell #detailMainImage::after {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+}
+#collection-shell #detailMainImage > img {
+  left: 13% !important;
+  top: 4.6% !important;
+  width: 74% !important;
+  height: 90.8% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
+    width: var(--frame-width, min(75%, 315px)) !important;
+    height: var(--frame-height, 270px) !important;
+    min-height: var(--frame-height, 270px) !important;
+    max-height: var(--frame-height, 270px) !important;
+    flex-basis: var(--frame-height, 270px) !important;
+  }
+}
