@@ -628,3 +628,16 @@ body .hero {
     background-size: 91.23% 87.58848%;
   }
 }
+
+
+/* Collection page refinement: remove the introductory title block and let figure images sit directly against the page backdrop. */
+.section-heading.archive-count-only {
+  justify-content: flex-end;
+  margin-bottom: 12px;
+  padding: 0;
+  border-bottom: 0;
+}
+.card-image-wrap {
+  background: transparent;
+  border-bottom: 0;
+}
