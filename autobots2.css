@@ -1207,3 +1207,19 @@ body .hero {
 #collection-shell #detailMainImage::after {
   content: "" !important;
 }
+
+
+/* Final override: the ID-level legacy rule was suppressing the frame artwork. */
+#collection-shell #detailMainImage::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+  border: 0 !important;
+  border-image: none !important;
+  background-image: url("images/decorative%20elements/main-image-frame.png") !important;
+  background-position: center !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
