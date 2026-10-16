@@ -1351,3 +1351,11 @@ body .hero {
   background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
 }
+
+
+/* Fine-tune the top aperture edge upward slightly while leaving the lower edge in place. */
+#collection-shell #detailMainImage > img {
+  top: 7.2% !important;
+  height: 84.3% !important;
+  object-fit: contain !important;
+}
