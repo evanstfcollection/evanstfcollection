@@ -641,3 +641,27 @@ body .hero {
   background: transparent;
   border-bottom: 0;
 }
+
+
+/* Strong override: remove all card and image-container backing panels around archive figures. */
+#gallery .card {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+#gallery .card:hover,
+#gallery .card.selected {
+  background: transparent !important;
+  border-color: var(--red-bright) !important;
+  box-shadow: 0 0 14px var(--red-glow) !important;
+}
+#gallery .card-image-wrap {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 10px !important;
+}
+#gallery .card-image {
+  background: transparent !important;
+  box-shadow: none !important;
+}
