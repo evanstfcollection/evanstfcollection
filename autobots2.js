@@ -100,7 +100,7 @@
       if (!image.naturalWidth || !image.naturalHeight) return;
       const photoRatio = image.naturalWidth / image.naturalHeight;
       /* Frame dimensions are calculated from the photo ratio; the photo itself is never stretched. */
-      const frameRatio = Math.max(0.48, Math.min(1.55, photoRatio * 0.90));
+      const frameRatio = Math.max(0.52, Math.min(1.65, photoRatio * 1.12));
       detailMainImage.style.setProperty("--frame-aspect", String(frameRatio));
       detailMainImage.style.setProperty("--photo-ratio", String(photoRatio));
       detailMainImage.dataset.photoOrientation = photoRatio < 0.88 ? "portrait" : photoRatio > 1.12 ? "landscape" : "square";
