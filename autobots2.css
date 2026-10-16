@@ -1359,3 +1359,11 @@ body .hero {
   height: 84.3% !important;
   object-fit: contain !important;
 }
+
+
+/* Move the photo's top edge upward by three times the previous adjustment; preserve the lower edge. */
+#collection-shell #detailMainImage > img {
+  top: 4.6% !important;
+  height: 86.9% !important;
+  object-fit: contain !important;
+}
