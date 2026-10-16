@@ -902,3 +902,29 @@ body .hero {
 #collection-shell .detail-navigation {
   display: none !important;
 }
+
+
+/* Frame the main selected-figure image with the supplied portrait artwork. */
+#collection-shell #detailMainImage {
+  position: relative;
+  isolation: isolate;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+#collection-shell #detailMainImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: url("images/decorative%20elements/main-image-frame.png") center / 100% 100% no-repeat;
+}
+#collection-shell #detailMainImage > img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
