@@ -1612,3 +1612,71 @@ body .hero {
     background-size: 100% 100% !important;
   }
 }
+
+
+/* Selected-unit header: faction light strip under the inner frame, image lowered, nameplate alongside. */
+#collection-shell .detail-panel {
+  position: relative !important;
+  padding-top: 58px !important;
+}
+#collection-shell .detail-lightstrip {
+  position: absolute;
+  top: 28px;
+  left: 12%;
+  right: 12%;
+  height: 18px;
+  background: url("images/decorative%20elements/lightstrip-red.png") center / 100% 100% no-repeat;
+  pointer-events: none;
+  z-index: 4;
+}
+#collection-shell .detail-hero-row {
+  display: grid;
+  grid-template-columns: minmax(0, 560px) minmax(180px, 1fr);
+  align-items: center;
+  column-gap: 24px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+#collection-shell .detail-hero-row #detailMainImage {
+  justify-self: start !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+#collection-shell .detail-hero-row .panel-heading {
+  position: relative;
+  z-index: 1;
+  display: flex !important;
+  align-items: flex-start !important;
+  align-self: start;
+  gap: 10px;
+  min-width: 0;
+  padding: 18px 12px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: url("images/decorative%20elements/honeycomb-vent-grille.png") center / 100% 100% no-repeat !important;
+}
+#collection-shell .detail-hero-row .panel-heading > div {
+  min-width: 0;
+}
+#collection-shell .detail-hero-row .panel-heading h2 {
+  overflow-wrap: anywhere;
+}
+#collection-shell .detail-hero-row .panel-heading .eyebrow {
+  margin-top: 3px;
+}
+@media (max-width: 900px) {
+  #collection-shell .detail-hero-row {
+    grid-template-columns: minmax(0, 1fr) minmax(125px, .7fr);
+    column-gap: 12px;
+  }
+  #collection-shell .detail-hero-row .panel-heading {
+    padding: 12px 8px !important;
+    gap: 7px;
+  }
+  #collection-shell .detail-lightstrip {
+    left: 8%;
+    right: 8%;
+  }
+}
