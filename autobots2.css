@@ -1481,3 +1481,21 @@ body .hero {
     margin: 0 !important;
   }
 }
+
+
+/* Tighten the frame's vertical proportions around the image while preserving its width and alignment. */
+#collection-shell #detailMainImage {
+  height: 365px !important;
+  min-height: 365px !important;
+  max-height: 365px !important;
+  flex-basis: 365px !important;
+  aspect-ratio: auto !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
+    height: 270px !important;
+    min-height: 270px !important;
+    max-height: 270px !important;
+    flex-basis: 270px !important;
+  }
+}
