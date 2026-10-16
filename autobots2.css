@@ -1506,3 +1506,34 @@ body .hero {
   background-size: 82% 100% !important;
   background-position: center center !important;
 }
+
+
+/* Ratio-aware frame: its whole artwork scales with the selected photo orientation. */
+#collection-shell #detailMainImage {
+  width: min(75%, 420px);
+  height: 365px;
+  min-height: 365px;
+  max-height: 365px;
+  flex: 0 0 365px;
+  overflow: hidden !important;
+}
+#collection-shell #detailMainImage::after {
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+}
+#collection-shell #detailMainImage > img {
+  left: 13% !important;
+  top: 4.6% !important;
+  width: 74% !important;
+  height: 90.8% !important;
+  object-fit: contain !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
+    width: min(75%, 315px);
+    height: 270px;
+    min-height: 270px;
+    max-height: 270px;
+    flex-basis: 270px;
+  }
+}
