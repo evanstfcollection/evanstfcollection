@@ -733,3 +733,14 @@ body .hero {
 #detailThumbs button.active {
   border-color: var(--red-bright) !important;
 }
+
+
+/* Sort / Filter panel: replace the solid box and grey outline with the supplied panel artwork. */
+#collection-shell .controls-panel {
+  background: transparent url('images/decorative%20elements/panel-background-02.png') center center / 100% 100% no-repeat !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+#collection-shell .collection-count {
+  display: none !important;
+}
