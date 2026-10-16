@@ -824,3 +824,9 @@ body .hero {
 #collection-shell .search-control > span {
   display: none !important;
 }
+
+
+/* Reflow controls after removing the Manufacturer filter. */
+#collection-shell .controls-grid {
+  grid-template-columns: minmax(190px, 1.5fr) repeat(3, minmax(130px, 1fr)) auto;
+}
