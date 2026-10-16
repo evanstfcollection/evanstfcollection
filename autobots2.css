@@ -1594,3 +1594,21 @@ body .hero {
     flex-basis: var(--frame-height, 270px) !important;
   }
 }
+
+
+/* Keep the info window a fixed, uniform height independent of the selected image/frame.
+   Sized to approximately the current four-column gallery plus three additional rows. */
+@media (min-width: 761px) {
+  #collection-shell .collection-layout {
+    align-items: start !important;
+  }
+  #collection-shell .detail-panel {
+    height: 1500px !important;
+    min-height: 1500px !important;
+    max-height: 1500px !important;
+    box-sizing: border-box !important;
+    align-self: start !important;
+    overflow: hidden !important;
+    background-size: 100% 100% !important;
+  }
+}
