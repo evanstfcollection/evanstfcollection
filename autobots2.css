@@ -807,3 +807,14 @@ body .hero {
     padding-bottom: 120px !important;
   }
 }
+
+
+/* Align the filter controls with the central horizontal band of the panel artwork, leaving the Sort / Filter title in place. */
+#collection-shell .controls-grid {
+  transform: translateY(-34px);
+}
+@media (max-width: 760px) {
+  #collection-shell .controls-grid {
+    transform: translateY(-18px);
+  }
+}
