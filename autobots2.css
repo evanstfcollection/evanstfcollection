@@ -1191,3 +1191,19 @@ body .hero {
   border: 0 !important;
   content: none !important;
 }
+
+
+/* Restore the single responsive frame overlay; disable border-image slicing to avoid a duplicate frame. */
+#collection-shell .detail-panel .detail-image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  border: 0 !important;
+  border-image: none !important;
+  background: url("images/decorative%20elements/main-image-frame.png") center / 100% 100% no-repeat !important;
+}
+#collection-shell #detailMainImage::after {
+  content: "" !important;
+}
