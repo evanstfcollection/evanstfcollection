@@ -77,11 +77,9 @@
     }
     gallery.innerHTML = visibleFigures.map((item,index) => `
       <article class="card${index === selectedIndex ? " selected" : ""}" data-index="${index}" tabindex="0" role="button" aria-label="View ${escapeHtml(item.name)}">
-        <div class="card-image-wrap">${item.image ? `<img class="card-image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" onerror="this.style.opacity='0.15'">` : '<span class="image-placeholder">IMAGE<br>UNAVAILABLE</span>'}</div>
-        <div class="card-body"><h4>${escapeHtml(item.name || "Unnamed figure")}</h4>
-          <p class="card-meta">${escapeHtml(item.manufacturer || "Manufacturer not listed")}</p>
-          <p class="card-meta">${escapeHtml(item.toy_line || item.series || "Series not listed")}</p>
-          <div class="card-link">VIEW PROFILE &nbsp; →</div>
+        <div class="card-image-wrap">${item.image ? `<img class="card-image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" onerror="this.style.opacity='0.15'">` : '<span class="image-placeholder">IMAGE<br>UNAVAILABLE</span>'}
+          <img class="card-frame" src="images/decorative%20elements/icon-frame-square.png" alt="" aria-hidden="true">
+          <h4 class="card-name">${escapeHtml(item.name || "Unnamed figure")}</h4>
         </div>
       </article>`).join("");
     gallery.querySelectorAll(".card").forEach(card => {
