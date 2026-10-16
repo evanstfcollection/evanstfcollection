@@ -1734,3 +1734,15 @@ body .hero {
 #collection-shell .detail-hero-row .panel-heading {
   gap: 0 !important;
 }
+
+
+/* Taller honeycomb nameplate and slight rightward text offset. */
+#collection-shell .detail-hero-row .panel-heading {
+  min-height: 2em !important;
+  padding-top: 36px !important;
+  padding-bottom: 36px !important;
+  box-sizing: border-box !important;
+}
+#collection-shell .detail-hero-row .panel-heading > div {
+  transform: translateX(20px) !important;
+}
