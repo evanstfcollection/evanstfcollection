@@ -781,3 +781,16 @@ body .hero {
     padding-right: 14px !important;
   }
 }
+
+
+/* Double the Sort / Filter panel's current vertical space while keeping its full-viewport width. */
+#collection-shell .controls-panel {
+  padding-top: 72px !important;
+  padding-bottom: 80px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .controls-panel {
+    padding-top: 56px !important;
+    padding-bottom: 60px !important;
+  }
+}
