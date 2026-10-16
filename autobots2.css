@@ -928,3 +928,85 @@ body .hero {
   height: 100%;
   object-fit: contain;
 }
+
+
+/* Keep all profile content inside the safe inner area of the decorative info-window frame. */
+#collection-shell .detail-panel {
+  box-sizing: border-box;
+  padding: 5.5% 12% 5% !important;
+  min-width: 0;
+}
+#collection-shell .detail-panel .panel-heading {
+  min-width: 0;
+  margin-top: 0;
+}
+#collection-shell .detail-panel .panel-heading > div {
+  min-width: 0;
+}
+#collection-shell .detail-panel .detail-image-frame {
+  box-sizing: border-box;
+  width: 100%;
+  height: clamp(220px, 29vw, 350px);
+  padding: 0;
+  border: 0;
+  background: transparent !important;
+}
+#collection-shell .detail-panel .detail-thumbs {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 8px;
+  margin-top: 10px;
+}
+#collection-shell .detail-panel .detail-thumbs button {
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  background: rgba(5,9,14,.6);
+}
+#collection-shell .detail-panel .info-section,
+#collection-shell .detail-panel .notes-section {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#collection-shell .detail-panel .detail-specs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 18px;
+}
+#collection-shell .detail-panel .spec,
+#collection-shell .detail-panel .spec span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#collection-shell .detail-panel .notes-copy {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel {
+    padding: 8% 9% 7% !important;
+  }
+  #collection-shell .detail-panel .detail-image-frame {
+    height: clamp(220px, 58vw, 340px);
+  }
+  #collection-shell .detail-panel .detail-specs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+  }
+}
+@media (max-width: 520px) {
+  #collection-shell .detail-panel {
+    padding: 9% 8% 8% !important;
+  }
+  #collection-shell .detail-panel .detail-image-frame {
+    height: clamp(190px, 64vw, 290px);
+  }
+  #collection-shell .detail-panel .detail-thumbs button {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
+  }
+  #collection-shell .detail-panel .detail-specs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
