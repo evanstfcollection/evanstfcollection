@@ -761,3 +761,23 @@ body .hero {
     padding-bottom: 30px;
   }
 }
+
+
+/* Extend the Sort / Filter panel artwork edge-to-edge across the viewport. */
+#collection-shell .controls-panel {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding-left: max(20px, calc((100vw - 1500px) / 2 + 38px)) !important;
+  padding-right: max(20px, calc((100vw - 1500px) / 2 + 38px)) !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .controls-panel {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
