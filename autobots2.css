@@ -1690,3 +1690,25 @@ body .hero {
 #collection-shell .detail-hero-row .panel-heading {
   margin-top: 0 !important;
 }
+
+
+/* Bring the nameplate immediately beside the main image and double its horizontal span. */
+#collection-shell .detail-hero-row {
+  grid-template-columns: var(--frame-width, minmax(0, 560px)) minmax(360px, 2fr) !important;
+  column-gap: 8px !important;
+}
+#collection-shell .detail-hero-row .panel-heading {
+  width: 200% !important;
+  box-sizing: border-box !important;
+  justify-self: start !important;
+  margin-left: 0 !important;
+}
+@media (max-width: 900px) {
+  #collection-shell .detail-hero-row {
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 1.4fr) !important;
+    column-gap: 8px !important;
+  }
+  #collection-shell .detail-hero-row .panel-heading {
+    width: 200% !important;
+  }
+}
