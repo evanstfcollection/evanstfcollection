@@ -1712,3 +1712,9 @@ body .hero {
     width: 200% !important;
   }
 }
+
+
+/* Restore the honeycomb nameplate to its natural column width. */
+#collection-shell .detail-hero-row .panel-heading {
+  width: 100% !important;
+}
