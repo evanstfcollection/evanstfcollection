@@ -1010,3 +1010,66 @@ body .hero {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+/* Widen the collection workspace: four-column figure grid on the left, info window to the right edge. */
+#collection-shell {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+#collection-shell .section-heading,
+#collection-shell .collection-layout {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+#collection-shell .collection-layout {
+  display: grid !important;
+  grid-template-columns: minmax(360px, 40%) minmax(0, 60%) !important;
+  gap: 0 !important;
+  align-items: stretch !important;
+}
+#collection-shell .gallery-column {
+  min-width: 0;
+  padding: 0 12px 0 18px;
+}
+#collection-shell #gallery {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+#collection-shell .detail-panel {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  justify-self: stretch !important;
+}
+@media (min-width: 761px) {
+  #collection-shell .collection-layout {
+    grid-template-columns: minmax(360px, 40%) minmax(0, 60%) !important;
+  }
+}
+@media (max-width: 760px) {
+  /* Keep the desktop workspace concept; mobile-specific redesign can be handled separately. */
+  #collection-shell .collection-layout {
+    grid-template-columns: minmax(0, 40%) minmax(0, 60%) !important;
+    gap: 0 !important;
+  }
+  #collection-shell .gallery-column {
+    padding: 0 6px;
+  }
+  #collection-shell #gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+  #collection-shell .detail-panel {
+    grid-row: auto !important;
+    padding-left: 8% !important;
+    padding-right: 8% !important;
+  }
+}
