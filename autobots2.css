@@ -1680,3 +1680,13 @@ body .hero {
     right: 8%;
   }
 }
+
+
+/* Place the main image and figure title fully below the info window's upper inner border. */
+#collection-shell .detail-hero-row {
+  margin-top: 112px !important;
+  align-items: start !important;
+}
+#collection-shell .detail-hero-row .panel-heading {
+  margin-top: 0 !important;
+}
