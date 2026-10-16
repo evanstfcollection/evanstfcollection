@@ -1073,3 +1073,46 @@ body .hero {
     padding-right: 8% !important;
   }
 }
+
+
+/* Align the main image frame with the profile text and size it to the image rather than the full panel. */
+#collection-shell .detail-panel {
+  padding-left: calc(12% + 5ch) !important;
+  padding-right: 12% !important;
+}
+#collection-shell .detail-panel .detail-image-frame {
+  width: min(100%, 360px) !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  height: clamp(260px, 34vw, 390px) !important;
+  flex: 0 0 auto;
+}
+#collection-shell .detail-panel .detail-image-frame::after {
+  background-size: 100% 100% !important;
+}
+#collection-shell .detail-panel .detail-thumbs,
+#collection-shell .detail-panel .info-section,
+#collection-shell .detail-panel .notes-section {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel {
+    padding-left: calc(8% + 5ch) !important;
+    padding-right: 8% !important;
+  }
+  #collection-shell .detail-panel .detail-image-frame {
+    width: min(100%, 300px) !important;
+    height: clamp(230px, 58vw, 340px) !important;
+  }
+}
+@media (max-width: 520px) {
+  #collection-shell .detail-panel {
+    padding-left: calc(8% + 5ch) !important;
+    padding-right: 8% !important;
+  }
+  #collection-shell .detail-panel .detail-image-frame {
+    width: min(100%, 240px) !important;
+    height: clamp(200px, 64vw, 290px) !important;
+  }
+}
