@@ -3,7 +3,6 @@
   const $ = (id) => document.getElementById(id);
   const gallery = $("gallery");
   const searchInput = $("searchInput");
-  const manufacturerFilter = $("manufacturerFilter");
   const seriesFilter = $("seriesFilter");
   const yearFilter = $("yearFilter");
   const sortFilter = $("sortFilter");
@@ -41,7 +40,7 @@
       .sort((a,b) => String(a).localeCompare(String(b), undefined, {numeric:true}));
   }
   function fillFilters() {
-    [[manufacturerFilter,"manufacturer","All Manufacturers"],[seriesFilter,"series","All Series"],[yearFilter,"year","All Years"]].forEach(([select,key,label]) => {
+    [[seriesFilter,"toy_line","All Toy Lines"],[yearFilter,"year","All Years"]].forEach(([select,key,label]) => {
       select.innerHTML = '<option value="">' + label + '</option>';
       uniqueValues(key).forEach(value => {
         const option = document.createElement("option");
@@ -66,8 +65,7 @@
     visibleFigures = sortItems(figures.filter(item => {
       const searchable = [item.name,item.manufacturer,item.toy_line,item.series,item.alternate_mode,item.year].filter(Boolean).join(" ").toLowerCase();
       return (!query || searchable.includes(query)) &&
-        (!manufacturerFilter.value || String(item.manufacturer) === manufacturerFilter.value) &&
-        (!seriesFilter.value || String(item.series) === seriesFilter.value) &&
+        (!seriesFilter.value || String(item.toy_line) === seriesFilter.value) &&
         (!yearFilter.value || String(item.year) === yearFilter.value);
     }));
     resultCount.textContent = visibleFigures.length + (visibleFigures.length === 1 ? " FIGURE" : " FIGURES");
@@ -149,12 +147,12 @@
       resultCount.textContent = "0 FIGURES";
     }
   }
-  [searchInput,manufacturerFilter,seriesFilter,yearFilter,sortFilter].forEach(control => {
+  [searchInput,seriesFilter,yearFilter,sortFilter].forEach(control => {
     control.addEventListener("input",renderGallery);
     control.addEventListener("change",renderGallery);
   });
   clearFilters.addEventListener("click",() => {
-    searchInput.value="";manufacturerFilter.value="";seriesFilter.value="";yearFilter.value="";sortFilter.value="name-asc";
+    searchInput.value="";seriesFilter.value="";yearFilter.value="";sortFilter.value="name-asc";
     renderGallery();
     if(visibleFigures.length) openDetails(0);
   });
