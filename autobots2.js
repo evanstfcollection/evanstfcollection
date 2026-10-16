@@ -57,7 +57,6 @@
       if (mode === "year-desc") return Number(b.year||0)-Number(a.year||0) || String(a.name||"").localeCompare(String(b.name||""));
       if (mode === "year-asc") return Number(a.year||0)-Number(b.year||0) || String(a.name||"").localeCompare(String(b.name||""));
       if (mode === "model-asc") return String(a.series||"").localeCompare(String(b.series||""),undefined,{numeric:true}) || String(a.name||"").localeCompare(String(b.name||""),undefined,{numeric:true});
-      if (mode === "manufacturer") return String(a.manufacturer||"").localeCompare(String(b.manufacturer||"")) || String(a.name||"").localeCompare(String(b.name||""));
       return String(a.name||"").localeCompare(String(b.name||""),undefined,{numeric:true});
     });
   }
