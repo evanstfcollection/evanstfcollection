@@ -1223,3 +1223,25 @@ body .hero {
   background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
 }
+
+
+/* Tune vertical frame fit: reduce excess top/bottom space and align the photo to the frame's inner aperture. */
+#collection-shell #detailMainImage {
+  aspect-ratio: var(--frame-aspect, .72) !important;
+}
+#collection-shell #detailMainImage::after {
+  background-size: 100% 100% !important;
+}
+#collection-shell #detailMainImage > img {
+  inset: 10.5% 13% 10.5% !important;
+  width: 74% !important;
+  height: 79% !important;
+  object-fit: fill !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage > img {
+    inset: 10.5% 13% 10.5% !important;
+    width: 74% !important;
+    height: 79% !important;
+  }
+}
