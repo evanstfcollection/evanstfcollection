@@ -686,3 +686,27 @@ body .hero {
   border-color: var(--red-bright) !important;
   box-shadow: 0 0 14px var(--red-glow) !important;
 }
+
+
+/* Final section-level transparency override: allow the page's Cybertron background to show through the full collection/gallery region. */
+#collection-shell,
+#collection-shell .collection-layout,
+#collection-shell .gallery-column,
+#collection-shell .gallery-heading,
+#collection-shell .gallery,
+#collection-shell #gallery,
+#collection-shell #gallery > .card,
+#collection-shell #gallery > .card > .card-image-wrap,
+#collection-shell #gallery > .card > .card-body {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+#collection-shell #gallery > .card {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+#collection-shell #gallery > .card:hover,
+#collection-shell #gallery > .card.selected {
+  border-color: var(--red-bright) !important;
+  box-shadow: 0 0 14px var(--red-glow) !important;
+}
