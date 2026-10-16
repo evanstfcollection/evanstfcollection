@@ -1718,3 +1718,9 @@ body .hero {
 #collection-shell .detail-hero-row .panel-heading {
   width: 100% !important;
 }
+
+
+/* Shift the honeycomb nameplate left to create a small gap from the main image frame. */
+#collection-shell .detail-hero-row .panel-heading {
+  transform: translateX(-14px) !important;
+}
