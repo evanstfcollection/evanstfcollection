@@ -1245,3 +1245,19 @@ body .hero {
     height: 79% !important;
   }
 }
+
+
+/* Final small vertical fit adjustment: bring the photo closer to the frame's inner top and bottom rails. */
+#collection-shell #detailMainImage > img {
+  inset: 8.5% 13% !important;
+  width: 74% !important;
+  height: 83% !important;
+  object-fit: fill !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage > img {
+    inset: 8.5% 13% !important;
+    width: 74% !important;
+    height: 83% !important;
+  }
+}
