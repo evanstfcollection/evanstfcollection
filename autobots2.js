@@ -13,9 +13,7 @@
   const detailSpecs = $("detailSpecs");
   const detailThumbs = $("detailThumbs");
   const detailNotes = $("detailNotes");
-  const detailCounter = $("detailCounter");
-  const previousFigure = $("previousFigure");
-  const nextFigure = $("nextFigure");
+
   const collectionCount = $("collectionCount");
   const resultCount = $("resultCount");
   const imageLightbox = $("imageLightbox");
@@ -72,7 +70,7 @@
     if (!visibleFigures.length) {
       gallery.innerHTML = '<div class="empty-state">No figures match the current search or filters.</div>';
       detailPanel.setAttribute("aria-hidden","true");
-      detailCounter.textContent = "—";
+
       return;
     }
     gallery.innerHTML = visibleFigures.map((item,index) => `
@@ -110,12 +108,10 @@
       detailThumbs.querySelectorAll("button").forEach(b => b.classList.toggle("active",b===button));
     }));
     detailNotes.textContent = item.notes || "No collection notes have been added yet.";
-    detailCounter.textContent = (selectedIndex+1) + " / " + visibleFigures.length;
-    previousFigure.disabled = visibleFigures.length < 2;
-    nextFigure.disabled = visibleFigures.length < 2;
+
     gallery.querySelectorAll(".card").forEach((card,i) => card.classList.toggle("selected",i===selectedIndex));
   }
-  function moveSelection(direction) { if (visibleFigures.length) openDetails(selectedIndex+direction); }
+
   async function loadFigures() {
     if (typeof supabaseClient === "undefined") {
       gallery.innerHTML = '<div class="empty-state">The collection connection could not start. Please check supabase-config.js.</div>';
@@ -154,8 +150,7 @@
     renderGallery();
     if(visibleFigures.length) openDetails(0);
   });
-  previousFigure.addEventListener("click",()=>moveSelection(-1));
-  nextFigure.addEventListener("click",()=>moveSelection(1));
+
   detailMainImage.addEventListener("click",() => {
     if(!selectedImageUrl) return;
     lightboxImage.src=selectedImageUrl;
