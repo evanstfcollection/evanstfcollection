@@ -2207,3 +2207,20 @@ body .hero {
     background-position: center center !important;
   }
 }
+
+
+/* Ensure the correct faction artwork is visible inside the metallic hero frame. */
+body .hero {
+  background-color: #030609 !important;
+  background-image: url('./images/primes-background_result.webp') !important;
+  background-position: center center !important;
+  background-size: 91.23% 87.58848% !important;
+  background-repeat: no-repeat !important;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-image: url('./images/primes-background_result.webp') !important;
+    background-position: center center !important;
+    background-size: 91.23% 87.58848% !important;
+  }
+}
