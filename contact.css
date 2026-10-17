@@ -409,7 +409,11 @@ body .contact-shell::after {
    so disable those overlays for this panel only. */
 html body main .contact-shell > .contact-panel {
   position: relative !important;
-  background: #05080c url("images/decorative%20elements/contact-frame.png") center / 100% 100% no-repeat !important;
+  background-color: transparent !important;
+  background-image: url("images/decorative%20elements/contact-frame.png") !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
   border: 0 !important;
   box-shadow: none !important;
   clip-path: none !important;
