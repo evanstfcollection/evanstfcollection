@@ -76,7 +76,7 @@
     gallery.innerHTML = visibleFigures.map((item,index) => `
       <article class="card${index === selectedIndex ? " selected" : ""}" data-index="${index}" tabindex="0" role="button" aria-label="View ${escapeHtml(item.name)}">
         <div class="card-image-wrap">${item.image ? `<img class="card-image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" onerror="this.style.opacity='0.15'">` : '<span class="image-placeholder">IMAGE<br>UNAVAILABLE</span>'}
-          <img class="card-frame" src="images/decorative%20elements/icon-frame-square.png" alt="" aria-hidden="true">
+          <img class="card-frame" src="images/decorative%20elements/icon-frame-square_result.webp" alt="" aria-hidden="true">
           <h4 class="card-name">${escapeHtml(item.name || "Unnamed figure")}</h4>
         </div>
       </article>`).join("");
