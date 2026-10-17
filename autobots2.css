@@ -2123,3 +2123,16 @@ body .hero {
 #collection-shell .detail-panel .notes-section .section-index {
   display: none !important;
 }
+
+
+/* Triple the vertical height of the info-window divider bars. */
+#collection-shell .detail-panel .info-section::before,
+#collection-shell .detail-panel .notes-section::before {
+  height: 72px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .info-section::before,
+  #collection-shell .detail-panel .notes-section::before {
+    height: 60px !important;
+  }
+}
