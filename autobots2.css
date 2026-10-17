@@ -1979,3 +1979,14 @@ body .hero {
     top: 105px !important;
   }
 }
+
+
+/* Bring the main image and nameplate back up to sit just below the approved lightbar. */
+#collection-shell .detail-panel .detail-hero-row {
+  margin-top: 174px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .detail-hero-row {
+    margin-top: 142px !important;
+  }
+}
