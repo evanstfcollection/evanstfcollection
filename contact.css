@@ -691,3 +691,37 @@ body .hero-metallic-frame {
     object-fit: fill !important;
   }
 }
+
+
+/* FINAL HERO FRAME DIMENSIONS — match the collection-page hero exactly. */
+body .hero {
+  height: 630px !important;
+  min-height: 630px !important;
+  max-height: 630px !important;
+}
+body .hero-metallic-frame {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+}
+body .hero::after {
+  height: 136px !important;
+  background-size: 100% 630px !important;
+  background-position: center bottom !important;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 495px !important;
+    min-height: 495px !important;
+    max-height: 495px !important;
+  }
+  body .hero-metallic-frame {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  body .hero::after {
+    height: 96px !important;
+    background-size: 100% 495px !important;
+  }
+}
