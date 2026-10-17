@@ -1843,3 +1843,9 @@ body .hero {
     height: 68px !important;
   }
 }
+
+
+/* Move the figure name down by two character heights within the honeycomb nameplate. */
+#collection-shell .detail-hero-row .panel-heading > div {
+  transform: translate(60px, 2em) !important;
+}
