@@ -3648,3 +3648,37 @@ body .detail-main-image::after {
   -webkit-mask: none !important;
   mask: none !important;
 }
+
+
+/* NAVIGATION CLEANUP — shared by every page.
+   Remove the dark slab behind the tabs while preserving each tab's own styling. */
+body .topbar .main-nav,
+body .site-header.unified-header .main-nav {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+}
+
+/* Keep the contact page's legacy .topbar navigation aligned with the same
+   shared sizing and tab treatment used across the collection pages. */
+body .topbar {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+}
+body .topbar .main-nav {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  gap: 7px !important;
+}
+body .topbar .nav-item {
+  margin: 0 !important;
+  min-width: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+}
