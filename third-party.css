@@ -2240,16 +2240,17 @@ body .hero {
 }
 
 
-/* Match the proven hero artwork dimensions used on Autobots, Decepticons, and Masterpiece Movie. */
+/* Final hero background fix: extend the artwork to the hero edges so no dark page background shows around it. */
 body .hero {
-  background-color: #030609 !important;
+  background-color: transparent !important;
   background-position: center center !important;
-  background-size: 91.23% 87.58848% !important;
+  background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
 }
 @media (max-width: 760px) {
   body .hero {
+    background-color: transparent !important;
     background-position: center center !important;
-    background-size: 91.23% 87.58848% !important;
+    background-size: 100% 100% !important;
   }
 }
