@@ -373,3 +373,20 @@ body .hero::after {
 @media (max-width: 520px) {
   .site-footer { padding: 16px 12px; font-size: 8px; }
 }
+
+
+/* Use a single frame around the contact form; the shell itself stays unframed. */
+body .contact-shell {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+  isolation: auto !important;
+}
+body .contact-shell::before,
+body .contact-shell::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
