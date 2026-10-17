@@ -3817,3 +3817,27 @@ body .topbar > .main-nav {
     transform: translateX(-50px) !important;
   }
 }
+
+
+/* NAV PLATE WIDTH +25% — preserve the right edge and expand the row leftward.
+   The logo and its images remain in place; only the navigation row grows. */
+body .topbar > .main-nav {
+  flex-basis: 65% !important;
+  width: 65% !important;
+  margin-left: auto !important;
+  margin-right: 7.5% !important;
+}
+@media (max-width: 1100px) {
+  body .topbar > .main-nav {
+    flex-basis: 72.5% !important;
+    width: 72.5% !important;
+    margin-right: 3% !important;
+  }
+}
+@media (max-width: 700px) {
+  body .topbar > .main-nav {
+    flex-basis: 75% !important;
+    width: 75% !important;
+    margin-right: 2% !important;
+  }
+}
