@@ -435,3 +435,17 @@ html body main .contact-shell > .contact-panel {
   margin-left: -12.5% !important;
   margin-right: -12.5% !important;
 }
+
+
+/* Contact window refinements requested: taller frame and content shifted right. */
+html body main .contact-shell > .contact-panel {
+  min-height: 125% !important;
+  box-sizing: border-box !important;
+  padding-left: 49px !important;
+  background-size: 100% 100% !important;
+}
+html body main .contact-shell > .contact-panel h2,
+html body main .contact-shell > .contact-panel > p,
+html body main .contact-shell > .contact-panel form {
+  margin-left: 25px !important;
+}
