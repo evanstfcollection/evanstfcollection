@@ -727,16 +727,15 @@ body .hero::after {
 }
 
 
-/* FINAL CONTACT HERO CORRECTION
-   Keep the Contact hero the same fixed dimensions as the other collection pages.
-   The background is clipped to the hero bounds; only the frame image fills the box. */
+/* MATCH THE LIVE COLLECTION HERO RULES
+   Use the same dimensions and frame inset as the collection pages. */
 html body main > section.hero {
   position: relative !important;
   box-sizing: border-box !important;
   width: 100% !important;
-  height: 630px !important;
-  min-height: 630px !important;
-  max-height: 630px !important;
+  height: 620px !important;
+  min-height: 620px !important;
+  max-height: 620px !important;
   aspect-ratio: auto !important;
   padding: 0 !important;
   overflow: hidden !important;
@@ -744,14 +743,14 @@ html body main > section.hero {
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
-  border: 0 !important;
 }
 html body main > section.hero > .hero-metallic-frame {
   position: absolute !important;
-  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
   display: block !important;
   width: 100% !important;
-  height: 100% !important;
+  height: 90.8% !important;
   max-width: none !important;
   max-height: none !important;
   object-fit: fill !important;
@@ -764,9 +763,11 @@ html body main > section.hero > .hero-shade {
 }
 @media (max-width: 760px) {
   html body main > section.hero {
-    height: 495px !important;
-    min-height: 495px !important;
-    max-height: 495px !important;
-    aspect-ratio: auto !important;
+    height: 420px !important;
+    min-height: 420px !important;
+    max-height: 420px !important;
+  }
+  html body main > section.hero > .hero-metallic-frame {
+    height: 90.8% !important;
   }
 }
