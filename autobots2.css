@@ -2027,3 +2027,14 @@ body .hero {
     margin-top: 205px !important;
   }
 }
+
+
+/* Place alternate figure images directly beneath the main image frame. */
+#collection-shell .detail-panel .detail-thumbs {
+  margin-top: 8px !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+#collection-shell .detail-panel .detail-hero-row {
+  margin-bottom: 8px !important;
+}
