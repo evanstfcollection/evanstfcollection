@@ -1134,7 +1134,7 @@ body .detail-main-image::after {
   position: absolute;
   z-index: -2;
   inset: 0;
-  background: url("images/autobots-background_result.webp") left center / cover no-repeat;
+  background: url("images/Optimus%20Prime%20Over%20the%20Orbital%20City.png") left center / cover no-repeat;
   opacity: .95;
 }
 .home-hero::after {
