@@ -200,7 +200,7 @@
       display: grid;
       place-items: center;
       background:
-        url("images/autobots-background.png") center / cover no-repeat;
+        url("images/autobots-background_result.webp") center / cover no-repeat;
       border-bottom: 2px solid var(--red);
     }
 
@@ -3172,7 +3172,7 @@
   background-color: #111820;
   background-image:
     linear-gradient(rgba(5, 9, 14, .22), rgba(5, 9, 14, .22)),
-    url("images/decorative%20elements/panel-background-02.png");
+    url("images/decorative%20elements/panel-background-02_result.webp");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -3307,7 +3307,7 @@
   background-color: transparent !important;
   background-image:
     linear-gradient(rgba(5, 9, 14, .12), rgba(5, 9, 14, .12)),
-    url("images/decorative%20elements/panel-background-02.png") !important;
+    url("images/decorative%20elements/panel-background-02_result.webp") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
@@ -3540,8 +3540,8 @@ body[data-cyber-theme="autobots"] .collection-shell {
   position: relative !important;
   padding: 22px 0 48px !important;
   background:
-    url("images/decorative%20elements/edge-strip-01.png") left 18px top 16px / 12px auto repeat-y,
-    url("images/decorative%20elements/edge-strip-02.png") right 18px top 16px / 12px auto repeat-y,
+    url("images/decorative%20elements/edge-strip-01_result.webp") left 18px top 16px / 12px auto repeat-y,
+    url("images/decorative%20elements/edge-strip-02_result.webp") right 18px top 16px / 12px auto repeat-y,
     linear-gradient(180deg, rgba(5, 12, 19, .48), rgba(1, 4, 8, .88)) !important;
 }
 body[data-cyber-theme="autobots"] .collection-heading {
@@ -3549,7 +3549,7 @@ body[data-cyber-theme="autobots"] .collection-heading {
   min-height: 76px !important;
   padding: 14px 18px !important;
   background:
-    url("images/decorative%20elements/panel-background-02.png") center / 100% 100% no-repeat,
+    url("images/decorative%20elements/panel-background-02_result.webp") center / 100% 100% no-repeat,
     linear-gradient(90deg, #171b20, #05090e) !important;
   border: 0 !important;
   clip-path: none !important;
@@ -3563,7 +3563,7 @@ body[data-cyber-theme="autobots"] .gallery .card {
   position: relative !important;
   padding: 10px !important;
   background:
-    url("images/decorative%20elements/icon-frame-square.png") center / 100% 100% no-repeat,
+    url("images/decorative%20elements/icon-frame-square_result.webp") center / 100% 100% no-repeat,
     linear-gradient(180deg, rgba(22,27,31,.98), rgba(3,7,11,.99)) !important;
   border: 0 !important;
   clip-path: none !important;
@@ -3578,7 +3578,7 @@ body[data-cyber-theme="autobots"] .gallery .card-image {
   aspect-ratio: 1 / 1 !important;
   object-fit: contain !important;
   background:
-    url("images/decorative%20elements/panel-background-01.png") center / cover no-repeat,
+    url("images/decorative%20elements/panel-background-01_result.webp") center / cover no-repeat,
     rgba(2,6,10,.92) !important;
 }
 body[data-cyber-theme="autobots"] .gallery .card-body {
@@ -3593,7 +3593,7 @@ body[data-cyber-theme="autobots"] .gallery .card p {
 }
 body[data-cyber-theme="autobots"] .gallery .card button {
   background:
-    url("images/decorative%20elements/rusted-panel-plate.png") center / 100% 100% no-repeat,
+    url("images/decorative%20elements/rusted-panel-plate_result.webp") center / 100% 100% no-repeat,
     linear-gradient(180deg, #5c1a16, #160809) !important;
   border: 0 !important;
   min-height: 36px !important;
@@ -3604,8 +3604,8 @@ body[data-cyber-theme="autobots"] .detail-panel {
   top: 18px !important;
   padding: 24px 22px !important;
   background:
-    url("images/decorative%20elements/info-window.png") center / 100% 100% no-repeat,
-    url("images/decorative%20elements/panel-background-02.png") center / cover no-repeat,
+    url("images/decorative%20elements/info-window_result.webp") center / 100% 100% no-repeat,
+    url("images/decorative%20elements/panel-background-02_result.webp") center / cover no-repeat,
     rgba(4,8,12,.98) !important;
   border: 0 !important;
   clip-path: none !important;
@@ -3614,7 +3614,7 @@ body[data-cyber-theme="autobots"] .detail-panel {
 body[data-cyber-theme="autobots"] .detail-main-image {
   min-height: 280px !important;
   background:
-    url("images/decorative%20elements/panel-background-01.png") center / cover no-repeat,
+    url("images/decorative%20elements/panel-background-01_result.webp") center / cover no-repeat,
     rgba(2,5,8,.95) !important;
   border: 0 !important;
   box-shadow: inset 0 0 0 1px rgba(208,145,77,.42), 0 5px 12px rgba(0,0,0,.8) !important;
@@ -3631,7 +3631,7 @@ body[data-cyber-theme="autobots"] .detail-title {
 }
 body[data-cyber-theme="autobots"] .detail-thumbs button {
   background:
-    url("images/decorative%20elements/icon-frame-square.png") center / 100% 100% no-repeat,
+    url("images/decorative%20elements/icon-frame-square_result.webp") center / 100% 100% no-repeat,
     #05090d !important;
   padding: 5px !important;
   border: 0 !important;
@@ -3647,7 +3647,7 @@ body[data-cyber-theme="autobots"] .detail-thumbs img {
 }
 body[data-cyber-theme="autobots"] .notes {
   background:
-    url("images/decorative%20elements/panel-background-01.png") center / cover no-repeat,
+    url("images/decorative%20elements/panel-background-01_result.webp") center / cover no-repeat,
     rgba(3,7,11,.9) !important;
   border: 0 !important;
   box-shadow: inset 0 0 0 1px rgba(195,117,57,.45) !important;
@@ -3655,7 +3655,7 @@ body[data-cyber-theme="autobots"] .notes {
 }
 body[data-cyber-theme="autobots"] .detail-navigation button {
   background:
-    url("images/decorative%20elements/rusted-panel-plate.png") center / 100% 100% no-repeat,
+    url("images/decorative%20elements/rusted-panel-plate_result.webp") center / 100% 100% no-repeat,
     #090d11 !important;
   border: 0 !important;
   padding: 11px 15px !important;
