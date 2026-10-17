@@ -44,10 +44,14 @@
     <div class="contact-panel">
       <h2>CONTACT</h2>
       <p>Use the communications terminal below to get in touch.</p>
-      <form>
-        <label>Name<input type="text" name="name"></label>
-        <label>Email<input type="email" name="email"></label>
-        <label>Message<textarea name="message" rows="7"></textarea></label>
+      <form action="https://formsubmit.co/evanstfcollection@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New message from Evan’s TF Collection contact page">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://tf.maketheripple.com/contact.html?sent=1">
+        <label>Name<input type="text" name="name" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Message<textarea name="message" rows="7" required></textarea></label>
         <button type="submit">SEND MESSAGE</button>
       </form>
     </div>
