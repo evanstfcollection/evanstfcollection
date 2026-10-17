@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Homepage gallery: seamless, slow auto-scroll with pause controls.
   const gallery = document.querySelector(".home-personal-gallery-grid");
-  if (gallery && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if (gallery) {
     const originalItems = Array.from(gallery.children);
     if (originalItems.length) {
       originalItems.forEach((item) => {
@@ -37,10 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let paused = false;
       let lastTime = 0;
       const speed = 22; // pixels per second
-      gallery.addEventListener("mouseenter", () => { paused = true; });
-      gallery.addEventListener("mouseleave", () => { paused = false; });
-      gallery.addEventListener("focusin", () => { paused = true; });
-      gallery.addEventListener("focusout", () => { paused = false; });
+      // Keep moving while the pointer is over the gallery; pause only for touch interaction.
       gallery.addEventListener("touchstart", () => { paused = true; }, { passive: true });
       gallery.addEventListener("touchend", () => { paused = false; }, { passive: true });
 
