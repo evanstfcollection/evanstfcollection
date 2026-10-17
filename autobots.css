@@ -1,3676 +1,2183 @@
- @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
-    :root {
-      --red: #ff1b1b;
-      --red-bright: #ff4545;
-      --blue: #1d8cff;
-      --cyan: #00cfff;
-      --black: #030609;
-      --panel: rgba(5, 10, 16, .94);
-      --text: #f5f7fa;
-      --muted: #b8c0cb;
-    }
+:root{color-scheme:dark;--red:#d62832;--red-bright:#ff5159;--red-glow:rgba(255,40,50,.22);--ink:#070a0e;--panel:#0d1218;--panel2:#111922;--line:#303b46;--steel:#8c9aa6;--text:#f1f4f7;--muted:#a2adb7}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{margin:0;min-height:100vh;color:var(--text);font-family:'Orbitron',Arial,sans-serif;background:#070a0e url('images/decorative%20elements/autobots-background_result.webp') center top/cover fixed no-repeat;position:relative}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(3,6,10,.42),rgba(3,6,10,.82) 65%,rgba(3,6,10,.94))}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}button,select{cursor:pointer}
+.site-header{position:relative;z-index:5;display:flex;align-items:center;gap:22px;padding:12px clamp(14px,3vw,42px);min-height:94px;background:linear-gradient(180deg,#202831,#0b1016);border-bottom:3px solid #59636d;box-shadow:0 8px 24px #000b}
+.brand{display:flex;align-items:center;justify-content:center;flex:0 0 190px;min-width:0}.brand img{display:block;width:100%;max-width:190px;height:66px;object-fit:contain}
+.main-nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;flex:1}
+.nav-item{min-height:62px;display:flex;align-items:center;justify-content:center;gap:9px;padding:8px 10px;background:linear-gradient(145deg,#1c252e,#080c11);border:1px solid #45515c;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);font-size:clamp(9px,.8vw,12px);font-weight:700;text-transform:uppercase;letter-spacing:.04em;transition:background .2s,border-color .2s,transform .2s}
+.nav-item img{width:31px;height:31px;object-fit:contain;flex:0 0 auto}.nav-item:hover,.nav-item.active{background:linear-gradient(145deg,#5b151b,#151014);border-color:var(--red-bright);box-shadow:inset 0 0 0 1px #ff515944,0 0 15px var(--red-glow)}
+.hero{position:relative;isolation:isolate;min-height:clamp(210px,26vw,340px);display:flex;align-items:center;overflow:hidden;background:#10151b url('images/decorative%20elements/autobots-background_result.webp') center 42%/cover no-repeat;border-bottom:1px solid #7b242b}
+.hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(3,6,10,.84),rgba(3,6,10,.42) 65%,rgba(3,6,10,.55))}
+.hero-content{width:min(1500px,100%);margin:0 auto;padding:36px clamp(20px,5vw,76px);display:flex;align-items:center;gap:clamp(20px,4vw,55px)}
+.hero-symbol{width:clamp(90px,12vw,160px);height:clamp(90px,12vw,160px);object-fit:contain;filter:drop-shadow(0 0 18px #ff5159aa)}
+.eyebrow{margin:0 0 8px;color:#ff5159;font-size:10px;font-weight:700;letter-spacing:.22em}
+h1,h2,h3,p{margin-top:0}h1{margin-bottom:8px;font-size:clamp(26px,4vw,52px);font-weight:900;letter-spacing:.045em;text-shadow:0 3px 15px #000} .hero-subtitle{margin:0;color:#d6dce1;letter-spacing:.18em;text-transform:uppercase;font-size:clamp(10px,1vw,14px)}
+.collection-area{width:min(1500px,100%);margin:0 auto;padding:clamp(20px,3vw,42px) clamp(14px,3vw,38px) 48px}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px;padding:0 0 18px;border-bottom:1px solid #ffffff25}.section-heading h2{font-size:clamp(20px,2.2vw,30px);margin:0 0 8px}.section-intro{margin:0;color:var(--muted);font-family:Arial,sans-serif;font-size:14px}.collection-count{font-size:10px;letter-spacing:.12em;color:#b8c3cd;text-align:right}
+.controls-panel{position:relative;padding:18px 20px 20px;margin-bottom:28px;background:linear-gradient(140deg,rgba(23,31,39,.97),rgba(7,10,14,.97));border:1px solid #4c5964;box-shadow:0 10px 25px #0008,inset 0 0 0 4px #080c11}
+.controls-title{display:flex;align-items:center;gap:10px;margin-bottom:16px}.controls-title h3,.gallery-heading h3{font-size:12px;letter-spacing:.16em;margin:0}.status-light{width:8px;height:8px;background:var(--red-bright);border-radius:50%;box-shadow:0 0 10px var(--red-bright)}
+.controls-grid{display:grid;grid-template-columns:minmax(190px,1.5fr) repeat(3,minmax(130px,1fr)) minmax(145px,1fr) auto;gap:12px;align-items:end}
+.control{display:flex;flex-direction:column;gap:7px;min-width:0}.control>span{font-size:9px;letter-spacing:.1em;color:#b8c3cc;text-transform:uppercase}
+.control input,.control select{width:100%;min-width:0;height:42px;padding:0 11px;color:#f4f6f8;background:#070b10;border:1px solid #46525d;border-radius:0;outline:none;font-size:11px}.control input:focus,.control select:focus{border-color:var(--red-bright);box-shadow:0 0 0 2px #ff515922}
+.clear-button{height:42px;padding:0 17px;color:#fff;background:#5b151b;border:1px solid var(--red);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.clear-button:hover{background:#5b151b}
+.collection-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(380px,.95fr);align-items:start;gap:24px}
+.gallery-column{min-width:0}.gallery-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 14px;padding:0 0 12px;border-bottom:1px solid #ffffff2b}.gallery-heading span{font-size:10px;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.card{min-width:0;position:relative;overflow:hidden;background:linear-gradient(150deg,#1a222b,#080b10);border:1px solid #3c4853;box-shadow:0 8px 17px #0008;cursor:pointer;transition:transform .18s,border-color .18s,box-shadow .18s}
+.card:hover,.card.selected{transform:translateY(-2px);border-color:var(--red-bright);box-shadow:0 8px 22px #000b,0 0 14px var(--red-glow)}
+.card-image-wrap{height:clamp(130px,17vw,230px);display:flex;align-items:center;justify-content:center;padding:10px;background:radial-gradient(ellipse at center,#26313c 0,#10161d 60%,#080b0f 100%);border-bottom:1px solid #36414b}
+.card-image{width:100%;height:100%;object-fit:contain;mix-blend-mode:normal;background:transparent}
+.card-body{padding:12px}.card-body h4{margin:0 0 8px;font-size:clamp(10px,.95vw,13px);line-height:1.4;overflow-wrap:anywhere}.card-meta{margin:0 0 5px;color:#aab5bf;font:11px/1.45 Arial,sans-serif;overflow-wrap:anywhere}.card-link{margin-top:12px;padding-top:9px;border-top:1px solid #ffffff1a;color:#ff5159;font-size:9px;font-weight:700;letter-spacing:.08em}
+.empty-state{grid-column:1/-1;padding:32px 18px;text-align:center;color:var(--muted);background:#0a0e13;border:1px solid #303b46;font:14px Arial,sans-serif}
+.detail-panel{position:relative;min-width:0;padding:20px;background:linear-gradient(145deg,rgba(24,32,41,.98),rgba(5,8,12,.99));border:1px solid #66727c;box-shadow:0 15px 35px #000b,inset 0 0 0 5px #090d12}
+.detail-panel[aria-hidden="true"]{opacity:.94}.panel-heading{display:flex;align-items:center;gap:12px;padding:0 0 15px;margin-bottom:16px;border-bottom:1px solid #ffffff25}.panel-mark{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;background:#48151b;border:1px solid var(--red-bright);color:#fff;font-size:23px;font-weight:900}.panel-heading .eyebrow{margin-bottom:5px}.panel-heading h2{font-size:clamp(15px,1.5vw,22px);margin:0;line-height:1.3;overflow-wrap:anywhere}
+.detail-image-frame{position:relative;display:flex;align-items:center;justify-content:center;height:clamp(230px,30vw,390px);padding:12px;overflow:hidden;background:radial-gradient(ellipse at center,#26323d 0,#121920 54%,#070a0e 100%);border:1px solid #3e4b56;cursor:zoom-in}
+.detail-image-frame img{width:100%;height:100%;object-fit:contain;display:block;background:transparent}.image-placeholder{color:#7f8c98;text-align:center;font-size:12px;letter-spacing:.2em;line-height:2}.image-placeholder span{font-size:9px;color:#53616e}
+.detail-thumbs{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}.detail-thumbs:empty{display:none}.detail-thumbs button{width:58px;height:58px;padding:4px;background:#090d12;border:1px solid #4a5661}.detail-thumbs button.active{border-color:var(--red-bright)}.detail-thumbs img{width:100%;height:100%;object-fit:contain}
+.info-section,.notes-section{margin-top:19px;padding-top:16px;border-top:1px solid #ffffff25}.info-section h3,.notes-section h3{display:flex;align-items:center;gap:9px;margin:0 0 13px;font-size:11px;letter-spacing:.13em}.section-index{color:#ff656c}
+.detail-specs{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.spec{padding:9px 0;border-bottom:1px solid #ffffff13;min-width:0}.spec strong{display:block;margin-bottom:5px;color:#a8b4bf;font-size:9px;letter-spacing:.06em;text-transform:uppercase}.spec span{display:block;color:#f0f3f6;font:13px/1.4 Arial,sans-serif;overflow-wrap:anywhere}.muted,.notes-copy{color:#b4bec7;font:13px/1.65 Arial,sans-serif}.notes-copy{white-space:pre-wrap;margin:0}
+.detail-navigation{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:20px;padding-top:14px;border-top:1px solid #ffffff25}.detail-navigation button{padding:10px 12px;background:#141b22;border:1px solid #53606b;color:#fff;font-size:9px;font-weight:700;letter-spacing:.06em}.detail-navigation button:not(:disabled):hover{border-color:var(--red-bright)}.detail-navigation button:disabled{opacity:.35;cursor:not-allowed}.detail-navigation span{font-size:10px;color:#c4ccd3}
+.image-lightbox{width:min(92vw,1100px);max-width:92vw;max-height:92vh;padding:48px 18px 18px;background:#070a0e;border:1px solid #65717c}.image-lightbox::backdrop{background:#000d}.image-lightbox img{display:block;max-width:100%;max-height:78vh;margin:auto;object-fit:contain}.lightbox-close{position:absolute;top:8px;right:12px;width:34px;height:34px;color:#fff;background:#251014;border:1px solid var(--red-bright);font-size:22px}
+.site-footer{display:flex;justify-content:space-between;gap:16px;padding:20px clamp(14px,3vw,42px);background:#05080c;border-top:1px solid #3e4953;color:#86939e;font-size:9px;letter-spacing:.14em}.site-footer b{color:#75d59b}
+@media(max-width:1100px){.site-header{align-items:flex-start;flex-direction:column;gap:10px}.brand{flex-basis:auto;justify-content:flex-start}.brand img{height:52px}.main-nav{width:100%;grid-template-columns:repeat(6,minmax(0,1fr))}.nav-item{flex-direction:column;gap:4px;text-align:center}.nav-item img{width:25px;height:25px}.controls-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.search-control{grid-column:span 2}.collection-layout{grid-template-columns:minmax(0,1fr) minmax(340px,.95fr)}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){body{background-attachment:scroll}.site-header{padding:10px 12px}.main-nav{grid-template-columns:repeat(3,minmax(0,1fr))}.nav-item{min-height:58px;font-size:9px}.hero{min-height:205px}.hero-content{gap:16px;padding:26px 18px}.hero-symbol{width:76px;height:76px}.collection-layout{grid-template-columns:1fr}.detail-panel{grid-row:1}.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.card-image-wrap{height:clamp(105px,24vw,175px)}.card-body{padding:9px}.card-meta{font-size:10px}.collection-area{padding-top:22px}.detail-image-frame{height:clamp(250px,65vw,420px)}}
+@media(max-width:520px){.section-heading{align-items:flex-start;flex-direction:column}.collection-count{text-align:left}.controls-grid{grid-template-columns:1fr 1fr}.search-control{grid-column:1/-1}.clear-button{width:100%}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.card-image-wrap{height:clamp(145px,42vw,220px)}.detail-panel{padding:14px}.detail-specs{grid-template-columns:1fr 1fr;gap:0 10px}.detail-navigation button{padding:9px 7px;font-size:8px}.site-footer{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 
-    * { box-sizing: border-box; }
 
-    html {
-  scroll-behavior: smooth;
-  scrollbar-gutter: stable;
+/* Match the established Autobots navigation geometry and styling. */
+body .topbar {
+  position:relative; z-index:100; min-height:88px; height:auto;
+  display:flex; align-items:stretch; flex-wrap:nowrap;
+  padding:7px 18px 7px 20px; gap:0;
+  background:rgba(2,5,8,.97); border:0; border-bottom:2px solid rgba(0,207,255,.65);
+  box-shadow:0 5px 18px rgba(0,0,0,.85);
+}
+body .site-logo {
+  width:205px; flex:0 0 205px; display:flex; align-items:center; justify-content:center; margin-right:10px;
+}
+body .site-logo img { width:190px; max-height:82px; height:auto; object-fit:contain; display:block; }
+body .topbar .main-nav {
+  flex:1; min-width:0; width:auto; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:7px;
+}
+body .topbar .nav-item {
+  --nav-color:#d62832; --nav-glow:rgba(255,27,27,.42);
+  position:relative; min-width:0; min-height:0; display:grid!important;
+  grid-template-columns:40px minmax(0,1fr) 40px!important; align-items:center!important;
+  justify-items:stretch!important; flex-direction:row!important; gap:0!important;
+  padding:8px 10px!important; color:#fff; text-decoration:none; text-align:center;
+  background:radial-gradient(ellipse at 18% 20%,rgba(255,255,255,.045),transparent 24%),linear-gradient(180deg,rgba(17,23,29,.98),rgba(4,8,12,.98));
+  border:0; overflow:hidden; box-shadow:0 3px 7px rgba(0,0,0,.95),0 0 6px var(--nav-glow);
+  filter:drop-shadow(0 3px 7px rgba(0,0,0,.95)); transition:.2s ease;
+}
+body .topbar .nav-item::before { content:none!important; display:none!important; }
+body .topbar .nav-item::after { content:none!important; display:none!important; }
+body .topbar .nav-item img {
+  grid-column:1!important; grid-row:1!important; width:40px!important; height:40px!important;
+  min-width:40px!important; min-height:40px!important; max-width:40px!important; max-height:40px!important;
+  margin:0!important; justify-self:center!important; object-fit:contain!important; display:block!important;
+}
+body .topbar .nav-item span {
+  grid-column:2!important; grid-row:1!important; justify-self:center!important; margin:0!important; padding:0!important;
+  white-space:nowrap!important; text-align:center!important; font-family:"Orbitron",Arial,sans-serif!important;
+  font-size:clamp(10px,1vw,16px)!important; font-weight:800!important; line-height:1.05!important; letter-spacing:.5px!important;
+}
+body .topbar .nav-item.autobots { --nav-color:#d62832; --nav-glow:rgba(255,27,27,.46); }
+body .topbar .nav-item.decepticons { --nav-color:#9a2cff; --nav-glow:rgba(154,44,255,.46); }
+body .topbar .nav-item.masterpiece { --nav-color:#ffc21c; --nav-glow:rgba(255,194,28,.42); }
+body .topbar .nav-item.third-party { --nav-color:#00d8ff; --nav-glow:rgba(0,216,255,.46); }
+body .topbar .nav-item.primes { --nav-color:#1d8cff; --nav-glow:rgba(29,140,255,.46); }
+body .topbar .nav-item.contact { --nav-color:#1856a8; --nav-glow:rgba(24,86,168,.42); }
+body .topbar .nav-item:hover, body .topbar .nav-item.active { transform:translateY(-1px); box-shadow:0 3px 7px rgba(0,0,0,.95),0 0 10px var(--nav-glow),inset 0 -2px var(--nav-color); }
+@media(max-width:1100px) {
+  body .topbar { flex-direction:column; align-items:stretch; padding:5px; min-height:72px; flex-wrap:wrap; }
+  body .site-logo { width:100%; flex:0 0 100%; height:58px; min-height:58px; margin:0; }
+  body .site-logo img { width:145px; height:auto; max-height:58px; }
+  body .topbar .main-nav { width:100%; grid-template-columns:repeat(3,minmax(0,1fr)); gap:4px; }
+  body .topbar .nav-item { padding:5px!important; }
+  body .topbar .nav-item img { width:28px!important;height:28px!important;min-width:28px!important;min-height:28px!important;max-width:28px!important;max-height:28px!important; }
+  body .topbar .nav-item span { font-size:8px!important; }
+}
+@media(max-width:520px) {
+  body .topbar .nav-item { grid-template-columns:28px minmax(0,1fr) 28px!important; }
 }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 50% 15%, rgba(0, 113, 255, .18), transparent 35%),
-        linear-gradient(180deg, #020407, #07101a 45%, #020407);
-      font-family: "Orbitron", Arial, sans-serif;
-    }
+/* The shared expansion panel is positioned and toggled by nav-expansion.js. */
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .22;
-      background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
 
-    /* TOP NAVIGATION
-       The bar now scrolls away naturally instead of remaining fixed/sticky. */
-    .topbar {
-      position: relative;
-      z-index: 100;
-      min-height: 88px;
-      display: flex;
-      align-items: stretch;
-      padding: 7px 18px 7px 20px;
-      background: rgba(2, 5, 8, .97);
-      border-bottom: 2px solid rgba(0, 207, 255, .65);
-      box-shadow: 0 5px 18px rgba(0,0,0,.85);
-    }
-
-    .site-logo {
-      width: 205px;
-      flex: 0 0 205px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 10px;
-    }
-
-    .site-logo img {
-      width: 190px;
-      max-height: 82px;
-      object-fit: contain;
-      display: block;
-    }
-
-    .main-nav {
-      flex: 1;
-      min-width: 0;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 7px;
-    }
-
-    .nav-item {
-      --nav-color: #00cfff;
-      --nav-glow: rgba(0, 207, 255, .45);
-      position: relative;
-      min-width: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 8px 10px;
-      color: white;
-      text-decoration: none;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
-      border: 0;
-      overflow: hidden;
-      transition: .2s ease;
-      filter:
-        drop-shadow(0 3px 7px rgba(0,0,0,.95))
-        drop-shadow(0 0 6px var(--nav-glow));
-    }
-
-    /* The same Cybernetic Border artwork is used here, scaled down for navigation. */
-    .nav-item::before {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      inset: 0;
-      background: var(--nav-color);
-      -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-      mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-      filter:
-        drop-shadow(0 0 3px var(--nav-color))
-        drop-shadow(0 0 8px var(--nav-glow));
-      pointer-events: none;
-    }
-
-    .nav-item::after {
-      content: "";
-      position: absolute;
-      z-index: 0;
-      inset: 5px;
-      background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
-      clip-path: polygon(
-        0 13px, 13px 0, calc(100% - 13px) 0, 100% 13px,
-        100% calc(100% - 13px), calc(100% - 13px) 100%,
-        13px 100%, 0 calc(100% - 13px)
-      );
-      pointer-events: none;
-    }
-
-    .nav-item img,
-    .nav-item span {
-      position: relative;
-      z-index: 2;
-    }
-
-    .nav-item img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      flex: 0 0 auto;
-    }
-
-    .nav-item span {
-      font-size: clamp(10px, 1vw, 16px);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: .5px;
-    }
-
-    .nav-item:hover,
-    .nav-item.active {
-      transform: translateY(-1px);
-    }
-
-    .nav-item:hover::before,
-    .nav-item.active::before {
-      filter:
-        drop-shadow(0 0 4px var(--nav-color))
-        drop-shadow(0 0 13px var(--nav-glow));
-    }
-
-    .nav-item.autobots {
-      --nav-color: #ff1b1b;
-      --nav-glow: rgba(255,27,27,.65);
-    }
-
-    .nav-item.decepticons {
-      --nav-color: #9a2cff;
-      --nav-glow: rgba(154,44,255,.65);
-    }
-
-    .nav-item.masterpiece {
-      --nav-color: #ffc21c;
-      --nav-glow: rgba(255,194,28,.60);
-    }
-
-    .nav-item.third-party {
-      --nav-color: #00d8ff;
-      --nav-glow: rgba(0,216,255,.65);
-    }
-
-    .nav-item.primes {
-      --nav-color: #1d8cff;
-      --nav-glow: rgba(29,140,255,.65);
-    }
-
-    .nav-item.contact {
-      --nav-color: #1856a8;
-      --nav-glow: rgba(24,86,168,.60);
-    }
-
-    /* HERO */
-    .hero {
-      position: relative;
-      height: min(330px, 36.23vw);
-      min-height: 230px;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      background:
-        url("images/autobots-background_result.webp") center / cover no-repeat;
-      border-bottom: 2px solid var(--red);
-    }
-
-    .hero .hero-overlay,
-    .hero .hero-copy {
-      display: none;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 50%, rgba(255, 20, 20, .3), transparent 27%),
-        radial-gradient(circle at 80% 35%, rgba(255, 90, 20, .18), transparent 30%),
-        linear-gradient(90deg, rgba(0,0,0,.55), transparent 35%, transparent 65%, rgba(0,0,0,.55));
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      text-shadow: 0 4px 15px #000;
-    }
-
-    .hero-faction-icon {
-      width: 105px;
-      height: 105px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 18px rgba(255, 25, 25, .8));
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(42px, 6vw, 88px);
-      letter-spacing: -2px;
-      font-weight: 900;
-      color: #fff;
-      -webkit-text-stroke: 2px #10151b;
-      text-shadow:
-        0 0 5px #fff,
-        0 0 14px var(--red),
-        5px 5px 0 #111;
-    }
-
-    .hero p {
-      margin: 4px 0 0;
-      color: #fff;
-      font-size: clamp(14px, 1.5vw, 23px);
-      font-weight: 700;
-    }
-
-    /* COLLECTION HEADER */
-    .collection-shell {
-      width: min(1500px, calc(100% - 30px));
-      margin: 0 auto;
-      padding: 18px 0 40px;
-    }
-
-    .collection-heading {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 10px 12px;
-      margin-bottom: 12px;
-      background: linear-gradient(90deg, rgba(8,14,21,.98), rgba(3,7,11,.92));
-      border: 2px solid var(--red);
-      box-shadow:
-        0 5px 12px rgba(0,0,0,.9),
-        0 0 14px rgba(255,27,27,.35),
-        inset 0 0 0 1px rgba(255,70,70,.12);
-      clip-path: polygon(1% 0, 24% 0, 26% 12%, 100% 12%, 100% 88%, 26% 88%, 24% 100%, 1% 100%);
-    }
-
-    .collection-heading h2 {
-      margin: 0;
-      padding: 8px 22px;
-      min-width: 330px;
-      font-size: 21px;
-      color: white;
-      letter-spacing: 1px;
-    }
-
-    .filters {
-      flex: 1;
-      display: grid;
-      grid-template-columns: minmax(180px, 1.5fr) repeat(3, minmax(130px, 1fr)) 75px;
-      gap: 8px;
-    }
-
-    .filters input,
-    .filters select,
-    .filters button {
-      min-height: 38px;
-      border: 1px solid #557080;
-      color: white;
-      background: #050b11;
-      font: inherit;
-      font-size: 11px;
-      padding: 7px 10px;
-      box-shadow: 0 3px 7px rgba(0,0,0,.75);
-    }
-
-    .filters button {
-      cursor: pointer;
-      border-color: var(--red);
-    }
-
-    .search {
-      display: flex;
-      align-items: center;
-      border: 1px solid #557080;
-      background: #050b11;
-      box-shadow: 0 3px 7px rgba(0,0,0,.75);
-    }
-
-    .search span {
-      padding-left: 10px;
-      font-size: 23px;
-      color: white;
-    }
-
-    .search input {
-      width: 100%;
-      border: 0;
-      outline: 0;
-      box-shadow: none;
-    }
-
-    /* COLLECTION CARDS */
-    .content-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.65fr) minmax(380px, .95fr);
-      gap: 14px;
-      align-items: start;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .card {
-      overflow: hidden;
-      background: linear-gradient(180deg, rgba(11,17,24,.98), rgba(2,6,10,.98));
-      border: 2px solid var(--red);
-      box-shadow:
-        0 5px 10px rgba(0,0,0,.95),
-        0 0 10px rgba(255, 27, 27, .28),
-        inset 0 0 0 1px rgba(255,70,70,.12);
-      clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow:
-        0 8px 14px rgba(0,0,0,.95),
-        0 0 20px rgba(255,27,27,.5),
-        inset 0 0 0 1px rgba(255,90,90,.18);
-    }
-
-    .card-image {
-      width: 100%;
-      aspect-ratio: 1.12 / 1;
-      object-fit: cover;
-      display: block;
-      background: #101820;
-    }
-
-    .card-body {
-      padding: 9px 10px 10px;
-    }
-
-    .card h3 {
-      margin: 0 0 4px;
-      font-size: 14px;
-      letter-spacing: .4px;
-    }
-
-    .card p {
-      margin: 2px 0;
-      color: #ccd3da;
-      font-size: 9px;
-      line-height: 1.35;
-    }
-
-    .card button {
-      width: 100%;
-      margin-top: 8px;
-      padding: 8px;
-      color: white;
-      font: 800 10px "Orbitron", sans-serif;
-      background: linear-gradient(90deg, #8f0000, #ff1616, #8f0000);
-      border: 1px solid #ff4b4b;
-      box-shadow:
-        0 3px 7px rgba(0,0,0,.9),
-        0 0 8px rgba(255,27,27,.28);
-      cursor: pointer;
-    }
-
-    /* DETAIL PANEL */
-    .detail-panel {
-      position: sticky;
-      top: 104px;
-      padding: 12px;
-      background:
-        radial-gradient(circle at 70% 0%, rgba(255,30,30,.15), transparent 40%),
-        rgba(3,8,13,.98);
-      border: 2px solid var(--red);
-      box-shadow:
-        0 7px 16px rgba(0,0,0,.95),
-        0 0 22px rgba(255,27,27,.28),
-        inset 0 0 0 1px rgba(255,70,70,.12);
-      clip-path: polygon(3% 0, 97% 0, 100% 3%, 100% 97%, 97% 100%, 3% 100%, 0 97%, 0 3%);
-    }
-
-    .close-details {
-      position: absolute;
-      top: 7px;
-      right: 10px;
-      border: 0;
-      background: transparent;
-      color: white;
-      font-size: 28px;
-      cursor: pointer;
-      text-shadow: 0 2px 5px #000;
-    }
-
-    .detail-top {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      padding-top: 5px;
-    }
-
-    .detail-main-image {
-      min-height: 310px;
-      background-size: cover;
-      background-position: center;
-      border: 1px solid var(--red);
-      box-shadow: 0 4px 9px rgba(0,0,0,.9), 0 0 9px rgba(255,27,27,.25);
-    }
-
-    .detail-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,27,27,.6);
-    }
-
-    .detail-title img {
-      width: 50px;
-      height: 50px;
-      object-fit: contain;
-    }
-
-    .detail-title h2 {
-      margin: 0;
-      font-size: clamp(18px, 1.8vw, 28px);
-    }
-
-    .detail-specs {
-      padding-top: 12px;
-    }
-
-    .spec {
-      display: grid;
-      grid-template-columns: 105px 1fr;
-      gap: 8px;
-      margin: 8px 0;
-      font-size: 10px;
-    }
-
-    .spec strong { color: white; }
-    .spec span { color: #d1d7dd; }
-
-    .detail-thumbs {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .detail-thumbs button {
-      padding: 0;
-      background: #04080d;
-      border: 1px solid var(--red);
-      box-shadow: 0 3px 7px rgba(0,0,0,.85);
-      cursor: pointer;
-    }
-
-    .detail-thumbs img {
-      width: 100%;
-      aspect-ratio: 1.2 / 1;
-      object-fit: cover;
-      display: block;
-    }
-
-    .notes {
-      margin-top: 12px;
-      padding: 11px;
-      border: 1px solid var(--red);
-      background: rgba(2,6,10,.75);
-      box-shadow: 0 4px 9px rgba(0,0,0,.85);
-    }
-
-    .notes h3 {
-      margin: 0 0 7px;
-      font-size: 11px;
-    }
-
-    .notes p {
-      margin: 0;
-      color: #d7dde3;
-      font: 11px/1.5 Arial, sans-serif;
-    }
-
-    .detail-navigation {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .detail-navigation button {
-      padding: 9px 14px;
-      color: white;
-      background: #050a10;
-      border: 1px solid var(--red);
-      box-shadow: 0 3px 7px rgba(0,0,0,.9), 0 0 7px rgba(255,27,27,.25);
-      font: 700 10px "Orbitron", sans-serif;
-      cursor: pointer;
-    }
-
-    #detailCounter {
-      font-size: 10px;
-      text-shadow: 0 2px 5px #000;
-    }
-
-    .empty {
-      grid-column: 1 / -1;
-      padding: 50px;
-      text-align: center;
-      border: 1px solid #394653;
-      box-shadow: 0 5px 10px rgba(0,0,0,.85);
-      color: #b7c0ca;
-    }
-
-    @media (max-width: 1100px) {
-      .topbar { flex-direction: column; }
-      .site-logo { width: 100%; height: 70px; margin: 0; }
-      .site-logo img { width: 160px; height: 65px; }
-      .main-nav { width: 100%; }
-      .content-layout { grid-template-columns: 1fr; }
-      .detail-panel { position: relative; top: auto; }
-    }
-
-    @media (max-width: 820px) {
-      .main-nav { grid-template-columns: repeat(3, 1fr); }
-      .collection-heading { display: block; clip-path: none; }
-      .collection-heading h2 { min-width: 0; margin-bottom: 8px; }
-      .filters { grid-template-columns: 1fr 1fr; }
-      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 520px) {
-      .topbar { padding: 5px; }
-      .main-nav { gap: 4px; }
-      .nav-item { gap: 3px; padding: 5px; }
-      .nav-item img { width: 28px; height: 28px; }
-      .nav-item span { font-size: 8px; }
-      .hero { height: 245px; }
-      .hero-faction-icon { width: 70px; height: 70px; }
-      .gallery { grid-template-columns: 1fr; }
-      .detail-top { grid-template-columns: 1fr; }
-      .detail-main-image { min-height: 280px; }
-      .filters { grid-template-columns: 1fr; }
-    }
-
-    /* ============================================================
-       COMPACT CYBERNETIC NAVIGATION BORDER
-       Uses the dedicated small-scale Cybernetic Border artwork.
-       ============================================================ */
-
-    .nav-item {
-      isolation: isolate;
-      border: 0;
-      background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
-      box-shadow:
-        0 3px 7px rgba(0,0,0,.95),
-        0 0 5px var(--nav-glow);
-    }
-
-    .nav-item::after {
-      /* Replaces the older clipped inner panel with a simple
-         inset background so the Cybernetic frame remains visible. */
-      content: "";
-      position: absolute;
-      z-index: 0;
-      inset: 3px;
-      background: linear-gradient(180deg, rgba(15,22,31,.98), rgba(3,7,12,.98));
-      clip-path: none;
-      pointer-events: none;
-    }
-
-    .nav-item::before {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      inset: 0;
-      background: var(--nav-color);
-      -webkit-mask: url("cybernetic-nav-border.svg") center / 100% 100% no-repeat;
-      mask: url("cybernetic-nav-border.svg") center / 100% 100% no-repeat;
-      -webkit-mask-mode: luminance;
-      mask-mode: luminance;
-      filter:
-        drop-shadow(0 0 3px var(--nav-color))
-        drop-shadow(0 0 8px var(--nav-glow));
-      pointer-events: none;
-    }
-
-    .nav-item img,
-    .nav-item span {
-      position: relative;
-      z-index: 3;
-    }
-
-    .nav-item:hover::before,
-    .nav-item.active::before {
-      filter:
-        drop-shadow(0 0 4px var(--nav-color))
-        drop-shadow(0 0 12px var(--nav-glow));
-    }
-
-    /* Keep the compact frame clear on very small screens. */
-    @media (max-width: 520px) {
-      .nav-item::before {
-        filter:
-          drop-shadow(0 0 2px var(--nav-color))
-          drop-shadow(0 0 6px var(--nav-glow));
-      }
-    }
-
-
-    /* ============================================================
-       WEATHERED CYBERNETIC BORDER — AUTOBOTS PANEL FIT
-       Enlarges the frame around the collection header and detail
-       panel so the irregular Cybertronian geometry has more room.
-       ============================================================ */
-
-    /* AUTOBOT COLLECTION HEADER */
-    .collection-heading {
-      position: relative;
-      width: calc(100% + 20px);
-      min-height: 68px;
-      margin-left: -10px;
-      margin-right: -10px;
-      margin-bottom: 18px;
-      padding: 16px 22px;
-      border: 0;
-      clip-path: none;
-      overflow: visible;
-      isolation: isolate;
-    }
-
-    .collection-heading::before {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      inset: -7px;
-      background: var(--red);
-      -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-      mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-      filter:
-        drop-shadow(0 0 3px var(--red))
-        drop-shadow(0 0 8px rgba(255,27,27,.42));
-      pointer-events: none;
-    }
-
-    .collection-heading > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    .collection-heading h2 {
-      padding: 10px 24px;
-      min-width: 350px;
-    }
-
-    .filters {
-      min-height: 42px;
-    }
-
-    /* DETAIL PANEL */
-    .detail-panel {
-      position: sticky;
-      top: 104px;
-      width: calc(100% + 18px);
-      margin-left: -9px;
-      padding: 25px 20px 36px;
-      border: 0;
-      clip-path: none;
-      overflow: visible;
-      isolation: isolate;
-    }
-
-    .detail-panel::before {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      inset: -10px;
-      background: var(--red);
-      -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-      mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-      filter:
-        drop-shadow(0 0 3px var(--red))
-        drop-shadow(0 0 9px rgba(255,27,27,.45));
-      pointer-events: none;
-    }
-
-    .detail-panel > :not(.close-details) {
-      position: relative;
-      z-index: 2;
-    }
-
-    .close-details {
-      top: 13px;
-      right: 17px;
-      z-index: 4;
-    }
-
-    /* Move the detail content farther inside the enlarged frame. */
-    .detail-top {
-      padding-top: 14px;
-    }
-
-    .detail-title {
-      padding: 14px 8px 12px;
-    }
-
-    .detail-specs {
-      padding-top: 15px;
-    }
-
-    /* Give the lower section more breathing room so the frame does
-       not visually run through the Collection Notes area. */
-    .detail-thumbs {
-      margin-top: 14px;
-    }
-
-    .notes {
-      margin-top: 20px;
-      padding: 14px;
-    }
-
-    .detail-navigation {
-      margin-top: 20px;
-      padding-bottom: 6px;
-    }
-
-    /* Keep the enlarged frames usable on smaller screens. */
-    @media (max-width: 1100px) {
-      .collection-heading {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      .detail-panel {
-        width: 100%;
-        margin-left: 0;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .collection-heading {
-        min-height: 0;
-        padding: 14px 16px;
-      }
-
-      .collection-heading h2 {
-        min-width: 0;
-      }
-
-      .detail-panel {
-        padding: 22px 16px 30px;
-      }
-    }
-
-
-/* ============================================================
-   SECOND FIT PASS
-   Restore the full weathered Cybernetic treatment to the figure
-   image cards, while giving the larger panels slightly more room.
-   ============================================================ */
-
-/* FIGURE CARDS — return to the full Cybernetic Border */
-.card {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  border: 0;
-  clip-path: none;
-  background:
-    linear-gradient(180deg, rgba(11,17,24,.98), rgba(2,6,10,.98));
-  box-shadow:
-    0 5px 10px rgba(0,0,0,.95),
-    0 0 10px rgba(255,27,27,.28);
-  padding: 9px;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background: var(--red);
-  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-  filter:
-    drop-shadow(0 0 3px var(--red))
-    drop-shadow(0 0 8px rgba(255,27,27,.42));
-  pointer-events: none;
-}
-
-.card::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset: 10px;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.018), transparent 24%),
-    rgba(5,8,12,.94);
-  clip-path: polygon(
-    0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
-    100% calc(100% - 12px), calc(100% - 12px) 100%,
-    12px 100%, 0 calc(100% - 12px)
-  );
-  pointer-events: none;
-}
-
-.card-image,
-.card-body {
-  position: relative;
-  z-index: 2;
-}
-
-.card-image {
-  border: 0;
-}
-
-.card-body {
-  padding: 9px 10px 10px;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 8px 14px rgba(0,0,0,.95),
-    0 0 20px rgba(255,27,27,.42);
-}
-
-.card:hover::before {
-  filter:
-    drop-shadow(0 0 4px var(--red))
-    drop-shadow(0 0 12px rgba(255,27,27,.52));
-}
-
-/* COLLECTION HEADER — a little more room */
-.collection-heading {
-  width: calc(100% + 34px);
-  margin-left: -17px;
-  margin-right: -17px;
-  min-height: 74px;
-  padding: 18px 28px;
-}
-
-.collection-heading::before {
-  inset: -9px;
-}
-
-.collection-heading h2 {
-  min-width: 375px;
-  padding: 11px 26px;
-}
-
-/* DETAIL PANEL — slightly larger again */
-.detail-panel {
-  width: calc(100% + 30px);
-  margin-left: -15px;
-  padding: 30px 25px 48px;
-}
-
-.detail-panel::before {
-  inset: -12px;
-}
-
-/* Move everything inside the detail frame */
-.detail-top {
-  padding-top: 18px;
-}
-
-.detail-title {
-  padding: 17px 12px 14px;
-}
-
-.detail-specs {
-  padding: 17px 8px 0;
-}
-
-/* Restore the weathered Cybernetic frame around the main figure image */
-.detail-main-image {
-  position: relative;
-  border: 0;
-  min-height: 310px;
-  isolation: isolate;
-  overflow: hidden;
-  box-shadow: none;
-}
-
-.detail-main-image::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  background: var(--red);
-  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-  filter:
-    drop-shadow(0 0 3px var(--red))
-    drop-shadow(0 0 7px rgba(255,27,27,.40));
-  pointer-events: none;
-}
-
-.detail-main-image::after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 9px;
-  background: rgba(3,7,11,.10);
-  clip-path: polygon(
-    0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
-    100% calc(100% - 12px), calc(100% - 12px) 100%,
-    12px 100%, 0 calc(100% - 12px)
-  );
-  pointer-events: none;
-}
-
-/* Thumbnail frames get the same visual treatment, but remain compact. */
-.detail-thumbs button {
-  position: relative;
-  isolation: isolate;
+/* Decorative Cybertronian frame around the Autobots hero. */
+body .hero {
   border: 0;
   overflow: hidden;
-  min-height: 88px;
+  padding: 0;
 }
-
-.detail-thumbs button::before {
-  content: "";
+body .hero-frame-edge {
   position: absolute;
-  z-index: 2;
-  inset: 0;
-  background: var(--red);
-  -webkit-mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-  mask: url("cybernetic-border.svg") center / 100% 100% no-repeat;
-  filter:
-    drop-shadow(0 0 2px var(--red))
-    drop-shadow(0 0 5px rgba(255,27,27,.35));
-  pointer-events: none;
-}
-
-.detail-thumbs img {
-  position: relative;
-  z-index: 1;
-}
-
-/* Push Notes and navigation farther down inside the larger frame. */
-.notes {
-  margin-top: 25px;
-  padding: 17px;
-}
-
-.detail-navigation {
-  margin-top: 25px;
-  padding: 0 5px 9px;
-}
-
-@media (max-width: 1100px) {
-  .collection-heading {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .detail-panel {
-    width: 100%;
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 520px) {
-  .collection-heading {
-    min-height: 0;
-    padding: 15px 17px;
-  }
-
-  .collection-heading h2 {
-    min-width: 0;
-  }
-
-  .detail-panel {
-    padding: 24px 17px 36px;
-  }
-}
-
-
-/* ============================================================
-   WEATHERED CYBERNETIC TOP NAVIGATION
-   Each navigation button uses the same border artwork as the
-   main collection frames, with its own faction color.
-   ============================================================ */
-
-.nav-item {
-  --nav-color: #ff1b1b;
-  --nav-glow: rgba(255,27,27,.42);
-
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-
-  border: 0;
-  background:
-    radial-gradient(ellipse at 18% 20%, rgba(255,255,255,.045), transparent 24%),
-    radial-gradient(ellipse at 84% 78%, rgba(0,0,0,.48), transparent 28%),
-    repeating-linear-gradient(
-      108deg,
-      rgba(255,255,255,.012) 0 1px,
-      transparent 1px 9px
-    ),
-    linear-gradient(180deg, rgba(17,23,29,.98), rgba(4,8,12,.98));
-
-  box-shadow:
-    0 3px 7px rgba(0,0,0,.95),
-    0 0 6px var(--nav-glow);
-}
-
-/* Same Cybernetic Border artwork used by the main frames */
-.nav-item::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-
-  background: var(--nav-color);
-
-  -webkit-mask:
-    url("cybernetic-border.svg")
-    center / 100% 100%
-    no-repeat;
-  mask:
-    url("cybernetic-border.svg")
-    center / 100% 100%
-    no-repeat;
-
-  opacity: .92;
-
-  filter:
-    drop-shadow(0 0 2px var(--nav-color))
-    drop-shadow(0 0 5px var(--nav-glow));
-
-  pointer-events: none;
-}
-
-/* Aged metal panel beneath the colored border */
-.nav-item::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset: 6px;
-
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.025), transparent 25%),
-    radial-gradient(ellipse at 12% 18%, rgba(130,140,145,.08), transparent 25%),
-    radial-gradient(ellipse at 88% 82%, rgba(0,0,0,.42), transparent 30%),
-    repeating-linear-gradient(
-      165deg,
-      rgba(255,255,255,.012) 0 1px,
-      rgba(0,0,0,.035) 1px 4px,
-      transparent 4px 13px
-    ),
-    rgba(5,9,13,.96);
-
-  clip-path: polygon(
-    0 10px,
-    10px 0,
-    calc(100% - 10px) 0,
-    100% 10px,
-    100% calc(100% - 10px),
-    calc(100% - 10px) 100%,
-    10px 100%,
-    0 calc(100% - 10px)
-  );
-
-  pointer-events: none;
-}
-
-/* Keep the icon and label above the frame layers */
-.nav-item img,
-.nav-item span {
-  position: relative;
-  z-index: 4;
-}
-
-.nav-item img {
-  filter:
-    drop-shadow(0 1px 2px #000)
-    drop-shadow(0 0 4px var(--nav-glow));
-}
-
-.nav-item span {
-  text-shadow:
-    0 1px 2px #000,
-    0 0 5px var(--nav-glow);
-}
-
-/* Associated section colors */
-.nav-item.autobots {
-  --nav-color: #ff1b1b;
-  --nav-glow: rgba(255,27,27,.46);
-}
-
-.nav-item.decepticons {
-  --nav-color: #9a2cff;
-  --nav-glow: rgba(154,44,255,.46);
-}
-
-.nav-item.masterpiece {
-  --nav-color: #ffc21c;
-  --nav-glow: rgba(255,194,28,.42);
-}
-
-.nav-item.third-party {
-  --nav-color: #00d8ff;
-  --nav-glow: rgba(0,216,255,.46);
-}
-
-.nav-item.primes {
-  --nav-color: #1d8cff;
-  --nav-glow: rgba(29,140,255,.46);
-}
-
-.nav-item.contact {
-  --nav-color: #1856a8;
-  --nav-glow: rgba(24,86,168,.42);
-}
-
-.nav-item:hover,
-.nav-item.active {
-  transform: translateY(-1px);
-}
-
-.nav-item:hover::before,
-.nav-item.active::before {
-  filter:
-    drop-shadow(0 0 3px var(--nav-color))
-    drop-shadow(0 0 8px var(--nav-glow));
-}
-
-@media (max-width: 520px) {
-  .nav-item::before {
-    filter:
-      drop-shadow(0 0 2px var(--nav-color))
-      drop-shadow(0 0 5px var(--nav-glow));
-  }
-}
-
-
-/* FULL-WIDTH HERO IMAGE FIT
-   Match the hero to the source artwork's wide 2048:742 composition
-   so substantially more of each background image remains visible. */
-.hero {
-  width: 100%;
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: 2048 / 742;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-}
-
-
-/* UNIFIED NAVIGATION FONT */
-.nav-item,
-.nav-item span {
-  font-family: "Orbitron", Arial, sans-serif !important;
-}
-
-
-/* MOBILE NAVIGATION — MATCH MAIN PAGE SPACING */
-@media (max-width: 520px) {
-  .topbar {
-    padding: 5px;
-    min-height: 72px;
-    height: auto;
-    flex-wrap: wrap;
-  }
-
-  .site-logo {
-    width: 100%;
-    flex: 0 0 100%;
-    height: 58px;
-    min-height: 58px;
-    margin: 0;
-  }
-
-  .site-logo img {
-    width: 145px;
-    height: auto;
-    max-height: 58px;
-    object-fit: contain;
-  }
-
-  .main-nav {
-    width: 100%;
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-
-/* ============================================================
-   COLLAPSIBLE SEARCH / FILTER AREA
-   ============================================================ */
-
-.collection-heading {
   display: block;
+  z-index: 4;
+  pointer-events: none;
+  object-fit: fill;
 }
-
-.collection-heading-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  min-height: 44px;
+body .hero-frame-left,
+body .hero-frame-right { z-index: 3; }
+body .hero-frame-top,
+body .hero-frame-bottom { z-index: 4; height: clamp(720px, 88vw, 1360px); }
+body .hero-frame-top,
+body .hero-frame-bottom {
+  left: 0;
+  width: 100%;
+  height: clamp(144px, 17.6vw, 272px);
 }
-
-.collection-heading-top h2 {
-  margin: 0;
+body .hero-frame-top { top: 0; }
+body .hero-frame-bottom { bottom: 0; transform: scaleY(-1); }
+body .hero-frame-left,
+body .hero-frame-right {
+  top: 50%;
+  bottom: auto;
+  width: clamp(288px, 36vw, 540px);
+  height: calc((100% - 2 * clamp(144px, 17.6vw, 272px)) * 3.75);
 }
-
-.filter-toggle {
+body .hero-frame-left { left: calc(14.7% - 0.38 * clamp(288px, 36vw, 540px)); transform: translate(-50%, -50%) rotate(90deg); }
+body .hero-frame-right { left: calc(85.3% + 0.33 * clamp(288px, 36vw, 540px)); right: auto; transform: translate(-50%, -50%) rotate(90deg) scaleX(-1); }
+body .hero-content {
   position: relative;
-  z-index: 3;
-  flex: 0 0 auto;
-  min-height: 38px;
-  padding: 7px 14px;
-  color: #fff;
-  background: rgba(5, 11, 17, .95);
-  border: 1px solid var(--red);
-  box-shadow: 0 3px 7px rgba(0,0,0,.75), 0 0 8px rgba(255,27,27,.2);
-  font: 800 10px "Orbitron", Arial, sans-serif;
-  letter-spacing: .5px;
-  cursor: pointer;
+  z-index: 2;
+  width: 100%;
+  min-height: inherit;
+  padding: clamp(184px, 20vw, 300px) clamp(42px, 4.5vw, 68px);
 }
-
-.filter-toggle span {
-  display: inline-block;
-  margin-left: 8px;
-  font-size: 14px;
-}
-
-.collection-heading .filters {
-  margin-top: 10px;
-  max-height: 0;
-  min-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height .3s ease, opacity .2s ease, margin-top .3s ease;
-}
-
-.collection-heading .filters.filters-open {
-  max-height: 160px;
-  opacity: 1;
-}
-
-.gallery {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-@media (max-width: 820px) {
-  .collection-heading-top {
-    align-items: stretch;
+@media(max-width:760px) {
+  body .hero-frame-top,
+  body .hero-frame-bottom { height: 880px; }
+  body .hero-frame-left,
+  body .hero-frame-right {
+    top: 50%;
+    bottom: auto;
+    height: calc((100% - 352px) * 3.75);
+    width: 324px;
   }
-
-  .collection-heading-top h2 {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .filter-toggle {
-    padding: 7px 10px;
-  }
-
-  .gallery {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 520px) {
-  .collection-heading-top {
-    gap: 8px;
-  }
-
-  .collection-heading-top h2 {
-    font-size: 16px;
-    padding: 8px 10px;
-  }
-
-  .filter-toggle {
-    min-height: 34px;
-    padding: 5px 8px;
-    font-size: 8px;
-  }
-
-  .collection-heading .filters.filters-open {
-    max-height: 260px;
-  }
-
-  .gallery {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 7px;
-  }
-
-  .card {
-    padding: 6px;
-  }
-
-  .card-body {
-    padding: 6px 5px 7px;
-  }
-
-  .card h3 {
-    font-size: 10px;
-  }
-
-  .card p {
-    font-size: 7px;
-  }
-
-  .card button {
-    padding: 6px 3px;
-    font-size: 7px;
-  }
+  body .hero-frame-left { left: calc(14.7% - 123.12px); transform: translate(-50%, -50%) rotate(90deg); }
+  body .hero-frame-right { left: calc(85.3% + 106.92px); right: auto; transform: translate(-50%, -50%) rotate(90deg) scaleX(-1); }
+  body .hero-content { padding: 200px 28px; }
 }
 
 
-/* ============================================================
-   AUTOBOT COLLECTION — FINAL PANEL SPACING
-   Keep the Cybernetic frame visually clear of the heading text,
-   filter controls, and figure/detail split.
-   ============================================================ */
-
-@media (min-width: 521px) {
-  .collection-heading {
-    padding: 24px 44px;
-  }
-
-  .collection-heading-top {
-    padding: 0 8px;
-  }
-
-  .collection-heading h2 {
-    padding-left: 18px;
-  }
-
-  .filter-toggle {
-    margin-right: 8px;
-  }
-
-  .content-layout {
-    gap: 30px;
-  }
+/* Continuous Cybertron backdrop across the page; restore the hero's original divider placement and content layout. */
+html { background: #070a0e; }
+body {
+  background-color: #070a0e;
+  background-image: url('images/decorative%20elements/main-page-background_result.webp');
+  background-position: center top;
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  background-attachment: scroll;
 }
-
-
-/* ============================================================
-   IMAGE FIT — KEEP COLLECTION PHOTOS INSIDE THEIR FRAMES
-   Preserve the original image proportions and show the complete
-   photograph without overflowing or cropping the frame.
-   ============================================================ */
-
-.card-image {
-  object-fit: contain;
-  object-position: center;
+body::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg,rgba(3,6,10,.28),rgba(3,6,10,.5) 55%,rgba(3,6,10,.72));
 }
-
-.detail-main-image {
-  background-size: contain;
+body .topbar {
+  background: linear-gradient(180deg,rgba(8,13,19,.84),rgba(3,6,10,.9));
+  border-bottom-color: rgba(0,207,255,.55);
+}
+body main { position: relative; z-index: 1; }
+/* Hero reset: preserve the established divider positions and original hero background/content sizing. */
+body .hero {
+  min-height: clamp(1050px, 130vw, 1700px);
+  background-color: transparent;
+  background-image: url('images/decorative%20elements/autobots-background_result.webp');
   background-position: center center;
+  background-size: 50% auto;
   background-repeat: no-repeat;
-  background-color: #050a10;
-}
-
-
-/* Keep the Cybernetic frame visibly above the preview image.
-   The image remains contained inside the card, while the frame
-   overlays its edges so the artwork can never cover the border. */
-.card {
+  border: 0;
   overflow: hidden;
+  padding: 0;
 }
-
-.card::before {
-  z-index: 3;
+body .hero::before { content: none; }
+body .hero-shade {
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg,rgba(3,6,10,.84),rgba(3,6,10,.42) 65%,rgba(3,6,10,.55));
 }
-
-.card::after {
-  z-index: 1;
-}
-
-.card-image,
-.card-body {
+body .hero-content {
+  width: 100%;
+  min-height: inherit;
+  padding: clamp(184px, 20vw, 300px) clamp(42px, 4.5vw, 68px);
+  position: relative;
   z-index: 2;
 }
-
-
-/* FULL-SIZE IMAGE LIGHTBOX */
-.detail-main-image {
-  cursor: zoom-in;
+body .hero-frame-top,
+body .hero-frame-bottom { z-index: 4; }
+body .hero-frame-left,
+body .hero-frame-right { z-index: 3; }
+body .collection-area {
+  position: relative;
+  z-index: 1;
+  background: rgba(5,8,12,.34);
+  backdrop-filter: blur(1.5px);
+}
+body .controls-panel,
+body .detail-panel {
+  background: linear-gradient(145deg,rgba(18,25,33,.92),rgba(5,8,12,.94));
+}
+body .site-footer {
+  position: relative;
+  z-index: 1;
+  background: rgba(3,6,10,.84);
+}
+@media(max-width:760px) {
+  body .hero { min-height: 1025px; }
+  body .hero::before { content: none; }
+  body .hero-shade {
+    inset: 0;
+    background: linear-gradient(90deg,rgba(3,6,10,.84),rgba(3,6,10,.42) 65%,rgba(3,6,10,.55));
+  }
+  body .hero-content { padding: 200px 28px; }
+  body .hero-frame-top,
+  body .hero-frame-bottom { height: 176px; }
 }
 
-.image-lightbox {
-  box-sizing: border-box;
-  width: 92vw;
-  height: 88vh;
-  max-width: 1400px;
-  max-height: 900px;
-  padding: 28px;
-  overflow: hidden;
-  border: 2px solid var(--red);
-  background: rgba(2, 6, 10, .98);
-  box-shadow: 0 0 30px rgba(255, 27, 27, .45), 0 12px 35px rgba(0, 0, 0, .95);
-}
 
-.image-lightbox::backdrop {
-  background: rgba(0, 0, 0, .88);
-  backdrop-filter: blur(4px);
-}
-
-.image-lightbox img {
+/* Single-piece metallic hero frame replaces the separate divider images. */
+body .hero-metallic-frame {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  object-fit: fill;
+  z-index: 4;
+  pointer-events: none;
 }
-
-.lightbox-close {
-  position: absolute;
-  top: 5px;
-  right: 9px;
-  z-index: 2;
-  border: 0;
-  background: transparent;
-  color: white;
-  font: 400 32px/1 Arial, sans-serif;
-  cursor: pointer;
-  text-shadow: 0 2px 6px #000;
-}
-
-.lightbox-close:hover {
-  color: var(--red-bright);
-}
-
-@media (max-width: 700px) {
-  .image-lightbox {
-    width: 94vw;
-    height: 84vh;
-    max-width: 94vw;
-    max-height: 84vh;
-    padding: 22px 12px 12px;
+body .hero-frame-edge { display: none !important; }
+@media (max-width: 760px) {
+  body .hero-metallic-frame {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
   }
 }
 
-/* ============================================================
-   COLLECTION SPLIT VIEW — PREVIEW GRID LEFT / INFO PANEL RIGHT
-   Keep the collection in two columns on medium desktop screens,
-   then stack only on narrow/mobile layouts.
-   ============================================================ */
 
-.collection-layout,
-.content-layout {
-  grid-template-columns: minmax(0, 1.7fr) minmax(360px, .95fr);
-  gap: 18px;
-  align-items: start;
+/* Reduce the metallic frame's displayed height to 50% while keeping its width. */
+body .hero-metallic-frame {
+  top: 0;
+  bottom: auto;
+  height: 50%;
+  object-fit: fill;
+}
+@media (max-width: 760px) {
+  body .hero-metallic-frame {
+    top: 0;
+    bottom: auto;
+    height: 50%;
+    object-fit: fill;
+  }
 }
 
-.preview-grid,
-.gallery {
+
+/* Fit the Autobots artwork into the same area as the shortened metallic frame. */
+body .hero {
+  background-image: url('images/decorative%20elements/autobots-background_result.webp');
+  background-position: center top;
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-position: center top;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+  }
+}
+
+
+/* Shrink the Autobots background artwork 15% in both dimensions. */
+body .hero {
+  background-size: 85% 42.5%;
+  background-position: center top;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 85% 42.5%;
+    background-position: center top;
+  }
+}
+
+
+/* Latest artwork sizing: increase width 2% and reduce height 10% from the prior size. */
+body .hero {
+  background-size: 86.7% 38.25%;
+  background-position: center top;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 86.7% 38.25%;
+    background-position: center top;
+  }
+}
+
+
+/* Lower the Autobots background artwork within the metallic frame. */
+body .hero {
+  background-position: center 50px;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-position: center 50px;
+  }
+}
+
+
+/* Remove the dark overlay from the hero and extend the artwork toward the frame. */
+body .hero-shade {
+  display: none !important;
+  background: none !important;
+  opacity: 0 !important;
+}
+body .hero {
+  background-size: 86.7% 42.5%;
+  background-position: center 50px;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 86.7% 42.5%;
+    background-position: center 50px;
+  }
+}
+
+
+/* Collapse the hero to the frame itself so no empty hero area remains below it. */
+body .hero {
+  height: 320px;
+  min-height: 320px;
+  max-height: 320px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+body .hero {
+  background-size: 86.7% 100%;
+  background-position: center 0;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 240px;
+    min-height: 240px;
+    max-height: 240px;
+    background-size: 86.7% 100%;
+    background-position: center 0;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
+
+
+/* Increase hero and metallic frame height by 10% from the previous dimensions. */
+body .hero {
+  height: 352px;
+  min-height: 352px;
+  max-height: 352px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 264px;
+    min-height: 264px;
+    max-height: 264px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
+
+
+/* Increase frame height another 10%, and reduce the Autobots background image by 5%. */
+body .hero {
+  height: 387.2px;
+  min-height: 387.2px;
+  max-height: 387.2px;
+  background-size: 82.365% 95%;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 290.4px;
+    min-height: 290.4px;
+    max-height: 290.4px;
+    background-size: 82.365% 95%;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
+
+
+/* Increase the metallic frame's vertical height another 10%. */
+body .hero {
+  height: 426px;
+  min-height: 426px;
+  max-height: 426px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 319.44px;
+    min-height: 319.44px;
+    max-height: 319.44px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
+
+
+/* Fine-tune the artwork and increase the frame height by 10%. */
+body .hero {
+  height: 468.6px;
+  min-height: 468.6px;
+  max-height: 468.6px;
+  background-size: 95.0% 95%;
+  background-position: center 65px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 351.4px;
+    min-height: 351.4px;
+    max-height: 351.4px;
+    background-size: 95.0% 95%;
+    background-position: center 65px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
+
+
+/* Increase the frame's vertical height by another 10%. */
+body .hero {
+  height: 515.46px;
+  min-height: 515.46px;
+  max-height: 515.46px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 386.54px;
+    min-height: 386.54px;
+    max-height: 386.54px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
+
+
+/* Reposition the Autobots artwork behind the frame and keep the title fully visible. */
+body .hero {
+  background-size: 95% 93.1%;
+  background-position: calc(50% - 24px) 45px;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 95% 93.1%;
+    background-position: calc(50% - 12px) 45px;
+  }
+}
+
+
+/* Reduce the Autobots artwork width by 3% and increase frame height by 5%. */
+body .hero {
+  background-size: 92.15% 93.1%;
+  height: 541.23px;
+  min-height: 541.23px;
+  max-height: 541.23px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 92.15% 93.1%;
+    height: 405.87px;
+    min-height: 405.87px;
+    max-height: 405.87px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
+
+
+/* Fine-tune artwork width and increase frame height by another 5%. */
+body .hero {
+  background-size: 91.23% 93.1%;
+  height: 568.29px;
+  min-height: 568.29px;
+  max-height: 568.29px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 91.23% 93.1%;
+    height: 426.16px;
+    min-height: 426.16px;
+    max-height: 426.16px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
+
+
+/* Increase the frame height by 3% to bring the lower border closer to the artwork edge. */
+body .hero {
+  height: 585.34px;
+  min-height: 585.34px;
+  max-height: 585.34px;
+}
+body .hero-metallic-frame {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 438.94px;
+    min-height: 438.94px;
+    max-height: 438.94px;
+  }
+  body .hero-metallic-frame {
+    height: 100%;
+    top: 0;
+    bottom: auto;
+  }
+}
+
+
+/* Reduce the Autobots background image's vertical size by 4%, preserving width and position. */
+body .hero {
+  background-size: 91.23% 89.376%;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 91.23% 89.376%;
+  }
+}
+
+
+/* Reduce the Autobots background image's vertical size by another 2%. */
+body .hero {
+  background-size: 91.23% 87.58848%;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 91.23% 87.58848%;
+  }
+}
+
+
+/* Collection page refinement: remove the introductory title block and let figure images sit directly against the page backdrop. */
+.section-heading.archive-count-only {
+  justify-content: flex-end;
+  margin-bottom: 12px;
+  padding: 0;
+  border-bottom: 0;
+}
+.card-image-wrap {
+  background: transparent;
+  border-bottom: 0;
+}
+
+
+/* Strong override: remove all card and image-container backing panels around archive figures. */
+#gallery .card {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+#gallery .card:hover,
+#gallery .card.selected {
+  background: transparent !important;
+  border-color: var(--red-bright) !important;
+  box-shadow: 0 0 14px var(--red-glow) !important;
+}
+#gallery .card-image-wrap {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 10px !important;
+}
+#gallery .card-image {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+
+/* Make the entire Figure Archive gallery area transparent, not just the image windows. */
+.gallery-column,
+.gallery,
+#gallery,
+#gallery .card,
+#gallery .card-body,
+#gallery .card-image-wrap {
+  background: transparent !important;
+}
+#gallery .card {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+#gallery .card:hover,
+#gallery .card.selected {
+  background: transparent !important;
+  border-color: var(--red-bright) !important;
+  box-shadow: 0 0 14px var(--red-glow) !important;
+}
+
+
+/* Final section-level transparency override: allow the page's Cybertron background to show through the full collection/gallery region. */
+#collection-shell,
+#collection-shell .collection-layout,
+#collection-shell .gallery-column,
+#collection-shell .gallery-heading,
+#collection-shell .gallery,
+#collection-shell #gallery,
+#collection-shell #gallery > .card,
+#collection-shell #gallery > .card > .card-image-wrap,
+#collection-shell #gallery > .card > .card-body {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+#collection-shell #gallery > .card {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+#collection-shell #gallery > .card:hover,
+#collection-shell #gallery > .card.selected {
+  border-color: var(--red-bright) !important;
+  box-shadow: 0 0 14px var(--red-glow) !important;
+}
+
+
+/* Selected figure info window: remove dark backing behind the main image and alternative thumbnails. */
+#detailMainImage,
+#detailMainImage img {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+#detailMainImage {
+  background-image: none !important;
+  border-color: transparent !important;
+}
+#detailThumbs button,
+#detailThumbs img {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+#detailThumbs button {
+  border-color: transparent !important;
+}
+#detailThumbs button.active {
+  border-color: var(--red-bright) !important;
+}
+
+
+/* Sort / Filter panel: replace the solid box and grey outline with the supplied panel artwork. */
+#collection-shell .controls-panel {
+  background: transparent url('images/decorative%20elements/panel-background-02_result.webp') center center / 100% 100% no-repeat !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+#collection-shell .collection-count {
+  display: none !important;
+}
+
+
+/* Sort / Filter panel sizing: double its vertical height and increase its horizontal width by 75%. */
+#collection-shell .controls-panel {
+  min-height: 2em;
+  padding-top: 36px;
+  padding-bottom: 40px;
+  width: 175%;
+  max-width: none;
+}
+@media (max-width: 760px) {
+  #collection-shell .controls-panel {
+    width: 100%;
+    padding-top: 28px;
+    padding-bottom: 30px;
+  }
+}
+
+
+/* Extend the Sort / Filter panel artwork edge-to-edge across the viewport. */
+#collection-shell .controls-panel {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding-left: max(20px, calc((100vw - 1500px) / 2 + 38px)) !important;
+  padding-right: max(20px, calc((100vw - 1500px) / 2 + 38px)) !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .controls-panel {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+
+/* Double the Sort / Filter panel's current vertical space while keeping its full-viewport width. */
+#collection-shell .controls-panel {
+  padding-top: 72px !important;
+  padding-bottom: 80px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .controls-panel {
+    padding-top: 56px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+
+/* Double the Sort / Filter panel's vertical spacing again. */
+#collection-shell .controls-panel {
+  padding-top: 144px !important;
+  padding-bottom: 160px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .controls-panel {
+    padding-top: 112px !important;
+    padding-bottom: 120px !important;
+  }
+}
+
+
+/* Align the filter controls with the central horizontal band of the panel artwork, leaving the Sort / Filter title in place. */
+#collection-shell .controls-grid {
+  transform: translateY(-34px);
+}
+@media (max-width: 760px) {
+  #collection-shell .controls-grid {
+    transform: translateY(-18px);
+  }
+}
+
+
+/* Hide the Search Figures label while keeping the search field usable. */
+#collection-shell .search-control > span {
+  display: none !important;
+}
+
+
+/* Reflow controls after removing the Manufacturer filter. */
+#collection-shell .controls-grid {
+  grid-template-columns: minmax(190px, 1.5fr) repeat(3, minmax(130px, 1fr)) auto;
+}
+
+
+/* Figure archive: framed image tiles with the name overlaid at bottom-left. */
+#collection-shell #gallery .card {
+  aspect-ratio: 1 / 1;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  overflow: hidden;
+  transform: none;
+}
+#collection-shell #gallery .card:hover,
+#collection-shell #gallery .card.selected {
+  border: 0 !important;
+  box-shadow: 0 0 16px var(--red-glow) !important;
+}
+#collection-shell #gallery .card-image-wrap {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  padding: 12%;
+  background: transparent !important;
+  border: 0 !important;
+  overflow: hidden;
+}
+#collection-shell #gallery .card-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#collection-shell #gallery .card-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+}
+#collection-shell #gallery .card-name {
+  position: absolute;
+  z-index: 3;
+  left: 12%;
+  right: 12%;
+  bottom: 10%;
+  margin: 0;
+  padding: 6px 8px;
+  color: #fff;
+  background: linear-gradient(90deg, rgba(5,9,14,.9), rgba(5,9,14,.45), transparent);
+  font-size: clamp(9px, .9vw, 13px);
+  line-height: 1.25;
+  text-align: left;
+  overflow-wrap: anywhere;
+  text-shadow: 0 1px 4px #000;
+}
+@media (max-width: 760px) {
+  #collection-shell #gallery .card-image-wrap { padding: 12%; }
+  #collection-shell #gallery .card-name { font-size: 10px; }
+}
+
+
+/* Use the supplied info-window artwork as the selected figure panel background. */
+#collection-shell .detail-panel {
+  background: url("images/decorative%20elements/info-window_result.webp") center / 100% 100% no-repeat !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+#collection-shell .detail-navigation {
+  display: none !important;
+}
+
+
+/* Frame the main selected-figure image with the supplied portrait artwork. */
+#collection-shell #detailMainImage {
+  position: relative;
+  isolation: isolate;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+#collection-shell #detailMainImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: url("images/decorative%20elements/main-image-frame_result.webp") center / 100% 100% no-repeat;
+}
+#collection-shell #detailMainImage > img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* Keep all profile content inside the safe inner area of the decorative info-window frame. */
+#collection-shell .detail-panel {
+  box-sizing: border-box;
+  padding: 5.5% 12% 5% !important;
   min-width: 0;
 }
-
-.collection-info,
-.detail-panel {
-  position: sticky;
-  top: 104px;
-  height: calc(100vh - 190px);
-  min-height: 520px;
-  max-height: calc(100vh - 190px);
-  overflow-y: auto;
-  overflow-x: hidden;
+#collection-shell .detail-panel .panel-heading {
+  min-width: 0;
+  margin-top: 0;
 }
-
-.info-main,
-.detail-top {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+#collection-shell .detail-panel .panel-heading > div {
+  min-width: 0;
 }
-
-.info-image,
-.detail-main-image {
-  min-height: 245px;
-  height: 245px;
+#collection-shell .detail-panel .detail-image-frame {
+  box-sizing: border-box;
+  width: 100%;
+  height: clamp(220px, 29vw, 350px);
+  padding: 0;
+  border: 0;
+  background: transparent !important;
 }
-
-.info-image img,
-.detail-main-image img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.info-thumbs,
-.detail-thumbs {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.info-thumbs button,
-.info-thumbs div,
-.detail-thumbs button {
-  min-height: 70px;
-}
-
-.info-thumbs img,
-.detail-thumbs img {
-  max-height: 70px;
-  object-fit: contain;
-}
-
-.info-notes,
-.notes {
-  margin-top: 10px;
-  padding: 10px;
-}
-
-.info-navigation,
-.detail-navigation {
+#collection-shell .detail-panel .detail-thumbs {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 8px;
   margin-top: 10px;
 }
-
-@media (max-width: 820px) {
-  .collection-layout,
-  .content-layout {
-    grid-template-columns: 1fr;
+#collection-shell .detail-panel .detail-thumbs button {
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  background: rgba(5,9,14,.6);
+}
+#collection-shell .detail-panel .info-section,
+#collection-shell .detail-panel .notes-section {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#collection-shell .detail-panel .detail-specs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 18px;
+}
+#collection-shell .detail-panel .spec,
+#collection-shell .detail-panel .spec span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#collection-shell .detail-panel .notes-copy {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel {
+    padding: 8% 9% 7% !important;
   }
-
-  .collection-info,
-  .detail-panel {
-    position: relative;
-    top: auto;
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    overflow: visible;
+  #collection-shell .detail-panel .detail-image-frame {
+    height: clamp(220px, 58vw, 340px);
+  }
+  #collection-shell .detail-panel .detail-specs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
   }
 }
-
 @media (max-width: 520px) {
-  .info-main,
-  .detail-top {
-    grid-template-columns: 1fr;
+  #collection-shell .detail-panel {
+    padding: 9% 8% 8% !important;
   }
-
-  .info-image,
-  .detail-main-image {
-    height: 280px;
-    min-height: 280px;
+  #collection-shell .detail-panel .detail-image-frame {
+    height: clamp(190px, 64vw, 290px);
   }
-}
-
-
-/* ============================================================
-   FINAL COLLECTION PROPORTIONS — 50/50 SPLIT
-   Desktop: half preview area / half information panel.
-   Preview cards use two columns for larger, easier-to-view images.
-   Mobile remains stacked below 820px.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  .collection-layout,
-  .content-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-    gap: 18px;
-    align-items: start;
+  #collection-shell .detail-panel .detail-thumbs button {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
   }
-
-  .preview-grid,
-  .gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    min-width: 0;
-  }
-
-  .collection-info,
-  .detail-panel {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-@media (max-width: 820px) {
-  .collection-layout,
-  .content-layout {
-    grid-template-columns: 1fr !important;
+  #collection-shell .detail-panel .detail-specs {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 
-/* ============================================================
-   NAVIGATION GEOMETRY — LOCK ICON/LABEL GROUP POSITION
-   Keep every page's navigation item using the same fixed icon
-   width so the label cannot shift between pages.
-   ============================================================ */
-.nav-item {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-direction: row !important;
-  gap: 10px !important;
-  padding: 8px 10px !important;
-  text-align: center !important;
+/* Widen the collection workspace: four-column figure grid on the left, info window to the right edge. */
+#collection-shell {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
-
-.nav-item img {
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  min-height: 40px !important;
-  max-width: 40px !important;
-  max-height: 40px !important;
-  flex: 0 0 40px !important;
-  object-fit: contain !important;
-  display: block !important;
+#collection-shell .section-heading,
+#collection-shell .collection-layout {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
-
-.nav-item span {
-  flex: 0 0 auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  white-space: nowrap !important;
-  text-align: center !important;
-  font-family: "Orbitron", Arial, sans-serif !important;
-  font-size: clamp(10px, 1vw, 16px) !important;
-  font-weight: 800 !important;
-  line-height: 1.05 !important;
-  letter-spacing: .5px !important;
-}
-
-@media (max-width: 520px) {
-  .nav-item {
-    gap: 3px !important;
-    padding: 5px !important;
-  }
-
-  .nav-item img {
-    width: 28px !important;
-    height: 28px !important;
-    min-width: 28px !important;
-    min-height: 28px !important;
-    max-width: 28px !important;
-    max-height: 28px !important;
-    flex-basis: 28px !important;
-  }
-
-  .nav-item span {
-    font-size: 8px !important;
-  }
-}
-
-/* ============================================================
-   MASTER NAVIGATION GEOMETRY
-   Identical desktop geometry across the home page and all
-   collection pages. The label is centered independently of
-   the icon so it cannot shift from page to page.
-   ============================================================ */
-.nav-item {
+#collection-shell .collection-layout {
   display: grid !important;
-  grid-template-columns: 40px minmax(0, 1fr) 40px !important;
-  align-items: center !important;
-  justify-items: stretch !important;
-  column-gap: 0 !important;
-  padding: 8px 10px !important;
-  text-align: center !important;
+  grid-template-columns: minmax(360px, 40%) minmax(0, 60%) !important;
+  gap: 0 !important;
+  align-items: stretch !important;
 }
-
-.nav-item img {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  min-height: 40px !important;
-  max-width: 40px !important;
-  max-height: 40px !important;
+#collection-shell .gallery-column {
+  min-width: 0;
+  padding: 0 12px 0 18px;
+}
+#collection-shell #gallery {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+#collection-shell .detail-panel {
+  width: 100% !important;
+  min-width: 0 !important;
   margin: 0 !important;
-  justify-self: center !important;
-  object-fit: contain !important;
-  display: block !important;
+  border-radius: 0 !important;
+  justify-self: stretch !important;
+}
+@media (min-width: 761px) {
+  #collection-shell .collection-layout {
+    grid-template-columns: minmax(360px, 40%) minmax(0, 60%) !important;
+  }
+}
+@media (max-width: 760px) {
+  /* Keep the desktop workspace concept; mobile-specific redesign can be handled separately. */
+  #collection-shell .collection-layout {
+    grid-template-columns: minmax(0, 40%) minmax(0, 60%) !important;
+    gap: 0 !important;
+  }
+  #collection-shell .gallery-column {
+    padding: 0 6px;
+  }
+  #collection-shell #gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+  #collection-shell .detail-panel {
+    grid-row: auto !important;
+    padding-left: 8% !important;
+    padding-right: 8% !important;
+  }
 }
 
-.nav-item span {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-  justify-self: center !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  white-space: nowrap !important;
-  text-align: center !important;
-  font-family: "Orbitron", Arial, sans-serif !important;
-  font-size: clamp(10px, 1vw, 16px) !important;
-  font-weight: 800 !important;
-  line-height: 1.05 !important;
-  letter-spacing: .5px !important;
-}
 
+/* Align the main image frame with the profile text and size it to the image rather than the full panel. */
+#collection-shell .detail-panel {
+  padding-left: calc(12% + 5ch) !important;
+  padding-right: 12% !important;
+}
+#collection-shell .detail-panel .detail-image-frame {
+  width: min(100%, 360px) !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  height: clamp(260px, 34vw, 390px) !important;
+  flex: 0 0 auto;
+}
+#collection-shell .detail-panel .detail-image-frame::after {
+  background-size: 100% 100% !important;
+}
+#collection-shell .detail-panel .detail-thumbs,
+#collection-shell .detail-panel .info-section,
+#collection-shell .detail-panel .notes-section {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel {
+    padding-left: calc(8% + 5ch) !important;
+    padding-right: 8% !important;
+  }
+  #collection-shell .detail-panel .detail-image-frame {
+    width: min(100%, 300px) !important;
+    height: clamp(230px, 58vw, 340px) !important;
+  }
+}
 @media (max-width: 520px) {
-  .nav-item {
-    grid-template-columns: 28px minmax(0, 1fr) 28px !important;
-    padding: 5px !important;
+  #collection-shell .detail-panel {
+    padding-left: calc(8% + 5ch) !important;
+    padding-right: 8% !important;
   }
-
-  .nav-item img {
-    width: 28px !important;
-    height: 28px !important;
-    min-width: 28px !important;
-    min-height: 28px !important;
-    max-width: 28px !important;
-    max-height: 28px !important;
-  }
-
-  .nav-item span {
-    font-size: 8px !important;
+  #collection-shell .detail-panel .detail-image-frame {
+    width: min(100%, 240px) !important;
+    height: clamp(200px, 64vw, 290px) !important;
   }
 }
 
 
-/* ============================================================
-   FINAL CYBERNETIC IMAGE CONTAINMENT
-   All collection images must remain completely inside their
-   Cybernetic Border frames.
-   ============================================================ */
-
-.info-image {
+/* Responsive nine-slice frame: corners remain distinct while rails stretch with each photo's shape. */
+#collection-shell .detail-panel .detail-image-frame {
   position: relative !important;
-  height: 245px !important;
-  min-height: 245px !important;
-  max-height: 245px !important;
-  overflow: hidden !important;
   isolation: isolate;
+  display: block !important;
+  width: min(100%, 560px) !important;
+  height: auto !important;
+  aspect-ratio: var(--frame-aspect, .72);
+  margin: 0 auto 0 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  border: 0 !important;
+  background: transparent !important;
+  cursor: zoom-in;
+}
+#collection-shell .detail-panel .detail-image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  border-style: solid;
+  border-width: clamp(38px, 6.5vw, 76px) clamp(34px, 5.5vw, 68px);
+  border-image-source: url("images/decorative%20elements/main-image-frame_result.webp");
+  border-image-slice: 150 150 150 150 fill;
+  border-image-width: clamp(38px, 6.5vw, 76px) clamp(34px, 5.5vw, 68px);
+  border-image-repeat: stretch;
+  background: transparent;
+}
+#collection-shell .detail-panel .detail-image-frame > img {
+  position: absolute !important;
+  z-index: 1;
+  inset: 8.5% 13% 9% !important;
+  width: 74% !important;
+  height: 82.5% !important;
+  object-fit: contain !important;
+  display: block;
+  background: transparent !important;
+}
+#collection-shell .detail-panel .detail-image-frame > .image-placeholder {
+  position: absolute;
+  z-index: 1;
+  inset: 8.5% 13% 9%;
+  display: grid;
+  place-content: center;
+  background: transparent;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .detail-image-frame {
+    width: min(100%, 430px) !important;
+  }
+  #collection-shell .detail-panel .detail-image-frame::after {
+    border-width: clamp(32px, 8vw, 58px) clamp(28px, 7vw, 52px);
+    border-image-width: clamp(32px, 8vw, 58px) clamp(28px, 7vw, 52px);
+  }
+}
+@media (max-width: 520px) {
+  #collection-shell .detail-panel .detail-image-frame {
+    width: min(100%, 340px) !important;
+  }
+  #collection-shell .detail-panel .detail-image-frame::after {
+    border-width: 32px 28px;
+    border-image-width: 32px 28px;
+  }
 }
 
-.info-image img {
-  position: relative !important;
-  z-index: 1 !important;
-  display: block !important;
+
+/* Prevent the legacy full-frame overlay from stacking with the responsive border-image frame. */
+#collection-shell #detailMainImage::after {
+  background: none !important;
+  border: 0 !important;
+  content: none !important;
+}
+
+
+/* Restore the single responsive frame overlay; disable border-image slicing to avoid a duplicate frame. */
+#collection-shell .detail-panel .detail-image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  border: 0 !important;
+  border-image: none !important;
+  background: url("images/decorative%20elements/main-image-frame_result.webp") center / 100% 100% no-repeat !important;
+}
+#collection-shell #detailMainImage::after {
+  content: "" !important;
+}
+
+
+/* Final override: the ID-level legacy rule was suppressing the frame artwork. */
+#collection-shell #detailMainImage::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+  border: 0 !important;
+  border-image: none !important;
+  background-image: url("images/decorative%20elements/main-image-frame_result.webp") !important;
+  background-position: center !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+
+/* Tune vertical frame fit: reduce excess top/bottom space and align the photo to the frame's inner aperture. */
+#collection-shell #detailMainImage {
+  aspect-ratio: var(--frame-aspect, .72) !important;
+}
+#collection-shell #detailMainImage::after {
+  background-size: 100% 100% !important;
+}
+#collection-shell #detailMainImage > img {
+  inset: 10.5% 13% 10.5% !important;
+  width: 74% !important;
+  height: 79% !important;
+  object-fit: fill !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage > img {
+    inset: 10.5% 13% 10.5% !important;
+    width: 74% !important;
+    height: 79% !important;
+  }
+}
+
+
+/* Final small vertical fit adjustment: bring the photo closer to the frame's inner top and bottom rails. */
+#collection-shell #detailMainImage > img {
+  inset: 8.5% 13% !important;
+  width: 74% !important;
+  height: 83% !important;
+  object-fit: fill !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage > img {
+    inset: 8.5% 13% !important;
+    width: 74% !important;
+    height: 83% !important;
+  }
+}
+
+
+/* Preserve photo proportions; adjust the frame opening to the photo instead of stretching the photo. */
+#collection-shell #detailMainImage > img {
+  position: absolute !important;
+  inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
   object-fit: contain !important;
-  object-position: center center !important;
+  object-position: center !important;
+  z-index: 1 !important;
+}
+/* Use the image's measured aspect ratio for the frame box; overlay artwork stretches around it. */
+#collection-shell #detailMainImage {
+  overflow: visible !important;
+  aspect-ratio: var(--frame-aspect, .72) !important;
+  height: auto !important;
+}
+#collection-shell #detailMainImage::after {
+  inset: 0 !important;
+  background-size: 100% 100% !important;
+}
+/* For the current portrait image, tighten the top opening without distorting the photo. */
+#collection-shell #detailMainImage > img {
+  object-fit: contain !important;
+  transform: scale(1.02);
 }
 
-@media (max-width: 520px) {
-  .info-image {
-    height: 280px !important;
-    min-height: 280px !important;
-    max-height: 280px !important;
-  }
 
-  .info-image img {
-    width: 100% !important;
-    height: 100% !important;
-    min-height: 0 !important;
-    max-height: 100% !important;
-  }
-}
-
-/* Preview cards use the same containment rule. */
-.preview-window {
+/* Keep photo inside the frame's aperture: the frame follows the photo ratio, not vice versa. */
+#collection-shell #detailMainImage {
+  width: min(100%, 560px) !important;
+  height: auto !important;
+  aspect-ratio: var(--frame-aspect, .72) !important;
   overflow: hidden !important;
-  isolation: isolate;
+  position: relative !important;
 }
-
-.preview-window img {
+#collection-shell #detailMainImage > img {
   position: absolute !important;
   z-index: 1 !important;
-  inset: 10px !important;
-  width: calc(100% - 20px) !important;
-  height: calc(100% - 20px) !important;
-  min-width: 0 !important;
+  left: 13% !important;
+  right: 13% !important;
+  top: 8.5% !important;
+  bottom: 8.5% !important;
+  width: 74% !important;
+  height: 83% !important;
+  max-width: 74% !important;
+  max-height: 83% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+}
+#collection-shell #detailMainImage::after {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+
+/* Match the frame's inner aperture to the photo ratio. The frame changes shape; the photo never does. */
+#collection-shell #detailMainImage {
+  width: min(100%, 560px) !important;
+  height: auto !important;
+  aspect-ratio: var(--frame-aspect, .84) !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+#collection-shell #detailMainImage > img {
+  position: absolute !important;
+  left: 13% !important;
+  top: 8.5% !important;
+  width: 74% !important;
+  height: 83% !important;
+  right: auto !important;
+  bottom: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: none !important;
+}
+#collection-shell #detailMainImage::after {
+  content: "" !important;
+  inset: 0 !important;
+  background-image: url("images/decorative%20elements/main-image-frame_result.webp") !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+
+/* Fine-tune the top aperture edge upward slightly while leaving the lower edge in place. */
+#collection-shell #detailMainImage > img {
+  top: 7.2% !important;
+  height: 84.3% !important;
+  object-fit: contain !important;
+}
+
+
+/* Move the photo's top edge upward by three times the previous adjustment; preserve the lower edge. */
+#collection-shell #detailMainImage > img {
+  top: 4.6% !important;
+  height: 86.9% !important;
+  object-fit: contain !important;
+}
+
+
+/* Extend the frame's lower opening to meet the photo's bottom edge, keeping the adjusted top edge. */
+#collection-shell #detailMainImage > img {
+  top: 4.6% !important;
+  height: 90.8% !important;
+  object-fit: contain !important;
+}
+
+
+/* Reduce the frame's overall height while keeping the photo's natural aspect ratio and current image fit. */
+#collection-shell #detailMainImage {
+  aspect-ratio: calc(var(--frame-aspect, .84) * 1.10) !important;
+}
+#collection-shell #detailMainImage::after {
+  background-size: 100% 100% !important;
+}
+
+
+/* Keep the info window and its image stage a fixed size across all selected figures. */
+#collection-shell .detail-panel {
+  align-self: start !important;
+  height: auto !important;
   min-height: 0 !important;
+}
+#collection-shell #detailMainImage {
+  width: min(100%, 560px) !important;
+  height: 620px !important;
+  min-height: 620px !important;
+  max-height: 620px !important;
+  aspect-ratio: auto !important;
+  flex: 0 0 620px !important;
+}
+#collection-shell #detailMainImage > img {
+  object-fit: contain !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
+    height: 420px !important;
+    min-height: 420px !important;
+    max-height: 420px !important;
+    flex-basis: 420px !important;
+  }
+}
+
+
+/* Scale the entire main-image frame stage to 75%, keeping it centered and leaving the info panel dimensions fixed. */
+#collection-shell #detailMainImage {
+  width: min(75%, 420px) !important;
+  height: 465px !important;
+  min-height: 465px !important;
+  max-height: 465px !important;
+  flex: 0 0 465px !important;
+  margin-left: 0 !important;
+  transform: scale(.75);
+  transform-origin: top left;
+  margin-bottom: -116px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
+    width: min(75%, 315px) !important;
+    height: 315px !important;
+    min-height: 315px !important;
+    max-height: 315px !important;
+    flex-basis: 315px !important;
+    margin-bottom: -105px !important;
+  }
+}
+
+
+/* Correct 75% sizing without CSS transforms: frame and photo share the same resized coordinate box. */
+#collection-shell #detailMainImage {
+  box-sizing: border-box !important;
+  width: min(75%, 420px) !important;
+  height: 465px !important;
+  min-height: 465px !important;
+  max-height: 465px !important;
+  flex: 0 0 465px !important;
+  aspect-ratio: auto !important;
+  transform: none !important;
+  transform-origin: initial !important;
+  margin: 0 0 0 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+#collection-shell #detailMainImage > img {
+  position: absolute !important;
+  left: 13% !important;
+  top: 4.6% !important;
+  width: 74% !important;
+  height: 90.8% !important;
+  right: auto !important;
+  bottom: auto !important;
   max-width: none !important;
   max-height: none !important;
   object-fit: contain !important;
-  object-position: center center !important;
+  object-position: center !important;
+  transform: none !important;
 }
-
-
-/* AUTOBOT PREVIEW IMAGE — LARGER, BUT SAFELY INSIDE THE FRAME */
-.gallery .card .card-image {
-  width: 50% !important;
-  height: 50% !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
-  max-width: 50% !important;
-  max-height: 50% !important;
-  object-fit: contain !important;
-  object-position: center center !important;
+#collection-shell #detailMainImage::after {
   position: absolute !important;
-  top: 25% !important;
-  left: 25% !important;
-  margin: 0 !important;
-  background: transparent !important;
-  z-index: 2 !important;
+  inset: 0 !important;
+  background-size: 100% 100% !important;
 }
-
-
-/* AUTOBOT INFO IMAGE — LARGER, BUT SAFELY INSIDE THE FRAME */
-.info-image {
-  position: relative !important;
-  overflow: hidden !important;
-  isolation: isolate;
-}
-
-.info-image img {
-  position: absolute !important;
-  z-index: 1 !important;
-  width: 80% !important;
-  height: 80% !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
-  max-width: 80% !important;
-  max-height: 80% !important;
-  left: 10% !important;
-  top: 10% !important;
-  object-fit: contain !important;
-  object-position: center center !important;
-  background: transparent !important;
-}
-
-
-
-/* AUTOBOT HARD FRAME RULE — CONTENT CANNOT BREAK THE CYBERNETIC BORDER */
-.detail-panel {
-  overflow: hidden !important;
-  isolation: isolate !important;
-}
-
-.detail-panel::before {
-  z-index: 10 !important;
-  pointer-events: none !important;
-}
-
-.detail-panel > :not(.close-details) {
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-.close-details {
-  z-index: 20 !important;
-}
-
-/* Keep the main photograph safely inside its inner frame without
-   distorting its original aspect ratio. */
-.detail-main-image {
-  overflow: hidden !important;
-  isolation: isolate !important;
-  padding: 18px !important;
-  background-size: contain !important;
-  background-origin: content-box !important;
-  background-clip: content-box !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-}
-
-.detail-main-image::before {
-  z-index: 10 !important;
-  pointer-events: none !important;
-}
-
-.detail-main-image::after {
-  z-index: 3 !important;
-  pointer-events: none !important;
-}
-
-
-/* ============================================================
-   AUTOBOT FRAME-FIRST LAYOUT
-   Borders define the boxes. Images and text stay safely inside.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  /* Square preview cards */
-  .gallery {
-    align-items: start;
-  }
-
-  .gallery .card {
-    position: relative !important;
-    aspect-ratio: 1 / 1 !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-end !important;
-  }
-
-  .gallery .card-image {
-    position: absolute !important;
-    top: 9% !important;
-    left: 9% !important;
-    width: 82% !important;
-    height: 62% !important;
-    max-width: 82% !important;
-    max-height: 62% !important;
-    padding: 0 !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    background: transparent !important;
-    z-index: 2 !important;
-  }
-
-  .gallery .card-body {
-    position: relative !important;
-    z-index: 4 !important;
-    width: calc(100% - 28px) !important;
-    margin: 0 14px 14px !important;
-    padding: 10px 8px 8px !important;
-    background: rgba(3,7,11,.82) !important;
-  }
-
-  /* The information panel grows only as tall as its contents. */
-  .detail-panel {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    overflow: hidden !important;
-    padding: 28px 28px 30px !important;
-  }
-
-  .detail-top {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-    gap: 18px !important;
-    align-items: start !important;
-    padding-top: 18px !important;
-  }
-
-  /* Square main-image frame */
-  .detail-main-image {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    aspect-ratio: 1 / 1 !important;
-    padding: 18px !important;
-    overflow: hidden !important;
-    background-size: contain !important;
-    background-origin: content-box !important;
-    background-clip: content-box !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-  }
-
-  .detail-main-image::before {
-    z-index: 10 !important;
-  }
-
-  /* Keep the title/specifications completely inside their half. */
-  .detail-info {
-    min-width: 0 !important;
-    padding: 6px 8px 0 !important;
-  }
-
-  .detail-title {
-    min-width: 0 !important;
-    padding: 12px 6px 12px !important;
-    gap: 8px !important;
-  }
-
-  .detail-title h2 {
-    min-width: 0 !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  .detail-specs {
-    min-width: 0 !important;
-    padding: 12px 4px 0 !important;
-  }
-
-  .spec {
-    min-width: 0 !important;
-    grid-template-columns: 92px minmax(0, 1fr) !important;
-    gap: 6px !important;
-    margin: 7px 0 !important;
-  }
-
-  .spec span {
-    min-width: 0 !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  /* Square thumbnail frames */
-  .detail-thumbs {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 10px !important;
-    margin-top: 14px !important;
-  }
-
-  .detail-thumbs button {
-    aspect-ratio: 1 / 1 !important;
-    min-height: 0 !important;
-    height: auto !important;
-    overflow: hidden !important;
-    position: relative !important;
-  }
-
-  .detail-thumbs img {
-    width: 78% !important;
-    height: 78% !important;
-    max-width: 78% !important;
-    max-height: 78% !important;
-    margin: 11% auto !important;
-    object-fit: contain !important;
-  }
-
-  .notes {
-    margin-top: 16px !important;
-    padding: 12px !important;
-  }
-
-  .detail-navigation {
-    margin-top: 14px !important;
-    padding: 0 6px 4px !important;
-  }
-}
-
-@media (max-width: 820px) {
-  .detail-panel {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    overflow: hidden !important;
-  }
-
-  .detail-main-image {
-    aspect-ratio: 1 / 1 !important;
-    min-height: 0 !important;
-    height: auto !important;
-    padding: 14px !important;
-    background-size: contain !important;
-    background-origin: content-box !important;
-    background-clip: content-box !important;
-  }
-
-  .detail-thumbs button {
-    aspect-ratio: 1 / 1 !important;
-    min-height: 0 !important;
-  }
-
-  .detail-thumbs img {
-    width: 78% !important;
-    height: 78% !important;
-    max-width: 78% !important;
-    max-height: 78% !important;
-    margin: 11% auto !important;
-    object-fit: contain !important;
-  }
-}
-
-
-/* ============================================================
-   AUTOBOT DETAIL SPACING PASS
-   Create a protected inner zone so the outer frame never collides
-   with the image frame, thumbnails, text, or notes.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  .detail-panel {
-    box-sizing: border-box !important;
-    padding: 42px 34px 34px !important;
-  }
-
-  .detail-top {
-    width: 100% !important;
-    box-sizing: border-box !important;
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr) !important;
-    gap: 24px !important;
-    padding: 12px 18px 0 !important;
-    align-items: start !important;
-  }
-
-  /* Give the inner image frame its own breathing room. */
-  .detail-main-image {
-    width: 88% !important;
-    justify-self: center !important;
-    aspect-ratio: 1 / 1 !important;
-    padding: 16px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Keep the title/specs away from both borders. */
-  .detail-info {
-    padding: 8px 12px 0 !important;
-    min-width: 0 !important;
-  }
-
-  .detail-title {
-    padding: 10px 4px 14px !important;
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
+    width: min(75%, 315px) !important;
+    height: 315px !important;
+    min-height: 315px !important;
+    max-height: 315px !important;
+    flex-basis: 315px !important;
     margin: 0 !important;
   }
-
-  .detail-specs {
-    padding: 10px 2px 0 !important;
-  }
-
-  /* Make the alternate-image frames smaller and the actual photos
-     at least 50% smaller than the previous 78% treatment. */
-  .detail-thumbs {
-    width: 86% !important;
-    margin: 20px auto 0 !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 12px !important;
-  }
-
-  .detail-thumbs button {
-    aspect-ratio: 1 / 1 !important;
-    min-height: 0 !important;
-    height: auto !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-  }
-
-  .detail-thumbs img {
-    width: 50% !important;
-    height: 50% !important;
-    max-width: 50% !important;
-    max-height: 50% !important;
-    margin: 25% auto !important;
-    object-fit: contain !important;
-  }
-
-  /* Notes get their own protected row, away from the frame. */
-  .notes {
-    width: 92% !important;
-    box-sizing: border-box !important;
-    margin: 24px auto 0 !important;
-    padding: 12px 14px !important;
-    position: relative !important;
-    z-index: 3 !important;
-  }
-
-  .notes h3,
-  .notes p {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .detail-navigation {
-    width: 92% !important;
-    box-sizing: border-box !important;
-    margin: 16px auto 0 !important;
-    padding: 0 4px 4px !important;
-  }
 }
 
 
-/* ============================================================
-   AUTOBOT DETAIL FRAME SEPARATION — FINAL LOWER/INNER PROTECTION
-   Keep the inner image frame visually separated from the outer
-   panel frame, and keep notes/navigation in a protected lower row.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  /* The outer Cybernetic frame is decorative only. Keep it behind
-     the protected content zone so it cannot draw across notes or
-     navigation controls. */
-  .detail-panel::before {
-    z-index: 1 !important;
-    pointer-events: none !important;
-  }
-
-  .detail-panel > :not(.close-details) {
-    position: relative !important;
-    z-index: 2 !important;
-  }
-
-  .detail-panel {
-    padding: 46px 40px 48px !important;
-    overflow: hidden !important;
-  }
-
-  /* Pull the inner image frame farther away from the outer frame. */
-  .detail-top {
-    padding: 16px 28px 0 !important;
-    gap: 28px !important;
-  }
-
-  .detail-main-image {
-    width: 80% !important;
-    justify-self: center !important;
-  }
-
-  /* Alternate-image photos: another 50% reduction from the
-     previous 50% treatment. The frames remain the same size. */
-  .detail-thumbs img {
-    width: 25% !important;
-    height: 25% !important;
-    max-width: 25% !important;
-    max-height: 25% !important;
-    margin: 37.5% auto !important;
-    object-fit: contain !important;
-  }
-
-  /* Give the lower sections their own protected rows and keep them
-     visually clear of the outer frame artwork. */
-  .detail-thumbs {
-    width: 82% !important;
-    margin: 24px auto 0 !important;
-    position: relative !important;
-    z-index: 3 !important;
-  }
-
-  .notes {
-    width: 86% !important;
-    margin: 28px auto 0 !important;
-    position: relative !important;
-    z-index: 3 !important;
-    background: rgba(2, 6, 10, .94) !important;
-  }
-
-  .detail-navigation {
-    width: 86% !important;
-    margin: 20px auto 0 !important;
-    padding: 0 8px 8px !important;
-    position: relative !important;
-    z-index: 3 !important;
-    background: rgba(2, 6, 10, .55) !important;
-  }
-
-  .detail-navigation button,
-  #detailCounter {
-    position: relative !important;
-    z-index: 4 !important;
-  }
+/* Tighten the frame's vertical proportions around the image while preserving its width and alignment. */
+#collection-shell #detailMainImage {
+  height: 365px !important;
+  min-height: 365px !important;
+  max-height: 365px !important;
+  flex-basis: 365px !important;
+  aspect-ratio: auto !important;
 }
-
-@media (max-width: 820px) {
-  /* Maintain the same protected stacking order on smaller screens. */
-  .detail-panel::before {
-    z-index: 1 !important;
-    pointer-events: none !important;
-  }
-
-  .detail-panel > :not(.close-details) {
-    position: relative !important;
-    z-index: 2 !important;
-  }
-
-  .detail-thumbs img {
-    width: 25% !important;
-    height: 25% !important;
-    max-width: 25% !important;
-    max-height: 25% !important;
-    margin: 37.5% auto !important;
-    object-fit: contain !important;
-  }
-
-  .notes,
-  .detail-navigation {
-    position: relative !important;
-    z-index: 3 !important;
-  }
-}
-
-
-/* ============================================================
-   AUTOBOT DETAIL — CLEAN FRAME-FIRST COMPOSITION
-   Match the reference layout: one outer frame, clearly separated
-   inner image frame, compact thumbnail frames, protected notes,
-   and protected navigation. Images always preserve aspect ratio.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  /* Make the outer Cybernetic frame define the actual panel edge.
-     Nothing inside is allowed to occupy the frame's decorative zone. */
-  .detail-panel {
-    box-sizing: border-box !important;
-    padding: 44px 46px 52px !important;
-    overflow: hidden !important;
-    isolation: isolate !important;
-  }
-
-  .detail-panel::before {
-    inset: 0 !important;
-    z-index: 1 !important;
-    pointer-events: none !important;
-  }
-
-  .detail-panel > :not(.close-details) {
-    position: relative !important;
-    z-index: 2 !important;
-  }
-
-  .close-details {
-    top: 14px !important;
-    right: 18px !important;
-    z-index: 20 !important;
-  }
-
-  /* Upper content gets a dedicated inner zone. */
-  .detail-top {
-    width: 100% !important;
-    box-sizing: border-box !important;
-    grid-template-columns: minmax(0, .98fr) minmax(0, 1.02fr) !important;
-    gap: 24px !important;
-    padding: 10px 10px 0 !important;
-    align-items: start !important;
-  }
-
-  /* Tall inner image frame like the reference.
-     The photograph itself remains contain-sized and undistorted. */
-  .detail-main-image {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    aspect-ratio: .78 / 1 !important;
-    box-sizing: border-box !important;
-    padding: 18px !important;
-    overflow: hidden !important;
-    background-size: contain !important;
-    background-origin: content-box !important;
-    background-clip: content-box !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-  }
-
-  .detail-main-image::before {
-    inset: 0 !important;
-    z-index: 10 !important;
-    pointer-events: none !important;
-  }
-
-  .detail-main-image::after {
-    z-index: 3 !important;
-    pointer-events: none !important;
-  }
-
-  .detail-info {
-    min-width: 0 !important;
-    padding: 8px 4px 0 !important;
-  }
-
-  .detail-title {
-    min-width: 0 !important;
-    padding: 8px 2px 14px !important;
-    margin: 0 !important;
-  }
-
-  .detail-title h2 {
-    min-width: 0 !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  .detail-specs {
-    padding: 10px 0 0 !important;
-  }
-
-  .spec {
-    min-width: 0 !important;
-    grid-template-columns: 92px minmax(0, 1fr) !important;
-    gap: 6px !important;
-    margin: 7px 0 !important;
-  }
-
-  .spec span {
-    min-width: 0 !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  /* Thumbnail section: smaller frames, but restore the actual
-     alternate photographs to the previous 50% size. */
-  .detail-thumbs {
-    width: 72% !important;
-    margin: 22px 0 0 12px !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 12px !important;
-    box-sizing: border-box !important;
-    position: relative !important;
-    z-index: 3 !important;
-  }
-
-  .detail-thumbs button {
-    width: 100% !important;
-    aspect-ratio: 1.08 / 1 !important;
-    min-height: 0 !important;
-    height: auto !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    position: relative !important;
-    box-sizing: border-box !important;
-  }
-
-  .detail-thumbs img {
-    width: 50% !important;
-    height: 50% !important;
-    max-width: 50% !important;
-    max-height: 50% !important;
-    margin: 25% auto !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    display: block !important;
-  }
-
-  /* Notes occupy their own row with a hard separation from the
-     thumbnails and outer frame. */
-  .notes {
-    width: 92% !important;
-    box-sizing: border-box !important;
-    margin: 26px auto 0 !important;
-    padding: 13px 14px !important;
-    position: relative !important;
-    z-index: 4 !important;
-    background: rgba(2, 6, 10, .96) !important;
-  }
-
-  /* Navigation gets its own row below the notes. */
-  .detail-navigation {
-    width: 92% !important;
-    box-sizing: border-box !important;
-    margin: 24px auto 0 !important;
-    padding: 0 8px 4px !important;
-    position: relative !important;
-    z-index: 4 !important;
-    background: rgba(2, 6, 10, .96) !important;
-  }
-
-  .detail-navigation button,
-  #detailCounter {
-    position: relative !important;
-    z-index: 5 !important;
-  }
-}
-
-@media (max-width: 820px) {
-  .detail-panel {
-    box-sizing: border-box !important;
-    padding: 38px 24px 42px !important;
-    overflow: hidden !important;
-  }
-
-  .detail-panel::before {
-    inset: 0 !important;
-    z-index: 1 !important;
-  }
-
-  .detail-main-image {
-    aspect-ratio: .82 / 1 !important;
-    height: auto !important;
-    min-height: 0 !important;
-    padding: 14px !important;
-    background-size: contain !important;
-    background-origin: content-box !important;
-    background-clip: content-box !important;
-  }
-
-  .detail-thumbs {
-    width: 82% !important;
-    margin: 20px auto 0 !important;
-    gap: 9px !important;
-  }
-
-  .detail-thumbs button {
-    aspect-ratio: 1.08 / 1 !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-  }
-
-  .detail-thumbs img {
-    width: 50% !important;
-    height: 50% !important;
-    max-width: 50% !important;
-    max-height: 50% !important;
-    margin: 25% auto !important;
-    object-fit: contain !important;
-  }
-
-  .notes {
-    width: 94% !important;
-    margin: 22px auto 0 !important;
-    position: relative !important;
-    z-index: 3 !important;
-  }
-
-  .detail-navigation {
-    width: 94% !important;
-    margin: 20px auto 0 !important;
-    position: relative !important;
-    z-index: 3 !important;
-  }
-}
-
-
-/* ============================================================
-   AUTOBOT DETAIL — IMAGE SAFE-ZONE
-   Keep every photograph physically inside its Cybernetic frame.
-   The frame remains full-size; the image gets an internal
-   breathing room so no part of the photograph can touch the
-   decorative border. All image fitting preserves aspect ratio.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  /* Main photograph: enlarge the internal safe padding rather than
-     changing the photograph's aspect ratio. */
-  .detail-main-image {
-    padding: 34px !important;
-    background-origin: content-box !important;
-    background-clip: content-box !important;
-    background-size: contain !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-  }
-
-  /* Keep the decorative image frame above the photograph. */
-  .detail-main-image::before {
-    z-index: 10 !important;
-    pointer-events: none !important;
-  }
-
-  /* Thumbnail photographs get a smaller, centered safe zone.
-     The image itself stays at the restored 50% scale. */
-  .detail-thumbs button {
-    padding: 0 !important;
-    overflow: hidden !important;
-    isolation: isolate !important;
-  }
-
-  .detail-thumbs img {
-    width: 50% !important;
-    height: 50% !important;
-    max-width: 50% !important;
-    max-height: 50% !important;
-    margin: 25% auto !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    display: block !important;
-    position: relative !important;
-    z-index: 1 !important;
-  }
-
-  .detail-thumbs button::before {
-    z-index: 10 !important;
-    pointer-events: none !important;
-  }
-}
-
-@media (max-width: 820px) {
-  .detail-main-image {
-    padding: 28px !important;
-    background-origin: content-box !important;
-    background-clip: content-box !important;
-    background-size: contain !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-  }
-
-  .detail-thumbs img {
-    width: 50% !important;
-    height: 50% !important;
-    max-width: 50% !important;
-    max-height: 50% !important;
-    margin: 25% auto !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-  }
-
-  .detail-thumbs button::before {
-    z-index: 10 !important;
-    pointer-events: none !important;
-  }
-}
-
-
-/* ============================================================
-   AUTOBOT DETAIL — LOWER THE MAIN IMAGE FRAME
-   Give the main image frame a deliberate top offset so it has
-   clear visual separation from the outer information-window frame.
-   The information/title column stays at the original top position.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  .detail-main-image {
-    margin-top: 28px !important;
-  }
-}
-
-@media (max-width: 820px) {
-  .detail-main-image {
-    margin-top: 20px !important;
-  }
-}
-
-
-/* ============================================================
-   AUTOBOT DETAIL — STANDARDIZED PANEL DIMENSIONS
-   Every figure uses the same information-window footprint,
-   regardless of title length, image dimensions, or thumbnail count.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  .detail-panel {
-    width: 100% !important;
-    height: 760px !important;
-    min-height: 760px !important;
-    max-height: 760px !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  /* Give the upper section a fixed footprint so different title
-     lengths cannot change the overall panel geometry. */
-  .detail-top {
-    min-height: 390px !important;
-    max-height: 390px !important;
-    box-sizing: border-box !important;
-  }
-
-  .detail-main-image {
-    height: 360px !important;
-    min-height: 360px !important;
-    max-height: 360px !important;
-    aspect-ratio: auto !important;
-    box-sizing: border-box !important;
-  }
-
-  .detail-info {
-    height: 360px !important;
-    min-height: 360px !important;
-    max-height: 360px !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Keep thumbnails in a standardized footprint as well. */
-  .detail-thumbs {
-    min-height: 112px !important;
-    max-height: 112px !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Notes and navigation occupy fixed rows at the bottom. */
-  .notes {
-    height: 68px !important;
-    min-height: 68px !important;
-    max-height: 68px !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-  }
-
-  .detail-navigation {
-    height: 38px !important;
-    min-height: 38px !important;
-    max-height: 38px !important;
-    box-sizing: border-box !important;
-  }
-}
-
-@media (max-width: 820px) {
-  .detail-panel {
-    width: 100% !important;
-    min-height: 0 !important;
-    height: auto !important;
-    max-height: none !important;
-    box-sizing: border-box !important;
-  }
-}
-
-
-/* ============================================================
-   AUTOBOT DETAIL — EXPANDED STANDARD FOOTPRINT
-   Reserve a fixed, taller panel for up to 9 alternate images,
-   notes, and navigation. The panel never changes size based on
-   the amount of content a figure happens to have.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  .detail-panel {
-    height: 1000px !important;
-    min-height: 1000px !important;
-    max-height: 1000px !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  /* Main image + specifications remain in a fixed upper zone. */
-  .detail-top {
-    height: 390px !important;
-    min-height: 390px !important;
-    max-height: 390px !important;
-    box-sizing: border-box !important;
-  }
-
-  .detail-main-image,
-  .detail-info {
-    height: 360px !important;
-    min-height: 360px !important;
-    max-height: 360px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Dedicated 3 x 3 alternate-image area.
-     Empty slots simply remain unused; they never change the panel size. */
-  .detail-thumbs {
-    width: 82% !important;
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
     height: 270px !important;
     min-height: 270px !important;
     max-height: 270px !important;
-    margin: 28px auto 0 !important;
-    padding: 0 !important;
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
-    gap: 12px !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  .detail-thumbs button {
-    width: 100% !important;
-    height: 100% !important;
-    min-height: 0 !important;
-    aspect-ratio: auto !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-    position: relative !important;
-  }
-
-  .detail-thumbs img {
-    width: 50% !important;
-    height: 50% !important;
-    max-width: 50% !important;
-    max-height: 50% !important;
-    margin: 25% auto !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    display: block !important;
-  }
-
-  /* Notes get their own fixed row, separated from thumbnails. */
-  .notes {
-    width: 92% !important;
-    height: 76px !important;
-    min-height: 76px !important;
-    max-height: 76px !important;
-    margin: 28px auto 0 !important;
-    padding: 12px 14px !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  /* Navigation gets its own fixed row below the notes. */
-  .detail-navigation {
-    width: 92% !important;
-    height: 42px !important;
-    min-height: 42px !important;
-    max-height: 42px !important;
-    margin: 24px auto 0 !important;
-    padding: 0 8px 4px !important;
-    box-sizing: border-box !important;
-  }
-
-  .detail-navigation button,
-  #detailCounter {
-    position: relative !important;
-    z-index: 5 !important;
-  }
-}
-
-@media (max-width: 820px) {
-  /* Mobile remains content-responsive, but still reserves room for
-     a full 3 x 3 thumbnail arrangement without collapsing rows. */
-  .detail-panel {
-    min-height: 980px !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  .detail-thumbs {
-    width: 90% !important;
-    min-height: 270px !important;
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
-    gap: 9px !important;
-    overflow: hidden !important;
-  }
-
-  .detail-thumbs button {
-    min-height: 0 !important;
-    height: 100% !important;
-    aspect-ratio: auto !important;
-    overflow: hidden !important;
-  }
-
-  .detail-thumbs img {
-    width: 50% !important;
-    height: 50% !important;
-    max-width: 50% !important;
-    max-height: 50% !important;
-    margin: 25% auto !important;
-    object-fit: contain !important;
-  }
-
-  .notes {
-    margin-top: 22px !important;
-  }
-
-  .detail-navigation {
-    margin-top: 20px !important;
+    flex-basis: 270px !important;
   }
 }
 
 
-/* ============================================================
-   AUTOBOT DETAIL — FINAL CLEARANCE / THUMBNAIL CONTAINMENT
-   Add more vertical breathing room at the top while keeping the
-   panel footprint fixed and preventing thumbnail photos from
-   escaping their decorative frames.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  .detail-panel {
-    height: 1060px !important;
-    min-height: 1060px !important;
-    max-height: 1060px !important;
-    padding-top: 58px !important;
-    padding-bottom: 54px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Move BOTH the main image and information/name downward together. */
-  .detail-top {
-    height: 430px !important;
-    min-height: 430px !important;
-    max-height: 430px !important;
-    padding-top: 34px !important;
-    box-sizing: border-box !important;
-  }
-
-  .detail-main-image,
-  .detail-info {
-    height: 360px !important;
-    min-height: 360px !important;
-    max-height: 360px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Keep the title/specifications aligned with the lowered image. */
-  .detail-info {
-    padding-top: 12px !important;
-  }
-
-  /* Thumbnail photos are explicitly centered INSIDE their buttons.
-     Absolute positioning avoids margin calculations escaping the
-     Cybernetic frame at different image aspect ratios. */
-  .detail-thumbs button {
-    position: relative !important;
-    overflow: hidden !important;
-    isolation: isolate !important;
-    box-sizing: border-box !important;
-  }
-
-  .detail-thumbs img {
-    position: absolute !important;
-    z-index: 1 !important;
-    left: 25% !important;
-    top: 25% !important;
-    width: 50% !important;
-    height: 50% !important;
-    max-width: 50% !important;
-    max-height: 50% !important;
-    margin: 0 !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    display: block !important;
-  }
-
-  .detail-thumbs button::before {
-    position: absolute !important;
-    z-index: 10 !important;
-    inset: 0 !important;
-    pointer-events: none !important;
-  }
-
-  /* Keep the lower rows comfortably separated after enlarging the panel. */
-  .notes {
-    margin-top: 32px !important;
-  }
-
-  .detail-navigation {
-    margin-top: 26px !important;
-  }
-}
-
-@media (max-width: 820px) {
-  .detail-panel {
-    min-height: 1040px !important;
-    padding-top: 48px !important;
-    padding-bottom: 46px !important;
-    box-sizing: border-box !important;
-  }
-
-  .detail-top {
-    padding-top: 26px !important;
-  }
-
-  .detail-info {
-    padding-top: 10px !important;
-  }
-
-  .detail-thumbs button {
-    position: relative !important;
-    overflow: hidden !important;
-    isolation: isolate !important;
-  }
-
-  .detail-thumbs img {
-    position: absolute !important;
-    left: 25% !important;
-    top: 25% !important;
-    width: 50% !important;
-    height: 50% !important;
-    max-width: 50% !important;
-    max-height: 50% !important;
-    margin: 0 !important;
-    object-fit: contain !important;
-  }
-
-  .detail-thumbs button::before {
-    position: absolute !important;
-    z-index: 10 !important;
-    inset: 0 !important;
-    pointer-events: none !important;
-  }
+/* Narrow the frame horizontally so its side rails sit closer to the photo, while retaining the tuned vertical fit. */
+#collection-shell #detailMainImage::after {
+  background-size: 82% 100% !important;
+  background-position: center center !important;
 }
 
 
-/* ============================================================
-   AUTOBOT DETAIL — ALIGN INFO WITH IMAGE FRAME
-   Lower the title/specification column so its top aligns with
-   the top edge of the main image frame.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  .detail-info {
-    padding-top: 0 !important;
-    transform: translateY(28px) !important;
-  }
+/* Ratio-aware frame: its whole artwork scales with the selected photo orientation. */
+#collection-shell #detailMainImage {
+  width: min(75%, 420px);
+  height: 365px;
+  min-height: 365px;
+  max-height: 365px;
+  flex: 0 0 365px;
+  overflow: hidden !important;
 }
-
-@media (max-width: 820px) {
-  .detail-info {
-    padding-top: 0 !important;
-    transform: translateY(20px) !important;
-  }
+#collection-shell #detailMainImage::after {
+  background-size: 100% 100% !important;
+  background-position: center center !important;
 }
-
-
-/* ============================================================
-   AUTOBOT DETAIL — MATCH THREE PREVIEW ROWS
-   The desktop gallery uses two square preview cards per row.
-   Standardize the detail panel to the visual height of three
-   preview-card rows plus their two inter-row gaps.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  .detail-panel {
-    height: 1120px !important;
-    min-height: 1120px !important;
-    max-height: 1120px !important;
-    box-sizing: border-box !important;
-  }
-}
-
-
-/* ============================================================
-   AUTOBOT DETAIL — CENTER THE FIGURE NAME
-   Move the title downward toward the vertical midpoint of the
-   main image frame while leaving the specification block below it.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  .detail-title {
-    transform: translateY(105px) !important;
-  }
-}
-
-@media (max-width: 820px) {
-  .detail-title {
-    transform: translateY(70px) !important;
-  }
-}
-
-
-/* ============================================================
-   AUTOBOT DETAIL — MOVE SPECIFICATIONS WITH THE LOWERED TITLE
-   Keep the title and specification block together so the title
-   never overlaps the information beneath it.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  .detail-specs {
-    transform: translateY(105px) !important;
-  }
-}
-
-@media (max-width: 820px) {
-  .detail-specs {
-    transform: translateY(70px) !important;
-  }
-}
-
-
-/* ============================================================
-   PREVIEW IMAGE — LARGER SAFE-ZONE FIT
-   Let preview photos fill much more of their Cybernetic frame
-   while preserving aspect ratio and leaving a clear border zone.
-   ============================================================ */
-
-@media (min-width: 821px) {
-  .preview-grid .preview-window {
-    overflow: hidden !important;
-    isolation: isolate !important;
-  }
-
-  .preview-grid .preview-window img {
-    position: absolute !important;
-    z-index: 1 !important;
-    left: 16% !important;
-    top: 12% !important;
-    width: 68% !important;
-    height: 68% !important;
-    max-width: 68% !important;
-    max-height: 68% !important;
-    margin: 0 !important;
-    inset: auto !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    display: block !important;
-  }
-
-  .preview-grid .preview-window::before {
-    z-index: 10 !important;
-    pointer-events: none !important;
-  }
-}
-
-@media (max-width: 820px) {
-  .preview-grid .preview-window {
-    overflow: hidden !important;
-    isolation: isolate !important;
-  }
-
-  .preview-grid .preview-window img {
-    position: absolute !important;
-    z-index: 1 !important;
-    left: 16% !important;
-    top: 12% !important;
-    width: 68% !important;
-    height: 68% !important;
-    max-width: 68% !important;
-    max-height: 68% !important;
-    margin: 0 !important;
-    inset: auto !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    display: block !important;
-  }
-
-  .preview-grid .preview-window::before {
-    z-index: 10 !important;
-    pointer-events: none !important;
-  }
-}
-
-
-/* ============================================================
-   TRANSPARENT IMAGE SAFE-ZONE
-   Collection photographs do not receive an artificial black
-   rectangle from the page. The Cybernetic frame remains visible.
-   ============================================================ */
-
-.preview-window,
-.collection-card .preview-window,
-.info-image,
-.info-thumbs button,
-.info-thumbs div {
-  background: transparent !important;
-}
-
-.preview-window img,
-.collection-card .preview-window img,
-.info-image img,
-.info-thumbs button img,
-.info-thumbs div img {
-  background: transparent !important;
-  mix-blend-mode: normal !important;
-}
-
-/* Let each photograph use the available frame area without
-   stretching it or adding a background behind transparent space. */
-.preview-window img {
+#collection-shell #detailMainImage > img {
+  left: 13% !important;
+  top: 4.6% !important;
+  width: 74% !important;
+  height: 90.8% !important;
   object-fit: contain !important;
-  object-position: center center !important;
 }
-
-.info-image img {
-  object-fit: contain !important;
-  object-position: center center !important;
-}
-
-
-/* ============================================================
-   INFO WINDOW — NORMAL PAGE FLOW
-   The selected information panel scrolls naturally with the page.
-   It must not remain sticky while the collection is scrolled.
-   ============================================================ */
-
-.detail-panel,
-.collection-info {
-  position: relative !important;
-  top: auto !important;
-  bottom: auto !important;
-  inset-block-start: auto !important;
-  inset-block-end: auto !important;
-}
-
-/* Close controls have been removed from the collection UI. */
-.close-details,
-.info-close {
-  display: none !important;
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
+    width: min(75%, 315px);
+    height: 270px;
+    min-height: 270px;
+    max-height: 270px;
+    flex-basis: 270px;
+  }
 }
 
 
-/* AUTOBOT COLLECTION BAR — use the new industrial panel texture. */
-.collection-heading-top {
-  background-color: #111820;
-  background-image:
-    linear-gradient(rgba(5, 9, 14, .22), rgba(5, 9, 14, .22)),
-    url("images/decorative%20elements/panel-background-02_result.webp");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  border: 1px solid rgba(145, 158, 169, .45);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 3px 8px rgba(0, 0, 0, .45);
+/* Final alignment rule: size the frame using its measured inner-opening proportions.
+   The photo stays proportional and fills that opening for portrait, square, and landscape images. */
+#collection-shell #detailMainImage {
+  aspect-ratio: var(--frame-aspect, .72) !important;
 }
-
-
-/* AUTOBOT COLLECTION BAR — remove the old angular accent frame and
-   center the heading independently of the Search / Filters control. */
-.collection-heading::before {
-  content: none !important;
-  display: none !important;
-}
-
-.collection-heading-top {
-  position: relative !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: calc(100% + 40px) !important;
-  min-height: 76px !important;
-  margin-left: -20px !important;
-  padding: 16px 20px !important;
-  box-sizing: border-box !important;
+#collection-shell #detailMainImage::after {
   background-size: 100% 100% !important;
   background-position: center !important;
-  border: 1px solid rgba(145, 158, 169, .45) !important;
 }
-
-.collection-heading-top h2 {
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  margin: 0 !important;
-  min-width: 0 !important;
-  text-align: center !important;
-  white-space: nowrap !important;
-}
-
-.collection-heading-top .filter-toggle {
-  position: relative !important;
-  margin-left: auto !important;
-  margin-right: 0 !important;
-  transform: translateX(-150%) !important;
-}
-
-@media (max-width: 820px) {
-  .collection-heading-top {
-    width: 100% !important;
-    margin-left: 0 !important;
-    min-height: 68px !important;
-    padding: 12px 8px !important;
-  }
-
-  .collection-heading-top h2 {
-    font-size: clamp(12px, 2.3vw, 18px) !important;
-    max-width: 58% !important;
-    white-space: normal !important;
-  }
-
-  .collection-heading-top .filter-toggle {
-    transform: translateX(-15%) !important;
-  }
-}
-
-@media (max-width: 520px) {
-  .collection-heading-top {
-    min-height: 62px !important;
-  }
-
-  .collection-heading-top h2 {
-    font-size: 12px !important;
-    max-width: 54% !important;
-  }
-
-  .collection-heading-top .filter-toggle {
-    transform: none !important;
-    padding: 5px 7px !important;
-    font-size: 8px !important;
-  }
-}
-
-
-/* COLLECTION TEXTURE — remove the outline and triple the texture's height. */
-.collection-heading-top {
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  min-height: 228px !important;
-  background-size: 100% 100% !important;
-}
-
-@media (max-width: 820px) {
-  .collection-heading-top {
-    min-height: 204px !important;
-  }
-}
-
-@media (max-width: 520px) {
-  .collection-heading-top {
-    min-height: 186px !important;
-  }
-}
-
-
-/* FINAL COLLECTION BAR CLEANUP — remove both the image outline and
-   the outer collection-shell frame visible around the texture. */
-.collection-heading {
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  background: transparent !important;
-}
-
-.collection-heading::before,
-.collection-heading::after {
-  content: none !important;
-  display: none !important;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  background: none !important;
-  filter: none !important;
-}
-
-.collection-heading-top {
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  background-color: transparent !important;
-  background-image:
-    linear-gradient(rgba(5, 9, 14, .12), rgba(5, 9, 14, .12)),
-    url("images/decorative%20elements/panel-background-02_result.webp") !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
-  background-size: 100% 100% !important;
-}
-
-
-/* GLOBAL DESIGN RESET — Cybertronian border artwork and accent frames are retired.
-   Keep the underlying panels, images, layout, and text; remove decorative frame overlays. */
-.nav-item::before,
-.nav-item::after,
-.collection-heading::before,
-.collection-heading::after,
-.detail-panel::before,
-.card::before,
-.card::after,
-.preview-window::before,
-.preview-window::after,
-.collection-info::before,
-.collection-info::after,
-.info-image::before,
-.info-image::after,
-.info-thumbs button::before,
-.info-thumbs button::after,
-.info-thumbs div::before,
-.info-thumbs div::after {
-  content: none !important;
-  display: none !important;
-  -webkit-mask: none !important;
-  mask: none !important;
-  filter: none !important;
-  box-shadow: none !important;
-  outline: 0 !important;
-}
-
-/* Remove any remaining image-mask references from visible pseudo-element frames. */
-.nav-item,
-.collection-heading,
-.detail-panel,
-.card,
-.preview-window,
-.collection-info,
-.info-image {
-  --nav-glow: transparent !important;
-}
-
-
-/* DEFINITIVE BORDER-EFFECT REMOVAL
-   Disable remaining decorative borders, glow filters, and inset/outer shadows.
-   Keep structural spacing and the original images intact. */
-.collection-shell,
-.collection-heading,
-.collection-heading-top,
-.content-layout,
-.gallery,
-.card,
-.preview-window,
-.detail-panel,
-.detail-main-image,
-.detail-main-image img,
-.detail-info,
-.detail-title,
-.detail-specs,
-.detail-thumbs,
-.detail-thumbs button,
-.collection-info,
-.info-image,
-.info-thumbs button,
-.info-thumbs div {
-  outline: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-  text-shadow: none !important;
-}
-
-.collection-shell,
-.collection-heading,
-.collection-heading-top,
-.content-layout,
-.gallery,
-.card,
-.preview-window,
-.detail-panel,
-.detail-main-image,
-.detail-info,
-.detail-title,
-.detail-specs,
-.detail-thumbs,
-.detail-thumbs button,
-.collection-info,
-.info-image,
-.info-thumbs button,
-.info-thumbs div {
-  border-color: transparent !important;
-}
-
-.detail-panel::before,
-.detail-panel::after,
-.card::before,
-.card::after,
-.preview-window::before,
-.preview-window::after,
-.detail-main-image::before,
-.detail-main-image::after,
-.detail-thumbs button::before,
-.detail-thumbs button::after,
-.collection-info::before,
-.collection-info::after,
-.info-image::before,
-.info-image::after,
-.info-thumbs button::before,
-.info-thumbs button::after,
-.info-thumbs div::before,
-.info-thumbs div::after {
-  content: none !important;
-  display: none !important;
-  background: none !important;
-  -webkit-mask: none !important;
-  mask: none !important;
-  filter: none !important;
-  box-shadow: none !important;
-}
-
-
-/* AUTOBOTS COLLECTION — remove the remaining bright vertical frame lines.
-   These are coming from card/panel border and pseudo-frame styling, not the photos. */
-body[data-cyber-theme="autobots"] .collection-shell,
-body[data-cyber-theme="autobots"] .content-layout,
-body[data-cyber-theme="autobots"] .gallery,
-body[data-cyber-theme="autobots"] .gallery .card,
-body[data-cyber-theme="autobots"] .gallery .card:hover,
-body[data-cyber-theme="autobots"] .detail-panel,
-body[data-cyber-theme="autobots"] .detail-main-image,
-body[data-cyber-theme="autobots"] .detail-thumbs,
-body[data-cyber-theme="autobots"] .detail-thumbs button {
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-body[data-cyber-theme="autobots"] .gallery .card::before,
-body[data-cyber-theme="autobots"] .gallery .card::after,
-body[data-cyber-theme="autobots"] .detail-panel::before,
-body[data-cyber-theme="autobots"] .detail-panel::after,
-body[data-cyber-theme="autobots"] .detail-main-image::before,
-body[data-cyber-theme="autobots"] .detail-main-image::after,
-body[data-cyber-theme="autobots"] .detail-thumbs button::before,
-body[data-cyber-theme="autobots"] .detail-thumbs button::after {
-  content: none !important;
-  display: none !important;
-  border: 0 !important;
-  outline: 0 !important;
-  background: none !important;
-  -webkit-mask: none !important;
-  mask: none !important;
-  filter: none !important;
-  box-shadow: none !important;
-}
-
-body[data-cyber-theme="autobots"] .gallery .card {
-  background: transparent !important;
-}
-
-
-/* FINAL RETIREMENT OF THE OLD BORDER SYSTEM:
-   remove chassis overlays on the site header and remaining detail-panel frame/glow. */
-body .topbar::after,
-body .site-header.unified-header::after {
-  content: none !important;
-  display: none !important;
-  background: none !important;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-body .topbar,
-body .site-header.unified-header {
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-}
-
-body .detail-panel,
-body .collection-info {
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-  background-image: none !important;
-}
-
-body .detail-panel::before,
-body .detail-panel::after,
-body .collection-info::before,
-body .collection-info::after {
-  content: none !important;
-  display: none !important;
-  background: none !important;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-  -webkit-mask: none !important;
-  mask: none !important;
-}
-
-body .detail-main-image,
-body .detail-main-image::before,
-body .detail-main-image::after {
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-body .detail-main-image::before,
-body .detail-main-image::after {
-  content: none !important;
-  display: none !important;
-  background: none !important;
-  -webkit-mask: none !important;
-  mask: none !important;
-}
-
-/* MOCKUP VISUAL RESTORATION — collection panels and figure frames.
-   Keep the existing HTML, Supabase data flow, navigation, and responsive layout.
-   Re-enable the repository's decorative PNG assets for the collection area only. */
-body[data-cyber-theme="autobots"] .collection-shell {
-  position: relative !important;
-  padding: 22px 0 48px !important;
-  background:
-    url("images/decorative%20elements/edge-strip-01_result.webp") left 18px top 16px / 12px auto repeat-y,
-    url("images/decorative%20elements/edge-strip-02_result.webp") right 18px top 16px / 12px auto repeat-y,
-    linear-gradient(180deg, rgba(5, 12, 19, .48), rgba(1, 4, 8, .88)) !important;
-}
-body[data-cyber-theme="autobots"] .collection-heading {
-  position: relative !important;
-  min-height: 76px !important;
-  padding: 14px 18px !important;
-  background:
-    url("images/decorative%20elements/panel-background-02_result.webp") center / 100% 100% no-repeat,
-    linear-gradient(90deg, #171b20, #05090e) !important;
-  border: 0 !important;
-  clip-path: none !important;
-  box-shadow: 0 6px 16px rgba(0,0,0,.75) !important;
-}
-body[data-cyber-theme="autobots"] .content-layout {
-  gap: 18px !important;
-  align-items: start !important;
-}
-body[data-cyber-theme="autobots"] .gallery .card {
-  position: relative !important;
-  padding: 10px !important;
-  background:
-    url("images/decorative%20elements/icon-frame-square_result.webp") center / 100% 100% no-repeat,
-    linear-gradient(180deg, rgba(22,27,31,.98), rgba(3,7,11,.99)) !important;
-  border: 0 !important;
-  clip-path: none !important;
-  box-shadow: 0 8px 16px rgba(0,0,0,.7) !important;
-  transition: transform .18s ease, filter .18s ease !important;
-}
-body[data-cyber-theme="autobots"] .gallery .card:hover {
-  transform: translateY(-3px) !important;
-  filter: brightness(1.12) drop-shadow(0 0 7px rgba(255,48,48,.45)) !important;
-}
-body[data-cyber-theme="autobots"] .gallery .card-image {
-  aspect-ratio: 1 / 1 !important;
+#collection-shell #detailMainImage > img {
+  left: 13% !important;
+  top: 4.6% !important;
+  width: 74% !important;
+  height: 90.8% !important;
   object-fit: contain !important;
-  background:
-    url("images/decorative%20elements/panel-background-01_result.webp") center / cover no-repeat,
-    rgba(2,6,10,.92) !important;
+  object-position: center !important;
 }
-body[data-cyber-theme="autobots"] .gallery .card-body {
-  padding: 10px 8px 8px !important;
+
+
+/* Override older fixed-size rules: use the dimensions calculated from each photo's aspect ratio. */
+#collection-shell #detailMainImage {
+  width: var(--frame-width, min(75%, 420px)) !important;
+  height: var(--frame-height, 365px) !important;
+  min-height: var(--frame-height, 365px) !important;
+  max-height: var(--frame-height, 365px) !important;
+  flex: 0 0 var(--frame-height, 365px) !important;
+  aspect-ratio: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  overflow: hidden !important;
 }
-body[data-cyber-theme="autobots"] .gallery .card h3 {
-  color: #f5f0e7 !important;
-  text-shadow: 0 2px 4px #000 !important;
-}
-body[data-cyber-theme="autobots"] .gallery .card p {
-  color: #c8cdd1 !important;
-}
-body[data-cyber-theme="autobots"] .gallery .card button {
-  background:
-    url("images/decorative%20elements/rusted-panel-plate_result.webp") center / 100% 100% no-repeat,
-    linear-gradient(180deg, #5c1a16, #160809) !important;
-  border: 0 !important;
-  min-height: 36px !important;
-  text-shadow: 0 1px 3px #000 !important;
-}
-body[data-cyber-theme="autobots"] .detail-panel {
-  position: sticky !important;
-  top: 18px !important;
-  padding: 24px 22px !important;
-  background:
-    url("images/decorative%20elements/info-window_result.webp") center / 100% 100% no-repeat,
-    url("images/decorative%20elements/panel-background-02_result.webp") center / cover no-repeat,
-    rgba(4,8,12,.98) !important;
-  border: 0 !important;
-  clip-path: none !important;
-  box-shadow: 0 10px 24px rgba(0,0,0,.8) !important;
-}
-body[data-cyber-theme="autobots"] .detail-main-image {
-  min-height: 280px !important;
-  background:
-    url("images/decorative%20elements/panel-background-01_result.webp") center / cover no-repeat,
-    rgba(2,5,8,.95) !important;
-  border: 0 !important;
-  box-shadow: inset 0 0 0 1px rgba(208,145,77,.42), 0 5px 12px rgba(0,0,0,.8) !important;
-}
-body[data-cyber-theme="autobots"] .detail-main-image img {
+#collection-shell #detailMainImage::after {
+  inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  min-height: 280px !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+}
+#collection-shell #detailMainImage > img {
+  left: 13% !important;
+  top: 4.6% !important;
+  width: 74% !important;
+  height: 90.8% !important;
   object-fit: contain !important;
-  display: block !important;
+  object-position: center center !important;
 }
-body[data-cyber-theme="autobots"] .detail-title {
-  border-bottom: 1px solid rgba(195,117,57,.65) !important;
+@media (max-width: 760px) {
+  #collection-shell #detailMainImage {
+    width: var(--frame-width, min(75%, 315px)) !important;
+    height: var(--frame-height, 270px) !important;
+    min-height: var(--frame-height, 270px) !important;
+    max-height: var(--frame-height, 270px) !important;
+    flex-basis: var(--frame-height, 270px) !important;
+  }
 }
-body[data-cyber-theme="autobots"] .detail-thumbs button {
-  background:
-    url("images/decorative%20elements/icon-frame-square_result.webp") center / 100% 100% no-repeat,
-    #05090d !important;
-  padding: 5px !important;
+
+
+/* Keep the info window a fixed, uniform height independent of the selected image/frame.
+   Sized to approximately the current four-column gallery plus three additional rows. */
+@media (min-width: 761px) {
+  #collection-shell .collection-layout {
+    align-items: start !important;
+  }
+  #collection-shell .detail-panel {
+    height: 1500px !important;
+    min-height: 1500px !important;
+    max-height: 1500px !important;
+    box-sizing: border-box !important;
+    align-self: start !important;
+    overflow: hidden !important;
+    background-size: 100% 100% !important;
+  }
+}
+
+
+/* Selected-unit header: faction light strip under the inner frame, image lowered, nameplate alongside. */
+#collection-shell .detail-panel {
+  position: relative !important;
+  padding-top: 58px !important;
+}
+#collection-shell .detail-lightstrip {
+  position: absolute;
+  top: 28px;
+  left: 12%;
+  right: 12%;
+  height: 18px;
+  background: url("images/decorative%20elements/lightstrip-red_result.webp") center / 100% 100% no-repeat;
+  pointer-events: none;
+  z-index: 4;
+}
+#collection-shell .detail-hero-row {
+  display: grid;
+  grid-template-columns: minmax(0, 560px) minmax(180px, 1fr);
+  align-items: center;
+  column-gap: 24px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+#collection-shell .detail-hero-row #detailMainImage {
+  justify-self: start !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+#collection-shell .detail-hero-row .panel-heading {
+  position: relative;
+  z-index: 1;
+  display: flex !important;
+  align-items: flex-start !important;
+  align-self: start;
+  gap: 10px;
+  min-width: 0;
+  padding: 18px 12px !important;
+  margin: 0 !important;
   border: 0 !important;
-  box-shadow: 0 4px 9px rgba(0,0,0,.7) !important;
+  background: url("images/decorative%20elements/honeycomb-vent-grille_result.webp") center / 100% 100% no-repeat !important;
 }
-body[data-cyber-theme="autobots"] .detail-thumbs img {
-  position: static !important;
+#collection-shell .detail-hero-row .panel-heading > div {
+  min-width: 0;
+}
+#collection-shell .detail-hero-row .panel-heading h2 {
+  overflow-wrap: anywhere;
+}
+#collection-shell .detail-hero-row .panel-heading .eyebrow {
+  margin-top: 3px;
+}
+@media (max-width: 900px) {
+  #collection-shell .detail-hero-row {
+    grid-template-columns: minmax(0, 1fr) minmax(125px, .7fr);
+    column-gap: 12px;
+  }
+  #collection-shell .detail-hero-row .panel-heading {
+    padding: 12px 8px !important;
+    gap: 7px;
+  }
+  #collection-shell .detail-lightstrip {
+    left: 8%;
+    right: 8%;
+  }
+}
+
+
+/* Place the main image and figure title fully below the info window's upper inner border. */
+#collection-shell .detail-hero-row {
+  margin-top: 112px !important;
+  align-items: start !important;
+}
+#collection-shell .detail-hero-row .panel-heading {
+  margin-top: 0 !important;
+}
+
+
+/* Bring the nameplate immediately beside the main image and double its horizontal span. */
+#collection-shell .detail-hero-row {
+  grid-template-columns: var(--frame-width, minmax(0, 560px)) minmax(360px, 2fr) !important;
+  column-gap: 8px !important;
+}
+#collection-shell .detail-hero-row .panel-heading {
+  width: 200% !important;
+  box-sizing: border-box !important;
+  justify-self: start !important;
+  margin-left: 0 !important;
+}
+@media (max-width: 900px) {
+  #collection-shell .detail-hero-row {
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 1.4fr) !important;
+    column-gap: 8px !important;
+  }
+  #collection-shell .detail-hero-row .panel-heading {
+    width: 200% !important;
+  }
+}
+
+
+/* Restore the honeycomb nameplate to its natural column width. */
+#collection-shell .detail-hero-row .panel-heading {
   width: 100% !important;
-  height: auto !important;
-  max-width: none !important;
-  aspect-ratio: 1.2 / 1 !important;
+}
+
+
+/* Shift the honeycomb nameplate left to create a small gap from the main image frame. */
+#collection-shell .detail-hero-row .panel-heading {
+  transform: translateX(-14px) !important;
+}
+
+
+/* Remove the faction letter badge and the "SELECTED UNIT" eyebrow from the nameplate. */
+#collection-shell .detail-hero-row .panel-mark,
+#collection-shell .detail-hero-row .panel-heading .eyebrow {
+  display: none !important;
+}
+#collection-shell .detail-hero-row .panel-heading {
+  gap: 0 !important;
+}
+
+
+/* Taller honeycomb nameplate and slight rightward text offset. */
+#collection-shell .detail-hero-row .panel-heading {
+  min-height: 2em !important;
+  padding-top: 36px !important;
+  padding-bottom: 36px !important;
+  box-sizing: border-box !important;
+}
+#collection-shell .detail-hero-row .panel-heading > div {
+  transform: translateX(60px) !important;
+}
+
+
+/* Double the honeycomb nameplate height downward while keeping its top edge aligned with the main image. */
+#collection-shell .detail-hero-row .panel-heading {
+  height: 200px !important;
+  min-height: 200px !important;
+  padding-top: 36px !important;
+  padding-bottom: 36px !important;
+  align-self: start !important;
+  background-position: top center !important;
+}
+
+/* Wrap figure names at approximately 15 characters per line. */
+#collection-shell .detail-hero-row .panel-heading h2 {
+  width: 15ch !important;
+  max-width: 15ch !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+
+/* Ensure the square cybernetic frame is visible over every individual gallery image. */
+#collection-shell #gallery .card-image-wrap { position: relative !important; }
+#collection-shell #gallery .card-image-wrap .card-image { position: relative; z-index: 1; }
+#collection-shell #gallery .card-image-wrap .card-frame {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+}
+
+
+/* Square cybernetic frames around the alternative-image thumbnails in the info window. */
+#collection-shell .detail-thumbs {
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+#collection-shell .detail-thumbs button.detail-thumb {
+  position: relative !important;
+  display: block !important;
+  flex: 0 0 76px !important;
+  width: 76px !important;
+  height: 76px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+#collection-shell .detail-thumb-frame-wrap {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  background: radial-gradient(ellipse at center, #26313c 0, #0a0e13 78%) !important;
+}
+#collection-shell .detail-thumb-photo {
+  position: absolute !important;
+  z-index: 1 !important;
+  inset: 13% !important;
+  width: 74% !important;
+  height: 74% !important;
+  max-width: 74% !important;
+  max-height: 74% !important;
   object-fit: contain !important;
-}
-body[data-cyber-theme="autobots"] .notes {
-  background:
-    url("images/decorative%20elements/panel-background-01_result.webp") center / cover no-repeat,
-    rgba(3,7,11,.9) !important;
+  object-position: center !important;
   border: 0 !important;
-  box-shadow: inset 0 0 0 1px rgba(195,117,57,.45) !important;
-  padding: 16px !important;
+  background: transparent !important;
 }
-body[data-cyber-theme="autobots"] .detail-navigation button {
-  background:
-    url("images/decorative%20elements/rusted-panel-plate_result.webp") center / 100% 100% no-repeat,
-    #090d11 !important;
-  border: 0 !important;
-  padding: 11px 15px !important;
+#collection-shell .detail-thumb-frame {
+  position: absolute !important;
+  z-index: 2 !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+  pointer-events: none !important;
 }
-@media (max-width: 1100px) {
-  body[data-cyber-theme="autobots"] .detail-panel {
-    position: relative !important;
-    top: auto !important;
+#collection-shell .detail-thumbs button.detail-thumb.active {
+  outline: 1px solid var(--red-bright) !important;
+  outline-offset: 2px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-thumbs button.detail-thumb {
+    flex-basis: 68px !important;
+    width: 68px !important;
+    height: 68px !important;
   }
 }
-@media (max-width: 520px) {
-  body[data-cyber-theme="autobots"] .detail-panel {
-    padding: 20px 16px !important;
+
+
+/* Move the figure name down by two character heights within the honeycomb nameplate. */
+#collection-shell .detail-hero-row .panel-heading > div {
+  transform: translate(60px, 2em) !important;
+}
+
+
+/* Replace the thin white section rules with the large metallic divider artwork.
+   Reserve a fixed divider lane so portrait, square, and landscape photos cannot
+   change the vertical position of the content below the image row. */
+#collection-shell .detail-panel .info-section,
+#collection-shell .detail-panel .notes-section {
+  position: relative !important;
+  border-top: 0 !important;
+  padding-top: 36px !important;
+}
+#collection-shell .detail-panel .info-section::before,
+#collection-shell .detail-panel .notes-section::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  display: block !important;
+  height: 24px !important;
+  background: url("images/decorative%20elements/divider-bar-large_result.webp") center / 100% 100% no-repeat !important;
+  pointer-events: none !important;
+}
+#collection-shell .detail-panel .detail-hero-row {
+  height: 520px !important;
+  min-height: 520px !important;
+  max-height: 520px !important;
+  align-items: start !important;
+  overflow: visible !important;
+}
+#collection-shell .detail-panel #detailMainImage {
+  height: 365px !important;
+  min-height: 365px !important;
+  max-height: 365px !important;
+  flex-basis: 365px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .detail-hero-row {
+    height: 370px !important;
+    min-height: 370px !important;
+    max-height: 370px !important;
   }
-  body[data-cyber-theme="autobots"] .gallery .card {
-    padding: 12px !important;
+  #collection-shell .detail-panel #detailMainImage {
+    height: 270px !important;
+    min-height: 270px !important;
+    max-height: 270px !important;
+    flex-basis: 270px !important;
+  }
+  #collection-shell .detail-panel .info-section,
+  #collection-shell .detail-panel .notes-section {
+    padding-top: 32px !important;
+  }
+  #collection-shell .detail-panel .info-section::before,
+  #collection-shell .detail-panel .notes-section::before {
+    height: 20px !important;
+  }
+}
+
+
+/* Triple the red lightbar height and reserve its space above the image/name row. */
+#collection-shell .detail-lightstrip {
+  top: 12px !important;
+  height: 54px !important;
+}
+#collection-shell .detail-panel .detail-hero-row {
+  margin-top: 148px !important;
+  height: 556px !important;
+  min-height: 556px !important;
+  max-height: 556px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-lightstrip {
+    top: 10px !important;
+    height: 42px !important;
+  }
+  #collection-shell .detail-panel .detail-hero-row {
+    margin-top: 126px !important;
+    height: 384px !important;
+    min-height: 384px !important;
+    max-height: 384px !important;
+  }
+}
+
+
+/* Lower the red lightbar by four times its current height, triple its height again,
+   and keep the image/name row beneath the enlarged lightbar. */
+#collection-shell .detail-lightstrip {
+  top: 228px !important;
+  height: 162px !important;
+}
+#collection-shell .detail-panel .detail-hero-row {
+  margin-top: 400px !important;
+  height: 808px !important;
+  min-height: 808px !important;
+  max-height: 808px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-lightstrip {
+    top: 168px !important;
+    height: 126px !important;
+  }
+  #collection-shell .detail-panel .detail-hero-row {
+    margin-top: 310px !important;
+    height: 568px !important;
+    min-height: 568px !important;
+    max-height: 568px !important;
+  }
+}
+
+
+/* Raise the enlarged lightbar by one full lightbar height. */
+#collection-shell .detail-lightstrip {
+  top: 66px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-lightstrip {
+    top: 42px !important;
+  }
+}
+
+
+/* Move the lightbar down by half its current height. */
+#collection-shell .detail-lightstrip {
+  top: 147px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-lightstrip {
+    top: 105px !important;
+  }
+}
+
+
+/* Bring the main image and nameplate back up to sit just below the approved lightbar. */
+#collection-shell .detail-panel .detail-hero-row {
+  margin-top: 174px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .detail-hero-row {
+    margin-top: 142px !important;
+  }
+}
+
+
+/* Keep each gallery figure name above its decorative frame overlay. */
+#collection-shell #gallery .card-image-wrap {
+  isolation: isolate !important;
+}
+#collection-shell #gallery .card-body,
+#collection-shell #gallery .card-body h4,
+#collection-shell #gallery .card-body .card-meta {
+  position: relative !important;
+  z-index: 10 !important;
+}
+#collection-shell #gallery .card-frame {
+  pointer-events: none !important;
+}
+
+
+/* Lower the image and nameplate row so its top edge sits directly below the lightbar. */
+#collection-shell .detail-panel .detail-hero-row {
+  margin-top: 180px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .detail-hero-row {
+    margin-top: 148px !important;
+  }
+}
+
+
+/* Move the image and nameplate substantially farther below the lightbar. */
+#collection-shell .detail-panel .detail-hero-row {
+  margin-top: 250px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .detail-hero-row {
+    margin-top: 205px !important;
+  }
+}
+
+
+/* Place alternate figure images directly beneath the main image frame. */
+#collection-shell .detail-panel .detail-thumbs {
+  margin-top: 8px !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+#collection-shell .detail-panel .detail-hero-row {
+  margin-bottom: 8px !important;
+}
+
+
+/* Final gallery-label and thumbnail layout correction:
+   keep each figure name above the square frame overlay, and let the hero row
+   end at the actual image/nameplate height so alternate images sit right below it. */
+#collection-shell #gallery .card-image-wrap {
+  position: relative !important;
+  isolation: isolate !important;
+}
+#collection-shell #gallery .card-image-wrap .card-frame {
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+#collection-shell #gallery .card-image-wrap .card-name {
+  position: absolute !important;
+  z-index: 10 !important;
+  left: 8px !important;
+  right: 8px !important;
+  bottom: 8px !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 4px 6px !important;
+  color: #fff !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+  text-shadow: 0 2px 4px #000, 0 0 5px #000 !important;
+  background: rgba(3, 6, 10, .82) !important;
+  border: 1px solid rgba(255, 190, 120, .7) !important;
+  overflow-wrap: anywhere !important;
+  pointer-events: none !important;
+}
+#collection-shell .detail-panel .detail-hero-row {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+#collection-shell .detail-panel .detail-thumbs {
+  display: flex !important;
+  margin-top: 8px !important;
+  clear: both !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .detail-hero-row {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+}
+
+
+/* Wrap gallery figure names after roughly 12 characters per line. */
+#collection-shell #gallery .card-image-wrap .card-name {
+  width: auto !important;
+  max-width: 12ch !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+
+/* Restore gallery labels to their previous width; apply 12-character wrapping only to the info nameplate. */
+#collection-shell #gallery .card-image-wrap .card-name {
+  max-width: none !important;
+  left: 8px !important;
+  right: 8px !important;
+  transform: none !important;
+}
+#collection-shell .detail-hero-row .panel-heading h2 {
+  width: 12ch !important;
+  max-width: 12ch !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+
+/* Hide the numeric section indices while preserving the INFO and COLLECTOR'S NOTES headings. */
+#collection-shell .detail-panel .info-section .section-index,
+#collection-shell .detail-panel .notes-section .section-index {
+  display: none !important;
+}
+
+
+/* Triple the vertical height of the info-window divider bars. */
+#collection-shell .detail-panel .info-section::before,
+#collection-shell .detail-panel .notes-section::before {
+  height: 72px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .info-section::before,
+  #collection-shell .detail-panel .notes-section::before {
+    height: 60px !important;
+  }
+}
+
+
+/* Double the divider bars again from the current height. */
+#collection-shell .detail-panel .info-section::before,
+#collection-shell .detail-panel .notes-section::before {
+  height: 144px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .info-section::before,
+  #collection-shell .detail-panel .notes-section::before {
+    height: 120px !important;
+  }
+}
+
+
+/* Keep section headings and text below the enlarged divider artwork, preserving the original 12px gap. */
+#collection-shell .detail-panel .info-section,
+#collection-shell .detail-panel .notes-section {
+  padding-top: 156px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .info-section,
+  #collection-shell .detail-panel .notes-section {
+    padding-top: 132px !important;
+  }
+}
+
+
+/* Fit the enlarged divider artwork inside the info window and move section content upward. */
+#collection-shell .detail-panel .info-section::before,
+#collection-shell .detail-panel .notes-section::before {
+  left: 5% !important;
+  right: auto !important;
+  width: 90% !important;
+}
+#collection-shell .detail-panel .info-section,
+#collection-shell .detail-panel .notes-section {
+  padding-top: 100px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .info-section,
+  #collection-shell .detail-panel .notes-section {
+    padding-top: 85px !important;
   }
 }
