@@ -619,3 +619,28 @@ html body main .contact-shell > .contact-panel form > button:hover,
 html body main .contact-shell > .contact-panel form > button:focus-visible {
   filter: brightness(1.15);
 }
+
+
+/* Enlarge the metal-plate submit button, shift it another 150px right,
+   and make its label readable over the image. */
+html body main .contact-shell > .contact-panel form > button {
+  width: 400px !important;
+  height: 120px !important;
+  right: -240px !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  text-shadow: 0 1px 3px #000000, 0 0 5px #000000 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+@media (max-width: 760px) {
+  html body main .contact-shell > .contact-panel form > button {
+    width: 400px !important;
+    height: 120px !important;
+    right: -275px !important;
+  }
+}
