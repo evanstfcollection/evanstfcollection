@@ -644,3 +644,14 @@ html body main .contact-shell > .contact-panel form > button {
     right: -275px !important;
   }
 }
+
+
+/* Latest requested adjustment: move the Send Message plate 200px farther right. */
+html body main .contact-shell > .contact-panel form > button {
+  right: -440px !important;
+}
+@media (max-width: 760px) {
+  html body main .contact-shell > .contact-panel form > button {
+    right: -475px !important;
+  }
+}
