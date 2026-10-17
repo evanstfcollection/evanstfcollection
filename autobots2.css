@@ -1906,3 +1906,28 @@ body .hero {
     height: 20px !important;
   }
 }
+
+
+/* Triple the red lightbar height and reserve its space above the image/name row. */
+#collection-shell .detail-lightstrip {
+  top: 12px !important;
+  height: 54px !important;
+}
+#collection-shell .detail-panel .detail-hero-row {
+  margin-top: 148px !important;
+  height: 556px !important;
+  min-height: 556px !important;
+  max-height: 556px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-lightstrip {
+    top: 10px !important;
+    height: 42px !important;
+  }
+  #collection-shell .detail-panel .detail-hero-row {
+    margin-top: 126px !important;
+    height: 384px !important;
+    min-height: 384px !important;
+    max-height: 384px !important;
+  }
+}
