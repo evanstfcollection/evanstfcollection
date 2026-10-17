@@ -1,281 +1,201 @@
-const gallery = document.getElementById("gallery");
-const searchInput = document.getElementById("searchInput");
-const manufacturerFilter = document.getElementById("manufacturerFilter");
-const seriesFilter = document.getElementById("seriesFilter");
-const yearFilter = document.getElementById("yearFilter");
-const clearFilters = document.getElementById("clearFilters");
-const toggleFilters = document.getElementById("toggleFilters");
-const filterControls = document.getElementById("filterControls");
+(() => {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const gallery = $("gallery");
+  const searchInput = $("searchInput");
+  const seriesFilter = $("seriesFilter");
+  const yearFilter = $("yearFilter");
+  const sortFilter = $("sortFilter");
+  const clearFilters = $("clearFilters");
+  const detailPanel = $("detailPanel");
+  const detailName = $("detailName");
+  const detailMainImage = $("detailMainImage");
+  const detailSpecs = $("detailSpecs");
+  const detailThumbs = $("detailThumbs");
+  const detailNotes = $("detailNotes");
 
-const detailPanel = document.getElementById("detailPanel");
-const closeDetails = document.getElementById("closeDetails");
-const detailName = document.getElementById("detailName");
-const detailMainImage = document.getElementById("detailMainImage");
-const detailSpecs = document.getElementById("detailSpecs");
-const detailThumbs = document.getElementById("detailThumbs");
-const detailNotes = document.getElementById("detailNotes");
-const detailCounter = document.getElementById("detailCounter");
-const previousFigure = document.getElementById("previousFigure");
-const nextFigure = document.getElementById("nextFigure");
-const imageLightbox = document.getElementById("imageLightbox");
-const lightboxImage = document.getElementById("lightboxImage");
-const closeImageLightbox = document.getElementById("closeImageLightbox");
+  const collectionCount = $("collectionCount");
+  const resultCount = $("resultCount");
+  const imageLightbox = $("imageLightbox");
+  const lightboxImage = $("lightboxImage");
+  const closeImageLightbox = $("closeImageLightbox");
 
-let figures = [];
-let visibleFigures = [];
-let selectedIndex = 0;
+  let figures = [];
+  let visibleFigures = [];
+  let selectedIndex = 0;
+  let selectedImageUrl = "";
 
-function escapeHtml(value) {
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
+  function escapeHtml(value) {
+    return String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+  }
+  function publicImageUrl(path) {
+    if (!path || typeof supabaseClient === "undefined") return "";
+    return supabaseClient.storage.from("tf-collection").getPublicUrl(path).data.publicUrl;
+  }
+  function uniqueValues(key) {
+    return [...new Set(figures.map(item => item[key]).filter(value => value !== null && value !== "" && value !== undefined))]
+      .sort((a,b) => String(a).localeCompare(String(b), undefined, {numeric:true}));
+  }
+  function fillFilters() {
+    [[seriesFilter,"toy_line","All Toy Lines"],[yearFilter,"year","All Years"]].forEach(([select,key,label]) => {
+      select.innerHTML = '<option value="">' + label + '</option>';
+      uniqueValues(key).forEach(value => {
+        const option = document.createElement("option");
+        option.value = String(value);
+        option.textContent = String(value);
+        select.appendChild(option);
+      });
+    });
+  }
+  function sortItems(items) {
+    const mode = sortFilter.value;
+    return items.sort((a,b) => {
+      if (mode === "name-desc") return String(b.name||"").localeCompare(String(a.name||""),undefined,{numeric:true});
+      if (mode === "year-desc") return Number(b.year||0)-Number(a.year||0) || String(a.name||"").localeCompare(String(b.name||""));
+      if (mode === "year-asc") return Number(a.year||0)-Number(b.year||0) || String(a.name||"").localeCompare(String(b.name||""));
+      if (mode === "model-asc") return String(a.series||"").localeCompare(String(b.series||""),undefined,{numeric:true}) || String(a.name||"").localeCompare(String(b.name||""),undefined,{numeric:true});
+      return String(a.name||"").localeCompare(String(b.name||""),undefined,{numeric:true});
+    });
+  }
+  function renderGallery() {
+    const query = searchInput.value.trim().toLowerCase();
+    visibleFigures = sortItems(figures.filter(item => {
+      const searchable = [item.name,item.manufacturer,item.toy_line,item.series,item.alternate_mode,item.year].filter(Boolean).join(" ").toLowerCase();
+      return (!query || searchable.includes(query)) &&
+        (!seriesFilter.value || String(item.toy_line) === seriesFilter.value) &&
+        (!yearFilter.value || String(item.year) === yearFilter.value);
+    }));
+    resultCount.textContent = visibleFigures.length + (visibleFigures.length === 1 ? " FIGURE" : " FIGURES");
+    if (!visibleFigures.length) {
+      gallery.innerHTML = '<div class="empty-state">No figures match the current search or filters.</div>';
+      detailPanel.setAttribute("aria-hidden","true");
 
-function publicImageUrl(path) {
-  if (!path) return "";
-  return supabaseClient.storage.from("tf-collection").getPublicUrl(path).data.publicUrl;
-}
-
-function setFiltersOpen(open) {
-  if (!toggleFilters || !filterControls) return;
-  filterControls.classList.toggle("filters-open", open);
-  toggleFilters.setAttribute("aria-expanded", String(open));
-  const icon = toggleFilters.querySelector("span");
-  if (icon) icon.textContent = open ? "−" : "+";
-}
-
-if (toggleFilters) {
-  toggleFilters.addEventListener("click", () => {
-    const isOpen = filterControls.classList.contains("filters-open");
-    setFiltersOpen(!isOpen);
-  });
-}
-
-if (window.matchMedia("(max-width: 520px)").matches) {
-  setFiltersOpen(false);
-}
-
-function uniqueValues(key) {
-  return [...new Set(figures.map(item => item[key]).filter(value => value !== null && value !== ""))]
-    .sort((a, b) => String(a).localeCompare(String(b), undefined, { numeric: true }));
-}
-
-function fillFilters() {
-  manufacturerFilter.innerHTML = '<option value="">All Manufacturers</option>';
-  seriesFilter.innerHTML = '<option value="">All Series</option>';
-  yearFilter.innerHTML = '<option value="">All Years</option>';
-
-  uniqueValues("manufacturer").forEach(value => {
-    manufacturerFilter.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`);
-  });
-
-  uniqueValues("series").forEach(value => {
-    seriesFilter.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`);
-  });
-
-  uniqueValues("year").forEach(value => {
-    yearFilter.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`);
-  });
-}
-
-function renderGallery() {
-  const search = searchInput.value.trim().toLowerCase();
-
-  visibleFigures = figures.filter(item => {
-    const searchable = [
-      item.name,
-      item.manufacturer,
-      item.toy_line,
-      item.series,
-      item.alternate_mode
-    ].filter(Boolean).join(" ").toLowerCase();
-
-    const matchesSearch = !search || searchable.includes(search);
-    const matchesManufacturer = !manufacturerFilter.value || item.manufacturer === manufacturerFilter.value;
-    const matchesSeries = !seriesFilter.value || item.series === seriesFilter.value;
-    const matchesYear = !yearFilter.value || String(item.year) === yearFilter.value;
-
-    return matchesSearch && matchesManufacturer && matchesSeries && matchesYear;
-  });
-
-  if (!visibleFigures.length) {
-    gallery.innerHTML = `<div class="empty">No figures match the current filters.</div>`;
-    detailPanel.setAttribute("aria-hidden", "true");
-    return;
+      return;
+    }
+    gallery.innerHTML = visibleFigures.map((item,index) => `
+      <article class="card${index === selectedIndex ? " selected" : ""}" data-index="${index}" tabindex="0" role="button" aria-label="View ${escapeHtml(item.name)}">
+        <div class="card-image-wrap">${item.image ? `<img class="card-image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" onerror="this.style.opacity='0.15'">` : '<span class="image-placeholder">IMAGE<br>UNAVAILABLE</span>'}
+          <img class="card-frame" src="images/decorative%20elements/icon-frame-square_result.webp" alt="" aria-hidden="true">
+          <h4 class="card-name">${escapeHtml(item.name || "Unnamed figure")}</h4>
+        </div>
+      </article>`).join("");
+    gallery.querySelectorAll(".card").forEach(card => {
+      const open = () => openDetails(Number(card.dataset.index));
+      card.addEventListener("click",open);
+      card.addEventListener("keydown",event => { if(event.key==="Enter"||event.key===" "){event.preventDefault();open();} });
+    });
   }
 
-  gallery.innerHTML = visibleFigures.map((item, index) => `
-    <article class="card" data-index="${index}" tabindex="0" role="button" aria-label="View details for ${escapeHtml(item.name)}">
-      <img class="card-image"
-           src="${escapeHtml(item.image)}"
-           alt="${escapeHtml(item.name)}"
-           onerror="this.style.visibility='hidden'">
-      <div class="card-body">
-        <h3>${escapeHtml(item.name)}</h3>
-        <p>${escapeHtml(item.manufacturer || "Manufacturer not listed")} | ${escapeHtml(item.toy_line || "Toy line not listed")}</p>
-        <p>${escapeHtml(item.series || "Series not listed")}</p>
-        <button type="button" data-index="${index}">VIEW DETAILS →</button>
-      </div>
-    </article>
-  `).join("");
-
-  gallery.querySelectorAll(".card").forEach(card => {
-    const open = () => openDetails(Number(card.dataset.index));
-    card.addEventListener("click", open);
-    card.addEventListener("keydown", event => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        open();
+  function setFramedMainImage(src, alt) {
+    if (!src) {
+      detailMainImage.style.setProperty("--frame-aspect", "0.72");
+      detailMainImage.innerHTML = '<div class="image-placeholder">NO IMAGE<br><span>AVAILABLE FOR THIS FIGURE</span></div>';
+      return;
+    }
+    detailMainImage.style.setProperty("--frame-aspect", "0.72");
+    detailMainImage.innerHTML = '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(alt) + '">';
+    const image = detailMainImage.querySelector("img");
+    const applyRatio = () => {
+      if (!image.naturalWidth || !image.naturalHeight) return;
+      const photoRatio = image.naturalWidth / image.naturalHeight;
+      /* Frame dimensions are calculated from the photo ratio; the photo itself is never stretched. */
+      const frameRatio = Math.max(0.52, Math.min(2.10, photoRatio * (90.8 / 74)));
+      /* Fit a ratio-aware frame inside a fixed stage; landscape and portrait selections reshape the frame. */
+      const maxFrameWidth = window.matchMedia("(max-width: 760px)").matches ? 315 : 420;
+      const maxFrameHeight = window.matchMedia("(max-width: 760px)").matches ? 270 : 365;
+      let frameWidth = Math.min(maxFrameWidth, maxFrameHeight * frameRatio);
+      let frameHeight = frameWidth / frameRatio;
+      if (frameHeight > maxFrameHeight) {
+        frameHeight = maxFrameHeight;
+        frameWidth = frameHeight * frameRatio;
       }
-    });
-  });
-}
-
-function openDetails(index) {
-  if (!visibleFigures.length) return;
-
-  selectedIndex = index;
-  const item = visibleFigures[selectedIndex];
-  const thumbs = item.thumbs || [];
-
-  detailPanel.setAttribute("aria-hidden", "false");
-  detailName.textContent = item.name;
-  detailMainImage.innerHTML = item.image
-    ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}">`
-    : `<span>NO IMAGE</span>`;
-
-  detailSpecs.innerHTML = `
-    <div class="spec"><strong>Manufacturer:</strong><span>${escapeHtml(item.manufacturer || "—")}</span></div>
-    <div class="spec"><strong>Toy Line:</strong><span>${escapeHtml(item.toy_line || "—")}</span></div>
-    <div class="spec"><strong>Series:</strong><span>${escapeHtml(item.series || "—")}</span></div>
-    <div class="spec"><strong>Year Released:</strong><span>${escapeHtml(item.year || "—")}</span></div>
-    <div class="spec"><strong>Alternate Mode:</strong><span>${escapeHtml(item.alternate_mode || "—")}</span></div>
-    <div class="spec"><strong>Scale:</strong><span>${escapeHtml(item.scale || "—")}</span></div>
-    <div class="spec"><strong>Condition:</strong><span>${escapeHtml(item.condition || "—")}</span></div>
-  `;
-
-  detailThumbs.innerHTML = thumbs.length
-    ? thumbs.map((src, thumbIndex) => `
-        <button type="button" aria-label="View image ${thumbIndex + 1}">
-          <img src="${escapeHtml(src)}" alt="${escapeHtml(item.name)}" onerror="this.style.visibility='hidden'">
-        </button>
-      `).join("")
-    : "";
-
-  detailThumbs.querySelectorAll("button").forEach((button, thumbIndex) => {
-    button.addEventListener("click", () => {
-      detailMainImage.innerHTML = `<img src="${escapeHtml(thumbs[thumbIndex])}" alt="${escapeHtml(item.name)}">`;
-    });
-  });
-
-  detailNotes.textContent = item.notes || "No collection notes have been added yet.";
-  detailCounter.textContent = `${selectedIndex + 1} of ${visibleFigures.length}`;
-
-  previousFigure.disabled = visibleFigures.length < 2;
-  nextFigure.disabled = visibleFigures.length < 2;
-}
-
-function openImageLightbox() {
-  if (!imageLightbox || !lightboxImage) return;
-
-  const imageUrl = detailMainImage.style.backgroundImage
-    .replace(/^url\(["']?/, "")
-    .replace(/["']?\)$/, "");
-
-  if (!imageUrl) return;
-
-  lightboxImage.src = imageUrl;
-  lightboxImage.alt = detailName.textContent || "Collection image";
-  imageLightbox.showModal();
-}
-
-function closeImageLightboxPanel() {
-  if (imageLightbox?.open) {
-    imageLightbox.close();
-  }
-}
-
-function closeDetailPanel() {
-  detailPanel.setAttribute("aria-hidden", "true");
-}
-
-function moveSelection(direction) {
-  if (!visibleFigures.length) return;
-  selectedIndex = (selectedIndex + direction + visibleFigures.length) % visibleFigures.length;
-  openDetails(selectedIndex);
-}
-
-async function loadFigures() {
-  gallery.innerHTML = '<div class="empty">Loading collection...</div>';
-
-  const { data, error } = await supabaseClient
-    .from("figures")
-    .select("*, figure_images(*)")
-    .eq("category", "Autobots")
-    .eq("is_published", true)
-    .order("name", { ascending: true });
-
-  if (error) {
-    console.error("Unable to load Autobots:", error);
-    gallery.innerHTML = '<div class="empty">Unable to load the Autobots collection right now.</div>';
-    return;
-  }
-
-  figures = (data || []).map(item => {
-    const imageRecords = (item.figure_images || [])
-      .slice()
-      .sort((a, b) => a.sort_order - b.sort_order);
-
-    const profileRecord =
-      imageRecords.find(image => image.image_type === "main") ||
-      imageRecords[0];
-
-    const images = imageRecords
-      .map(image => publicImageUrl(image.storage_path))
-      .filter(Boolean);
-
-    return {
-      ...item,
-      image: profileRecord ? publicImageUrl(profileRecord.storage_path) : "",
-      thumbs: images
+      detailMainImage.style.setProperty("--frame-aspect", String(frameRatio));
+      detailMainImage.style.setProperty("--photo-ratio", String(photoRatio));
+      detailMainImage.style.setProperty("--frame-width", frameWidth + "px");
+      detailMainImage.style.setProperty("--frame-height", frameHeight + "px");
+      detailMainImage.style.width = frameWidth + "px";
+      detailMainImage.style.height = frameHeight + "px";
+      detailMainImage.style.minHeight = frameHeight + "px";
+      detailMainImage.style.maxHeight = frameHeight + "px";
+      detailMainImage.style.flexBasis = frameHeight + "px";
+      detailMainImage.dataset.photoOrientation = photoRatio < 0.88 ? "portrait" : photoRatio > 1.12 ? "landscape" : "square";
     };
+    if (image.complete) applyRatio();
+    else image.addEventListener("load", applyRatio, {once:true});
+    image.addEventListener("error", () => detailMainImage.dataset.photoOrientation = "unknown", {once:true});
+  }
+
+  function openDetails(index) {
+    if (!visibleFigures.length) return;
+    selectedIndex = (index + visibleFigures.length) % visibleFigures.length;
+    const item = visibleFigures[selectedIndex];
+    const thumbs = item.thumbs || [];
+    selectedImageUrl = item.image || "";
+    detailPanel.setAttribute("aria-hidden","false");
+    detailName.textContent = item.name || "Unnamed figure";
+    setFramedMainImage(selectedImageUrl, item.name || "Unnamed figure");
+    detailSpecs.innerHTML = [
+      ["Manufacturer",item.manufacturer],["Toy Line",item.toy_line],["Model",item.series],
+      ["Year Released",item.year],["Alternate Mode",item.alternate_mode],["Scale",item.scale],["Condition",item.condition]
+    ].map(([label,value]) => '<div class="spec"><strong>'+label+'</strong><span>'+escapeHtml(value || "—")+'</span></div>').join("");
+    detailThumbs.innerHTML = thumbs.map((src,i) => '<button type="button" class="detail-thumb'+(src===selectedImageUrl?" active":"")+'" data-image-index="'+i+'" aria-label="Show image '+(i+1)+'"><span class="detail-thumb-frame-wrap"><img class="detail-thumb-photo" src="'+escapeHtml(src)+'" alt="" loading="lazy"><img class="detail-thumb-frame" src="images/decorative%20elements/icon-frame-square_result.webp" alt="" aria-hidden="true"></span></button>').join("");
+    detailThumbs.querySelectorAll("button").forEach(button => button.addEventListener("click",() => {
+      selectedImageUrl = thumbs[Number(button.dataset.imageIndex)];
+      setFramedMainImage(selectedImageUrl, item.name || "Unnamed figure");
+      detailThumbs.querySelectorAll("button").forEach(b => b.classList.toggle("active",b===button));
+    }));
+    detailNotes.textContent = item.notes || "No collection notes have been added yet.";
+
+    gallery.querySelectorAll(".card").forEach((card,i) => card.classList.toggle("selected",i===selectedIndex));
+  }
+
+  async function loadFigures() {
+    if (typeof supabaseClient === "undefined") {
+      gallery.innerHTML = '<div class="empty-state">The collection connection could not start. Please check supabase-config.js.</div>';
+      collectionCount.textContent = "CONNECTION ERROR";
+      return;
+    }
+    gallery.innerHTML = '<div class="empty-state">Connecting to the AUTOBOTS archive…</div>';
+    try {
+      const {data,error} = await supabaseClient.from("figures").select("*, figure_images(*)")
+        .eq("category","Autobots").eq("is_published",true).order("name",{ascending:true});
+      if (error) throw error;
+      figures = (data||[]).map(item => {
+        const imageRecords = (item.figure_images||[]).slice().sort((a,b)=>(a.sort_order||0)-(b.sort_order||0));
+        const profileRecord = imageRecords.find(image=>image.image_type==="main") || imageRecords[0];
+        const images = imageRecords.map(image=>publicImageUrl(image.storage_path)).filter(Boolean);
+        return {...item,image:profileRecord?publicImageUrl(profileRecord.storage_path):"",thumbs:images};
+      });
+      collectionCount.textContent = figures.length + " PUBLISHED UNITS";
+      fillFilters();
+      renderGallery();
+      if (visibleFigures.length) openDetails(0);
+      else gallery.innerHTML = '<div class="empty-state">No published AUTOBOTS figures were found in the archive.</div>';
+    } catch(error) {
+      console.error("Unable to load AUTOBOTS collection:",error);
+      gallery.innerHTML = '<div class="empty-state">Unable to load the AUTOBOTS collection. Please try again later.</div>';
+      collectionCount.textContent = "ARCHIVE UNAVAILABLE";
+      resultCount.textContent = "0 FIGURES";
+    }
+  }
+  [searchInput,seriesFilter,yearFilter,sortFilter].forEach(control => {
+    control.addEventListener("input",renderGallery);
+    control.addEventListener("change",renderGallery);
+  });
+  clearFilters.addEventListener("click",() => {
+    searchInput.value="";seriesFilter.value="";yearFilter.value="";sortFilter.value="name-asc";
+    renderGallery();
+    if(visibleFigures.length) openDetails(0);
   });
 
-  fillFilters();
-  renderGallery();
-
-  if (visibleFigures.length) {
-    openDetails(0);
-  }
-}
-
-[searchInput, manufacturerFilter, seriesFilter, yearFilter].forEach(control => {
-  control.addEventListener("input", renderGallery);
-  control.addEventListener("change", renderGallery);
-});
-
-clearFilters.addEventListener("click", () => {
-  searchInput.value = "";
-  manufacturerFilter.value = "";
-  seriesFilter.value = "";
-  yearFilter.value = "";
-  renderGallery();
-});
-
-if (closeDetails) closeDetails.addEventListener("click", closeDetailPanel);
-detailMainImage.addEventListener("click", openImageLightbox);
-closeImageLightbox.addEventListener("click", closeImageLightboxPanel);
-
-imageLightbox.addEventListener("click", event => {
-  if (event.target === imageLightbox) {
-    closeImageLightboxPanel();
-  }
-});
-
-previousFigure.addEventListener("click", () => moveSelection(-1));
-nextFigure.addEventListener("click", () => moveSelection(1));
-
-loadFigures();
+  detailMainImage.addEventListener("click",() => {
+    if(!selectedImageUrl) return;
+    lightboxImage.src=selectedImageUrl;
+    lightboxImage.alt=detailName.textContent || "Collection figure";
+    imageLightbox.showModal();
+  });
+  closeImageLightbox.addEventListener("click",()=>imageLightbox.close());
+  imageLightbox.addEventListener("click",event=>{if(event.target===imageLightbox)imageLightbox.close();});
+  loadFigures();
+})();
