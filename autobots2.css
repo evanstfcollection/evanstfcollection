@@ -2016,3 +2016,14 @@ body .hero {
     margin-top: 148px !important;
   }
 }
+
+
+/* Move the image and nameplate substantially farther below the lightbar. */
+#collection-shell .detail-panel .detail-hero-row {
+  margin-top: 250px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .detail-hero-row {
+    margin-top: 205px !important;
+  }
+}
