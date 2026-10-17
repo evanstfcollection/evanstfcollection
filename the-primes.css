@@ -3,7 +3,7 @@
 :root{color-scheme:dark;--red:#287bd2;--red-bright:#70b8ff;--red-glow:rgba(29,140,255,.22);--ink:#070a0e;--panel:#0d1218;--panel2:#111922;--line:#303b46;--steel:#8c9aa6;--text:#f1f4f7;--muted:#a2adb7}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--ink)}
-body{margin:0;min-height:100vh;color:var(--text);font-family:'Orbitron',Arial,sans-serif;background:#070a0e url('images/decorative%20elements/the-primes-background_result.webp') center top/cover fixed no-repeat;position:relative}
+body{margin:0;min-height:100vh;color:var(--text);font-family:'Orbitron',Arial,sans-serif;background:#070a0e url('images/primes-background_result.webp') center top/cover fixed no-repeat;position:relative}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(3,6,10,.42),rgba(3,6,10,.82) 65%,rgba(3,6,10,.94))}
 a{color:inherit;text-decoration:none}button,input,select{font:inherit}button,select{cursor:pointer}
 .site-header{position:relative;z-index:5;display:flex;align-items:center;gap:22px;padding:12px clamp(14px,3vw,42px);min-height:94px;background:linear-gradient(180deg,#202831,#0b1016);border-bottom:3px solid #59636d;box-shadow:0 8px 24px #000b}
