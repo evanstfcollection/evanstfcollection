@@ -2162,3 +2162,22 @@ body .hero {
     padding-top: 132px !important;
   }
 }
+
+
+/* Fit the enlarged divider artwork inside the info window and move section content upward. */
+#collection-shell .detail-panel .info-section::before,
+#collection-shell .detail-panel .notes-section::before {
+  left: 5% !important;
+  right: auto !important;
+  width: 90% !important;
+}
+#collection-shell .detail-panel .info-section,
+#collection-shell .detail-panel .notes-section {
+  padding-top: 100px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .info-section,
+  #collection-shell .detail-panel .notes-section {
+    padding-top: 85px !important;
+  }
+}
