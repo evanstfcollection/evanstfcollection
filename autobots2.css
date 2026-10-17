@@ -2005,3 +2005,14 @@ body .hero {
 #collection-shell #gallery .card-frame {
   pointer-events: none !important;
 }
+
+
+/* Lower the image and nameplate row so its top edge sits directly below the lightbar. */
+#collection-shell .detail-panel .detail-hero-row {
+  margin-top: 180px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .detail-hero-row {
+    margin-top: 148px !important;
+  }
+}
