@@ -1990,3 +1990,18 @@ body .hero {
     margin-top: 142px !important;
   }
 }
+
+
+/* Keep each gallery figure name above its decorative frame overlay. */
+#collection-shell #gallery .card-image-wrap {
+  isolation: isolate !important;
+}
+#collection-shell #gallery .card-body,
+#collection-shell #gallery .card-body h4,
+#collection-shell #gallery .card-body .card-meta {
+  position: relative !important;
+  z-index: 10 !important;
+}
+#collection-shell #gallery .card-frame {
+  pointer-events: none !important;
+}
