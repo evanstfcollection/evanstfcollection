@@ -1957,3 +1957,14 @@ body .hero {
     max-height: 568px !important;
   }
 }
+
+
+/* Raise the enlarged lightbar by one full lightbar height. */
+#collection-shell .detail-lightstrip {
+  top: 66px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-lightstrip {
+    top: 42px !important;
+  }
+}
