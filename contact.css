@@ -477,3 +477,32 @@ html body main .contact-shell > .contact-panel form {
     margin-left: 75px !important;
   }
 }
+
+
+/* Prevent the contact frame artwork from being cropped vertically.
+   Give the main content more room and add clearance below the hero. */
+html body main {
+  min-height: calc(100vh - 150px) !important;
+  padding-bottom: 55px !important;
+}
+html body main > .contact-shell {
+  padding-top: 48px !important;
+  padding-bottom: 55px !important;
+}
+html body main .contact-shell > .contact-panel {
+  height: 675px !important;
+  min-height: 675px !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+}
+@media (max-width: 760px) {
+  html body main > .contact-shell {
+    padding-top: 36px !important;
+    padding-bottom: 40px !important;
+  }
+  html body main .contact-shell > .contact-panel {
+    height: 575px !important;
+    min-height: 575px !important;
+    background-size: 100% 100% !important;
+  }
+}
