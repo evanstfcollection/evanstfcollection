@@ -2240,17 +2240,17 @@ body .hero {
 }
 
 
-/* Final hero background fix: extend the artwork to the hero edges so no dark page background shows around it. */
+/* Fit hero artwork within the metallic frame opening, without filling the whole hero background. */
 body .hero {
   background-color: transparent !important;
   background-position: center center !important;
-  background-size: 100% 100% !important;
+  background-size: 91.23% 87.58848% !important;
   background-repeat: no-repeat !important;
 }
 @media (max-width: 760px) {
   body .hero {
     background-color: transparent !important;
     background-position: center center !important;
-    background-size: 100% 100% !important;
+    background-size: 91.23% 87.58848% !important;
   }
 }
