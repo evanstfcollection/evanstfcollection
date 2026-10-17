@@ -2207,3 +2207,20 @@ body .hero {
     background-position: center center !important;
   }
 }
+
+
+/* Decepticons collection: purple faction lightbar. */
+#collection-shell .detail-panel .detail-lightbar,
+#collection-shell .detail-panel .detail-light-strip,
+#collection-shell .detail-panel .lightbar,
+#collection-shell .detail-panel .light-strip,
+#collection-shell .detail-panel .detail-lightbar::before,
+#collection-shell .detail-panel .detail-lightbar::after {
+  background-image: url('images/decorative%20elements/lightstrip-purple_result.webp') !important;
+}
+#collection-shell .detail-panel .detail-lightbar,
+#collection-shell .detail-panel .detail-light-strip,
+#collection-shell .detail-panel .lightbar,
+#collection-shell .detail-panel .light-strip {
+  filter: hue-rotate(65deg) saturate(1.25) !important;
+}
