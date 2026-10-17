@@ -2087,3 +2087,16 @@ body .hero {
     max-height: none !important;
   }
 }
+
+
+/* Wrap gallery figure names after roughly 12 characters per line. */
+#collection-shell #gallery .card-image-wrap .card-name {
+  width: auto !important;
+  max-width: 12ch !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
