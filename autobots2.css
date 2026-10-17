@@ -1766,3 +1766,20 @@ body .hero {
   overflow-wrap: anywhere !important;
   word-break: normal !important;
 }
+
+
+/* Ensure the square cybernetic frame is visible over every individual gallery image. */
+#collection-shell #gallery .card-image-wrap { position: relative !important; }
+#collection-shell #gallery .card-image-wrap .card-image { position: relative; z-index: 1; }
+#collection-shell #gallery .card-image-wrap .card-frame {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+}
