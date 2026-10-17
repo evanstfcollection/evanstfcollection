@@ -312,3 +312,18 @@ body .hero-shade { display: none !important; }
   }
   body .hero-metallic-frame { height: 100% !important; }
 }
+
+
+/* Keep the hero artwork inside the metallic frame's inner opening. */
+body .hero {
+  background-image: url('images/contact-background_result.webp') !important;
+  background-position: center center !important;
+  background-size: 91.23% 87.58848% !important;
+  background-repeat: no-repeat !important;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 91.23% 87.58848% !important;
+    background-position: center center !important;
+  }
+}
