@@ -2720,8 +2720,8 @@ body .topbar::after {
   background:
     url("images/decorative%20elements/edge-strip-01_result.webp") center top / 100% 16px no-repeat,
     url("images/decorative%20elements/edge-strip-02_result.webp") center bottom / 100% 16px no-repeat,
-    url("images/decorative%20elements/hatch-ring.png") left 12px center / 24px 24px no-repeat,
-    url("images/decorative%20elements/hatch-ring.png") right 12px center / 24px 24px no-repeat !important;
+    url("images/decorative%20elements/armored-rivet-plate_result.webp") left 12px center / 24px 24px no-repeat,
+    url("images/decorative%20elements/armored-rivet-plate_result.webp") right 12px center / 24px 24px no-repeat !important;
   mix-blend-mode: screen !important;
   opacity: .78 !important;
 }
@@ -2748,8 +2748,8 @@ body .site-header.unified-header::after {
   inset: 0 !important;
   pointer-events: none !important;
   background:
-    url("images/decorative%20elements/corner-piece-large.png?v=visible-assets-2") left top / 84px 84px no-repeat,
-    url("images/decorative%20elements/corner-piece-large.png?v=visible-assets-2") right top / 84px 84px no-repeat,
+    url("images/decorative%20elements/corner-plate-covered_result.webp?v=visible-assets-2") left top / 84px 84px no-repeat,
+    url("images/decorative%20elements/corner-plate-covered_result.webp?v=visible-assets-2") right top / 84px 84px no-repeat,
     url("images/decorative%20elements/edge-strip-01_result.webp?v=visible-assets-2") center top / 100% 13px no-repeat,
     url("images/decorative%20elements/edge-strip-02_result.webp?v=visible-assets-2") center bottom / 100% 13px no-repeat !important;
   opacity: .95 !important;
@@ -2853,22 +2853,22 @@ body .nav-expansion .nav-expansion-emblem {
   filter: drop-shadow(0 0 10px var(--cyber-glow)) !important;
 }
 body[data-cyber-theme="autobots"] .nav-expansion .nav-expansion-emblem {
-  background-image: url("images/autobots-menubar-image.png?v=visible-assets-2") !important;
+  background-image: url("images/autobots-background_result.webp?v=visible-assets-2") !important;
 }
 body[data-cyber-theme="decepticons"] .nav-expansion .nav-expansion-emblem {
-  background-image: url("images/decepticons-menubar-image.png?v=visible-assets-2") !important;
+  background-image: url("images/decepticons-background_result.webp?v=visible-assets-2") !important;
 }
 body[data-cyber-theme="masterpiece"] .nav-expansion .nav-expansion-emblem {
-  background-image: url("images/masterpiece-movie-menubar-image.png?v=visible-assets-2") !important;
+  background-image: url("images/masterpiece-background_result.webp?v=visible-assets-2") !important;
 }
 body[data-cyber-theme="third-party"] .nav-expansion .nav-expansion-emblem {
-  background-image: url("images/3rd-party-menubar-image.png?v=visible-assets-2") !important;
+  background-image: url("images/3rd-party-background_result.webp?v=visible-assets-2") !important;
 }
 body[data-cyber-theme="primes"] .nav-expansion .nav-expansion-emblem {
-  background-image: url("images/the-primes-menubar-image.png?v=visible-assets-2") !important;
+  background-image: url("images/primes-background_result.webp?v=visible-assets-2") !important;
 }
 body[data-cyber-theme="contact"] .nav-expansion .nav-expansion-emblem {
-  background-image: url("images/contact-menubar-image.png?v=visible-assets-2") !important;
+  background-image: url("images/contact-background_result.webp?v=visible-assets-2") !important;
 }
 body .nav-expansion .nav-expansion-content {
   min-width: 0 !important;
