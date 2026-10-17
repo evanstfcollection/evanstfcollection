@@ -557,3 +557,36 @@ html body main .contact-shell > .contact-panel form > button {
     bottom: 55px !important;
   }
 }
+
+
+/* Latest requested contact-page positioning:
+   move heading, description, labels, and fields 25px right and 10px down;
+   move the Send Message button 150px farther right. */
+html body main .contact-shell > .contact-panel h2,
+html body main .contact-shell > .contact-panel > p,
+html body main .contact-shell > .contact-panel form {
+  margin-left: 175px !important;
+}
+html body main .contact-shell > .contact-panel h2,
+html body main .contact-shell > .contact-panel > p,
+html body main .contact-shell > .contact-panel form > label {
+  top: 85px !important;
+}
+html body main .contact-shell > .contact-panel form > button {
+  right: -90px !important;
+}
+@media (max-width: 760px) {
+  html body main .contact-shell > .contact-panel h2,
+  html body main .contact-shell > .contact-panel > p,
+  html body main .contact-shell > .contact-panel form {
+    margin-left: 175px !important;
+  }
+  html body main .contact-shell > .contact-panel h2,
+  html body main .contact-shell > .contact-panel > p,
+  html body main .contact-shell > .contact-panel form > label {
+    top: 85px !important;
+  }
+  html body main .contact-shell > .contact-panel form > button {
+    right: -125px !important;
+  }
+}
