@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const closeImageLightbox = document.getElementById("closeImageLightbox");
 
   const categoryIcons = {
-    "Autobots": "images/autobots-icon.png",
-    "Decepticons": "images/decepticons-icon.png",
-    "Masterpiece Movie": "images/masterpiece-movie-icon.png",
-    "3rd Party": "images/3rd-party-icon.png",
-    "The Primes": "images/primes-icon.png"
+    "Autobots": "images/autobots-icon_result.webp",
+    "Decepticons": "images/decepticons-icon_result.webp",
+    "Masterpiece Movie": "images/masterpiece-movie-icon_result.webp",
+    "3rd Party": "images/3rd-party-icon_result.webp",
+    "The Primes": "images/primes-icon_result.webp"
   };
 
   let figures = [];
