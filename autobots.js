@@ -156,7 +156,7 @@
       collectionCount.textContent = "CONNECTION ERROR";
       return;
     }
-    gallery.innerHTML = '<div class="empty-state">Connecting to the AUTOBOTS archive…</div>';
+    gallery.innerHTML = '<div class="empty-state">Connecting to the Autobots archive…</div>';
     try {
       const {data,error} = await supabaseClient.from("figures").select("*, figure_images(*)")
         .eq("category","Autobots").eq("is_published",true).order("name",{ascending:true});
@@ -171,10 +171,10 @@
       fillFilters();
       renderGallery();
       if (visibleFigures.length) openDetails(0);
-      else gallery.innerHTML = '<div class="empty-state">No published AUTOBOTS figures were found in the archive.</div>';
+      else gallery.innerHTML = '<div class="empty-state">No published Autobots figures were found in the archive.</div>';
     } catch(error) {
-      console.error("Unable to load AUTOBOTS collection:",error);
-      gallery.innerHTML = '<div class="empty-state">Unable to load the AUTOBOTS collection. Please try again later.</div>';
+      console.error("Unable to load Autobots collection:",error);
+      gallery.innerHTML = '<div class="empty-state">Unable to load the Autobots collection. Please try again later.</div>';
       collectionCount.textContent = "ARCHIVE UNAVAILABLE";
       resultCount.textContent = "0 FIGURES";
     }
