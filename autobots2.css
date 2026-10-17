@@ -2136,3 +2136,16 @@ body .hero {
     height: 60px !important;
   }
 }
+
+
+/* Double the divider bars again from the current height. */
+#collection-shell .detail-panel .info-section::before,
+#collection-shell .detail-panel .notes-section::before {
+  height: 144px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .info-section::before,
+  #collection-shell .detail-panel .notes-section::before {
+    height: 120px !important;
+  }
+}
