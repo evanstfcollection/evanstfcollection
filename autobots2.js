@@ -139,7 +139,7 @@
       ["Manufacturer",item.manufacturer],["Toy Line",item.toy_line],["Model",item.series],
       ["Year Released",item.year],["Alternate Mode",item.alternate_mode],["Scale",item.scale],["Condition",item.condition]
     ].map(([label,value]) => '<div class="spec"><strong>'+label+'</strong><span>'+escapeHtml(value || "—")+'</span></div>').join("");
-    detailThumbs.innerHTML = thumbs.map((src,i) => '<button type="button" class="'+(src===selectedImageUrl?"active":"")+'" data-image-index="'+i+'" aria-label="Show image '+(i+1)+'"><img src="'+escapeHtml(src)+'" alt="" loading="lazy"></button>').join("");
+    detailThumbs.innerHTML = thumbs.map((src,i) => '<button type="button" class="detail-thumb'+(src===selectedImageUrl?" active":"")+'" data-image-index="'+i+'" aria-label="Show image '+(i+1)+'"><span class="detail-thumb-frame-wrap"><img class="detail-thumb-photo" src="'+escapeHtml(src)+'" alt="" loading="lazy"><img class="detail-thumb-frame" src="images/decorative%20elements/icon-frame-square_result.webp" alt="" aria-hidden="true"></span></button>').join("");
     detailThumbs.querySelectorAll("button").forEach(button => button.addEventListener("click",() => {
       selectedImageUrl = thumbs[Number(button.dataset.imageIndex)];
       setFramedMainImage(selectedImageUrl, item.name || "Unnamed figure");
