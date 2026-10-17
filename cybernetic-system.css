@@ -1362,7 +1362,7 @@ body .site-header.unified-header .brand img {
 body .topbar,
 body .site-header.unified-header {
   background-color: transparent !important;
-  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
@@ -1591,7 +1591,7 @@ body .site-header.unified-header::before {
   z-index: -1 !important;
   inset: 0 !important;
   pointer-events: none !important;
-  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
@@ -1622,7 +1622,7 @@ body .topbar::before {
   z-index: -1 !important;
   inset: 0 !important;
   pointer-events: none !important;
-  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-size: 100% 100% !important;
   background-position: center center !important;
@@ -1668,7 +1668,7 @@ body .topbar {
 body .site-header.unified-header::before,
 body .topbar::before {
   inset: 0 !important;
-  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
@@ -1700,7 +1700,7 @@ body .site-header.unified-header::before,
 body .topbar::before {
   z-index: 0 !important;
   inset: -12px 0 -12px 0 !important;
-  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 142% !important;
@@ -1786,7 +1786,7 @@ body .topbar .main-nav {
 body .site-header.unified-header::before,
 body .topbar::before {
   background-color: #03070b !important;
-  background-image: url("images/navigation-bar-chassis.png?v=7789ccf54e") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=7789ccf54e") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 142% !important;
@@ -2062,7 +2062,7 @@ body .topbar::before {
 body .topbar .nav-item,
 body .site-header.unified-header .nav-item {
   background-color: transparent !important;
-  background-image: url("images/nav-tab-plate.png") !important;
+  background-image: url("images/decorative%20elements/nav-tab-plate_result.webp") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
@@ -2100,7 +2100,7 @@ body .topbar .nav-item.active,
 body .site-header.unified-header .nav-item:hover,
 body .site-header.unified-header .nav-item.active {
   background-color: transparent !important;
-  background-image: url("images/nav-tab-plate.png") !important;
+  background-image: url("images/decorative%20elements/nav-tab-plate_result.webp") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
@@ -2152,7 +2152,7 @@ body .site-header.unified-header::before,
 body .topbar::before {
   inset: 0 -12.5% !important;
   width: 125% !important;
-  background-image: url("images/navigation-bar-chassis.png?v=20261013-fit1") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=20261013-fit1") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
@@ -2183,7 +2183,7 @@ body .site-header.unified-header::before,
 body .topbar::before {
   inset: 0 -12.5% !important;
   width: 125% !important;
-  background-image: url("images/navigation-bar-chassis.png?v=20261013-height1") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=20261013-height1") !important;
   background-repeat: no-repeat !important;
   background-size: 100% 150% !important;
   background-position: center top !important;
@@ -2223,7 +2223,7 @@ body .topbar::before {
   inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  background-image: url("images/navigation-bar-chassis.png?v=20261013-edgefit1") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=20261013-edgefit1") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
@@ -2246,7 +2246,7 @@ body .topbar::before {
   inset: -10px 0 !important;
   width: 100% !important;
   height: auto !important;
-  background-image: url("images/navigation-bar-chassis.png?v=20261013-bgscale2") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=20261013-bgscale2") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 125% !important;
@@ -2279,7 +2279,7 @@ body .topbar::before {
   right: 8px !important;
   width: auto !important;
   inset-block: -10px !important;
-  background-image: url("images/navigation-bar-chassis.png?v=20261013-horizontalfit") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=20261013-horizontalfit") !important;
   background-size: 100% 125% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -2310,7 +2310,7 @@ body .topbar::before {
 body .site-header.unified-header::before,
 body .topbar::before {
   inset-block: -22px !important;
-  background-image: url("images/navigation-bar-chassis.png?v=20261013-heightplus50") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=20261013-heightplus50") !important;
   background-size: 100% 187.5% !important;
   background-position: center center !important;
 }
@@ -2338,7 +2338,7 @@ body .topbar::before {
   left: 0 !important;
   right: 0 !important;
   width: 100% !important;
-  background-image: url("images/navigation-bar-chassis.png?v=20261013-fullbleed") !important;
+  background-image: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=20261013-fullbleed") !important;
   background-size: 100% 187.5% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -2593,7 +2593,7 @@ body .topbar::before {
   inset: -22px 0 !important;
   width: 100% !important;
   height: auto !important;
-  background: url("images/navigation-bar-chassis.png?v=step2-assets") center center / 100% 187.5% no-repeat !important;
+  background: url("images/decorative%20elements/navigation-bar-chassis_result.webp?v=step2-assets") center center / 100% 187.5% no-repeat !important;
   pointer-events: none !important;
   transform: none !important;
 }
@@ -2632,7 +2632,7 @@ body .site-header.unified-header .main-nav .nav-item {
   outline: 0 !important;
   border-radius: 0 !important;
   background-color: transparent !important;
-  background-image: url("images/nav-tab-plate.png?v=step2-assets") !important;
+  background-image: url("images/decorative%20elements/nav-tab-plate_result.webp?v=step2-assets") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
@@ -2654,11 +2654,11 @@ body .site-header.unified-header .main-nav .nav-item::before {
 }
 body .topbar .nav-item.autobots::before,
 body .site-header.unified-header .nav-item.autobots::before {
-  background-image: url("images/decorative%20elements/autobot-symbol-faded.png") !important;
+  background-image: url("images/decorative%20elements/autobot-symbol-faded_result.webp") !important;
 }
 body .topbar .nav-item.decepticons::before,
 body .site-header.unified-header .nav-item.decepticons::before {
-  background-image: url("images/decorative%20elements/decepticon-symbol-faded.png") !important;
+  background-image: url("images/decorative%20elements/decepticon-symbol-faded_result.webp") !important;
 }
 body .topbar .nav-item img,
 body .topbar .nav-item span,
@@ -2681,7 +2681,7 @@ body .nav-expansion {
   border-radius: 0 !important;
   clip-path: none !important;
   background-color: transparent !important;
-  background-image: url("images/decorative%20elements/expanded-menu-panel.png?v=step2-assets") !important;
+  background-image: url("images/decorative%20elements/expanded-menu-panel_result.webp?v=step2-assets") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
@@ -2694,7 +2694,7 @@ body .nav-expansion::before {
   z-index: -1 !important;
   inset: 10% 18% !important;
   pointer-events: none !important;
-  background: url("images/decorative%20elements/panel-background-01.png") center / 100% 100% no-repeat !important;
+  background: url("images/decorative%20elements/panel-background-01_result.webp") center / 100% 100% no-repeat !important;
   opacity: .42 !important;
 }
 body .nav-expansion::after {
@@ -2705,8 +2705,8 @@ body .nav-expansion::after {
   inset: 0 !important;
   pointer-events: none !important;
   background:
-    url("images/decorative%20elements/lightstrip-cyan.png") left 18px center / 5px 62% no-repeat,
-    url("images/decorative%20elements/lightstrip-yellow.png") right 18px center / 5px 62% no-repeat !important;
+    url("images/decorative%20elements/lightstrip-cyan_result.webp") left 18px center / 5px 62% no-repeat,
+    url("images/decorative%20elements/lightstrip-yellow_result.webp") right 18px center / 5px 62% no-repeat !important;
   opacity: .8 !important;
 }
 body .nav-expansion > * {
@@ -2718,8 +2718,8 @@ body .nav-expansion > * {
 body .site-header.unified-header::after,
 body .topbar::after {
   background:
-    url("images/decorative%20elements/edge-strip-01.png") center top / 100% 16px no-repeat,
-    url("images/decorative%20elements/edge-strip-02.png") center bottom / 100% 16px no-repeat,
+    url("images/decorative%20elements/edge-strip-01_result.webp") center top / 100% 16px no-repeat,
+    url("images/decorative%20elements/edge-strip-02_result.webp") center bottom / 100% 16px no-repeat,
     url("images/decorative%20elements/hatch-ring.png") left 12px center / 24px 24px no-repeat,
     url("images/decorative%20elements/hatch-ring.png") right 12px center / 24px 24px no-repeat !important;
   mix-blend-mode: screen !important;
@@ -2750,8 +2750,8 @@ body .site-header.unified-header::after {
   background:
     url("images/decorative%20elements/corner-piece-large.png?v=visible-assets-2") left top / 84px 84px no-repeat,
     url("images/decorative%20elements/corner-piece-large.png?v=visible-assets-2") right top / 84px 84px no-repeat,
-    url("images/decorative%20elements/edge-strip-01.png?v=visible-assets-2") center top / 100% 13px no-repeat,
-    url("images/decorative%20elements/edge-strip-02.png?v=visible-assets-2") center bottom / 100% 13px no-repeat !important;
+    url("images/decorative%20elements/edge-strip-01_result.webp?v=visible-assets-2") center top / 100% 13px no-repeat,
+    url("images/decorative%20elements/edge-strip-02_result.webp?v=visible-assets-2") center bottom / 100% 13px no-repeat !important;
   opacity: .95 !important;
   mix-blend-mode: normal !important;
 }
@@ -2760,7 +2760,7 @@ body .site-header.unified-header::after {
    clearly enough to be seen without competing with the live icons. */
 body .topbar .main-nav .nav-item,
 body .site-header.unified-header .main-nav .nav-item {
-  background: transparent url("images/nav-tab-plate.png?v=visible-assets-2") center / 100% 100% no-repeat !important;
+  background: transparent url("images/decorative%20elements/nav-tab-plate_result.webp?v=visible-assets-2") center / 100% 100% no-repeat !important;
   border: 0 !important;
   box-shadow: none !important;
 }
@@ -2780,11 +2780,11 @@ body .site-header.unified-header .main-nav .nav-item::before {
 }
 body .topbar .main-nav .nav-item.autobots::before,
 body .site-header.unified-header .main-nav .nav-item.autobots::before {
-  background-image: url("images/decorative%20elements/autobot-symbol-faded.png?v=visible-assets-2") !important;
+  background-image: url("images/decorative%20elements/autobot-symbol-faded_result.webp?v=visible-assets-2") !important;
 }
 body .topbar .main-nav .nav-item.decepticons::before,
 body .site-header.unified-header .main-nav .nav-item.decepticons::before {
-  background-image: url("images/decorative%20elements/decepticon-symbol-faded.png?v=visible-assets-2") !important;
+  background-image: url("images/decorative%20elements/decepticon-symbol-faded_result.webp?v=visible-assets-2") !important;
 }
 body .topbar .main-nav .nav-item img,
 body .topbar .main-nav .nav-item span,
@@ -2804,7 +2804,7 @@ body .nav-expansion {
   gap: 18px !important;
   min-height: 180px !important;
   padding: 24px 30px !important;
-  background: transparent url("images/decorative%20elements/expanded-menu-panel.png?v=visible-assets-2") center / 100% 100% no-repeat !important;
+  background: transparent url("images/decorative%20elements/expanded-menu-panel_result.webp?v=visible-assets-2") center / 100% 100% no-repeat !important;
   border: 0 !important;
   box-shadow: none !important;
   clip-path: none !important;
@@ -2819,7 +2819,7 @@ body .nav-expansion::before {
   position: absolute !important;
   z-index: 0 !important;
   inset: 20px 72px !important;
-  background: url("images/decorative%20elements/panel-background-01.png?v=visible-assets-2") center / 100% 100% no-repeat !important;
+  background: url("images/decorative%20elements/panel-background-01_result.webp?v=visible-assets-2") center / 100% 100% no-repeat !important;
   opacity: .85 !important;
   pointer-events: none !important;
 }
@@ -2830,8 +2830,8 @@ body .nav-expansion::after {
   z-index: 1 !important;
   inset: 0 !important;
   background:
-    url("images/decorative%20elements/lightstrip-cyan.png?v=visible-assets-2") left 18px center / 7px 65% no-repeat,
-    url("images/decorative%20elements/lightstrip-red.png?v=visible-assets-2") right 18px center / 7px 65% no-repeat !important;
+    url("images/decorative%20elements/lightstrip-cyan_result.webp?v=visible-assets-2") left 18px center / 7px 65% no-repeat,
+    url("images/decorative%20elements/lightstrip-red_result.webp?v=visible-assets-2") right 18px center / 7px 65% no-repeat !important;
   pointer-events: none !important;
 }
 body .nav-expansion > * {
@@ -3014,7 +3014,7 @@ body .nav-expansion {
 /* Expanded menu should use ONE panel image only. Remove the extra inner
    panel texture and light-strip overlays that make it look double-layered. */
 body .nav-expansion {
-  background-image: url("images/decorative%20elements/expanded-menu-panel.png?v=single-panel") !important;
+  background-image: url("images/decorative%20elements/expanded-menu-panel_result.webp?v=single-panel") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 150% !important;
@@ -3077,7 +3077,7 @@ body .nav-expansion {
 /* QUICK ACCESS LINKS — use the supplied rusted industrial plate asset.
    Keep each link's existing destination and show only its title as text. */
 body .nav-expansion .nav-expansion-links a {
-  background: transparent url("images/decorative%20elements/rusted-panel-plate.png?v=rusted-menu-buttons") center / 100% 100% no-repeat !important;
+  background: transparent url("images/decorative%20elements/rusted-panel-plate_result.webp?v=rusted-menu-buttons") center / 100% 100% no-repeat !important;
   border: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
@@ -3093,7 +3093,7 @@ body .nav-expansion .nav-expansion-links a {
 }
 body .nav-expansion .nav-expansion-links a:hover,
 body .nav-expansion .nav-expansion-links a:focus-visible {
-  background-image: url("images/decorative%20elements/rusted-panel-plate.png?v=rusted-menu-buttons-hover") !important;
+  background-image: url("images/decorative%20elements/rusted-panel-plate_result.webp?v=rusted-menu-buttons-hover") !important;
   filter: brightness(1.12) !important;
   border: 0 !important;
   outline: none !important;
