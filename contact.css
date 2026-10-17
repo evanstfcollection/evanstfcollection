@@ -426,3 +426,12 @@ html body main .contact-shell > .contact-panel::after {
   background: none !important;
   box-shadow: none !important;
 }
+
+
+/* Widen the contact frame by 25% while keeping it centered. */
+html body main .contact-shell > .contact-panel {
+  width: 125% !important;
+  max-width: 125% !important;
+  margin-left: -12.5% !important;
+  margin-right: -12.5% !important;
+}
