@@ -2224,3 +2224,17 @@ body .hero {
     background-size: 91.23% 87.58848% !important;
   }
 }
+
+
+/* Final hero-frame fit adjustment: fill the frame opening consistently on desktop and mobile. */
+body .hero {
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-position: center center !important;
+    background-size: 100% 100% !important;
+  }
+}
