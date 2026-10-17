@@ -274,6 +274,30 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
 }
 
 
+/* Match the Cybertron backdrop used across the other collection pages. */
+html {
+  background: #070a0e !important;
+}
+body {
+  background-color: #070a0e !important;
+  background-image: url('images/decorative%20elements/main-page-background_result.webp') !important;
+  background-position: center top !important;
+  background-size: 100% auto !important;
+  background-repeat: repeat-y !important;
+  background-attachment: scroll !important;
+}
+body::before {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  opacity: 1 !important;
+  background: linear-gradient(180deg,rgba(3,6,10,.28),rgba(3,6,10,.5) 55%,rgba(3,6,10,.72)) !important;
+}
+body main {
+  position: relative;
+  z-index: 1;
+}
+
 /* Match the collection pages' metallic navigation chassis and framed hero. */
 body .hero {
   position: relative !important;
@@ -286,10 +310,10 @@ body .hero {
   padding: 0 !important;
   overflow: hidden !important;
   border: 0 !important;
-  background-color: #030609 !important;
+  background-color: transparent !important;
   background-image: url('images/contact-background_result.webp') !important;
   background-position: center center !important;
-  background-size: 86.7% 100% !important;
+  background-size: 91.23% 87.58848% !important;
   background-repeat: no-repeat !important;
 }
 body .hero-metallic-frame {
@@ -308,22 +332,7 @@ body .hero-shade { display: none !important; }
     height: 495px !important;
     min-height: 495px !important;
     max-height: 495px !important;
-    background-size: 86.7% 100% !important;
+    background-size: 91.23% 87.58848% !important;
   }
   body .hero-metallic-frame { height: 100% !important; }
-}
-
-
-/* Keep the hero artwork inside the metallic frame's inner opening. */
-body .hero {
-  background-image: url('images/contact-background_result.webp') !important;
-  background-position: center center !important;
-  background-size: 91.23% 87.58848% !important;
-  background-repeat: no-repeat !important;
-}
-@media (max-width: 760px) {
-  body .hero {
-    background-size: 91.23% 87.58848% !important;
-    background-position: center center !important;
-  }
 }
