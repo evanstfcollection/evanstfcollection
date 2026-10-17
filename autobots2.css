@@ -3,7 +3,7 @@
 :root{color-scheme:dark;--red:#d62832;--red-bright:#ff5159;--red-glow:rgba(255,40,50,.22);--ink:#070a0e;--panel:#0d1218;--panel2:#111922;--line:#303b46;--steel:#8c9aa6;--text:#f1f4f7;--muted:#a2adb7}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--ink)}
-body{margin:0;min-height:100vh;color:var(--text);font-family:'Orbitron',Arial,sans-serif;background:#070a0e url('images/autobots-background.png') center top/cover fixed no-repeat;position:relative}
+body{margin:0;min-height:100vh;color:var(--text);font-family:'Orbitron',Arial,sans-serif;background:#070a0e url('images/decorative%20elements/autobots-background_result.webp') center top/cover fixed no-repeat;position:relative}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(3,6,10,.42),rgba(3,6,10,.82) 65%,rgba(3,6,10,.94))}
 a{color:inherit;text-decoration:none}button,input,select{font:inherit}button,select{cursor:pointer}
 .site-header{position:relative;z-index:5;display:flex;align-items:center;gap:22px;padding:12px clamp(14px,3vw,42px);min-height:94px;background:linear-gradient(180deg,#202831,#0b1016);border-bottom:3px solid #59636d;box-shadow:0 8px 24px #000b}
@@ -11,7 +11,7 @@ a{color:inherit;text-decoration:none}button,input,select{font:inherit}button,sel
 .main-nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;flex:1}
 .nav-item{min-height:62px;display:flex;align-items:center;justify-content:center;gap:9px;padding:8px 10px;background:linear-gradient(145deg,#1c252e,#080c11);border:1px solid #45515c;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);font-size:clamp(9px,.8vw,12px);font-weight:700;text-transform:uppercase;letter-spacing:.04em;transition:background .2s,border-color .2s,transform .2s}
 .nav-item img{width:31px;height:31px;object-fit:contain;flex:0 0 auto}.nav-item:hover,.nav-item.active{background:linear-gradient(145deg,#5b151b,#151014);border-color:var(--red-bright);box-shadow:inset 0 0 0 1px #ff515944,0 0 15px var(--red-glow)}
-.hero{position:relative;isolation:isolate;min-height:clamp(210px,26vw,340px);display:flex;align-items:center;overflow:hidden;background:#10151b url('images/autobots-background.png') center 42%/cover no-repeat;border-bottom:1px solid #7b242b}
+.hero{position:relative;isolation:isolate;min-height:clamp(210px,26vw,340px);display:flex;align-items:center;overflow:hidden;background:#10151b url('images/decorative%20elements/autobots-background_result.webp') center 42%/cover no-repeat;border-bottom:1px solid #7b242b}
 .hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(3,6,10,.84),rgba(3,6,10,.42) 65%,rgba(3,6,10,.55))}
 .hero-content{width:min(1500px,100%);margin:0 auto;padding:36px clamp(20px,5vw,76px);display:flex;align-items:center;gap:clamp(20px,4vw,55px)}
 .hero-symbol{width:clamp(90px,12vw,160px);height:clamp(90px,12vw,160px);object-fit:contain;filter:drop-shadow(0 0 18px #f12b35aa)}
@@ -171,7 +171,7 @@ body .hero-content {
 html { background: #070a0e; }
 body {
   background-color: #070a0e;
-  background-image: url('images/main-page-background.png');
+  background-image: url('images/decorative%20elements/main-page-background_result.webp');
   background-position: center top;
   background-size: 100% auto;
   background-repeat: repeat-y;
@@ -192,7 +192,7 @@ body main { position: relative; z-index: 1; }
 body .hero {
   min-height: clamp(1050px, 130vw, 1700px);
   background-color: transparent;
-  background-image: url('images/autobots-background.png');
+  background-image: url('images/decorative%20elements/autobots-background_result.webp');
   background-position: center center;
   background-size: 50% auto;
   background-repeat: no-repeat;
@@ -285,7 +285,7 @@ body .hero-metallic-frame {
 
 /* Fit the Autobots artwork into the same area as the shortened metallic frame. */
 body .hero {
-  background-image: url('images/autobots-background.png');
+  background-image: url('images/decorative%20elements/autobots-background_result.webp');
   background-position: center top;
   background-size: 100% 50%;
   background-repeat: no-repeat;
@@ -737,7 +737,7 @@ body .hero {
 
 /* Sort / Filter panel: replace the solid box and grey outline with the supplied panel artwork. */
 #collection-shell .controls-panel {
-  background: transparent url('images/decorative%20elements/panel-background-02.png') center center / 100% 100% no-repeat !important;
+  background: transparent url('images/decorative%20elements/panel-background-02_result.webp') center center / 100% 100% no-repeat !important;
   border: 0 !important;
   box-shadow: none !important;
 }
@@ -895,7 +895,7 @@ body .hero {
 
 /* Use the supplied info-window artwork as the selected figure panel background. */
 #collection-shell .detail-panel {
-  background: url("images/decorative%20elements/info-window.png") center / 100% 100% no-repeat !important;
+  background: url("images/decorative%20elements/info-window_result.webp") center / 100% 100% no-repeat !important;
   border: 0 !important;
   box-shadow: none !important;
 }
@@ -919,7 +919,7 @@ body .hero {
   inset: 0;
   z-index: 3;
   pointer-events: none;
-  background: url("images/decorative%20elements/main-image-frame.png") center / 100% 100% no-repeat;
+  background: url("images/decorative%20elements/main-image-frame_result.webp") center / 100% 100% no-repeat;
 }
 #collection-shell #detailMainImage > img {
   position: relative;
@@ -1141,7 +1141,7 @@ body .hero {
   pointer-events: none;
   border-style: solid;
   border-width: clamp(38px, 6.5vw, 76px) clamp(34px, 5.5vw, 68px);
-  border-image-source: url("images/decorative%20elements/main-image-frame.png");
+  border-image-source: url("images/decorative%20elements/main-image-frame_result.webp");
   border-image-slice: 150 150 150 150 fill;
   border-image-width: clamp(38px, 6.5vw, 76px) clamp(34px, 5.5vw, 68px);
   border-image-repeat: stretch;
@@ -1202,7 +1202,7 @@ body .hero {
   pointer-events: none;
   border: 0 !important;
   border-image: none !important;
-  background: url("images/decorative%20elements/main-image-frame.png") center / 100% 100% no-repeat !important;
+  background: url("images/decorative%20elements/main-image-frame_result.webp") center / 100% 100% no-repeat !important;
 }
 #collection-shell #detailMainImage::after {
   content: "" !important;
@@ -1218,7 +1218,7 @@ body .hero {
   pointer-events: none !important;
   border: 0 !important;
   border-image: none !important;
-  background-image: url("images/decorative%20elements/main-image-frame.png") !important;
+  background-image: url("images/decorative%20elements/main-image-frame_result.webp") !important;
   background-position: center !important;
   background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
@@ -1347,7 +1347,7 @@ body .hero {
 #collection-shell #detailMainImage::after {
   content: "" !important;
   inset: 0 !important;
-  background-image: url("images/decorative%20elements/main-image-frame.png") !important;
+  background-image: url("images/decorative%20elements/main-image-frame_result.webp") !important;
   background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
 }
@@ -1625,7 +1625,7 @@ body .hero {
   left: 12%;
   right: 12%;
   height: 18px;
-  background: url("images/decorative%20elements/lightstrip-red.png") center / 100% 100% no-repeat;
+  background: url("images/decorative%20elements/lightstrip-red_result.webp") center / 100% 100% no-repeat;
   pointer-events: none;
   z-index: 4;
 }
@@ -1655,7 +1655,7 @@ body .hero {
   padding: 18px 12px !important;
   margin: 0 !important;
   border: 0 !important;
-  background: url("images/decorative%20elements/honeycomb-vent-grille.png") center / 100% 100% no-repeat !important;
+  background: url("images/decorative%20elements/honeycomb-vent-grille_result.webp") center / 100% 100% no-repeat !important;
 }
 #collection-shell .detail-hero-row .panel-heading > div {
   min-width: 0;
