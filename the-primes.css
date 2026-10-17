@@ -2192,3 +2192,18 @@ body #hero {
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
+
+
+/* Keep the hero artwork inside the metallic frame's inner opening. */
+body .hero {
+  background-image: url('images/primes-background_result.webp') !important;
+  background-position: center center !important;
+  background-size: 91.23% 87.58848% !important;
+  background-repeat: no-repeat !important;
+}
+@media (max-width: 760px) {
+  body .hero {
+    background-size: 91.23% 87.58848% !important;
+    background-position: center center !important;
+  }
+}
