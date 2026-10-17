@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       new Date().getFullYear();
   }
 
-  // Homepage gallery: continuously auto-scroll through the images in a seamless loop.
+  // Homepage gallery: continuous horizontal movement, with click-to-enlarge.
   const gallery = document.querySelector(".home-personal-gallery-grid");
   if (gallery && gallery.children.length > 1) {
     const originalItems = Array.from(gallery.children);
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       clone.classList.add("gallery-loop-copy");
       clone.setAttribute("aria-hidden", "true");
       clone.querySelectorAll("img").forEach((img) => {
-        img.setAttribute("alt", "");
+        img.alt = "";
         img.loading = "eager";
       });
       gallery.appendChild(clone);
@@ -39,7 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let paused = false;
     let lastTime = 0;
-    const speed = 35; // pixels per second
+    const speed = 38;
+
+    gallery.addEventListener("mouseenter", () => { paused = true; });
+    gallery.addEventListener("mouseleave", () => { paused = false; });
     gallery.addEventListener("touchstart", () => { paused = true; }, { passive: true });
     gallery.addEventListener("touchend", () => { paused = false; }, { passive: true });
     gallery.addEventListener("touchcancel", () => { paused = false; }, { passive: true });
@@ -50,9 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
       lastTime = time;
 
       const firstCopy = gallery.querySelector(".gallery-loop-copy");
-      if (!paused && firstCopy) {
-        const loopWidth = firstCopy.offsetLeft - gallery.children[0].offsetLeft;
-        if (loopWidth > 0) {
+      if (!paused && firstCopy && gallery.children[0]) {
+        const loopWidth = firstCopy.getBoundingClientRect().left -
+          gallery.children[0].getBoundingClientRect().left;
+        if (loopWidth > 1) {
           gallery.scrollLeft += speed * elapsed;
           if (gallery.scrollLeft >= loopWidth) {
             gallery.scrollLeft -= loopWidth;
@@ -62,9 +66,46 @@ document.addEventListener("DOMContentLoaded", () => {
       window.requestAnimationFrame(scrollGallery);
     }
 
-    // Start at the beginning and wait for layout before calculating the loop distance.
     gallery.scrollLeft = 0;
     window.requestAnimationFrame(scrollGallery);
+
+    // A lightweight lightbox displays the selected image at full size.
+    const lightbox = document.createElement("div");
+    lightbox.className = "gallery-lightbox";
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-label", "Expanded gallery image");
+    lightbox.innerHTML = '<button class="gallery-lightbox-close" type="button" aria-label="Close image">×</button><img alt=""><p class="gallery-lightbox-caption"></p>';
+    document.body.appendChild(lightbox);
+
+    const lightboxImage = lightbox.querySelector("img");
+    const lightboxCaption = lightbox.querySelector(".gallery-lightbox-caption");
+    const closeButton = lightbox.querySelector(".gallery-lightbox-close");
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightboxImage.removeAttribute("src");
+      paused = false;
+    }
+    function openLightbox(img) {
+      lightboxImage.src = img.currentSrc || img.src;
+      lightboxImage.alt = img.alt || "Expanded gallery photograph";
+      lightboxCaption.textContent = img.alt || "";
+      lightbox.classList.add("is-open");
+      paused = true;
+    }
+
+    gallery.addEventListener("click", (event) => {
+      const img = event.target.closest(".home-personal-shot img");
+      if (img) openLightbox(img);
+    });
+    closeButton.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
+    });
   }
 
   function closeAllFolders(except = null) {
