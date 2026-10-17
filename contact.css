@@ -727,47 +727,15 @@ body .hero::after {
 }
 
 
-/* CONTACT HERO FRAME FIX: use one complete frame image only.
-   The extra ::after rail duplicated the bottom edge of the frame. */
-html body main > section.hero::after {
-  content: none !important;
-  display: none !important;
-}
+/* CONTACT HERO BACKGROUND FIT: keep the artwork inside the frame's inner opening. */
 html body main > section.hero {
-  position: relative !important;
-  box-sizing: border-box !important;
-  width: 100% !important;
-  height: 620px !important;
-  min-height: 620px !important;
-  max-height: 620px !important;
-  aspect-ratio: auto !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  background-image: url("images/contact-background_result.webp") !important;
-  background-size: cover !important;
+  background-size: 91.23% 87.58848% !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
 }
-html body main > section.hero > .hero-metallic-frame {
-  position: absolute !important;
-  inset: 0 !important;
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: fill !important;
-  object-position: center center !important;
-  z-index: 2 !important;
-  pointer-events: none !important;
-}
-html body main > section.hero > .hero-shade {
-  display: none !important;
-}
 @media (max-width: 760px) {
   html body main > section.hero {
-    height: 420px !important;
-    min-height: 420px !important;
-    max-height: 420px !important;
+    background-size: 91.23% 87.58848% !important;
+    background-position: center center !important;
   }
 }
