@@ -3772,3 +3772,15 @@ body .topbar > .main-nav {
     transform: translateX(200px) !important;
   }
 }
+
+
+/* Latest requested adjustment: move navigation plates 100px left from the
+   previous position (net +100px from the original alignment). */
+body .topbar > .main-nav {
+  transform: translateX(100px) !important;
+}
+@media (max-width: 700px) {
+  body .topbar > .main-nav {
+    transform: translateX(100px) !important;
+  }
+}
