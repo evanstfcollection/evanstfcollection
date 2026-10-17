@@ -506,3 +506,18 @@ html body main .contact-shell > .contact-panel {
     background-size: 100% 100% !important;
   }
 }
+
+
+/* Latest adjustment: shift contact content another 50px right and 50px down. */
+html body main .contact-shell > .contact-panel h2,
+html body main .contact-shell > .contact-panel > p,
+html body main .contact-shell > .contact-panel form {
+  margin-left: 125px !important;
+}
+html body main .contact-shell > .contact-panel h2,
+html body main .contact-shell > .contact-panel > p,
+html body main .contact-shell > .contact-panel form > label,
+html body main .contact-shell > .contact-panel form > button {
+  position: relative !important;
+  top: 50px !important;
+}
