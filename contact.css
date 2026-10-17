@@ -449,3 +449,31 @@ html body main .contact-shell > .contact-panel > p,
 html body main .contact-shell > .contact-panel form {
   margin-left: 25px !important;
 }
+
+
+/* Latest contact layout adjustment: shift all form content 50px farther right
+   and increase the frame's vertical size by 25%. */
+html body main .contact-shell > .contact-panel {
+  min-height: 540px !important;
+  height: 540px !important;
+  background-size: 100% 125% !important;
+  background-position: center center !important;
+  box-sizing: border-box !important;
+}
+html body main .contact-shell > .contact-panel h2,
+html body main .contact-shell > .contact-panel > p,
+html body main .contact-shell > .contact-panel form {
+  margin-left: 75px !important;
+}
+@media (max-width: 760px) {
+  html body main .contact-shell > .contact-panel {
+    min-height: 460px !important;
+    height: 460px !important;
+    background-size: 100% 125% !important;
+  }
+  html body main .contact-shell > .contact-panel h2,
+  html body main .contact-shell > .contact-panel > p,
+  html body main .contact-shell > .contact-panel form {
+    margin-left: 75px !important;
+  }
+}
