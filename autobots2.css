@@ -1744,5 +1744,5 @@ body .hero {
   box-sizing: border-box !important;
 }
 #collection-shell .detail-hero-row .panel-heading > div {
-  transform: translateX(20px) !important;
+  transform: translateX(40px) !important;
 }
