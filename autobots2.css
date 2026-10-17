@@ -1968,3 +1968,14 @@ body .hero {
     top: 42px !important;
   }
 }
+
+
+/* Move the lightbar down by half its current height. */
+#collection-shell .detail-lightstrip {
+  top: 147px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-lightstrip {
+    top: 105px !important;
+  }
+}
