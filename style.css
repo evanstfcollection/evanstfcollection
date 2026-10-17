@@ -1323,15 +1323,14 @@ body .detail-main-image::after {
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0 0 12px;
-  scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: #9b6538 rgba(3, 8, 14, .85);
+  scroll-behavior: auto;
 }
 .home-personal-gallery-grid > .home-personal-shot {
   flex: 0 0 calc((100% - 42px) / 4);
-  scroll-snap-align: start;
 }
 .home-personal-gallery-grid::-webkit-scrollbar { height: 9px; }
 .home-personal-gallery-grid::-webkit-scrollbar-track { background: rgba(3, 8, 14, .85); }
