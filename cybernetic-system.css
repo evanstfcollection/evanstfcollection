@@ -3841,3 +3841,9 @@ body .topbar > .main-nav {
     margin-right: 2% !important;
   }
 }
+
+
+/* LOGO CLEARANCE — shift the logo 25px left without moving the nav plates. */
+body .topbar > .site-logo {
+  transform: translateX(-25px) !important;
+}
