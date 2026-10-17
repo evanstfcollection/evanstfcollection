@@ -21,7 +21,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
 .nav-item.primes{--nav-color:#1d8cff;--nav-glow:rgba(29,140,255,.46)}
 .nav-item.contact{--nav-color:#1856a8;--nav-glow:rgba(24,86,168,.42)}
 .nav-item.active{transform:translateY(-1px)}
-.hero{position:relative;height:min(330px,36.23vw);min-height:230px;overflow:hidden;background:url("images/contact-background.png") center/cover no-repeat;border-bottom:2px solid var(--accent)}
+.hero{position:relative;height:min(330px,36.23vw);min-height:230px;overflow:hidden;background:url("images/contact-background_result.webp") center/cover no-repeat;border-bottom:2px solid var(--accent)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.28),transparent 40%,transparent 60%,rgba(0,0,0,.3))}
 .collection-shell,.contact-shell{width:min(1500px,calc(100% - 30px));margin:0 auto;padding:18px 0 50px}
 .collection-heading,.contact-panel{position:relative;padding:18px 28px;margin-bottom:20px;background:linear-gradient(90deg,rgba(8,14,21,.98),rgba(3,7,11,.94));border:2px solid var(--accent);box-shadow:0 5px 12px rgba(0,0,0,.9),0 0 14px var(--glow);clip-path:polygon(1% 0,24% 0,26% 12%,100% 12%,100% 88%,26% 88%,24% 100%,1% 100%)}
