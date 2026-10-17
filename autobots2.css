@@ -2116,3 +2116,10 @@ body .hero {
   overflow-wrap: anywhere !important;
   word-break: normal !important;
 }
+
+
+/* Hide the numeric section indices while preserving the INFO and COLLECTOR'S NOTES headings. */
+#collection-shell .detail-panel .info-section .section-index,
+#collection-shell .detail-panel .notes-section .section-index {
+  display: none !important;
+}
