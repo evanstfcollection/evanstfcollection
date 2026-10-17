@@ -355,3 +355,21 @@ body .hero::after {
     background-size: 100% 495px !important;
   }
 }
+
+
+/* Match the collection pages' bottom status bar. */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px clamp(14px, 3vw, 42px);
+  background: #05080c;
+  border-top: 1px solid #3e4953;
+  color: #86939e;
+  font-size: 9px;
+  letter-spacing: .14em;
+}
+.site-footer b { color: #75d59b; }
+@media (max-width: 520px) {
+  .site-footer { padding: 16px 12px; font-size: 8px; }
+}
