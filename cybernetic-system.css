@@ -3682,3 +3682,49 @@ body .topbar .nav-item {
   background: transparent !important;
   background-image: none !important;
 }
+
+
+/* NAV ALIGNMENT FIX — keep the navigation plates to the right of the logo.
+   The logo occupies its own fixed flex column; the six tabs share only the
+   remaining header width instead of overlapping or centering underneath it. */
+body .topbar {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+}
+body .topbar > .site-logo {
+  position: relative !important;
+  flex: 0 0 350px !important;
+  width: 350px !important;
+  min-width: 350px !important;
+  margin: 0 !important;
+}
+body .topbar > .main-nav {
+  position: relative !important;
+  flex: 1 1 0 !important;
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 7px !important;
+  align-self: stretch !important;
+}
+@media (max-width: 1100px) {
+  body .topbar > .site-logo {
+    flex-basis: 240px !important;
+    width: 240px !important;
+    min-width: 240px !important;
+  }
+}
+@media (max-width: 700px) {
+  body .topbar > .site-logo {
+    flex-basis: 150px !important;
+    width: 150px !important;
+    min-width: 150px !important;
+  }
+  body .topbar > .main-nav {
+    gap: 3px !important;
+  }
+}
