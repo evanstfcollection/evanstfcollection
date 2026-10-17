@@ -521,3 +521,39 @@ html body main .contact-shell > .contact-panel form > button {
   position: relative !important;
   top: 50px !important;
 }
+
+
+/* Fine-tune contact layout: move content 25px right and 25px down;
+   anchor the Send Message button at the right side of the frame. */
+html body main .contact-shell > .contact-panel h2,
+html body main .contact-shell > .contact-panel > p,
+html body main .contact-shell > .contact-panel form {
+  margin-left: 150px !important;
+}
+html body main .contact-shell > .contact-panel h2,
+html body main .contact-shell > .contact-panel > p,
+html body main .contact-shell > .contact-panel form > label {
+  top: 75px !important;
+}
+html body main .contact-shell > .contact-panel form > button {
+  position: absolute !important;
+  top: auto !important;
+  right: 60px !important;
+  bottom: 80px !important;
+}
+@media (max-width: 760px) {
+  html body main .contact-shell > .contact-panel h2,
+  html body main .contact-shell > .contact-panel > p,
+  html body main .contact-shell > .contact-panel form {
+    margin-left: 150px !important;
+  }
+  html body main .contact-shell > .contact-panel h2,
+  html body main .contact-shell > .contact-panel > p,
+  html body main .contact-shell > .contact-panel form > label {
+    top: 75px !important;
+  }
+  html body main .contact-shell > .contact-panel form > button {
+    right: 25px !important;
+    bottom: 55px !important;
+  }
+}
