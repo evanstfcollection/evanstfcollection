@@ -727,20 +727,24 @@ body .hero::after {
 }
 
 
-/* HERO DIMENSION FIX — remove conflicting fixed-height overrides.
-   The background artwork is 2048×742; size the Contact hero by the same aspect ratio
-   so its geometry is driven by the image layout, not the old 630px/495px rules. */
+/* FINAL CONTACT HERO CORRECTION
+   Keep the Contact hero the same fixed dimensions as the other collection pages.
+   The background is clipped to the hero bounds; only the frame image fills the box. */
 html body main > section.hero {
+  position: relative !important;
   box-sizing: border-box !important;
   width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  aspect-ratio: 2048 / 742 !important;
+  height: 630px !important;
+  min-height: 630px !important;
+  max-height: 630px !important;
+  aspect-ratio: auto !important;
+  padding: 0 !important;
   overflow: hidden !important;
-  background-size: 100% 100% !important;
+  background-image: url("images/contact-background_result.webp") !important;
+  background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
+  border: 0 !important;
 }
 html body main > section.hero > .hero-metallic-frame {
   position: absolute !important;
@@ -752,12 +756,17 @@ html body main > section.hero > .hero-metallic-frame {
   max-height: none !important;
   object-fit: fill !important;
   object-position: center center !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+html body main > section.hero > .hero-shade {
+  display: none !important;
 }
 @media (max-width: 760px) {
   html body main > section.hero {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    aspect-ratio: 2048 / 742 !important;
+    height: 495px !important;
+    min-height: 495px !important;
+    max-height: 495px !important;
+    aspect-ratio: auto !important;
   }
 }
