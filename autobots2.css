@@ -2100,3 +2100,19 @@ body .hero {
   overflow-wrap: anywhere !important;
   word-break: normal !important;
 }
+
+
+/* Restore gallery labels to their previous width; apply 12-character wrapping only to the info nameplate. */
+#collection-shell #gallery .card-image-wrap .card-name {
+  max-width: none !important;
+  left: 8px !important;
+  right: 8px !important;
+  transform: none !important;
+}
+#collection-shell .detail-hero-row .panel-heading h2 {
+  width: 12ch !important;
+  max-width: 12ch !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
