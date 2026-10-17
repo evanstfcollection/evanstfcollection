@@ -590,3 +590,32 @@ html body main .contact-shell > .contact-panel form > button {
     right: -125px !important;
   }
 }
+
+
+/* Replace the visible Send Message button with the uploaded rusted metal plate.
+   Keep the real submit button so the contact form still works. */
+html body main .contact-shell > .contact-panel form > button {
+  width: 200px !important;
+  height: 60px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  background-image: url("images/decorative%20elements/rusted-panel-plate_result.webp") !important;
+  background-position: center !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+html body main .contact-shell > .contact-panel form > button::before,
+html body main .contact-shell > .contact-panel form > button::after {
+  content: none !important;
+  display: none !important;
+}
+html body main .contact-shell > .contact-panel form > button:hover,
+html body main .contact-shell > .contact-panel form > button:focus-visible {
+  filter: brightness(1.15);
+}
