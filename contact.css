@@ -666,3 +666,28 @@ html body main .contact-shell > .contact-panel form > button {
     right: -575px !important;
   }
 }
+
+
+/* Match Contact hero/frame dimensions to the collection pages. */
+body .hero {
+  height: 387.2px !important;
+  min-height: 387.2px !important;
+  max-height: 387.2px !important;
+}
+body .hero-metallic-frame {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+}
+@media (max-width: 760px) {
+  body .hero {
+    height: 290.4px !important;
+    min-height: 290.4px !important;
+    max-height: 290.4px !important;
+  }
+  body .hero-metallic-frame {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill !important;
+  }
+}
