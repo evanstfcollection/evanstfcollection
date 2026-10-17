@@ -2149,3 +2149,16 @@ body .hero {
     height: 120px !important;
   }
 }
+
+
+/* Keep section headings and text below the enlarged divider artwork, preserving the original 12px gap. */
+#collection-shell .detail-panel .info-section,
+#collection-shell .detail-panel .notes-section {
+  padding-top: 156px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .info-section,
+  #collection-shell .detail-panel .notes-section {
+    padding-top: 132px !important;
+  }
+}
