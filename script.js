@@ -22,40 +22,49 @@ document.addEventListener("DOMContentLoaded", () => {
       new Date().getFullYear();
   }
 
-  // Homepage gallery: seamless, slow auto-scroll with pause controls.
+  // Homepage gallery: continuously auto-scroll through the images in a seamless loop.
   const gallery = document.querySelector(".home-personal-gallery-grid");
-  if (gallery) {
+  if (gallery && gallery.children.length > 1) {
     const originalItems = Array.from(gallery.children);
-    if (originalItems.length) {
-      originalItems.forEach((item) => {
-        const clone = item.cloneNode(true);
-        clone.setAttribute("aria-hidden", "true");
-        clone.querySelectorAll("img").forEach((img) => img.setAttribute("alt", ""));
-        gallery.appendChild(clone);
+    originalItems.forEach((item) => {
+      const clone = item.cloneNode(true);
+      clone.classList.add("gallery-loop-copy");
+      clone.setAttribute("aria-hidden", "true");
+      clone.querySelectorAll("img").forEach((img) => {
+        img.setAttribute("alt", "");
+        img.loading = "eager";
       });
+      gallery.appendChild(clone);
+    });
 
-      let paused = false;
-      let lastTime = 0;
-      const speed = 22; // pixels per second
-      // Keep moving while the pointer is over the gallery; pause only for touch interaction.
-      gallery.addEventListener("touchstart", () => { paused = true; }, { passive: true });
-      gallery.addEventListener("touchend", () => { paused = false; }, { passive: true });
+    let paused = false;
+    let lastTime = 0;
+    const speed = 35; // pixels per second
+    gallery.addEventListener("touchstart", () => { paused = true; }, { passive: true });
+    gallery.addEventListener("touchend", () => { paused = false; }, { passive: true });
+    gallery.addEventListener("touchcancel", () => { paused = false; }, { passive: true });
 
-      function scrollGallery(time) {
-        if (!lastTime) lastTime = time;
-        const elapsed = Math.min((time - lastTime) / 1000, 0.05);
-        lastTime = time;
-        if (!paused) {
-          const loopWidth = gallery.scrollWidth / 2;
+    function scrollGallery(time) {
+      if (!lastTime) lastTime = time;
+      const elapsed = Math.min((time - lastTime) / 1000, 0.05);
+      lastTime = time;
+
+      const firstCopy = gallery.querySelector(".gallery-loop-copy");
+      if (!paused && firstCopy) {
+        const loopWidth = firstCopy.offsetLeft - gallery.children[0].offsetLeft;
+        if (loopWidth > 0) {
           gallery.scrollLeft += speed * elapsed;
-          if (loopWidth > 0 && gallery.scrollLeft >= loopWidth) {
+          if (gallery.scrollLeft >= loopWidth) {
             gallery.scrollLeft -= loopWidth;
           }
         }
-        window.requestAnimationFrame(scrollGallery);
       }
       window.requestAnimationFrame(scrollGallery);
     }
+
+    // Start at the beginning and wait for layout before calculating the loop distance.
+    gallery.scrollLeft = 0;
+    window.requestAnimationFrame(scrollGallery);
   }
 
   function closeAllFolders(except = null) {
