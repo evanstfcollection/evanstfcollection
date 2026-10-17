@@ -2038,3 +2038,52 @@ body .hero {
 #collection-shell .detail-panel .detail-hero-row {
   margin-bottom: 8px !important;
 }
+
+
+/* Final gallery-label and thumbnail layout correction:
+   keep each figure name above the square frame overlay, and let the hero row
+   end at the actual image/nameplate height so alternate images sit right below it. */
+#collection-shell #gallery .card-image-wrap {
+  position: relative !important;
+  isolation: isolate !important;
+}
+#collection-shell #gallery .card-image-wrap .card-frame {
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+#collection-shell #gallery .card-image-wrap .card-name {
+  position: absolute !important;
+  z-index: 10 !important;
+  left: 8px !important;
+  right: 8px !important;
+  bottom: 8px !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 4px 6px !important;
+  color: #fff !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+  text-shadow: 0 2px 4px #000, 0 0 5px #000 !important;
+  background: rgba(3, 6, 10, .82) !important;
+  border: 1px solid rgba(255, 190, 120, .7) !important;
+  overflow-wrap: anywhere !important;
+  pointer-events: none !important;
+}
+#collection-shell .detail-panel .detail-hero-row {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+#collection-shell .detail-panel .detail-thumbs {
+  display: flex !important;
+  margin-top: 8px !important;
+  clear: both !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-panel .detail-hero-row {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+}
