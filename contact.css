@@ -279,9 +279,9 @@ body .hero {
   position: relative !important;
   isolation: isolate !important;
   width: 100% !important;
-  height: 420px !important;
-  min-height: 420px !important;
-  max-height: 420px !important;
+  height: 630px !important;
+  min-height: 630px !important;
+  max-height: 630px !important;
   margin: 0 !important;
   padding: 0 !important;
   overflow: hidden !important;
@@ -305,9 +305,9 @@ body .hero-metallic-frame {
 body .hero-shade { display: none !important; }
 @media (max-width: 760px) {
   body .hero {
-    height: 330px !important;
-    min-height: 330px !important;
-    max-height: 330px !important;
+    height: 495px !important;
+    min-height: 495px !important;
+    max-height: 495px !important;
     background-size: 86.7% 100% !important;
   }
   body .hero-metallic-frame { height: 100% !important; }
