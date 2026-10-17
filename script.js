@@ -22,6 +22,45 @@ document.addEventListener("DOMContentLoaded", () => {
       new Date().getFullYear();
   }
 
+  // Homepage gallery: seamless, slow auto-scroll with pause controls.
+  const gallery = document.querySelector(".home-personal-gallery-grid");
+  if (gallery && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const originalItems = Array.from(gallery.children);
+    if (originalItems.length) {
+      originalItems.forEach((item) => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        clone.querySelectorAll("img").forEach((img) => img.setAttribute("alt", ""));
+        gallery.appendChild(clone);
+      });
+
+      let paused = false;
+      let lastTime = 0;
+      const speed = 22; // pixels per second
+      gallery.addEventListener("mouseenter", () => { paused = true; });
+      gallery.addEventListener("mouseleave", () => { paused = false; });
+      gallery.addEventListener("focusin", () => { paused = true; });
+      gallery.addEventListener("focusout", () => { paused = false; });
+      gallery.addEventListener("touchstart", () => { paused = true; }, { passive: true });
+      gallery.addEventListener("touchend", () => { paused = false; }, { passive: true });
+
+      function scrollGallery(time) {
+        if (!lastTime) lastTime = time;
+        const elapsed = Math.min((time - lastTime) / 1000, 0.05);
+        lastTime = time;
+        if (!paused) {
+          const loopWidth = gallery.scrollWidth / 2;
+          gallery.scrollLeft += speed * elapsed;
+          if (loopWidth > 0 && gallery.scrollLeft >= loopWidth) {
+            gallery.scrollLeft -= loopWidth;
+          }
+        }
+        window.requestAnimationFrame(scrollGallery);
+      }
+      window.requestAnimationFrame(scrollGallery);
+    }
+  }
+
   function closeAllFolders(except = null) {
     document.body.classList.remove("autobots-active");
     folderSections.forEach((section) => {
