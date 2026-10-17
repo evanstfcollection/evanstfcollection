@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Evan's Transformers collection, from Autobots and Decepticons to Masterpiece, 3rd Party figures, and the Primes.">
   <link rel="icon" type="image/webp" href="images/EvansTFCollection-favicon_result.webp">
-  <title>Evan's TF Collection</title>
+  <title>Evan's TF Collection | Home</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="cybernetic-system.css">
 </head>
-
-<body data-cyber-theme="neutral">
+<body data-cyber-theme="neutral" class="home-page">
   <div class="site-shell">
-
-    <!-- UNIFIED TOP NAVIGATION -->
     <header class="site-header unified-header">
-      <a class="brand" href="index.html" aria-label="Evan's TF Collection">
+      <a class="brand" href="index.html" aria-label="Evan's TF Collection home">
         <img src="images/decorative%20elements/evanstfcollection-navigation-logo_result.webp" alt="Evan's TF Collection">
       </a>
-
       <nav class="main-nav" aria-label="Main navigation">
         <a class="nav-item autobots" href="autobots.html"><img src="images/autobots-icon_result.webp" alt=""><span>AUTOBOTS</span></a>
         <a class="nav-item decepticons" href="decepticons.html"><img src="images/decepticons-icon_result.webp" alt=""><span>DECEPTICONS</span></a>
@@ -37,24 +34,82 @@
       <a href="contact.html"><img src="images/contact-icon_result.webp" alt=""><span>CONTACT</span></a>
     </nav>
 
-<main id="top">
-
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-logo">
-          <img src="images/evanstfcollection-logo_result.webp" alt="Evan's TF Collection">
+    <main id="top" class="home-main">
+      <section class="home-hero" aria-label="Welcome to Evan's TF Collection">
+        <div class="home-hero-art"></div>
+        <div class="home-hero-copy">
+          <p class="home-kicker">WELCOME TO MY WORLD</p>
+          <img class="home-title-logo" src="images/evanstfcollection-logo_result.webp" alt="Evan's TF Collection">
+          <h1>Every figure has a story.</h1>
+          <p>From legendary leaders to hidden gems, explore the Transformers that make this collection special.</p>
+          <a class="home-action" href="#collection-showcase">EXPLORE THE COLLECTION <span aria-hidden="true">›</span></a>
         </div>
       </section>
 
+      <section class="home-intro home-panel" aria-labelledby="about-title">
+        <div class="home-about-photo" role="img" aria-label="Photo of Evan to be added">
+          <div class="photo-placeholder"><span>YOUR PHOTO</span><small>Add a favourite photo of Evan here</small></div>
+        </div>
+        <div class="home-about-copy">
+          <p class="home-kicker">THE COLLECTOR BEHIND THE FIGURES</p>
+          <h2 id="about-title">ABOUT EVAN</h2>
+          <p>Hey, I'm Evan. Transformers have been a passion of mine, and this site is where I get to share the figures, designs, and details that make collecting so much fun.</p>
+          <p>From classic characters to modern masterpieces and third-party creations, there's always something new to discover.</p>
+          <a class="home-action home-action-secondary" href="#collection-showcase">TAKE A LOOK AROUND <span aria-hidden="true">›</span></a>
+        </div>
+      </section>
+
+      <section id="collection-showcase" class="home-collection home-panel" aria-labelledby="collection-title">
+        <div class="home-section-heading">
+          <p class="home-kicker">A UNIVERSE OF FIGURES</p>
+          <h2 id="collection-title">EXPLORE THE COLLECTION</h2>
+          <p>Choose a collection and step into its corner of the Transformers universe.</p>
+        </div>
+        <div class="home-category-grid">
+          <a class="home-category autobot-card" href="autobots.html">
+            <img src="images/autobots-icon_result.webp" alt="">
+            <span class="category-name">AUTOBOTS</span><span class="category-cta">MEET THE HEROES ›</span>
+          </a>
+          <a class="home-category decepticon-card" href="decepticons.html">
+            <img src="images/decepticons-icon_result.webp" alt="">
+            <span class="category-name">DECEPTICONS</span><span class="category-cta">DISCOVER THE RIVALS ›</span>
+          </a>
+          <a class="home-category masterpiece-card" href="masterpiece-movie.html">
+            <img src="images/masterpiece-movie-icon_result.webp" alt="">
+            <span class="category-name">MASTERPIECE MOVIE</span><span class="category-cta">SEE THE DETAIL ›</span>
+          </a>
+          <a class="home-category thirdparty-card" href="third-party.html">
+            <img src="images/3rd-party-icon_result.webp" alt="">
+            <span class="category-name">3RD PARTY</span><span class="category-cta">FIND THE UNEXPECTED ›</span>
+          </a>
+          <a class="home-category primes-card" href="the-primes.html">
+            <img src="images/primes-icon_result.webp" alt="">
+            <span class="category-name">THE PRIMES</span><span class="category-cta">RETURN TO THE ORIGIN ›</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="home-featured home-panel" aria-labelledby="featured-title">
+        <div class="home-featured-heading">
+          <div><p class="home-kicker">THE COLLECTION AT A GLANCE</p><h2 id="featured-title">FEATURED WORLDS</h2></div>
+          <span class="home-heading-note">MORE FIGURES. MORE STORIES.</span>
+        </div>
+        <div class="home-featured-grid">
+          <a href="autobots.html" class="featured-shot"><img src="images/autobots-background_result.webp" alt="Autobots collection artwork"><span>AUTOBOTS</span></a>
+          <a href="decepticons.html" class="featured-shot"><img src="images/decepticons-background_result.webp" alt="Decepticons collection artwork"><span>DECEPTICONS</span></a>
+          <a href="masterpiece-movie.html" class="featured-shot"><img src="images/masterpiece-background_result.webp" alt="Masterpiece Movie collection artwork"><span>MASTERPIECE MOVIE</span></a>
+          <a href="third-party.html" class="featured-shot"><img src="images/3rd-party-background_result.webp" alt="Third-party collection artwork"><span>3RD PARTY</span></a>
+          <a href="the-primes.html" class="featured-shot"><img src="images/primes-background_result.webp" alt="The Primes collection artwork"><span>THE PRIMES</span></a>
+        </div>
+        <p class="home-gallery-note">Collection group shots and personal favourite photos can be added here next.</p>
+      </section>
     </main>
 
     <footer class="site-footer">
       <span>EVAN'S TF COLLECTION</span>
       <span>© <span id="year"></span></span>
     </footer>
-
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
