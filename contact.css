@@ -727,7 +727,19 @@ body .hero::after {
 }
 
 
-/* CONTACT HERO BACKGROUND FIT: keep the artwork inside the frame's inner opening. */
+/* Match Contact's metallic hero frame to the established collection-page frame dimensions. */
+html body main > section.hero {
+  height: 585.34px !important;
+  min-height: 585.34px !important;
+  max-height: 585.34px !important;
+}
+html body main > section.hero > .hero-metallic-frame {
+  top: 0 !important;
+  bottom: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+}
 html body main > section.hero {
   background-size: 91.23% 87.58848% !important;
   background-position: center center !important;
@@ -735,7 +747,13 @@ html body main > section.hero {
 }
 @media (max-width: 760px) {
   html body main > section.hero {
+    height: 438.94px !important;
+    min-height: 438.94px !important;
+    max-height: 438.94px !important;
     background-size: 91.23% 87.58848% !important;
     background-position: center center !important;
+  }
+  html body main > section.hero > .hero-metallic-frame {
+    height: 100% !important;
   }
 }
