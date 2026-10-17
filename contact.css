@@ -727,8 +727,12 @@ body .hero::after {
 }
 
 
-/* MATCH THE LIVE COLLECTION HERO RULES
-   Use the same dimensions and frame inset as the collection pages. */
+/* CONTACT HERO FRAME FIX: use one complete frame image only.
+   The extra ::after rail duplicated the bottom edge of the frame. */
+html body main > section.hero::after {
+  content: none !important;
+  display: none !important;
+}
 html body main > section.hero {
   position: relative !important;
   box-sizing: border-box !important;
@@ -746,11 +750,10 @@ html body main > section.hero {
 }
 html body main > section.hero > .hero-metallic-frame {
   position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
+  inset: 0 !important;
   display: block !important;
   width: 100% !important;
-  height: 90.8% !important;
+  height: 100% !important;
   max-width: none !important;
   max-height: none !important;
   object-fit: fill !important;
@@ -766,8 +769,5 @@ html body main > section.hero > .hero-shade {
     height: 420px !important;
     min-height: 420px !important;
     max-height: 420px !important;
-  }
-  html body main > section.hero > .hero-metallic-frame {
-    height: 90.8% !important;
   }
 }
