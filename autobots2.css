@@ -1931,3 +1931,29 @@ body .hero {
     max-height: 384px !important;
   }
 }
+
+
+/* Lower the red lightbar by four times its current height, triple its height again,
+   and keep the image/name row beneath the enlarged lightbar. */
+#collection-shell .detail-lightstrip {
+  top: 228px !important;
+  height: 162px !important;
+}
+#collection-shell .detail-panel .detail-hero-row {
+  margin-top: 400px !important;
+  height: 808px !important;
+  min-height: 808px !important;
+  max-height: 808px !important;
+}
+@media (max-width: 760px) {
+  #collection-shell .detail-lightstrip {
+    top: 168px !important;
+    height: 126px !important;
+  }
+  #collection-shell .detail-panel .detail-hero-row {
+    margin-top: 310px !important;
+    height: 568px !important;
+    min-height: 568px !important;
+    max-height: 568px !important;
+  }
+}
