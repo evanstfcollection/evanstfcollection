@@ -375,6 +375,18 @@ body .hero::after {
 }
 
 
+
+/* Use the uploaded contact frame only on the contact window, not as the page background. */
+body .contact-panel {
+  background-color: transparent !important;
+  background-image: url('images/decorative%20elements/contact-frame.png') !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
 /* Use a single frame around the contact form; the shell itself stays unframed. */
 body .contact-shell {
   background: transparent !important;
