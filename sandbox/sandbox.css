@@ -1766,7 +1766,7 @@ body[data-theme="decepticons"] .armor-joint:after{filter:saturate(1.15)}
   justify-content:center;
   background:
     linear-gradient(rgba(3,8,18,.28),rgba(3,8,18,.45)),
-    url("../images/main-page-background.png") center top / cover scroll;
+    url("../images/main-page-background_result.webp") center top / cover scroll;
   background-color:#050a12;
   position:relative;
   overflow:hidden;
