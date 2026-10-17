@@ -272,3 +272,43 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;b
   filter: none !important;
   box-shadow: none !important;
 }
+
+
+/* Match the collection pages' metallic navigation chassis and framed hero. */
+body .hero {
+  position: relative !important;
+  isolation: isolate !important;
+  width: 100% !important;
+  height: 352px !important;
+  min-height: 352px !important;
+  max-height: 352px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  background-color: #030609 !important;
+  background-image: url('images/contact-background_result.webp') !important;
+  background-position: center center !important;
+  background-size: 86.7% 100% !important;
+  background-repeat: no-repeat !important;
+}
+body .hero-metallic-frame {
+  position: absolute !important;
+  z-index: 4 !important;
+  inset: 0 auto auto 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+  pointer-events: none !important;
+}
+body .hero-shade { display: none !important; }
+@media (max-width: 760px) {
+  body .hero {
+    height: 264px !important;
+    min-height: 264px !important;
+    max-height: 264px !important;
+    background-size: 86.7% 100% !important;
+  }
+  body .hero-metallic-frame { height: 100% !important; }
+}
