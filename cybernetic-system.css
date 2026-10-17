@@ -3761,3 +3761,14 @@ body .topbar > .main-nav > .nav-item {
     gap: 1px !important;
   }
 }
+
+
+/* Latest requested adjustment: shift the navigation plates 200px to the right. */
+body .topbar > .main-nav {
+  transform: translateX(200px) !important;
+}
+@media (max-width: 700px) {
+  body .topbar > .main-nav {
+    transform: translateX(200px) !important;
+  }
+}
