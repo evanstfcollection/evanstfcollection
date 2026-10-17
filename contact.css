@@ -402,3 +402,23 @@ body .contact-shell::after {
   background: none !important;
   box-shadow: none !important;
 }
+
+
+/* Final override: make the uploaded frame the visible surface of the contact window.
+   The shared cybernetic stylesheet adds pseudo-element bevels later in the cascade,
+   so disable those overlays for this panel only. */
+html body main .contact-shell > .contact-panel {
+  position: relative !important;
+  background: #05080c url("images/decorative%20elements/contact-frame.png") center / 100% 100% no-repeat !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+  isolation: isolate !important;
+}
+html body main .contact-shell > .contact-panel::before,
+html body main .contact-shell > .contact-panel::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
