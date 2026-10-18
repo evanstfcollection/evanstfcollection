@@ -4073,3 +4073,23 @@ body .site-header.unified-header .main-nav .nav-item span {
     margin-top: 0 !important;
   }
 }
+
+
+/* MOBILE-ONLY HOMEPAGE HERO ART — use the dedicated portrait artwork. */
+@media (max-width: 620px) {
+  body.home-page .home-hero::before {
+    background-image: url("images/Main-page-hero-mobile.png") !important;
+    background-position: center 34% !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    opacity: 1 !important;
+  }
+  body.home-page .home-hero::after {
+    background: linear-gradient(
+      180deg,
+      rgba(1, 6, 14, .04) 0%,
+      rgba(1, 6, 14, .12) 48%,
+      rgba(1, 6, 14, .48) 100%
+    ) !important;
+  }
+}
