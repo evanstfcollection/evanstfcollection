@@ -2448,3 +2448,45 @@ body .hero {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
+
+
+/* MOBILE-ONLY: compact collapsible search/filter directly beneath the hero frame. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel {
+    margin-top: 0 !important;
+    margin-bottom: 14px !important;
+  }
+
+  #collection-shell .controls-title {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+
+  #collection-shell .controls-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 72px !important;
+    min-height: 36px !important;
+    padding: 7px 12px !important;
+    border: 1px solid #617384 !important;
+    border-radius: 5px !important;
+    background: #243444 !important;
+    color: #fff !important;
+    font: inherit !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+  }
+
+  #collection-shell #filterControls[hidden] {
+    display: none !important;
+  }
+
+  #collection-shell .controls-panel.controls-collapsed {
+    padding-bottom: 12px !important;
+  }
+}
