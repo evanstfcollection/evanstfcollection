@@ -14,7 +14,11 @@
     <a class="brand" href="index.html" aria-label="Evan's TF Collection home">
       <img src="images/decorative%20elements/evanstfcollection-navigation-logo_result.webp" alt="Evan's TF Collection">
     </a>
-    <nav class="main-nav" aria-label="Main navigation">
+    
+    <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-site-menu">
+      <span></span><span></span><span></span>
+    </button>
+      <nav class="main-nav" aria-label="Main navigation">
       <a class="nav-item autobots active" href="autobots.html" aria-haspopup="true" aria-expanded="false"><img src="images/autobots-icon_result.webp" alt=""><span>AUTOBOTS</span></a>
       <a class="nav-item decepticons" href="decepticons.html"><img src="images/decepticons-icon_result.webp" alt=""><span>DECEPTICONS</span></a>
       <a class="nav-item masterpiece" href="masterpiece-movie.html"><img src="images/masterpiece-movie-icon_result.webp" alt=""><span>MASTERPIECE<br>MOVIE</span></a>
@@ -23,6 +27,16 @@
       <a class="nav-item contact" href="contact.html"><img src="images/contact-icon_result.webp" alt=""><span>CONTACT</span></a>
     </nav>
   </header>
+  <nav class="mobile-site-menu" id="mobile-site-menu" aria-label="Mobile page navigation" hidden>
+    <a href="index.html">HOME</a>
+    <a href="autobots.html">AUTOBOTS</a>
+    <a href="decepticons.html">DECEPTICONS</a>
+    <a href="masterpiece-movie.html">MASTERPIECE MOVIE</a>
+    <a href="third-party.html">3RD PARTY</a>
+    <a href="the-primes.html">THE PRIMES</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+
 
   <section class="nav-expansion" id="navExpansion" aria-label="Expanded collection menu" hidden>
     <div class="nav-expansion-emblem" aria-hidden="true">✦</div>
@@ -97,5 +111,6 @@
   <script src="autobots.js"></script>
   <script src="nav-expansion.js"></script>
   <!-- Trigger a fresh GitHub Pages deployment after the queued deployment stalled. -->
+  <script src="mobile-menu.js"></script>
 </body>
 </html>
