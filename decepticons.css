@@ -2224,3 +2224,14 @@ body .hero {
 #collection-shell .detail-panel .light-strip {
   filter: hue-rotate(65deg) saturate(1.25) !important;
 }
+
+
+/* MOBILE-ONLY HERO BACKGROUND — desktop styling remains unchanged. */
+@media (max-width: 620px) {
+  body .hero {
+    background-image: url("./images/decepticons-hero-mobile-background.webp") !important;
+    background-position: center top !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+}
