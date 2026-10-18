@@ -2705,3 +2705,11 @@ body .hero {
     display: none !important;
   }
 }
+
+
+/* MOBILE-ONLY: shift the expanded sort/filter options down by 5px. */
+@media (max-width: 620px) {
+  #collection-shell #filterControls {
+    padding-top: 19px !important;
+  }
+}
