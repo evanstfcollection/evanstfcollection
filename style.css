@@ -1436,3 +1436,15 @@ body .detail-main-image::after {
 @media (prefers-reduced-motion: reduce) {
   .home-personal-gallery-grid { scroll-behavior: auto; }
 }
+
+/* HOMEPAGE PROFILE PHOTO — reduce the photo to one-third size while keeping it centered in its existing frame. */
+.home-about-photo {
+  display: grid;
+  place-items: center;
+}
+.home-about-photo .home-profile-image {
+  width: 33.333%;
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+}
