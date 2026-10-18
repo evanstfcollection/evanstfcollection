@@ -191,9 +191,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const setExpanded = (expanded) => {
       controls.hidden = !expanded;
+      controls.style.display = expanded ? "grid" : "none";
       toggle.setAttribute("aria-expanded", String(expanded));
-      toggle.textContent = expanded ? "HIDE" : "SHOW";
+      toggle.textContent = expanded ? "− HIDE FILTERS" : "+ SHOW FILTERS";
       panel.classList.toggle("controls-collapsed", !expanded);
+      panel.classList.toggle("controls-expanded", expanded);
     };
 
     setExpanded(false);
