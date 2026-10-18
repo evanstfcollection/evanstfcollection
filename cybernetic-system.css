@@ -4163,3 +4163,15 @@ body .site-header.unified-header .main-nav .nav-item span {
     line-height: 1.45 !important;
   }
 }
+
+
+/* MOBILE-ONLY HOMEPAGE: remove the divider between the hero and profile section. */
+@media (max-width: 620px) {
+  body.home-page .home-hero,
+  body.home-page .home-about,
+  body.home-page .home-profile,
+  body.home-page .home-hero + section {
+    border-bottom: 0 !important;
+    border-top: 0 !important;
+  }
+}
