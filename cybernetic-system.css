@@ -4058,3 +4058,18 @@ body .site-header.unified-header .main-nav .nav-item span {
     border-bottom: 0 !important;
   }
 }
+
+
+/* MOBILE-ONLY HOMEPAGE SPACING: bring the first frame directly under the header. */
+@media (max-width: 620px) {
+  body.home-page .home-main {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  body.home-page .home-hero {
+    margin-top: 0 !important;
+  }
+  body.home-page .home-intro {
+    margin-top: 0 !important;
+  }
+}
