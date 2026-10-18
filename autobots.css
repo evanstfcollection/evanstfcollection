@@ -2401,3 +2401,12 @@ body .hero {
     transform: none !important;
   }
 }
+
+
+/* MOBILE-ONLY: move the portrait hero background and frame below the fixed header. */
+@media (max-width: 620px) {
+  html body main > section.hero,
+  body .hero {
+    margin-top: 64px !important;
+  }
+}
