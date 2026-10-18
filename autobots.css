@@ -3107,3 +3107,19 @@ body .hero {
     display: none !important;
   }
 }
+
+
+/* MOBILE-ONLY: use one shared page-wide background image; prevent html/body from layering two images. */
+@media (max-width: 620px) {
+  html {
+    background-image: none !important;
+    background-color: #070a0e !important;
+  }
+  body {
+    background-image: url("images/Main-page-mobile-background.webp") !important;
+    background-position: center top !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+  }
+}
