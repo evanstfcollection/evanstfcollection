@@ -2713,3 +2713,18 @@ body .hero {
     padding-top: 19px !important;
   }
 }
+
+
+/* MOBILE-ONLY: compact +/- control for expanding and collapsing filters. */
+@media (max-width: 620px) {
+  #collection-shell .controls-toggle {
+    min-width: 36px !important;
+    width: 36px !important;
+    min-height: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    font-size: 22px !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+  }
+}
