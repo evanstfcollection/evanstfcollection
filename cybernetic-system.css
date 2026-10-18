@@ -4093,3 +4093,24 @@ body .site-header.unified-header .main-nav .nav-item span {
     ) !important;
   }
 }
+
+
+/* MOBILE-ONLY HOMEPAGE: remove the empty art spacer above the hero frame. */
+@media (max-width: 620px) {
+  body.home-page .home-hero-art {
+    display: none !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body.home-page .home-hero {
+    grid-template-rows: auto !important;
+    align-content: start !important;
+    padding-top: 0 !important;
+  }
+  body.home-page .home-hero-copy {
+    align-self: start !important;
+    margin-top: 0 !important;
+  }
+}
