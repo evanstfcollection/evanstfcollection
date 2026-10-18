@@ -2913,3 +2913,65 @@ body .hero {
     box-shadow: none !important;
   }
 }
+
+
+/* MOBILE-ONLY DEFINITIVE FIX: isolate the header from the expanded dropdown seam. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel {
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 7px !important;
+    overflow: visible !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  #collection-shell .controls-title {
+    position: relative !important;
+    z-index: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    margin: 0 !important;
+    padding: 0 14px !important;
+    box-sizing: border-box !important;
+    border: 1px solid #617384 !important;
+    border-radius: 7px !important;
+    background: linear-gradient(180deg, #243444, #111d2a) !important;
+    box-shadow: none !important;
+  }
+
+  #collection-shell .controls-title h3 {
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+
+  #collection-shell .controls-toggle {
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  #collection-shell .controls-panel.controls-expanded #filterControls {
+    top: 47px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    border: 1px solid #617384 !important;
+    border-top: 0 !important;
+    border-radius: 0 0 7px 7px !important;
+    box-sizing: border-box !important;
+  }
+}
