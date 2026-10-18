@@ -4149,3 +4149,17 @@ body .site-header.unified-header .main-nav .nav-item span {
     line-height: 1.45 !important;
   }
 }
+
+
+/* MOBILE-ONLY HOMEPAGE: constrain hero paragraph width to keep text clear of the frame rails. */
+@media (max-width: 620px) {
+  body.home-page .home-hero-copy > p {
+    width: 82% !important;
+    max-width: 290px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-wrap: pretty;
+    overflow-wrap: normal !important;
+    line-height: 1.45 !important;
+  }
+}
