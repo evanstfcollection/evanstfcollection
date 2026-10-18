@@ -2481,3 +2481,12 @@ body .hero {
     transform: none !important;
   }
 }
+
+
+/* MOBILE-ONLY: shift the background artwork down so it begins inside the frame's top edge. */
+@media (max-width: 620px) {
+  html body main > section.hero,
+  body .hero {
+    background-position: center 22px !important;
+  }
+}
