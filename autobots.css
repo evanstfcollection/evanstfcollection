@@ -2490,3 +2490,12 @@ body .hero {
     background-position: center 22px !important;
   }
 }
+
+
+/* MOBILE-ONLY: nudge hero artwork down further so the category title clears the frame. */
+@media (max-width: 620px) {
+  html body main > section.hero,
+  body .hero {
+    background-position: center 32px !important;
+  }
+}
