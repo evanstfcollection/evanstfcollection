@@ -2432,3 +2432,14 @@ body .hero {
     transform: none !important;
   }
 }
+
+
+/* MOBILE-ONLY: inset hero background image within frame by reducing width 5% and height 10%. */
+@media (max-width: 620px) {
+  html body main > section.hero,
+  body .hero {
+    background-size: 95% 90% !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+}
