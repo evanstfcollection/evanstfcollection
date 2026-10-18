@@ -4114,3 +4114,29 @@ body .site-header.unified-header .main-nav .nav-item span {
     margin-top: 0 !important;
   }
 }
+
+
+/* MOBILE-ONLY HOMEPAGE: increase hero height so the entire metallic frame fits. */
+@media (max-width: 620px) {
+  body.home-page .home-hero {
+    min-height: 520px !important;
+    height: auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    box-sizing: border-box !important;
+  }
+  body.home-page .home-hero-copy {
+    min-height: 520px !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    padding-top: 110px !important;
+    padding-bottom: 105px !important;
+    margin-top: 0 !important;
+  }
+  body.home-page .home-hero-copy::before {
+    inset: 0 !important;
+  }
+  body.home-page .home-hero-copy::after {
+    inset: 7% 6% !important;
+  }
+}
