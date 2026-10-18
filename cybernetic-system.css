@@ -4032,3 +4032,21 @@ body .site-header.unified-header .main-nav .nav-item span {
   /* The homepage's former mobile link strip is replaced by the shared hamburger menu. */
   body.home-page #mobile-nav { display: none !important; }
 }
+
+/* MOBILE-ONLY HOMEPAGE FIX — explicitly show the shared hamburger control on index.html. */
+@media (max-width: 620px) {
+  body.home-page .site-header.unified-header > .mobile-menu-toggle {
+    display: flex !important;
+    position: absolute !important;
+    top: 50% !important;
+    right: 12px !important;
+    left: auto !important;
+    transform: translateY(-50%) !important;
+    z-index: 1002 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  body.home-page .site-header.unified-header > .main-nav { display: none !important; }
+  body.home-page #mobile-nav { display: none !important; }
+}
