@@ -4027,3 +4027,8 @@ body .site-header.unified-header .main-nav .nav-item span {
     outline: none !important;
   }
 }
+
+@media (max-width: 620px) {
+  /* The homepage's former mobile link strip is replaced by the shared hamburger menu. */
+  body.home-page #mobile-nav { display: none !important; }
+}
