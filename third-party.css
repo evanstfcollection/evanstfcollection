@@ -2806,3 +2806,33 @@ body .hero {
     box-shadow: 0 10px 22px #000b !important;
   }
 }
+
+
+/* MOBILE-ONLY: place Sort / Filter after the figure information panel and before the figure gallery. */
+@media (max-width: 620px) {
+  #collection-shell {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  #collection-shell .collection-layout {
+    display: contents !important;
+  }
+
+  #collection-shell .detail-panel {
+    order: 1 !important;
+  }
+
+  #collection-shell > .controls-panel {
+    order: 2 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  #collection-shell .gallery-column {
+    order: 3 !important;
+    width: 100% !important;
+  }
+}
