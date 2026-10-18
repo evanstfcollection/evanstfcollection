@@ -4140,3 +4140,12 @@ body .site-header.unified-header .main-nav .nav-item span {
     inset: 7% 6% !important;
   }
 }
+
+
+/* MOBILE-ONLY HOMEPAGE: slightly reduce hero description text to fit the frame. */
+@media (max-width: 620px) {
+  body.home-page .home-hero-copy > p {
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+}
