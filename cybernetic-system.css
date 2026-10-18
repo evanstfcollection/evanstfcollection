@@ -4175,3 +4175,14 @@ body .site-header.unified-header .main-nav .nav-item span {
     border-top: 0 !important;
   }
 }
+
+
+/* MOBILE-ONLY HOMEPAGE PROFILE PANEL: keep top/bottom cyan edges, remove side edges. */
+@media (max-width: 620px) {
+  body.home-page .home-intro.home-panel {
+    border-top: 1px solid var(--cyan, #18d9ff) !important;
+    border-bottom: 1px solid var(--cyan, #18d9ff) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+}
