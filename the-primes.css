@@ -2254,3 +2254,14 @@ body .hero {
     background-size: 91.23% 87.58848% !important;
   }
 }
+
+
+/* MOBILE-ONLY HERO BACKGROUND — desktop styling remains unchanged. */
+@media (max-width: 620px) {
+  body .hero {
+    background-image: url("./images/the-primes-hero-mobile-background.webp") !important;
+    background-position: center top !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+}
