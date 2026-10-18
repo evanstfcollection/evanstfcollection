@@ -2492,3 +2492,68 @@ body .hero {
     padding-bottom: 12px !important;
   }
 }
+
+
+/* MOBILE-ONLY: make Search / Filter a distinct collapsible bar directly below the hero. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 1px solid #617384 !important;
+    border-radius: 7px !important;
+    background: #0a121d !important;
+    box-shadow: 0 4px 12px #0008 !important;
+  }
+
+  #collection-shell .controls-title {
+    min-height: 48px !important;
+    margin: 0 !important;
+    padding: 0 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    background: linear-gradient(180deg, #243444, #111d2a) !important;
+    cursor: pointer !important;
+  }
+
+  #collection-shell .controls-title h3 {
+    margin: 0 !important;
+    font-size: 12px !important;
+    letter-spacing: .12em !important;
+  }
+
+  #collection-shell .controls-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 112px !important;
+    min-height: 32px !important;
+    padding: 6px 10px !important;
+    border: 1px solid #71879a !important;
+    border-radius: 4px !important;
+    background: #30465a !important;
+    color: #fff !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    letter-spacing: .06em !important;
+    cursor: pointer !important;
+  }
+
+  #collection-shell #filterControls {
+    display: none !important;
+    margin: 0 !important;
+    padding: 14px !important;
+    border-top: 1px solid #405364 !important;
+  }
+
+  #collection-shell .controls-panel.controls-expanded #filterControls {
+    display: grid !important;
+  }
+
+  #collection-shell .controls-panel.controls-collapsed #filterControls {
+    display: none !important;
+  }
+}
