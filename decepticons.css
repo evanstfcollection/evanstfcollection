@@ -2746,3 +2746,33 @@ body .hero {
     box-shadow: none !important;
   }
 }
+
+
+/* MOBILE-ONLY: make expanded sort/filter float over the page instead of pushing content down. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel {
+    position: relative !important;
+    z-index: 1000 !important;
+    overflow: visible !important;
+  }
+
+  #collection-shell .controls-panel.controls-expanded {
+    z-index: 1000 !important;
+  }
+
+  #collection-shell .controls-panel.controls-expanded #filterControls {
+    position: absolute !important;
+    top: 100% !important;
+    left: -1px !important;
+    right: -1px !important;
+    width: auto !important;
+    box-sizing: border-box !important;
+    z-index: 1001 !important;
+    margin: 0 !important;
+    border: 1px solid #617384 !important;
+    border-top: 1px solid #405364 !important;
+    border-radius: 0 0 7px 7px !important;
+    background: #0a121d !important;
+    box-shadow: 0 10px 22px #000b !important;
+  }
+}
