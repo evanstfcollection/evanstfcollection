@@ -1165,6 +1165,14 @@ body .detail-main-image::after {
   background: url("images/decorative%20elements/hero-metallic-frame_result.webp") center / 100% 100% no-repeat;
   pointer-events: none;
 }
+.home-hero-copy::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 7% 6%;
+  background: rgba(2, 12, 24, .78);
+  pointer-events: none;
+}
 .home-kicker {
   margin: 0 0 9px;
   color: #73dcff;
