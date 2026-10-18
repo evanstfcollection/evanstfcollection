@@ -1437,13 +1437,19 @@ body .detail-main-image::after {
   .home-personal-gallery-grid { scroll-behavior: auto; }
 }
 
-/* HOMEPAGE PROFILE PHOTO — reduce the photo to one-third size while keeping it centered in its existing frame. */
+/* HOMEPAGE PROFILE PHOTO — snug cyan frame with equal inner spacing on all sides. */
 .home-about-photo {
   display: grid;
   place-items: center;
+  justify-self: start;
+  width: fit-content;
+  min-width: 0;
+  padding: 22px;
 }
 .home-about-photo .home-profile-image {
-  width: 33.333%;
+  display: block;
+  width: 166px;
+  max-width: 100%;
   height: auto;
   min-height: 0;
   object-fit: contain;
