@@ -2376,3 +2376,21 @@ body .hero {
     background-position: center center !important;
   }
 }
+
+
+/* MOBILE-ONLY: close the gap under the navigation without clipping the scaled frame. */
+@media (max-width: 620px) {
+  html body main > section.hero,
+  body .hero {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    background-position: center 0 !important;
+  }
+
+  html body main > section.hero > .hero-metallic-frame,
+  body .hero > .hero-metallic-frame {
+    top: 0 !important;
+    height: 77.625% !important;
+    transform: none !important;
+  }
+}
