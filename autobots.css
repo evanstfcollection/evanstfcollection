@@ -2986,3 +2986,124 @@ body .hero {
     pointer-events: none !important;
   }
 }
+
+
+/* MOBILE-ONLY: replace the Autobots Sort / Filter header with the shared faction-page design.
+   Use the existing status-light element (not a pseudo-element) so the red dot survives legacy resets. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel,
+  #collection-shell .controls-panel.controls-collapsed,
+  #collection-shell .controls-panel.controls-expanded {
+    position: relative !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    margin: 0 0 12px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 7px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    contain: layout style !important;
+  }
+
+  #collection-shell .controls-title,
+  #collection-shell .controls-panel.controls-collapsed .controls-title,
+  #collection-shell .controls-panel.controls-expanded .controls-title {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    margin: 0 !important;
+    padding: 0 14px !important;
+    border: 1px solid #7a3038 !important;
+    border-radius: 7px !important;
+    background: linear-gradient(180deg, #35151a, #160d11) !important;
+    box-shadow: 0 4px 12px #0008, inset 0 0 0 1px #ef343422 !important;
+    line-height: 1 !important;
+    transform: none !important;
+  }
+
+  #collection-shell .controls-title .status-light {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    flex: 0 0 9px !important;
+    width: 9px !important;
+    min-width: 9px !important;
+    height: 9px !important;
+    min-height: 9px !important;
+    margin: 0 !important;
+    border: 1px solid #ff8589 !important;
+    border-radius: 50% !important;
+    background: #ef3434 !important;
+    box-shadow: 0 0 8px #ef3434, 0 0 14px #ef343466 !important;
+  }
+
+  #collection-shell .controls-title h3 {
+    display: block !important;
+    margin: 0 !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    letter-spacing: .12em !important;
+    line-height: 1 !important;
+  }
+
+  #collection-shell .controls-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 36px !important;
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    margin: 0 0 0 auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    color: #fff !important;
+    font-size: 22px !important;
+    line-height: 1 !important;
+  }
+
+  #collection-shell .controls-panel.controls-expanded #filterControls {
+    position: absolute !important;
+    display: grid !important;
+    top: 47px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: min(65vh, 520px) !important;
+    margin: 0 !important;
+    padding: 19px 14px 14px !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    box-sizing: border-box !important;
+    border: 1px solid #7a3038 !important;
+    border-top: 0 !important;
+    border-radius: 0 0 7px 7px !important;
+    background: #160d11 !important;
+    box-shadow: 0 10px 22px #000b !important;
+    z-index: 1001 !important;
+  }
+
+  #collection-shell .controls-panel.controls-collapsed #filterControls,
+  #collection-shell #filterControls[hidden] {
+    display: none !important;
+  }
+}
