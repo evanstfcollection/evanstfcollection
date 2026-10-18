@@ -2587,3 +2587,43 @@ body .hero {
     display: none !important;
   }
 }
+
+
+/* MOBILE-ONLY: stack every sort/filter option vertically and fit controls to the panel width. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel.controls-expanded #filterControls {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-flow: row !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #collection-shell #filterControls > .control,
+  #collection-shell #filterControls > .clear-button {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+
+  #collection-shell #filterControls input,
+  #collection-shell #filterControls select {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #collection-shell #filterControls > .clear-button {
+    min-height: 40px !important;
+    justify-content: center !important;
+  }
+}
