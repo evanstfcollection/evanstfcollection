@@ -2758,3 +2758,21 @@ body .hero {
     letter-spacing: 0 !important;
   }
 }
+
+
+/* MOBILE-ONLY: remove the outline border around the +/- filter toggle. */
+@media (max-width: 620px) {
+  #collection-shell .controls-toggle {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  #collection-shell .controls-toggle:focus,
+  #collection-shell .controls-toggle:focus-visible,
+  #collection-shell .controls-toggle:active {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+}
