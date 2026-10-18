@@ -2899,3 +2899,37 @@ body .hero {
     border-radius: 0 0 7px 7px !important;
   }
 }
+
+
+/* MOBILE-ONLY: prevent the page/background from shifting when filters open. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel,
+  #collection-shell .controls-panel.controls-collapsed,
+  #collection-shell .controls-panel.controls-expanded {
+    position: relative !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    margin-bottom: 12px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    contain: layout style !important;
+  }
+  #collection-shell .controls-panel.controls-expanded #filterControls {
+    position: absolute !important;
+    display: grid !important;
+    top: 47px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: min(65vh, 520px) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    z-index: 1001 !important;
+  }
+  #collection-shell .controls-panel.controls-collapsed #filterControls {
+    display: none !important;
+  }
+}
