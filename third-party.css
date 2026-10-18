@@ -2293,3 +2293,42 @@ body .hero {
     background-position: center top !important;
   }
 }
+
+
+/* MOBILE-ONLY FINAL FIT: align the metallic hero frame with the portrait artwork edges. */
+@media (max-width: 620px) {
+  html body main > section.hero,
+  body .hero {
+    width: 100% !important;
+    height: 720px !important;
+    min-height: 720px !important;
+    max-height: 720px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    background-position: center center !important;
+    background-size: 100% 100% !important;
+  }
+
+  html body main > section.hero > .hero-metallic-frame,
+  body .hero > .hero-metallic-frame {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: fill !important;
+    transform: none !important;
+  }
+
+  body .hero::after {
+    inset: 0 !important;
+    height: 100% !important;
+    background-size: 100% 100% !important;
+    background-position: center center !important;
+  }
+}
