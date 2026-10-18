@@ -180,3 +180,25 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 });
+
+
+/* Mobile collection search/filter collapsible panel. */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".controls-toggle").forEach((toggle) => {
+    const panel = toggle.closest(".controls-panel");
+    const controls = panel?.querySelector("#filterControls");
+    if (!panel || !controls) return;
+
+    const setExpanded = (expanded) => {
+      controls.hidden = !expanded;
+      toggle.setAttribute("aria-expanded", String(expanded));
+      toggle.textContent = expanded ? "HIDE" : "SHOW";
+      panel.classList.toggle("controls-collapsed", !expanded);
+    };
+
+    setExpanded(false);
+    toggle.addEventListener("click", () => {
+      setExpanded(toggle.getAttribute("aria-expanded") !== "true");
+    });
+  });
+});
