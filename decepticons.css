@@ -2667,3 +2667,41 @@ body .hero {
     box-shadow: none !important;
   }
 }
+
+
+/* MOBILE-ONLY FINAL CLEANUP: remove the remaining cyan rule crossing the filter header. */
+@media (max-width: 620px) {
+  #collection-shell::before,
+  #collection-shell::after,
+  #collection-shell .collection-area::before,
+  #collection-shell .collection-area::after,
+  #collection-shell .section-heading::before,
+  #collection-shell .section-heading::after,
+  #collection-shell .controls-panel,
+  #collection-shell .controls-title {
+    outline: 0 !important;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+  }
+
+  #collection-shell .controls-panel {
+    border: 1px solid #617384 !important;
+  }
+
+  #collection-shell .controls-title {
+    position: relative !important;
+    z-index: 2 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  #collection-shell .controls-title::before,
+  #collection-shell .controls-title::after,
+  #collection-shell .controls-panel::before,
+  #collection-shell .controls-panel::after,
+  #collection-shell::before,
+  #collection-shell::after {
+    content: none !important;
+    display: none !important;
+  }
+}
