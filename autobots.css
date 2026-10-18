@@ -2499,3 +2499,12 @@ body .hero {
     background-position: center 32px !important;
   }
 }
+
+
+/* MOBILE-ONLY: move hero background down another 20px (double the previous 10px nudge). */
+@media (max-width: 620px) {
+  html body main > section.hero,
+  body .hero {
+    background-position: center 52px !important;
+  }
+}
