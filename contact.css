@@ -858,3 +858,25 @@ html body main > section.hero {
     margin-top: 64px !important;
   }
 }
+
+
+/* MOBILE-ONLY: reduce frame height by 10% and provide enough hero height to show it fully. */
+@media (max-width: 620px) {
+  html body main > section.hero,
+  body .hero {
+    height: 780px !important;
+    min-height: 780px !important;
+    max-height: 780px !important;
+    overflow: visible !important;
+  }
+
+  html body main > section.hero > .hero-metallic-frame,
+  body .hero > .hero-metallic-frame {
+    height: 103.5% !important;
+    top: -1.75% !important;
+    bottom: auto !important;
+    inset-block-start: -1.75% !important;
+    max-height: none !important;
+    transform: none !important;
+  }
+}
