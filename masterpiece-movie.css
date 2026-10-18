@@ -2421,3 +2421,30 @@ body .hero {
     background-position: center 52px !important;
   }
 }
+
+
+/* MOBILE-ONLY COLLECTION LAYOUT: selected figure information first, gallery below. */
+@media (max-width: 620px) {
+  #collection-shell .collection-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 20px !important;
+  }
+
+  #collection-shell .detail-panel {
+    order: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #collection-shell .gallery-column {
+    order: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #collection-shell .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
