@@ -65,7 +65,7 @@
       </div>
 
       <section class="controls-panel" aria-label="Sort and filter collection">
-        <div class="controls-title"><span class="status-light"></span><h3>SORT / FILTER</h3><button class="controls-toggle" type="button" aria-expanded="false" aria-controls="filterControls">SHOW</button></div>
+        <div class="controls-title"><span class="status-light"></span><h3>SORT / FILTER</h3><button class="controls-toggle" type="button" aria-expanded="false" aria-controls="filterControls" aria-label="Toggle sort and filter options">+</button></div>
         <div class="controls-grid" id="filterControls">
           <label class="control search-control"><span>Search figures</span><input id="searchInput" type="search" placeholder="Name, line, mode..."></label>
           <label class="control"><span>Toy Line</span><select id="seriesFilter"><option value="">All Toy Lines</option></select></label>
@@ -127,7 +127,7 @@
             controls.hidden = !expanded;
             controls.style.setProperty("display", expanded ? "grid" : "none", "important");
             toggle.setAttribute("aria-expanded", String(expanded));
-            toggle.textContent = expanded ? "− HIDE FILTERS" : "+ SHOW FILTERS";
+            toggle.textContent = expanded ? "−" : "+";
           };
 
           setExpanded(false);
