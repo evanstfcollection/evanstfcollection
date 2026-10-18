@@ -2660,3 +2660,40 @@ body .hero {
     text-shadow: none !important;
   }
 }
+
+
+/* MOBILE-ONLY HARD RESET: suppress inherited faction scanlines inside the sort/filter panel. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel,
+  #collection-shell .controls-panel * {
+    background-image: none !important;
+  }
+
+  #collection-shell .controls-panel::before,
+  #collection-shell .controls-panel::after,
+  #collection-shell .controls-panel *::before,
+  #collection-shell .controls-panel *::after {
+    content: none !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+    outline: 0 !important;
+  }
+
+  #collection-shell .controls-title {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    background-image: linear-gradient(180deg, #243444, #111d2a) !important;
+  }
+
+  #collection-shell .controls-toggle,
+  #collection-shell #filterControls input,
+  #collection-shell #filterControls select {
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+}
