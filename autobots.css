@@ -2309,3 +2309,14 @@ body .hero {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
+
+
+/* MOBILE-ONLY HERO BACKGROUND — desktop styling remains unchanged. */
+@media (max-width: 620px) {
+  body .hero {
+    background-image: url("./images/autobots-hero-mobile-background.webp") !important;
+    background-position: center top !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+}
