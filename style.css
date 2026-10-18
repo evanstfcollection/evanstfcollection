@@ -1147,7 +1147,7 @@ body .detail-main-image::after {
 .home-hero-art { min-height: 200px; }
 .home-hero-copy {
   position: relative;
-  width: min(660px, 100%);
+  width: min(825px, 125%);
   justify-self: end;
   padding: clamp(14px, 2vw, 30px);
   text-align: center;
