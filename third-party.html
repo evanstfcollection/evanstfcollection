@@ -112,6 +112,39 @@
   <script src="third-party.js"></script>
   <script src="nav-expansion.js"></script>
   <!-- Trigger a fresh GitHub Pages deployment after the queued deployment stalled. -->
+  <script>
+    (() => {
+      const initFilterBar = () => {
+        document.querySelectorAll(".controls-toggle").forEach((toggle) => {
+          const panel = toggle.closest(".controls-panel");
+          const controls = panel && panel.querySelector(".controls-grid");
+          if (!panel || !controls || toggle.dataset.filterReady === "true") return;
+          toggle.dataset.filterReady = "true";
+
+          const setExpanded = (expanded) => {
+            panel.classList.toggle("controls-expanded", expanded);
+            panel.classList.toggle("controls-collapsed", !expanded);
+            controls.hidden = !expanded;
+            controls.style.setProperty("display", expanded ? "grid" : "none", "important");
+            toggle.setAttribute("aria-expanded", String(expanded));
+            toggle.textContent = expanded ? "− HIDE FILTERS" : "+ SHOW FILTERS";
+          };
+
+          setExpanded(false);
+          toggle.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            setExpanded(toggle.getAttribute("aria-expanded") !== "true");
+          });
+        });
+      };
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initFilterBar, { once: true });
+      } else {
+        initFilterBar();
+      }
+    })();
+  </script>
   <script src="mobile-menu.js"></script>
 </body>
 </html>
