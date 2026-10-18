@@ -4050,3 +4050,11 @@ body .site-header.unified-header .main-nav .nav-item span {
   body.home-page .site-header.unified-header > .main-nav { display: none !important; }
   body.home-page #mobile-nav { display: none !important; }
 }
+
+
+/* MOBILE-ONLY: remove the cyan divider directly below the top header on every page. */
+@media (max-width: 620px) {
+  body .site-header.unified-header {
+    border-bottom: 0 !important;
+  }
+}
