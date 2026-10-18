@@ -1150,8 +1150,9 @@ body .detail-main-image::after {
   width: min(825px, 125%);
   justify-self: end;
   padding: clamp(14px, 2vw, 30px);
+  min-height: 110%;
   text-align: center;
-  background: linear-gradient(145deg, rgba(2,12,24,.84), rgba(2,6,13,.72));
+  background: transparent;
   border: 0;
   box-shadow: none;
   isolation: isolate;
@@ -1160,7 +1161,7 @@ body .detail-main-image::after {
   content: "";
   position: absolute;
   z-index: -1;
-  inset: 0;
+  inset: -5% 0;
   background: url("images/decorative%20elements/hero-metallic-frame_result.webp") center / 100% 100% no-repeat;
   pointer-events: none;
 }
