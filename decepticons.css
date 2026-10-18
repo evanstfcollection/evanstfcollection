@@ -2358,3 +2358,23 @@ body .hero {
     background-repeat: no-repeat !important;
   }
 }
+
+
+/* MOBILE-ONLY: scale the hero frame and inset background artwork down by 25%. */
+@media (max-width: 620px) {
+  html body main > section.hero > .hero-metallic-frame,
+  body .hero > .hero-metallic-frame {
+    width: 75% !important;
+    height: 77.625% !important;
+    left: 12.5% !important;
+    right: auto !important;
+    top: 9.6875% !important;
+    bottom: auto !important;
+  }
+
+  html body main > section.hero,
+  body .hero {
+    background-size: 71.25% 67.5% !important;
+    background-position: center center !important;
+  }
+}
