@@ -2836,3 +2836,52 @@ body .hero {
     width: 100% !important;
   }
 }
+
+
+/* MOBILE-ONLY: keep the Sort / Filter header identical in collapsed and expanded states. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel,
+  #collection-shell .controls-panel.controls-expanded,
+  #collection-shell .controls-panel.controls-collapsed {
+    border: 1px solid #617384 !important;
+    border-radius: 7px !important;
+    box-sizing: border-box !important;
+  }
+
+  #collection-shell .controls-title {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    margin: 0 !important;
+    padding: 0 14px !important;
+    border: 0 !important;
+    border-radius: 6px !important;
+    line-height: 1 !important;
+    transform: none !important;
+  }
+
+  #collection-shell .controls-title h3 {
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+
+  #collection-shell .controls-toggle {
+    flex: 0 0 36px !important;
+    align-self: center !important;
+    margin: 0 !important;
+  }
+
+  #collection-shell .controls-panel.controls-expanded .controls-title,
+  #collection-shell .controls-panel.controls-collapsed .controls-title {
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+}
