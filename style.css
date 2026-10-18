@@ -1214,9 +1214,9 @@ body .detail-main-image::after {
 }
 .home-intro {
   display: grid;
-  grid-template-columns: minmax(220px, .7fr) 1.3fr;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: stretch;
-  gap: clamp(20px, 3vw, 42px);
+  gap: clamp(18px, 2vw, 28px);
 }
 .home-about-photo {
   min-height: 300px;
