@@ -2235,3 +2235,31 @@ body .hero {
     background-repeat: no-repeat !important;
   }
 }
+
+
+/* MOBILE-ONLY HERO EXTENSION — taller portrait artwork and frame; desktop stays unchanged. */
+@media (max-width: 620px) {
+  html body main > section.hero,
+  body .hero {
+    height: 720px !important;
+    min-height: 720px !important;
+    max-height: 720px !important;
+    box-sizing: border-box !important;
+    background-position: center top !important;
+    background-size: 100% 100% !important;
+  }
+
+  body .hero-metallic-frame {
+    top: 0 !important;
+    bottom: 0 !important;
+    height: 100% !important;
+    max-height: none !important;
+    object-fit: fill !important;
+  }
+
+  body .hero::after {
+    height: 100% !important;
+    background-size: 100% 100% !important;
+    background-position: center top !important;
+  }
+}
