@@ -2332,3 +2332,17 @@ body .hero {
     background-position: center center !important;
   }
 }
+
+
+/* MOBILE-ONLY: increase hero frame vertical height by 15%; desktop remains unchanged. */
+@media (max-width: 620px) {
+  html body main > section.hero > .hero-metallic-frame,
+  body .hero > .hero-metallic-frame {
+    height: 115% !important;
+    max-height: none !important;
+    top: -7.5% !important;
+    bottom: auto !important;
+    inset-block-start: -7.5% !important;
+    transform: none !important;
+  }
+}
