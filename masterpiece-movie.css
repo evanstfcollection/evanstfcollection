@@ -2595,3 +2595,36 @@ body .hero {
     justify-content: center !important;
   }
 }
+
+
+/* MOBILE-ONLY: remove stray cyan scanline accents crossing the sort/filter controls. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel::before,
+  #collection-shell .controls-panel::after,
+  #collection-shell .controls-title::before,
+  #collection-shell .controls-title::after,
+  #collection-shell .controls-title h3::before,
+  #collection-shell .controls-title h3::after,
+  #collection-shell .controls-toggle::before,
+  #collection-shell .controls-toggle::after,
+  #collection-shell #filterControls::before,
+  #collection-shell #filterControls::after,
+  #collection-shell #filterControls input::before,
+  #collection-shell #filterControls input::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  #collection-shell .controls-title,
+  #collection-shell .controls-title h3,
+  #collection-shell .controls-toggle,
+  #collection-shell #filterControls input,
+  #collection-shell #filterControls select {
+    outline: none !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
+  }
+}
