@@ -4186,3 +4186,12 @@ body .site-header.unified-header .main-nav .nav-item span {
     border-right: 0 !important;
   }
 }
+
+
+/* MOBILE-ONLY HOMEPAGE PROFILE PANEL: restore the vertical side borders. */
+@media (max-width: 620px) {
+  body.home-page .home-intro.home-panel {
+    border-left: 1px solid var(--cyan, #18d9ff) !important;
+    border-right: 1px solid var(--cyan, #18d9ff) !important;
+  }
+}
