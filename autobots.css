@@ -3286,6 +3286,6 @@ body .hero {
   #collection-shell .detail-panel .detail-hero-row .detail-image-frame,
   #collection-shell .detail-panel .info-section h3,
   #collection-shell .detail-panel .notes-section h3 {
-    translate: -10px 0 !important;
+    translate: -20px 0 !important;
   }
 }
