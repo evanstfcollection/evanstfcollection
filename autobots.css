@@ -3133,3 +3133,11 @@ body .hero {
     top: 110px !important;
   }
 }
+
+/* MOBILE-ONLY: move the main image frame and its image 10px left. Desktop remains unchanged. */
+@media (max-width: 760px) {
+  #collection-shell .detail-image-frame {
+    position: relative !important;
+    left: -10px !important;
+  }
+}
