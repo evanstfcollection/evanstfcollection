@@ -3134,10 +3134,13 @@ body .hero {
   }
 }
 
-/* MOBILE-ONLY: move the main image frame and its image 10px left. Desktop remains unchanged. */
+/* MOBILE-ONLY: shift the complete main image frame 10px left. */
 @media (max-width: 760px) {
-  #collection-shell .detail-image-frame {
+  #collection-shell .detail-hero-row .detail-image-frame,
+  #collection-shell #detailMainImage {
+    transform: translateX(-10px) !important;
     position: relative !important;
-    left: -10px !important;
+    left: 0 !important;
+    margin-left: 0 !important;
   }
 }
