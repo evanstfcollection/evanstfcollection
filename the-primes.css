@@ -3398,39 +3398,51 @@ body .hero {
 }
 
 
-/* SORT / FILTER MENU: apply this collection's faction accent to labels, fields, focus states and interactive controls. */
-#collection-shell .controls-panel .controls-grid,
-#collection-shell .controls-panel .control label,
-#collection-shell .controls-panel .controls-title,
-#collection-shell .controls-panel h2,
-#collection-shell .controls-panel h3 {
-  --filter-accent: #287bd2;
-  --filter-accent-bright: #70b8ff;
+
+
+/* SORT / FILTER THEME OVERRIDE v2: explicitly theme the panel and every visible control. */
+#collection-shell .controls-panel,
+#collection-shell .controls-panel.controls-collapsed,
+#collection-shell .controls-panel.controls-expanded {
+  border: 1px solid #287bd2 !important;
+  background: linear-gradient(140deg, rgba(20,62,105,.24), rgba(7,10,14,.98)) !important;
+  box-shadow: 0 0 0 1px rgba(29,140,255,.22), 0 10px 25px #0008, inset 0 0 0 3px rgba(8,12,17,.95) !important;
 }
-#collection-shell .controls-panel .control input,
-#collection-shell .controls-panel .control select,
-#collection-shell .controls-panel .control button,
-#collection-shell .controls-panel input,
-#collection-shell .controls-panel select,
-#collection-shell .controls-panel button {
-  border-color: #287bd2 !important;
+#collection-shell .controls-title,
+#collection-shell .controls-title h3 {
+  color: #70b8ff !important;
+}
+#collection-shell .controls-title .status-light {
+  background: #70b8ff !important;
+  box-shadow: 0 0 10px #70b8ff !important;
+}
+#collection-shell #filterControls .control > span {
+  color: #70b8ff !important;
+}
+#collection-shell #filterControls .control input,
+#collection-shell #filterControls .control select {
+  color: #f4f6f8 !important;
+  border: 1px solid #287bd2 !important;
   accent-color: #70b8ff !important;
 }
-#collection-shell .controls-panel .control input:focus,
-#collection-shell .controls-panel .control select:focus,
-#collection-shell .controls-panel input:focus,
-#collection-shell .controls-panel select:focus {
+#collection-shell #filterControls .control input:focus,
+#collection-shell #filterControls .control select:focus {
   border-color: #70b8ff !important;
   box-shadow: 0 0 0 2px rgba(29,140,255,.22) !important;
 }
-#collection-shell .controls-panel button:hover,
-#collection-shell .controls-panel .control button:hover,
-#collection-shell .controls-panel button:focus-visible,
-#collection-shell .controls-panel .control button:focus-visible {
+#collection-shell #filterControls .clear-button {
+  color: #70b8ff !important;
+  background: rgba(20,62,105,.24) !important;
+  border: 1px solid #287bd2 !important;
+}
+#collection-shell #filterControls .clear-button:hover,
+#collection-shell #filterControls .clear-button:focus-visible {
+  color: #fff !important;
   border-color: #70b8ff !important;
+  background: rgba(20,62,105,.24) !important;
   box-shadow: 0 0 12px rgba(29,140,255,.22) !important;
 }
-#collection-shell .controls-panel .control label,
-#collection-shell .controls-panel label {
+#collection-shell .controls-panel .controls-toggle {
   color: #70b8ff !important;
+  border-color: #287bd2 !important;
 }
