@@ -3476,3 +3476,33 @@ body .hero {
     background: #171309 !important;
   }
 }
+
+
+/* FINAL MOBILE SORT/FILTER COLOR FIX: match the confirmed Decepticons override pattern. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel,
+  #collection-shell .controls-panel.controls-collapsed,
+  #collection-shell .controls-panel.controls-expanded {
+    border: 1px solid #d4a51c !important;
+    background: linear-gradient(140deg, #352b12, #171309) !important;
+    box-shadow: 0 0 0 1px rgba(255,194,28,.22), 0 10px 25px #0008, inset 0 0 0 3px rgba(8,12,17,.95) !important;
+  }
+  #collection-shell .controls-title,
+  #collection-shell .controls-panel.controls-collapsed .controls-title,
+  #collection-shell .controls-panel.controls-expanded .controls-title {
+    border: 1px solid #d4a51c !important;
+    background: linear-gradient(180deg, #352b12, #171309) !important;
+    box-shadow: 0 4px 12px #0008, inset 0 0 0 1px rgba(255,194,28,.22) !important;
+  }
+  #collection-shell .controls-title .status-light {
+    border-color: #ffe071 !important;
+    background: #ffe071 !important;
+    box-shadow: 0 0 8px #ffe071, 0 0 14px rgba(255,194,28,.22) !important;
+  }
+  #collection-shell .controls-title h3 { color: #ffe071 !important; }
+  #collection-shell .controls-toggle {
+    color: #ffe071 !important;
+    border-color: #d4a51c !important;
+    background: #171309 !important;
+  }
+}
