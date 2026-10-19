@@ -3159,3 +3159,16 @@ body .hero {
     box-sizing: border-box !important;
   }
 }
+
+
+/* MOBILE-ONLY: lower the info-window lightstrip 10px and add another 200px of panel height. */
+@media (max-width: 620px) {
+  #collection-shell .detail-lightstrip {
+    top: 120px !important;
+  }
+
+  #collection-shell .detail-panel {
+    padding-bottom: 400px !important;
+    box-sizing: border-box !important;
+  }
+}
