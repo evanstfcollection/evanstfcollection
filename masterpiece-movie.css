@@ -2189,7 +2189,7 @@ body .collection-hero,
 body #hero {
   background-image: url('images/masterpiece-background_result.webp') !important;
   background-position: center center !important;
-  background-size: cover !important;
+  background-size: 100% auto !important;
   background-repeat: no-repeat !important;
 }
 
@@ -2229,7 +2229,7 @@ body .hero {
   body .hero {
     background-image: url("./images/masterpiece-hero-movie-mobile.webp") !important;
     background-position: center top !important;
-    background-size: cover !important;
+    background-size: 100% auto !important;
     background-repeat: no-repeat !important;
   }
 }
@@ -2910,10 +2910,10 @@ body .hero {
     background-image: none !important;
   }
   body {
-    background: #070a0e url("./images/Main-page-mobile-background.webp") center top / cover no-repeat scroll !important;
+    background: #070a0e url("./images/Main-page-mobile-background.webp") center top / 100% auto no-repeat scroll !important;
     background-image: url("./images/Main-page-mobile-background.webp") !important;
     background-position: center top !important;
-    background-size: cover !important;
+    background-size: 100% auto !important;
     background-repeat: no-repeat !important;
     background-attachment: scroll !important;
   }
