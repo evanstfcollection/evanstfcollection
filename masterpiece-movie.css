@@ -3398,39 +3398,51 @@ body .hero {
 }
 
 
-/* SORT / FILTER MENU: apply this collection's faction accent to labels, fields, focus states and interactive controls. */
-#collection-shell .controls-panel .controls-grid,
-#collection-shell .controls-panel .control label,
-#collection-shell .controls-panel .controls-title,
-#collection-shell .controls-panel h2,
-#collection-shell .controls-panel h3 {
-  --filter-accent: #d4a51c;
-  --filter-accent-bright: #ffe071;
+
+
+/* SORT / FILTER THEME OVERRIDE v2: explicitly theme the panel and every visible control. */
+#collection-shell .controls-panel,
+#collection-shell .controls-panel.controls-collapsed,
+#collection-shell .controls-panel.controls-expanded {
+  border: 1px solid #d4a51c !important;
+  background: linear-gradient(140deg, rgba(100,73,8,.24), rgba(7,10,14,.98)) !important;
+  box-shadow: 0 0 0 1px rgba(255,194,28,.22), 0 10px 25px #0008, inset 0 0 0 3px rgba(8,12,17,.95) !important;
 }
-#collection-shell .controls-panel .control input,
-#collection-shell .controls-panel .control select,
-#collection-shell .controls-panel .control button,
-#collection-shell .controls-panel input,
-#collection-shell .controls-panel select,
-#collection-shell .controls-panel button {
-  border-color: #d4a51c !important;
+#collection-shell .controls-title,
+#collection-shell .controls-title h3 {
+  color: #ffe071 !important;
+}
+#collection-shell .controls-title .status-light {
+  background: #ffe071 !important;
+  box-shadow: 0 0 10px #ffe071 !important;
+}
+#collection-shell #filterControls .control > span {
+  color: #ffe071 !important;
+}
+#collection-shell #filterControls .control input,
+#collection-shell #filterControls .control select {
+  color: #f4f6f8 !important;
+  border: 1px solid #d4a51c !important;
   accent-color: #ffe071 !important;
 }
-#collection-shell .controls-panel .control input:focus,
-#collection-shell .controls-panel .control select:focus,
-#collection-shell .controls-panel input:focus,
-#collection-shell .controls-panel select:focus {
+#collection-shell #filterControls .control input:focus,
+#collection-shell #filterControls .control select:focus {
   border-color: #ffe071 !important;
   box-shadow: 0 0 0 2px rgba(255,194,28,.22) !important;
 }
-#collection-shell .controls-panel button:hover,
-#collection-shell .controls-panel .control button:hover,
-#collection-shell .controls-panel button:focus-visible,
-#collection-shell .controls-panel .control button:focus-visible {
+#collection-shell #filterControls .clear-button {
+  color: #ffe071 !important;
+  background: rgba(100,73,8,.24) !important;
+  border: 1px solid #d4a51c !important;
+}
+#collection-shell #filterControls .clear-button:hover,
+#collection-shell #filterControls .clear-button:focus-visible {
+  color: #fff !important;
   border-color: #ffe071 !important;
+  background: rgba(100,73,8,.24) !important;
   box-shadow: 0 0 12px rgba(255,194,28,.22) !important;
 }
-#collection-shell .controls-panel .control label,
-#collection-shell .controls-panel label {
+#collection-shell .controls-panel .controls-toggle {
   color: #ffe071 !important;
+  border-color: #d4a51c !important;
 }
