@@ -3199,3 +3199,33 @@ body .hero {
     margin-top: 0 !important;
   }
 }
+
+
+/* MOBILE-ONLY: align the nameplate to the image frame's left edge, position it
+   below the lightstrip, then move the image frame and all following content down. */
+@media (max-width: 620px) {
+  #collection-shell .detail-panel .detail-hero-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  #collection-shell .detail-panel .detail-hero-row .panel-heading {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    align-self: flex-start !important;
+    margin: 145px 0 18px -10px !important;
+    order: -1 !important;
+    z-index: 20 !important;
+  }
+
+  #collection-shell .detail-panel .detail-hero-row #detailMainImage {
+    margin-top: 0 !important;
+    align-self: flex-start !important;
+  }
+}
