@@ -3396,3 +3396,41 @@ body .hero {
     overflow-wrap: anywhere !important;
   }
 }
+
+
+/* SORT / FILTER MENU: apply this collection's faction accent to labels, fields, focus states and interactive controls. */
+#collection-shell .controls-panel .controls-grid,
+#collection-shell .controls-panel .control label,
+#collection-shell .controls-panel .controls-title,
+#collection-shell .controls-panel h2,
+#collection-shell .controls-panel h3 {
+  --filter-accent: #287bd2;
+  --filter-accent-bright: #70b8ff;
+}
+#collection-shell .controls-panel .control input,
+#collection-shell .controls-panel .control select,
+#collection-shell .controls-panel .control button,
+#collection-shell .controls-panel input,
+#collection-shell .controls-panel select,
+#collection-shell .controls-panel button {
+  border-color: #287bd2 !important;
+  accent-color: #70b8ff !important;
+}
+#collection-shell .controls-panel .control input:focus,
+#collection-shell .controls-panel .control select:focus,
+#collection-shell .controls-panel input:focus,
+#collection-shell .controls-panel select:focus {
+  border-color: #70b8ff !important;
+  box-shadow: 0 0 0 2px rgba(29,140,255,.22) !important;
+}
+#collection-shell .controls-panel button:hover,
+#collection-shell .controls-panel .control button:hover,
+#collection-shell .controls-panel button:focus-visible,
+#collection-shell .controls-panel .control button:focus-visible {
+  border-color: #70b8ff !important;
+  box-shadow: 0 0 12px rgba(29,140,255,.22) !important;
+}
+#collection-shell .controls-panel .control label,
+#collection-shell .controls-panel label {
+  color: #70b8ff !important;
+}
