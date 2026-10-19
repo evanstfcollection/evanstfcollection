@@ -3229,3 +3229,11 @@ body .hero {
     align-self: flex-start !important;
   }
 }
+
+
+/* MOBILE-ONLY: move all contents inside the info window down 20px without moving the window itself. */
+@media (max-width: 620px) {
+  #collection-shell .detail-panel > * {
+    translate: 0 20px !important;
+  }
+}
