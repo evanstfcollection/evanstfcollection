@@ -2918,3 +2918,12 @@ body .hero {
     background-attachment: scroll !important;
   }
 }
+
+/* MOBILE-ONLY: narrow the info-window lightstrip by 15% and lower it 5px. */
+@media (max-width: 760px) {
+  #collection-shell .detail-lightstrip {
+    left: 14.3% !important;
+    right: 14.3% !important;
+    top: 110px !important;
+  }
+}
