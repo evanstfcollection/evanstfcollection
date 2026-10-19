@@ -4197,15 +4197,3 @@ body .site-header.unified-header .main-nav .nav-item span {
 }
 
 
-/* MOBILE-ONLY SITE-WIDE BACKGROUND: shared portrait artwork on every page. */
-@media (max-width: 620px) {
-  html,
-  body {
-    background-image: url("images/Main-page-mobile-background.webp") !important;
-    background-position: center top !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-attachment: scroll !important;
-    background-color: #020812 !important;
-  }
-}
