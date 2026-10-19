@@ -3277,3 +3277,15 @@ body .hero {
     transform: none !important;
   }
 }
+
+
+/* MOBILE-ONLY: shift the nameplate, main image frame, and info dividers 10px left. */
+@media (max-width: 620px) {
+  #collection-shell .detail-panel .detail-hero-row .panel-heading,
+  #collection-shell .detail-panel .detail-hero-row #detailMainImage,
+  #collection-shell .detail-panel .detail-hero-row .detail-image-frame,
+  #collection-shell .detail-panel .info-section h3,
+  #collection-shell .detail-panel .notes-section h3 {
+    translate: -10px 0 !important;
+  }
+}
