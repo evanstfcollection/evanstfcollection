@@ -3289,3 +3289,12 @@ body .hero {
     translate: -35px 0 !important;
   }
 }
+
+
+/* MOBILE-ONLY: shift the two horizontal divider bars 35px left to align with the other panel elements. */
+@media (max-width: 620px) {
+  #collection-shell .detail-panel .info-section::before,
+  #collection-shell .detail-panel .notes-section::before {
+    translate: -35px 0 !important;
+  }
+}
