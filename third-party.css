@@ -3446,3 +3446,33 @@ body .hero {
   color: #53eaff !important;
   border-color: #00aeca !important;
 }
+
+
+/* MOBILE FACTION THEME: override legacy hard-coded Autobots red panel/header styles. */
+@media (max-width: 620px) {
+  #collection-shell .controls-panel,
+  #collection-shell .controls-panel.controls-collapsed,
+  #collection-shell .controls-panel.controls-expanded {
+    border: 1px solid #00aeca !important;
+    background: linear-gradient(140deg, #103239, #0b171a) !important;
+    box-shadow: 0 0 0 1px rgba(0,216,255,.22), 0 10px 25px #0008, inset 0 0 0 3px rgba(8,12,17,.95) !important;
+  }
+  #collection-shell .controls-title,
+  #collection-shell .controls-panel.controls-collapsed .controls-title,
+  #collection-shell .controls-panel.controls-expanded .controls-title {
+    border: 1px solid #00aeca !important;
+    background: linear-gradient(180deg, #103239, #0b171a) !important;
+    box-shadow: 0 4px 12px #0008, inset 0 0 0 1px rgba(0,216,255,.22) !important;
+  }
+  #collection-shell .controls-title .status-light {
+    border-color: #53eaff !important;
+    background: #53eaff !important;
+    box-shadow: 0 0 8px #53eaff, 0 0 14px rgba(0,216,255,.22) !important;
+  }
+  #collection-shell .controls-title h3 { color: #53eaff !important; }
+  #collection-shell .controls-toggle {
+    color: #53eaff !important;
+    border-color: #00aeca !important;
+    background: #0b171a !important;
+  }
+}
