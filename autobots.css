@@ -3145,3 +3145,17 @@ body .hero {
     transform: translateX(-10px) !important;
   }
 }
+
+
+/* MOBILE-ONLY: bridge the visual gap between the hero frame and the info window,
+   and extend the info window vertically by 200px. */
+@media (max-width: 620px) {
+  #collection-shell {
+    margin-top: -45px !important;
+  }
+
+  #collection-shell .detail-panel {
+    padding-bottom: 200px !important;
+    box-sizing: border-box !important;
+  }
+}
