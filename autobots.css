@@ -3342,3 +3342,57 @@ body .hero {
     text-align: center !important;
   }
 }
+
+
+/* MOBILE FIX: override the older two-column #gallery rule and use the full available width for four compact cards. */
+@media (max-width: 620px) {
+  #collection-shell #gallery {
+    display: grid !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    column-gap: 5px !important;
+    row-gap: 8px !important;
+  }
+
+  #collection-shell #gallery > .card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  #collection-shell #gallery > .card > .card-image-wrap {
+    width: 100% !important;
+    height: clamp(72px, 20vw, 104px) !important;
+    padding: 2% !important;
+    inset: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  #collection-shell #gallery .card-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  #collection-shell #gallery .card-frame {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill !important;
+  }
+
+  #collection-shell #gallery .card-name {
+    left: 3% !important;
+    right: 3% !important;
+    bottom: 3% !important;
+    width: auto !important;
+    max-width: 94% !important;
+    padding: 3px 1px !important;
+    font-size: clamp(5px, 1.55vw, 8px) !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+    overflow-wrap: anywhere !important;
+  }
+}
