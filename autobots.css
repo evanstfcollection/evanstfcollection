@@ -3254,3 +3254,26 @@ body .hero {
     translate: 0 90px !important;
   }
 }
+
+
+/* MOBILE-ONLY: center the nameplate and main image frame horizontally in the info window. */
+@media (max-width: 620px) {
+  #collection-shell .detail-panel .detail-hero-row {
+    align-items: center !important;
+  }
+
+  #collection-shell .detail-panel .detail-hero-row .panel-heading {
+    align-self: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #collection-shell .detail-panel .detail-hero-row #detailMainImage,
+  #collection-shell .detail-panel .detail-hero-row .detail-image-frame {
+    align-self: center !important;
+    left: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    transform: none !important;
+  }
+}
