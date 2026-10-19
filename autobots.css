@@ -3172,3 +3172,30 @@ body .hero {
     box-sizing: border-box !important;
   }
 }
+
+
+/* MOBILE-ONLY: lower the info lightstrip another 10px and place the nameplate
+   in the vertical space between the lightstrip and the main image frame. */
+@media (max-width: 620px) {
+  #collection-shell .detail-lightstrip {
+    top: 130px !important;
+  }
+
+  #collection-shell .detail-panel .detail-hero-row {
+    position: relative !important;
+  }
+
+  #collection-shell .detail-panel .detail-hero-row .panel-heading {
+    position: absolute !important;
+    top: -108px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    z-index: 20 !important;
+    margin: 0 !important;
+  }
+
+  #collection-shell .detail-panel .detail-hero-row .detail-image-frame {
+    margin-top: 0 !important;
+  }
+}
