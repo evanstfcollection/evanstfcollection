@@ -958,14 +958,15 @@ html body main > section.hero {
 }
 
 
-/* MOBILE-ONLY: use one shared page-wide background image; prevent html/body from layering two images. */
+/* MOBILE-ONLY: force a single page background with the full background shorthand. */
 @media (max-width: 620px) {
   html {
+    background: #070a0e !important;
     background-image: none !important;
-    background-color: #070a0e !important;
   }
   body {
-    background-image: url("images/Main-page-mobile-background.webp") !important;
+    background: #070a0e url("./images/Main-page-mobile-background.webp") center top / cover no-repeat scroll !important;
+    background-image: url("./images/Main-page-mobile-background.webp") !important;
     background-position: center top !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
