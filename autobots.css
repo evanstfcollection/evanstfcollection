@@ -3245,3 +3245,12 @@ body .hero {
     translate: 0 40px !important;
   }
 }
+
+
+/* MOBILE-ONLY: move every info-window element except the lightstrip down 50px
+   from the current 40px position, for a cumulative 90px content shift. */
+@media (max-width: 620px) {
+  #collection-shell .detail-panel > *:not(.detail-lightstrip) {
+    translate: 0 90px !important;
+  }
+}
