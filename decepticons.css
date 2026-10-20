@@ -3488,3 +3488,69 @@ body .hero {
     display: grid !important;
   }
 }
+
+
+/* DESKTOP SORT/FILTER: match the Autobots main-page design.
+   Scoped to desktop widths so the existing mobile faction styling remains untouched. */
+@media (min-width: 761px) {
+  #collection-shell .controls-panel,
+  #collection-shell .controls-panel.controls-collapsed,
+  #collection-shell .controls-panel.controls-expanded {
+    background: transparent url('images/decorative%20elements/panel-background-02_result.webp') center center / 100% 100% no-repeat !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding-top: 144px !important;
+    padding-bottom: 160px !important;
+  }
+
+  #collection-shell .controls-title,
+  #collection-shell .controls-title h3 {
+    color: #f1f4f7 !important;
+  }
+
+  #collection-shell .controls-title .status-light {
+    background: #ff5159 !important;
+    box-shadow: 0 0 10px #ff5159 !important;
+  }
+
+  #collection-shell #filterControls .control > span {
+    color: #b8c3cc !important;
+  }
+
+  #collection-shell #filterControls .control input,
+  #collection-shell #filterControls .control select {
+    color: #f4f6f8 !important;
+    background: #070b10 !important;
+    border: 1px solid #46525d !important;
+    accent-color: #ff5159 !important;
+  }
+
+  #collection-shell #filterControls .control input:focus,
+  #collection-shell #filterControls .control select:focus {
+    border-color: #ff5159 !important;
+    box-shadow: 0 0 0 2px #ff515922 !important;
+  }
+
+  #collection-shell #filterControls .clear-button {
+    color: #fff !important;
+    background: #2a1115 !important;
+    border: 1px solid #d62832 !important;
+  }
+
+  #collection-shell #filterControls .clear-button:hover,
+  #collection-shell #filterControls .clear-button:focus-visible {
+    background: #4b171e !important;
+    border-color: #ff5159 !important;
+    color: #fff !important;
+    box-shadow: none !important;
+  }
+
+  #collection-shell .controls-toggle {
+    display: none !important;
+  }
+
+  #collection-shell .controls-grid,
+  #collection-shell #filterControls[hidden] {
+    display: grid !important;
+  }
+}
