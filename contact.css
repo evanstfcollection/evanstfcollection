@@ -1156,3 +1156,22 @@ html body main > section.hero {
     top: 675px !important;
   }
 }
+
+
+/* MOBILE-ONLY: remove excess empty space below the contact frame before the footer. */
+@media (max-width: 620px) {
+  html body main .contact-shell > .contact-panel {
+    height: 1250px !important;
+    min-height: 1250px !important;
+    background-size: 80% 100% !important;
+    background-position: center top !important;
+  }
+
+  html body main > .contact-shell {
+    padding-bottom: 0 !important;
+  }
+
+  html body main {
+    padding-bottom: 0 !important;
+  }
+}
