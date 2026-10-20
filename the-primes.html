@@ -111,10 +111,11 @@
   <script src="supabase-config.js"></script>
   <script src="the-primes.js"></script>
   <script src="nav-expansion.js"></script>
-  <!-- Trigger a fresh GitHub Pages deployment after the queued deployment stalled. -->
+  <!-- Desktop keeps filters permanently open; only mobile uses the collapsible control. -->
   <script>
     (() => {
       const initFilterBar = () => {
+        const mobileQuery = window.matchMedia("(max-width: 620px)");
         document.querySelectorAll(".controls-toggle").forEach((toggle) => {
           const panel = toggle.closest(".controls-panel");
           const controls = panel && panel.querySelector(".controls-grid");
@@ -128,14 +129,18 @@
             controls.style.setProperty("display", expanded ? "grid" : "none", "important");
             toggle.setAttribute("aria-expanded", String(expanded));
             toggle.textContent = expanded ? "−" : "+";
+            toggle.hidden = !mobileQuery.matches;
           };
 
-          setExpanded(false);
+          const syncViewport = () => setExpanded(!mobileQuery.matches);
+          syncViewport();
           toggle.addEventListener("click", (event) => {
+            if (!mobileQuery.matches) return;
             event.preventDefault();
             event.stopPropagation();
             setExpanded(toggle.getAttribute("aria-expanded") !== "true");
           });
+          mobileQuery.addEventListener("change", syncViewport);
         });
       };
       if (document.readyState === "loading") {
