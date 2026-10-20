@@ -1004,3 +1004,13 @@ html body main > section.hero {
     background-repeat: no-repeat !important;
   }
 }
+
+
+/* MOBILE-ONLY: triple the contact frame's vertical artwork length (200% increase). */
+@media (max-width: 620px) {
+  html body main .contact-shell > .contact-panel {
+    background-size: 80% 240% !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+}
