@@ -994,3 +994,13 @@ html body main > section.hero {
     background-repeat: no-repeat !important;
   }
 }
+
+
+/* MOBILE-ONLY: reduce the contact panel frame artwork another 10%, centered. */
+@media (max-width: 620px) {
+  html body main .contact-shell > .contact-panel {
+    background-size: 80% 80% !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+}
