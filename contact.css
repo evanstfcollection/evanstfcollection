@@ -1142,3 +1142,17 @@ html body main > section.hero {
     top: 525px !important;
   }
 }
+
+
+/* MOBILE-ONLY: wrap the contact description so “terminal” starts line two,
+   and move the Send Message button down another 150px. */
+@media (max-width: 620px) {
+  html body main .contact-shell > .contact-panel > p {
+    max-width: 285px !important;
+    width: 285px !important;
+  }
+
+  html body main .contact-shell > .contact-panel form > button {
+    top: 675px !important;
+  }
+}
