@@ -3506,3 +3506,15 @@ body .hero {
     background: #0c141f !important;
   }
 }
+
+
+/* SORT/FILTER: always expanded on desktop; collapsible behavior is mobile-only. */
+@media (min-width: 621px) {
+  #collection-shell .controls-toggle {
+    display: none !important;
+  }
+  #collection-shell .controls-grid,
+  #collection-shell #filterControls[hidden] {
+    display: grid !important;
+  }
+}
