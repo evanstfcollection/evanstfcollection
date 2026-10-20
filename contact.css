@@ -1029,12 +1029,12 @@ html body main > section.hero {
 }
 
 
-/* MOBILE-ONLY: reduce the contact frame artwork's vertical scale by half. */
+/* MOBILE-ONLY: reduce the contact frame artwork's vertical scale by half again. */
 @media (max-width: 620px) {
   html body main .contact-shell > .contact-panel {
     height: 1725px !important;
     min-height: 1725px !important;
-    background-size: 80% 120% !important;
+    background-size: 80% 60% !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
   }
