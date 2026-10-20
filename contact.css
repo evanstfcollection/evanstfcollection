@@ -1175,3 +1175,18 @@ html body main > section.hero {
     padding-bottom: 0 !important;
   }
 }
+
+
+/* MOBILE-ONLY: move the contact heading, description, form fields and submit
+   button up 200px from their current positions. */
+@media (max-width: 620px) {
+  html body main .contact-shell > .contact-panel h2,
+  html body main .contact-shell > .contact-panel > p,
+  html body main .contact-shell > .contact-panel form > label {
+    top: 325px !important;
+  }
+
+  html body main .contact-shell > .contact-panel form > button {
+    top: 475px !important;
+  }
+}
