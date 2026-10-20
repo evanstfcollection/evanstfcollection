@@ -1014,3 +1014,16 @@ html body main > section.hero {
     background-repeat: no-repeat !important;
   }
 }
+
+
+/* MOBILE-ONLY: expand the contact panel section to match the taller frame artwork. */
+@media (max-width: 620px) {
+  html body main .contact-shell > .contact-panel {
+    height: 1725px !important;
+    min-height: 1725px !important;
+    box-sizing: border-box !important;
+    background-size: 80% 240% !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+}
