@@ -1086,3 +1086,25 @@ html body main > section.hero {
     margin-top: 0 !important;
   }
 }
+
+
+/* MOBILE-ONLY: lower the contact content into the frame's inner borders
+   and slightly narrow the form fields to keep them inside the metal sides. */
+@media (max-width: 620px) {
+  html body main .contact-shell > .contact-panel h2,
+  html body main .contact-shell > .contact-panel > p,
+  html body main .contact-shell > .contact-panel form {
+    margin-left: 55px !important;
+    width: calc(100% - 100px) !important;
+  }
+
+  html body main .contact-shell > .contact-panel h2,
+  html body main .contact-shell > .contact-panel > p,
+  html body main .contact-shell > .contact-panel form > label {
+    top: 325px !important;
+  }
+
+  html body main .contact-shell > .contact-panel form > button {
+    top: 325px !important;
+  }
+}
