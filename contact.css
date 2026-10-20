@@ -1039,3 +1039,50 @@ html body main > section.hero {
     background-repeat: no-repeat !important;
   }
 }
+
+
+/* MOBILE-ONLY: bring contact copy and fields back inside the visible frame,
+   and place the submit plate immediately after the message field. */
+@media (max-width: 620px) {
+  html body main .contact-shell > .contact-panel h2,
+  html body main .contact-shell > .contact-panel > p,
+  html body main .contact-shell > .contact-panel form {
+    margin-left: 45px !important;
+    width: calc(100% - 70px) !important;
+    max-width: none !important;
+  }
+
+  html body main .contact-shell > .contact-panel h2,
+  html body main .contact-shell > .contact-panel > p,
+  html body main .contact-shell > .contact-panel form > label {
+    top: 285px !important;
+  }
+
+  html body main .contact-shell > .contact-panel form {
+    position: relative !important;
+    gap: 15px !important;
+  }
+
+  html body main .contact-shell > .contact-panel form > label {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  html body main .contact-shell > .contact-panel form input,
+  html body main .contact-shell > .contact-panel form textarea {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  html body main .contact-shell > .contact-panel form > button {
+    position: relative !important;
+    top: 285px !important;
+    right: auto !important;
+    bottom: auto !important;
+    align-self: start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 75px !important;
+    margin-top: 0 !important;
+  }
+}
