@@ -973,3 +973,14 @@ html body main > section.hero {
     background-attachment: scroll !important;
   }
 }
+
+
+/* MOBILE-ONLY: remove the oversized duplicate hero frame; keep the inset frame image. */
+@media (max-width: 620px) {
+  html body main > section.hero::after,
+  body .hero::after {
+    content: none !important;
+    display: none !important;
+    background-image: none !important;
+  }
+}
