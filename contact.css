@@ -1127,3 +1127,18 @@ html body main > section.hero {
     top: 425px !important;
   }
 }
+
+
+/* MOBILE-ONLY: move contact heading, description, labels, fields and button
+   down another 100px to align them with the inner frame area. */
+@media (max-width: 620px) {
+  html body main .contact-shell > .contact-panel h2,
+  html body main .contact-shell > .contact-panel > p,
+  html body main .contact-shell > .contact-panel form > label {
+    top: 525px !important;
+  }
+
+  html body main .contact-shell > .contact-panel form > button {
+    top: 525px !important;
+  }
+}
