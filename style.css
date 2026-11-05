@@ -1471,3 +1471,9 @@ body .detail-main-image::after {
     background-attachment: scroll !important;
   }
 }
+
+/* ABOUT EVAN — keep the portrait frame at its natural height instead of
+   stretching it to match the full height of the expanded biography text. */
+.home-intro {
+  align-items: center;
+}
